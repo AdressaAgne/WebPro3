@@ -43,7 +43,7 @@ class Database {
      * @param  array    [$args                 = null]
      * @return object
      */
-    protected static function query($sql, $args = null){
+    public static function query($sql, $args = null){
         $query = self::$db->prepare($sql);
         if($args !== null){
             self::arrayBinder($query, $args);
@@ -72,10 +72,21 @@ class Database {
         return self::query("DELETE FROM {$table} WHERE {$col} = :val", ['val' => $val]);
     }
     
+    /**
+     * clear a table
+     * @param  string  $table MySQL table
+     * @return boolean
+     */
     public static function clearTable($table){
          return self::query("DELETE from {$table}");
     }
     
+    /**
+     * insert one row to table
+     * @param  array  array $data 
+     * @param  string [$table = null] MySQL table
+     * @return boo  
+     */
     public static function insert(array $data, $table = null){
         $rows = [];
         $placeholder = [];

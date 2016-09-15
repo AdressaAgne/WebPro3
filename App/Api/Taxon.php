@@ -1,34 +1,67 @@
 <?php
-
-//Artene som er på svartelista har enten
-//kategori 
-//Svært høy risiko (SE)
-//høy risiko (HI). 
-//Det er 113 arter i kategori svært høy risiko og 134 i høy risiko
-
 namespace App\Api;
 
-use App\Config;
+use App\Config as Config;
+use App\Api\Api as Api;
 
 class Taxon {
     
-    public static function fetchData($str){
-        $data = file_get_contents(Config::$api_url.$str);
-        return json_decode($data);
-    }
-    
+    /**
+     * fetch taxon by id
+     * @param  integer $id taxon id
+     * @return arra    
+     */
     public static function byID($id){
-       return self::fetchData($id);
+       return Api::fetchData($id);
     }
     
-    ///Vulpes%20lagopus
+    /**
+     * get taxon groupname
+     * @param  object $cls byID object
+     * @return string
+     */
+    public static function getGroupName($cls){
+       return $cls->scientificNames[0]->dynamicProperties[0]->Value;
+    }
+    
+    /**
+     * get who first wrote down the taxon
+     * @param  object $cls byID object
+     * @return string
+     */
+    public static function getScientificNameAuthorship($cls){
+       return $cls->scientificNames[0]->scientificNameAuthorship;
+    }
+    
+    /**
+     * get taxon hiraky
+     * @param  object $cls byID object
+     * @return array
+     */
+    public static function getHigherClassification($cls){
+        $groups = [];
+        foreach($cls->scientificNames[0]->higherClassification as $key => $value){
+            $groups[$value->taxonRank] = $value->scientificName;
+        }
+       return $groups;
+    }
+    
+    /**
+     * find taxon by name
+     * @param  string   $name
+     * @return array 
+     */
     public function scientificName($name){
-       return $this->fetchData(Config::$api_types['scientificName'].$name);
+       return Api::fetchData(Config::$api_types['scientificName'].$name);
     }
     
-    //Suggest a name by string, search
+    /**
+     * search taxon by string
+     * @param  string   $str
+     * @return array  array of possible taxons
+     */
     public function scientificNameSuggest($str){
-       return $this->fetchData(Config::$api_types['scientificNameSuggest'].$str);
+       return Api::fetchData(Config::$api_types['scientificNameSuggest'].$str);
     }
 
 }

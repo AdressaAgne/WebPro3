@@ -5,7 +5,11 @@ namespace App\Api;
 use App\Config;
 
 class Csv{
-    
+    /**
+     * Convert CSV with semicolons to array
+     * @param  string  $file what file to open and convert
+     * @return array
+     */
     public function parse($file){
         
         // Convert CSV to php array
@@ -22,6 +26,11 @@ class Csv{
         return $array;
     }
     
+    /**
+     * fetch from api
+     * @param  string $type filename
+     * @return array
+     */
     public function fetchData($type){
         return $this->parse(Config::$csv[$type]);
     }

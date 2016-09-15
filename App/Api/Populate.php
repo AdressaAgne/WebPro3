@@ -7,7 +7,9 @@ use \App\Api\Csv as csv;
 
 class Populate {
     
-    
+    /**
+     * populate database with taxons/species from Taxon CSV files
+     */
     public static function run(){
         $db = new DB();
         $csv = new Csv();
