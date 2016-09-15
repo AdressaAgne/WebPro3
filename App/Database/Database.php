@@ -2,6 +2,7 @@
 
 namespace App\Database;
 use \App\Config as Config;
+use PDO;
 
 class Database {
     public static $db;
@@ -12,15 +13,14 @@ class Database {
      * @private
      * @param string $class Class called that extends Modul in \App\Modul
      */
-    public function __construct($class){
-        self::$table = explode('\\', $class);
-        self::$table = strtolower(self::$table[count(self::$table) - 1]);
-        
+    public function __construct(){
         try {
-            $dns = 'mysql:host='.Config::$db['host'];
-            $dns .= ';dbname='.Config::$db['database'];
-            self::$db = new PDO($dns, Config::$db['username'], Config::$db['password']);
+            
+            $dns = 'mysql:host='.Config::$host;
+            $dns .= ';dbname='.Config::$database;
+            self::$db = new PDO($dns, Config::$username, Config::$password);
             self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+            
         } catch (PDOException $e) {
              die('Could not connect to Database'. $e);
         }
@@ -48,7 +48,6 @@ class Database {
         if($args !== null){
             self::arrayBinder($query, $args);
         }
-        
         return $query->execute() ? $query : false;
     }
     
@@ -58,28 +57,10 @@ class Database {
      * @return object Table[Row object] Object
      */
     public static function all($rows = ['*'], $table = null){
-        $modul = new Modul(is_null($table) ? static::class : $table = null);
-        return new Table($modul::query('SELECT '.implode(', ', $rows).' FROM '.$modul::$table)->fetchAll(), $modul::$table);
+        return self::query('SELECT '.implode(', ', $rows).' FROM '.$table)->fetchAll();
     }
     
-    /**
-     * Select $rows from static::class WHERE $where = $value
-     * $rows, $where need to be injected.
-     * @param  string [$where = 'id'] [[Description]]
-     * @param  string [$value = '1']  [[Description]]
-     * @param  array [$rows = ['*']] [[Description]]
-     * @return object Table[Row object] object
-     */
-    public static function where($where = 'id', $value = '1', $rows = ['*'], $table = null){
-        $modul = new Modul(is_null($table) ? static::class : $table);
-        return new Table($modul::query('SELECT '.implode(', ', $rows).' FROM '.$modul::$table.' WHERE '.$where.' = :value', ['value' => $value])->fetchAll(), $modul::$table);
-    }
-    
-//    public static function one($rows = ['*']){
-//        $modul = new Modul(static::class);
-//        return new Table();
-//    }
-    
+   
     /**
      * Delete a row from a table
      * @param  string       [$col = 'id']   col name
@@ -88,13 +69,14 @@ class Database {
      * @return object/false 
      */
     public static function deleteWhere($col = 'id', $val = 0, $table = null){
-        $modul = new Modul(is_null($table) ? static::class : $table);
-        return $modul::query("DELETE FROM {$modul::$table} WHERE {$col} = :val", ['val' => $val]);
+        return self::query("DELETE FROM {$table} WHERE {$col} = :val", ['val' => $val]);
     }
     
+    public static function clearTable($table){
+         return self::query("DELETE from {$table}");
+    }
     
     public static function insert(array $data, $table = null){
-        $modul = new Modul(is_null($table) ? static::class : $table);
         $rows = [];
         $placeholder = [];
         $values = [];
@@ -104,7 +86,7 @@ class Database {
         }
         $rows = implode(",", $rows);
         $placeholder = implode(",", $placeholder);
-        return $modul::query("INSERT INTO {$modul::$table} ({$rows}) VALUE({$placeholder})", $data);
+        return self::query("INSERT INTO {$table} ({$rows}) VALUE({$placeholder})", $data);
     }
     
 }

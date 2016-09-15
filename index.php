@@ -2,6 +2,7 @@
 
 use \App\Api\Taxon as Taxon;
 use \App\Api\Csv as Csv;
+use \App\Database\Database as DB;
 
 
 ?>
@@ -14,11 +15,13 @@ use \App\Api\Csv as Csv;
 <body>
    <pre>
     <?php
-        
+        $db = new DB();
         $csv = new Csv();
 
         //print_r($csv->fetchAll());
         print_r(Taxon::byID('84141'));
+
+
     ?>
     </pre>
 </body>
