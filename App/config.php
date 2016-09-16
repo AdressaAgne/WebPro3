@@ -44,4 +44,19 @@ class Config {
     public static $controllers = '\App\Controllers\\';
     
     
+    /**
+    *   Class aliases
+    */
+
+    public static $aliases = [
+        '\App\Database\Database' => 'DB',
+        '\App\View' => 'View',
+        '\App\Routing\Direct' => 'Direct',
+        '\App\Routing\Route' => 'Route',
+        '\App\Api\Taxon' => 'Taxon',
+        '\App\Api\Csv' => 'Csv',
+        '\App\Api\Maps' => 'Maps',
+        '\App\Config' => 'Config',
+    ];
+    
 }

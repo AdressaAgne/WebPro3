@@ -1,15 +1,9 @@
 <?php
 namespace App\Controllers;
 
-use \App\View as View;
-use \App\Routing\Direct as Direct;
-use \App\Routing\Route as Route;
-
-
-use \App\Api\Taxon as Taxon;
-use \App\Api\Csv as Csv;
-use \App\Api\Maps as Maps;
-use \App\Database\Database as DB;
+use View, Direct, Route; // Routing
+use Taxon, Csv, Maps; // APIs
+use DB;
 
 /**
  * making a view with/without variables to render
@@ -17,11 +11,23 @@ use \App\Database\Database as DB;
  */
 class MainController {
     // run on get /
-    public static function index(){ 
+    
+    public static function test(){
         
-
-        $_GET['id'] = "84141";
-
+        return View::make('index', [
+            'var' => 'This is a var',
+            'raw' => '<em>Raw output</em>',
+            'arr' => [
+                'hi' => 'you',
+                'hello' => 'okey',
+                'i love you' => 'thanks...'
+            ],
+        ]);
+        
+    }
+    
+    
+    public static function index(){ 
         $db = new DB();
         $data = $db->query("SELECT * FROM blacklist WHERE TaxonID = :id", ['id' => $_GET['id']])->fetch();
         
@@ -33,37 +39,11 @@ class MainController {
         
         $groups = implode('<i class="right chevron icon divider"></i>', $groups);
         
-        return View::make('index', [
+        return View::make('recipie', [
             'groups' => $groups,
             'taxon' => $taxon,
             'data' => $data,
             'groupName' => Taxon::getGroupName($taxon),
         ]);
     }
-    
-//    // run on get /test
-//    public static function test(){
-//        return View::make('test',[
-//            'routes' => Route::lists()
-//        ]);
-//    }
-//    
-//    // This function is run on post /
-//    public static function insert(){
-//        Image::insert([
-//            'ball' => uniqid(),
-//            'snerk_id' => $_POST['submit'],
-//            'ultra_snerk' => 'veldig'
-//        ]);
-//        return Direct::re('/');
-//    }
-//    
-//    public static function delete(){
-//        Image::all()->where($_POST['id'])->delete();
-//        return Direct::re('/');
-//    }
-//    
-//    public static function api(){
-//        return Image::all()->desc();
-//    }
 }

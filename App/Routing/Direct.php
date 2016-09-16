@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Routing;
-use \App\Routing\Route as Routes;
-use \App\Config as Config;
 
-class Direct extends Routes{
+use Config;
+
+class Direct extends Route{
     
     public function __construct($route, $callback, $type){
         parent::$routes[$type][$route] = Config::$controllers.$callback;

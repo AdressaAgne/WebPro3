@@ -4,15 +4,21 @@
 namespace App;
 
 use \App\Routing\Direct as Direct;
+use \App\Config as Config;
 
 $autoloader = spl_autoload_register(function($class){
     $file = implode('/', explode('\\', "{$class}.php"));
     if(file_exists($file)){
         require_once($file);
     } else {
-        //die("class not found: $class, ($file) in <b>" . __FILE__ . "</b>");   
+        die("class not found: $class, ($file) in <b>" . __FILE__ . "</b>");   
     }
 });
+
+
+foreach(Config::$aliases as $key => $value){
+    class_alias($key, $value);
+}
 
 // Adding routing
 require_once('App/Routing/RouteSetup.php');
@@ -24,10 +30,8 @@ class App {
     private $url;
     
     public function __construct(){
-        $this->url = $_SERVER['REQUEST_URI'];
+        $this->url= preg_replace("/(.*)(\\?(.*))/uimx", "$1", $_SERVER['REQUEST_URI']);
         $route = Direct::getCurrentRoute($this->url);
-        
-      
         
         if(gettype($route) === 'array'){
             print_r($route);
@@ -45,7 +49,6 @@ class App {
         } else {
             echo $obj;
         }
-        
     }
     
 }
