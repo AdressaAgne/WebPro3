@@ -11,11 +11,10 @@ class Render {
     private $code = null;
     
     public function __construct($code){    
-        $this->addFunction("Raw Output",        "{!(.*)!}", "<?= $1 ?>");
-        $this->addFunction("Escaped Output",    "{{(.*)}}", "<?= htmlspecialchars($1, ENT_QUOTES, 'UTF-8') ?>");
+        $this->addFunction("Raw Output",        "{!([^\}\{]+)!}", "<?= $1 ?>");
+        $this->addFunction("Escaped Output",    "{{([^\}\{]+)}}", "<?= htmlspecialchars($1, ENT_QUOTES, 'UTF-8') ?>");
         $this->addFunction("Helpers",           "@([if|foreach|for]*)[\s]*\((.*)\)", "<?php $1($2) : ?>");
-        $this->addFunction("Helpers End",       "@(end[a-zA-Z]+)", "<?php $1 ?>");
-        
+        $this->addFunction("Helpers End",       "@(end[if|foreach|for]*)", "<?php $1 ?>");
         $this->addFunction("Layouts", "@layout\((.*)\)", "<?php layout($1) ?>");
         
         $this->code = $this->render($code);

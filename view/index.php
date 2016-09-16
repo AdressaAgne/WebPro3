@@ -9,15 +9,10 @@
 </head>
 
 <body>
-   <?php
-
-
-    ?>
    <main class="ui container">
        <div class="ui grid">
            <div class="ui ten wide column top50">
-               <h1 class="dividing">{{ $data['navn'] }} 
-               <small><em>{{ $data['scientificName'] }}</em></small></h1>
+               <h1 class="dividing">{{ $data['navn'] }} <small><em>{{ $data['scientificName'] }}</em></small></h1>
                <h3>{{ $groupName }}</h3>
                <div class="ui breadcrumb">                      
                   {! $groups !}
@@ -29,7 +24,6 @@
                 <div id="map" class="ui segment"></div>  
            </div>
        </div>
-
    </main>
 
 
