@@ -6,8 +6,11 @@ use Config;
 
 class Direct extends Route{
     
-    public function __construct($route, $callback, $type){
-        parent::$routes[$type][$route] = Config::$controllers.$callback;
+    public function __construct($route, $callback, $type, $get = null){
+        parent::$routes[$type][$route] = [
+                                    'callback' => Config::$controllers.$callback,
+                                    'vars' => $get, 
+                                ];
     }
     
     /**
@@ -20,13 +23,15 @@ class Direct extends Route{
     
     /**
      * Create a new Direct
-     * @param  integer  $a URI
+     * @param  string  $a URI
      * @param  callback $b 
      * @return object   Direct Object
      * and so on...
      */
     public static function get($a, $b){
-        return new Direct($a, $b, 'get');
+        $get = explode(",",preg_replace("/(.*)\/(\\{(.*)\\})/uiUmx", "$3,", $a));
+        array_pop($get);
+        return new Direct("/".trim(preg_replace("/(.*)\/(\\{(.*)\\})/uiUmx", "$1", $a), "/"), $b, 'get', $get);
     }
     
     public static function delete($a, $b){
@@ -41,7 +46,7 @@ class Direct extends Route{
         return new Direct($a, $b, 'post');
     }
     
-    public static function ball($a, $b){
+    public static function err($a, $b){
         return new Direct($a, $b, 'error');
     }
     

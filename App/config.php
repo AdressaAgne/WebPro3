@@ -57,6 +57,7 @@ class Config {
         '\App\Api\Csv' => 'Csv',
         '\App\Api\Maps' => 'Maps',
         '\App\Config' => 'Config',
+        '\App\Controllers\ErrorHandling' => 'ErrorHandling',
     ];
     
 }

@@ -5,6 +5,7 @@ namespace App;
 
 use \App\Routing\Direct as Direct;
 use \App\Config as Config;
+use \App\Controllers\ErrorHandling as ErrorHandling;
 
 $autoloader = spl_autoload_register(function($class){
     $file = implode('/', explode('\\', "{$class}.php"));
@@ -15,7 +16,7 @@ $autoloader = spl_autoload_register(function($class){
     }
 });
 
-
+// Setting up aliases
 foreach(Config::$aliases as $key => $value){
     class_alias($key, $value);
 }
@@ -30,15 +31,33 @@ class App {
     private $url;
     
     public function __construct(){
-        $this->url= preg_replace("/(.*)(\\?(.*))/uimx", "$1", $_SERVER['REQUEST_URI']);
+        $url = explode("/", $_SERVER['REQUEST_URI']);
+        array_shift($url);
+        $this->url = "/" . $url[0];
         $route = Direct::getCurrentRoute($this->url);
+       
+        if(array_key_exists("error", $route)){
+            ErrorHandling::index("View Does not Exist: " . $this->url,
+                                 "Please set up a route to 404",
+                                 [  'App/Routing/RouteSetup.php', 
+                                    'Direct::err("404", "Controller@method");'
+                                 ]);
+        }
         
-        if(gettype($route) === 'array'){
+        if(!empty($route['vars']) && $route['vars'][0] !== $this->url){
+            array_shift($url);
+            $vars = array_combine($route['vars'], $url);
+            foreach($vars as $key => $value){
+                $_GET[$key] = $value;
+            }
+        }
+
+        if(gettype($route['callback']) === 'array'){
             print_r($route);
             return;
         }
         
-        $view = explode('@', $route);
+        $view = explode('@', $route['callback']);
         $obj = call_user_func([$view[0], $view[1]]);
         
         // check if code is api stuff

@@ -18,9 +18,9 @@
    </main>
 
 
-    <script src="assets/css/Semantic-UI-CSS-master/semantic.min.js"></script>
-    <script src="assets/js/googleMapsStyle.js"></script>
-    <script src="assets/js/testJson.js"></script>
+    <script src="/assets/css/Semantic-UI-CSS-master/semantic.min.js"></script>
+    <script src="/assets/js/googleMapsStyle.js"></script>
+    <script src="/assets/js/testJson.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7i0o5mdEYSbG_wqoWAx53tAP1xxTKVQo&callback=initMap" async defer></script>
-    <script src="assets/js/Maps.js"></script>
+    <script src="/assets/js/Maps.js"></script>
 @layout('layout.foot')

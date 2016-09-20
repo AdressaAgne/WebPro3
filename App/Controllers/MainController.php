@@ -23,7 +23,6 @@ class MainController {
                 'i love you' => 'thanks...'
             ],
         ]);
-        
     }
     
     
@@ -45,5 +44,9 @@ class MainController {
             'data' => $data,
             'groupName' => Taxon::getGroupName($taxon),
         ]);
+    }
+    
+    public static function error(){
+        return ['error' => "page does not exist, error 404"];
     }
 }
