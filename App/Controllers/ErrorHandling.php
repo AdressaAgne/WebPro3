@@ -5,7 +5,7 @@ class ErrorHandling {
     public static function index($header, $text, $arr = null){
         ?>
         <style>
-            main{
+            main, footer{
                 width: 600px;
                 margin: 50px auto 0px;
                 padding: 20px;
@@ -29,6 +29,7 @@ class ErrorHandling {
             
             ?>
         </main>
+        <footer><pre><?= print_r($_SERVER, true) ?></pre></footer>
         <?php
             
             die();

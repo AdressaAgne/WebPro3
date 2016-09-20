@@ -30,9 +30,17 @@ class App {
     
     private $url;
     
+    private function get_path(){
+        return preg_replace("/(.*)m=(.*)/uimx", "$2", $_SERVER['QUERY_STRING']);
+    }
+    
+    private function get_vars($path){
+        $url = $this->get_path();
+        return explode("/", trim(preg_replace("/^".trim($path, "/")."/uimx", "", $url), "/"));
+    }
+
     public function __construct(){
-        $url = explode("/", $_SERVER['REQUEST_URI']);
-        array_shift($url);
+        $url = explode("/", $this->get_path());
         $this->url = "/" . $url[0];
         $route = Direct::getCurrentRoute($this->url);
        
@@ -45,10 +53,10 @@ class App {
         }
         
         if(!empty($route['vars']) && $route['vars'][0] !== $this->url){
-            array_shift($url);
-            $vars = array_combine($route['vars'], $url);
-            foreach($vars as $key => $value){
-                $_GET[$key] = $value;
+            $vars = $this->get_vars($this->url);
+            
+            foreach($route['vars'] as $key => $value){
+                $_GET[$value] = $vars[$key];
             }
         }
 

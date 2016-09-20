@@ -21,7 +21,8 @@ class Taxon {
      * @return string
      */
     public static function getGroupName($cls){
-       return $cls->scientificNames[0]->dynamicProperties[0]->Value;
+        if(gettype($cls) !== "object") return null; 
+        return $cls->scientificNames[0]->dynamicProperties[0]->Value;
     }
     
     /**
@@ -30,7 +31,8 @@ class Taxon {
      * @return string
      */
     public static function getScientificNameAuthorship($cls){
-       return $cls->scientificNames[0]->scientificNameAuthorship;
+        if(gettype($cls) !== "object") return null;
+        return $cls->scientificNames[0]->scientificNameAuthorship;
     }
     
     /**
@@ -39,6 +41,7 @@ class Taxon {
      * @return array
      */
     public static function getHigherClassification($cls){
+        if(gettype($cls) !== "object") return null;
         $groups = [];
         foreach($cls->scientificNames[0]->higherClassification as $key => $value){
             $groups[$value->taxonRank] = $value->scientificName;

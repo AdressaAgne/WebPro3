@@ -31,12 +31,12 @@ class MainController {
         $data = $db->query("SELECT * FROM blacklist WHERE TaxonID = :id", ['id' => $_GET['id']])->fetch();
         
         $taxon = Taxon::byId($data['taxonID']);
-        $groups = Taxon::getHigherClassification($taxon);
-        foreach($groups as $key => $value){
-            $groups[$key] = '<div class="section">'.$value.'</div>';
+        if($groups = Taxon::getHigherClassification($taxon)){
+            foreach($groups as $key => $value){
+                $groups[$key] = '<div class="section">'.$value.'</div>';
+            }
+            $groups = implode('<i class="right chevron icon divider"></i>', $groups);
         }
-        
-        $groups = implode('<i class="right chevron icon divider"></i>', $groups);
         
         return View::make('recipie', [
             'groups' => $groups,

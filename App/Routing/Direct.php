@@ -29,7 +29,7 @@ class Direct extends Route{
      * and so on...
      */
     public static function get($a, $b){
-        $get = explode(",",preg_replace("/(.*)\/(\\{(.*)\\})/uiUmx", "$3,", $a));
+        $get = explode(",", preg_replace("/(.*)\/(\\{(.*)\\})/uiUmx", "$3,", $a));
         array_pop($get);
         return new Direct("/".trim(preg_replace("/(.*)\/(\\{(.*)\\})/uiUmx", "$1", $a), "/"), $b, 'get', $get);
     }
