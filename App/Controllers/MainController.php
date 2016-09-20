@@ -3,17 +3,16 @@ namespace App\Controllers;
 
 use View, Direct, Route; // Routing
 use Taxon, Csv, Maps; // APIs
-use DB;
+use DB, BaseController;
 
 /**
  * making a view with/without variables to render
  * @return object View
  */
-class MainController {
+class MainController extends BaseController {
     // run on get /
     
-    public static function test(){
-        
+    public function test(){
         return View::make('index', [
             'var' => 'This is a var',
             'raw' => '<em>Raw output</em>',
@@ -26,7 +25,7 @@ class MainController {
     }
     
     
-    public static function index(){ 
+    public function index(){ 
         $db = new DB();
         $data = $db->query("SELECT * FROM blacklist WHERE TaxonID = :id", ['id' => $_GET['id']])->fetch();
         
@@ -44,9 +43,5 @@ class MainController {
             'data' => $data,
             'groupName' => Taxon::getGroupName($taxon),
         ]);
-    }
-    
-    public static function error(){
-        return ['error' => "page does not exist, error 404"];
     }
 }

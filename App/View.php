@@ -1,7 +1,10 @@
 <?php
 namespace App;
-use \App\Render as Render;
+
+use Render, BaseController;
+
 class View {
+    
     public static function make($url, $vars = null){
         $url = preg_replace("/\\./uimx", "/", $url);
         return self::includeFile("view/{$url}.php", $vars);
@@ -23,6 +26,7 @@ class View {
             
             ob_start();
                 if(!is_null($vars)) extract($vars);   
+                if(!empty(BaseController::$site_wide_vars)) extract(BaseController::$site_wide_vars);   
                 eval("?>" . $code);
             return ob_get_clean();
         }

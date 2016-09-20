@@ -10,4 +10,5 @@ function layout($page, $vars = null){
     include('view/'.preg_replace("/\\./uimx", "/", $page).'.php');
 }
 
+
 require_once("app/App.php");

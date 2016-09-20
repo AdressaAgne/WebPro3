@@ -9,7 +9,7 @@ class Taxon {
     /**
      * fetch taxon by id
      * @param  integer $id taxon id
-     * @return arra    
+     * @return array   
      */
     public static function byID($id){
        return Api::fetchData($id);

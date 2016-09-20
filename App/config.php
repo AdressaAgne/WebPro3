@@ -49,15 +49,29 @@ class Config {
     */
 
     public static $aliases = [
+        
+        // Classes
+        '\App\Config' => 'Config',
+        
         '\App\Database\Database' => 'DB',
+        '\App\Controllers\Controller' => 'BaseController',
+        
+        
+        '\App\Controllers\ErrorHandling' => 'ErrorHandling',
+       
+        // Routing
         '\App\View' => 'View',
         '\App\Routing\Direct' => 'Direct',
         '\App\Routing\Route' => 'Route',
+        '\App\Render' => 'Render',
+        
+        // API
         '\App\Api\Taxon' => 'Taxon',
         '\App\Api\Csv' => 'Csv',
         '\App\Api\Maps' => 'Maps',
-        '\App\Config' => 'Config',
-        '\App\Controllers\ErrorHandling' => 'ErrorHandling',
+        
+        //Interfaces
+        //'\App\Interfaces\Controller' => 'Controller',
     ];
     
 }

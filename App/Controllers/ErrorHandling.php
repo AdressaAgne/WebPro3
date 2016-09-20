@@ -2,7 +2,7 @@
 namespace App\Controllers;
 
 class ErrorHandling {    
-    public static function index($header, $text, $arr = null){
+    public static function fire($header, $text, $arr = null){
         ?>
         <style>
             main, footer{
@@ -20,16 +20,16 @@ class ErrorHandling {
             <p><?= $text ?></p>
             <?php
                 if($arr !== null){
-                    echo '<ul>';
+                    echo '<ol>';
                     foreach($arr as $key => $value){
                         echo "<li>".$value."</li>";
                     }
-                    echo '</ul>';
+                    echo '</ol>';
                 }
             
             ?>
         </main>
-        <footer><pre><?= print_r($_SERVER, true) ?></pre></footer>
+<!--        <footer><pre><?= print_r($_SERVER, true) ?></pre></footer>-->
         <?php
             
             die();

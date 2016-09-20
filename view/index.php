@@ -7,7 +7,7 @@
 {{ $var }}
 
 <h2>Echo Raw Code</h2>
-{!  $raw !}
+{!  $user !}
 
 <h2>if</h2>
 

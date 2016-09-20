@@ -26,7 +26,7 @@ class Csv{
         return $array;
     }
     
-    /**
+    /** 
      * fetch from api
      * @param  string $type filename
      * @return array
@@ -35,6 +35,10 @@ class Csv{
         return $this->parse(Config::$csv[$type]);
     }
     
+    /**
+     * combine both csv files
+     * @return array
+     */
     public function fetchAll(){
         return array_merge($this->fetchData('hi'), $this->fetchData('se'));
     }
