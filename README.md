@@ -28,7 +28,7 @@ View Logic is run here then passed as variables to the views.
 This wil run the index method in the MainController class.
 
     Direct::get("/", 'MainController@index');
-    Direct::get("/post/{id}", 'MainController@index');
+    Direct::get("/item/{id}", 'MainController@item');
 
 
 ### Post Requests
