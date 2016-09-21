@@ -43,7 +43,7 @@ Or you could just use normal $_POST variables
 
 ## Views and HTML
 Views are stores in view/
-Pealse dont write any logic in a view, use the controller and pas data to the view as variables.
+Please don't write any logic in a view, use the controller and pas data to the view as variables.
 
     @layout('layout.head')
 
