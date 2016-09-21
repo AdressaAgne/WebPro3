@@ -5,7 +5,7 @@ We built our own backend framework. Very simple and easy to learn.
 
 ## Logic and Basic Template - App/Controllers
 
-
+```php
     namespace App\Controllers;
     
     use View, BaseController;
@@ -19,33 +19,33 @@ We built our own backend framework. Very simple and easy to learn.
       }
     
     }
-    
+```    
 
 View Logic is run here then passed as variables to the views.
 
 ## Setup a view - App/Routing/RouteSetup.php
 ### Get Requests
 This wil run the index method in the MainController class.
-
+```php
     Direct::get("/", 'MainController@index');
     Direct::get("/item/{id}", 'MainController@item');
-
+```
 
 ### Post Requests
 This wil run the submit method in the MainController class when a post request is made to /submit
 it will set two get variables $_GET['mail'] and $_GET['text'] to whatever the url says.
-
+```php
     Direct::post("/submit/{mail}/{text}", 'MainController@submit');
-
+```
 Or you could just use normal $_POST variables
-
+```php
     Direct::post("/submit", 'MainController@submit');
-
+```
 
 ## Views and HTML
 Views are stores in view/
 Please don't write any logic in a view, use the controller and pas data to the view as variables.
-
+```html
     @layout('layout.head')
 
     <h1>Basic intruction; how to use this.</h1>
@@ -90,3 +90,4 @@ Please don't write any logic in a view, use the controller and pas data to the v
     
     
     @layout('layout.foot')
+```
