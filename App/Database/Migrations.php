@@ -15,4 +15,7 @@ class Migrations extends DB {
 //  `taxonID` int(11) NOT NULL
 //) ENGINE=InnoDB DEFAULT CHARSET=utf8;
     
+    
+    //arts kart locasjon, taxonID, lat, lng
+    
 }
