@@ -55,8 +55,7 @@ class Config {
         
         '\App\Database\Database' => 'DB',
         '\App\Controllers\Controller' => 'BaseController',
-        
-        
+        '\App\Api\Populate' => 'populate',
         '\App\Controllers\ErrorHandling' => 'ErrorHandling',
        
         // Routing

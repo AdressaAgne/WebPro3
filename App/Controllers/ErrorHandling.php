@@ -29,7 +29,7 @@ class ErrorHandling {
             
             ?>
         </main>
-<!--        <footer><pre><?= print_r($_SERVER, true) ?></pre></footer>-->
+            <footer><pre><?= print_r($_SERVER, true) ?></pre></footer>
         <?php
             
             die();
