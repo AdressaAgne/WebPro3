@@ -4,6 +4,7 @@ namespace App\Controllers;
 use View, Direct, Route; // Routing
 use Taxon, Csv, Maps; // APIs
 use DB, BaseController;
+use App\Api\Populate as pop;
 
 /**
  * making a view with/without variables to render
@@ -26,6 +27,7 @@ class MainController extends BaseController {
     
     
     public function index(){ 
+    
         $db = new DB();
         $data = $db->query("SELECT * FROM blacklist WHERE TaxonID = :id", ['id' => $_GET['id']])->fetch();
         

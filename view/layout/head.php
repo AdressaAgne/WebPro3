@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Bløtdyr</title>
     <link rel="stylesheet" href="/assets/css/Semantic-UI-CSS-master/semantic.min.css">
     <link rel="stylesheet" href="/assets/css/main.css">
 </head>
