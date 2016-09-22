@@ -1,21 +1,21 @@
 <?php
 
-namespace \App\Database;
+namespace App\Database;
 
 use DB;
 
-class Migrations extends DB {
-    
-//    CREATE TABLE `blacklist` (
-//  `id` int(11) NOT NULL,
-//  `scientificName` varchar(255) NOT NULL,
-//  `navn` varchar(255) NOT NULL,
-//  `svalbard` tinyint(1) NOT NULL DEFAULT '0',
-//  `risiko` varchar(255) NOT NULL,
-//  `taxonID` int(11) NOT NULL
-//) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-    
-    
-    //arts kart locasjon, taxonID, lat, lng
+class Migrations{
+        
+    public static function install(){
+        //$name, $type, $default = null, $not_null = true, $auto_increment = false)
+        return DB::createTable('blacklist', [
+            new Row('id', 'int', null, true, true),
+            new Row('scientificName', 'varchar'),
+            new Row('navn', 'varchar'),
+            new Row('svalbard', 'boolean', '0'),
+            new Row('risiko', 'varchar'),
+            new Row('taxonID', 'int'),
+        ]);
+    }
     
 }

@@ -3,7 +3,7 @@ namespace App\Controllers;
 
 use View, Direct, Route; // Routing
 use Taxon, Csv, Maps; // APIs
-use DB, BaseController;
+use DB, BaseController, Migrations;
 use App\Api\Populate as pop;
 
 /**
@@ -22,6 +22,7 @@ class MainController extends BaseController {
                 'hello' => 'okey',
                 'i love you' => 'thanks...'
             ],
+            'migration' => Migrations::install(),
         ]);
     }
     

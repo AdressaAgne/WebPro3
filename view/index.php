@@ -28,6 +28,7 @@
 
 @endforeach
 
+<p>{{ $migration }}</p>
 
 <h2>for loop</h2>
 
