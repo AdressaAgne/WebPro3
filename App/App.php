@@ -1,6 +1,4 @@
 <?php
-
-
 namespace App;
 
 use \App\Routing\Direct as Direct;
@@ -16,7 +14,6 @@ $autoloader = spl_autoload_register(function($class){
             "class: $class", 
             "file: $file",
         ]);
-        
     }
 });
 
@@ -31,7 +28,6 @@ require_once('App/Routing/RouteSetup.php');
 
 // Start Route Handling
 class App {
-    
     private $url;
     
     private function get_path(){

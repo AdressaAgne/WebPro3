@@ -1,0 +1,46 @@
+$icon-size: 64px
+
+i[class*='icon-']
+    display: inline-block
+    height: $icon-size
+    width: $icon-size
+    background-size: $icon-size
+    background-repeat: no-repeat
+    
+    &.icon--text
+        margin-bottom: -11px
+        margin-top: -11px
+    
+    &.icon--small
+        height: $icon-size/2
+        width: $icon-size/2
+        background-size: $icon-size/2
+        
+    &.icon--large
+        height: $icon-size*2
+        width: $icon-size*2
+        background-size: $icon-size*2
+    
+    &.icon--gigantic
+        height: $icon-size*4
+        width: $icon-size*4
+        background-size: $icon-size*4
+        
+    &.icon--margin
+        margin: 20px
+        
+    &.icon--center
+        margin-left: auto
+        margin-right: auto
+        display: block
+
+    
+    
+    
+@each $icon in carrot, chees, chicken, coldrun, egg, empty_star, fish, full_star, knife, meat, milk, no_gluten, onion, pan, red_wine, soup, spatchela, spice, time, tomato, vegetables, wheat, whip, white_wine
+    i.icon-#{$icon}
+        background-image: url('../img/icons/svg/#{$icon}.svg')
+
+    i.icon-#{$icon}--white
+        background-image: url('../img/icons/svg/#{$icon}_white.svg')
+    

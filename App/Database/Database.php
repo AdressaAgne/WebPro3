@@ -85,13 +85,8 @@ class Database {
     public static function createTable($name, $rows){        
         $query = "CREATE TABLE `".$name."` (";
         $row_arr = [];
-        foreach($rows as $row){
-            $str = "`".$row->name."`";
-            $str .= " ".self::types($row->type)." ";
-            $str .= ($row->not_null ? "NOT NULL " : "");
-            $str .= (!is_null($row->defaults) ? " DEFAULT `".$row->defaults."` " : "");
-            $str .= ($row->auto_increment ? " PRIMARY KEY AUTO_INCREMENT" : "");
-            $row_arr[] = $str;
+        foreach($rows as $key => $row){
+             $row_arr[] = $row->toString();
         }
         
         $query .= implode(", ", $row_arr);
@@ -100,8 +95,7 @@ class Database {
         
     }
     
-    private static function types($type){
-        
+    protected static function types($type){
         $types = [
             'int' => 'int(11)',
             'varchar' => 'varchar(255)',
@@ -109,10 +103,8 @@ class Database {
             'boolean' => 'tinyint(1)',
             'text' => 'text',
         ];
-        
         return $types[$type];
-        
-    }
+    }    
     
     /**
      * insert one row to table
