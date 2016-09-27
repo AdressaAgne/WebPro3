@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Farligt Godt</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link href="https://fonts.googleapis.com/css?family=Lobster+Two|Roboto:300,500" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/main.css">
 </head>

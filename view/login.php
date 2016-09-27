@@ -1,8 +1,6 @@
 @layout('layout.head')
 
 
-
-
 <main class="login">
     
     
@@ -12,13 +10,20 @@
             
             
             <form action="" method="post" class="hidden-opacity" autocomplete="off">
-                
                 <label for="username">Username
-                    <input class="accent" type="text" name="ball" placeholder="Username">
+                    <input class="accent" type="text" name="username" placeholder="Username">
                 </label>
                 <label for="password">Password
-                    <input class="accent" type="password" name="ball2" placeholder="Passwrod">
+                    <input class="accent" type="password" name="password" placeholder="Passwrod">
                 </label>
+                <label for="password">Confirm Password
+                    <input class="accent" type="password" name="password_confirm" placeholder="Passwrod">
+                </label>
+                <label for="mail">Mail
+                    <input class="accent" type="text" name="mail" placeholder="Mail">
+                </label>
+                
+                <input type="submit" class="accent" value="Register">
                 
             </form>
             
@@ -27,6 +32,19 @@
     <div class="login-screen">
          <div class="container">
             <h1 class="page-header underline underline-accent center">Login</h1>
+            
+            <form action="" method="post" class="hidden-opacity" autocomplete="off">
+                
+                <label for="username">Username
+                    <input type="text" name="username" placeholder="Username">
+                </label>
+                <label for="password">Password
+                    <input  type="password" name="password" placeholder="Passwrod">
+                </label>
+                
+                <input type="submit" value="Login">
+            </form>
+            
         </div>
     </div>
     

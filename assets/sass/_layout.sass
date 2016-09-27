@@ -131,7 +131,8 @@ a
     
 .login-screen, .register-screen
     @extend .clearfix
-    height: 100vh
+    height: calc(100vh - 55px)
+    margin-top: 55px
     width: 50%
     padding-top: 200px
     color: #f8f8f8
@@ -139,6 +140,7 @@ a
     transition: all .5s ease
     position: relative
     .container
+        padding: 20px
         transition: all .5s ease
         position: absolute
         left: 50%
@@ -146,28 +148,60 @@ a
         transform: translateX(-50%) translateY(-50%)
     
     .hidden-opacity
-        transition: opacity .5s ease
+        transition: all .5s ease
+        height: 0px
+        overflow: hidden
+        display: block
         opacity: 0
         
         
     &.active
+        cursor: auto
         width: 80%
         .container
             position: absolute
             left: 50%
             top: 100px
-            transform: translateX(-50%) translateY(0%)
+            transform: translateX(-50%)
         
         .hidden-opacity
+            overflow: visible
+            height: 300px
             opacity: 1
             
             
     &.disable
+        cursor: pointer
         width: 20%
         
     h1
         font-size: 72px
+        
+@media (max-width: $iron-grid-breakpoint-small)
+    .login-screen
+        margin-top: 0px
     
+    .login-screen, .register-screen
+        width: 100%
+        
+        height: calc(50vh - 27.5px)
+        .container
+            left: 50%
+            top: 50%
+            transform: translateX(-50%) translateY(-50%)
+            .page-header
+                font-size: 30px
+        
+        &.active
+            width: 100%
+            height: calc(80vh - 27.5px)
+            .container
+                top: 0px
+
+        &.disable
+            width: 100%
+            height: calc(20vh - 27.5px)
+                
 .login-screen
     background-color: $accent-color
     

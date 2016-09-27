@@ -20,7 +20,7 @@ class LoginController extends BaseController {
     
     public function post(){ 
     
-        
+        return ['post' => 'sent'];
         
     }
 }
