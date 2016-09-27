@@ -16,6 +16,22 @@
     background-color: $theme-color-300
     color: $theme-color-text
     
+footer
+    background-color: $theme-color
+    height: 300px
+    color: $theme-color-text
+    position: relative
+    padding: 20px
+    
+    .copyright
+        width: 100%
+        background-color: $theme-color-700
+        position: absolute
+        bottom: 0px
+        left: 0px
+        padding: 10px
+        box-sizing: border-box
+    
 .container
     position: relative
     font-family: 'Roboto', sans-serif
@@ -34,30 +50,36 @@
         background-color: $accent-color
         right: 0px
         bottom: -10px
+        box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, .2)
         &:hover
             background-color: $accent-color-700
+        
+        &--small
+            width: 100%
+            color: $accent-color-text
+            background-color: $accent-color
+            padding: 20px
 
 .page-header
-    font-family: 'Lobster Two', cursive
-    font-size: 2em
     text-shadow: 0px 1px rgba(0, 0, 0, .6)
     margin-bottom: 40px
     position: relative
+    &.underline
+        text-align: center
     &.underline:after
         content: ''
         display: block
         position: absolute
-        width: 100px
+        width: 50px
         left: 50%
         transform: translateX(-50%)
         bottom: -20px
-        height: 3px
+        height: 2px
         background-color: $accent-color
+        
+    &.underline-accent:after
+        background-color: $theme-color
     
-    
-p
-    max-width: 300px
-    display: inline-block
     
     
     
@@ -67,9 +89,26 @@ p
     padding: 20px
     @extend .clearfix
     &__text
+        height: 300px
         padding: 40px
         text-align: center
-        height: 300px
+        position: relative
+        background-color: lighten($palette-grey, 30%)
+        
+        &:after, &:before
+            content: ''
+            display: block
+            position: absolute
+            width: 75%
+            left: 50%
+            transform: translateX(-50%)
+            height: 1px
+            background-color: $accent-color
+        
+        &:before
+            top: 20px
+        &:after
+            bottom: 20px
         
     &__image
         height: 300px
@@ -78,7 +117,60 @@ p
 
 a
     color: inherit
+    text-decoration: none
 
     
 .center
     text-align: center
+    
+    
+.login
+    position: fixed
+    top: 0px
+    width: 100%
+    
+.login-screen, .register-screen
+    @extend .clearfix
+    height: 100vh
+    width: 50%
+    padding-top: 200px
+    color: #f8f8f8
+    float: left
+    transition: all .5s ease
+    position: relative
+    .container
+        transition: all .5s ease
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translateX(-50%) translateY(-50%)
+    
+    .hidden-opacity
+        transition: opacity .5s ease
+        opacity: 0
+        
+        
+    &.active
+        width: 80%
+        .container
+            position: absolute
+            left: 50%
+            top: 100px
+            transform: translateX(-50%) translateY(0%)
+        
+        .hidden-opacity
+            opacity: 1
+            
+            
+    &.disable
+        width: 20%
+        
+    h1
+        font-size: 72px
+    
+.login-screen
+    background-color: $accent-color
+    
+    
+.register-screen
+    background-color: $theme-color

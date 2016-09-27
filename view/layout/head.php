@@ -9,3 +9,22 @@
 </head>
 
 <body>
+
+
+<nav class="nav">
+    <div class="container">
+        <ul class="nav--left">
+            <li class="nav__item nav__item--burger"><a href="#"><i class="icon-meat--white icon--small icon--text"></i></a></li>
+           
+            <li class="nav__item"><a href="#"><i class="icon-knife--white icon--small icon--text"></i> Hjem</a></li>
+            <li class="nav__item"><a href="#"><i class="icon-pan--white icon--small icon--text"></i> Oppskrifter</a></li>
+            <li class="nav__item"><a href="#"><i class="icon-fish--white icon--small icon--text"></i> Arter i Nærheten</a></li>
+            <li class="nav__item"><a href="#"><i class="icon-wheat--white icon--small icon--text"></i> Visjon</a></li>
+        </ul>
+<!--
+        <ul class="nav--right">
+            <li class="nav__item"><a href="#">Profil</a></li>
+        </ul>
+-->
+    </div>
+</nav>
