@@ -7,7 +7,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link href="https://fonts.googleapis.com/css?family=Lobster+Two|Roboto:300,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Roboto:300" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 
@@ -19,15 +19,15 @@
         <ul class="nav--left">
             <li class="nav__item nav__item--burger"><a href="#"><i class="icon-meat--white icon--small icon--text"></i></a></li>
            
-            <li class="nav__item"><a href="#"><i class="icon-knife--white icon--small icon--text"></i> Hjem</a></li>
+            <li class="nav__item"><a href="/"><i class="icon-knife--white icon--small icon--text"></i> Hjem</a></li>
             <li class="nav__item"><a href="#"><i class="icon-pan--white icon--small icon--text"></i> Oppskrifter</a></li>
             <li class="nav__item"><a href="#"><i class="icon-fish--white icon--small icon--text"></i> Arter i Nærheten</a></li>
             <li class="nav__item"><a href="#"><i class="icon-wheat--white icon--small icon--text"></i> Visjon</a></li>
         </ul>
-<!--
+
         <ul class="nav--right">
-            <li class="nav__item"><a href="#">Profil</a></li>
+            <li class="nav__item"><a href="/login">Profil</a></li>
         </ul>
--->
+
     </div>
 </nav>

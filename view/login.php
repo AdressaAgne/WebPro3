@@ -9,7 +9,7 @@
             <h1 class="page-header underline center">Register</h1>
             
             
-            <form action="" method="post" class="hidden-opacity" autocomplete="off">
+            <form action="/register" method="post" class="hidden-opacity" autocomplete="off">
                 <label for="username">Username
                     <input class="accent" type="text" name="username" placeholder="Username">
                 </label>

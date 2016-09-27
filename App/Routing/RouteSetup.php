@@ -9,6 +9,8 @@ Direct::get("/test/{id}", 'MainController@index');
 
 
 Direct::get("/login", 'LoginController@index');
+
+Direct::post("/register", 'LoginController@reg');
 Direct::post("/login", 'LoginController@post');
 
 

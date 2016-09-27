@@ -14,4 +14,8 @@ class Accounts {
     }
     
     
+    public static function isLoggedIn(){
+        return isset($_COOKIE['uuid']);
+    }
+    
 }

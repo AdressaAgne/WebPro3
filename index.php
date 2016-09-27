@@ -12,4 +12,4 @@ function layout($page, $vars = null){
 }
 
 
-require_once("app/App.php");
+require_once("App/App.php");

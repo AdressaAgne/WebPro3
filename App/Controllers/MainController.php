@@ -11,18 +11,10 @@ use App\Api\Populate as pop;
  * @return object View
  */
 class MainController extends BaseController {
-    // run on get /
     
     public function test(){
         return View::make('index', [
-            'var' => 'This is a var',
-            'raw' => '<em>Raw output</em>',
-            'arr' => [
-                'hi' => 'you',
-                'hello' => 'okey',
-                'i love you' => 'thanks...'
-            ],
-            'migration' => Migrations::install(),
+            'food' => ['fisk', 'laks', 'mat', 'ball']
         ]);
     }
     
