@@ -1,4 +1,9 @@
-<phpunit>
+<phpunit colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         stopOnFailure="false"
+         processIsolation="false">
     <testsuits>
         <testsuit name="Main App">
             <directory>app</directory>
