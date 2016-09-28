@@ -78,11 +78,18 @@ class Database {
      * @return boolean
      */
     public static function clearTable($table){
-         return self::query("DELETE from {$table}");
+         return self::query("DELETE from $table");
     }
     
+    public function clearOut(){
+        $this->query('DROP DATABASE IF EXISTS '.Config::$database);
+        
+        if($this->query('CREATE DATABASE IF NOT EXISTS `'.Config::$database.'` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci; USE `'.Config::$database.'`;')){
+            return true;
+        }
+    }
     
-    public static function createTable($name, $rows){        
+    public function createTable($name, $rows){        
         $query = "CREATE TABLE `".$name."` (";
         $row_arr = [];
         foreach($rows as $key => $row){
@@ -90,8 +97,9 @@ class Database {
         }
         
         $query .= implode(", ", $row_arr);
-        
-        return $query.") ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+        $query .= ") ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+        //die($query);
+        return $this->query($query);
         
     }
     
@@ -101,9 +109,9 @@ class Database {
             'varchar' => 'varchar(255)',
             'tinyint' => 'tinyint(1)',
             'boolean' => 'tinyint(1)',
-            'text' => 'text',
         ];
-        return $types[$type];
+        
+        return array_key_exists($type, $types) ? $types[$type] : $type;
     }    
     
     /**

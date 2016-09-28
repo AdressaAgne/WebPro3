@@ -13,6 +13,8 @@ Direct::get("/login", 'LoginController@index');
 Direct::post("/register", 'LoginController@reg');
 Direct::post("/login", 'LoginController@post');
 
+Direct::get("/migrate", 'MigrateController@migrate');
+
 
 Direct::get("/", 'MainController@test');
 

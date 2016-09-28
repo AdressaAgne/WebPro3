@@ -15,6 +15,8 @@ class Config {
     public static $password = 'root';
     
     
+    public static $cookie_time = 86400 * 30;
+    
     /**
     *   API types
     */

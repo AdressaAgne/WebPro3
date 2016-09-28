@@ -90,11 +90,14 @@ footer
     @extend .clearfix
     &__text
         height: 300px
-        padding: 40px
         text-align: center
         position: relative
         background-color: lighten($palette-grey, 30%)
-        
+        .content
+            position: absolute
+            left: 50%
+            top: 50%
+            transform: translateX(-50%) translateY(-50%)
         &:after, &:before
             content: ''
             display: block

@@ -5,6 +5,10 @@ use \App\Routing\Direct as Direct;
 use \App\Config as Config;
 use \App\Controllers\ErrorHandling as ErrorHandling;
 
+if(!isset($_SESSION)){
+    session_start();
+}
+
 $autoloader = spl_autoload_register(function($class){
     $file = implode('/', explode('\\', "{$class}.php"));
     if(file_exists($file)){
