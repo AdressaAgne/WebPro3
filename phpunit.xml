@@ -4,9 +4,11 @@
          convertWarningsToExceptions="true"
          stopOnFailure="false"
          processIsolation="false">
+         
     <testsuits>
         <testsuit name="Main App">
-            <directory>App</directory>
+            <directory>./App/</directory>
         </testsuit>
     </testsuits>
+    
 </phpunit>
