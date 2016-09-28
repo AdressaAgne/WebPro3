@@ -1,0 +1,7 @@
+<phpunit>
+    <testsuits>
+        <testsuit name="Main App">
+            <directory>app</directory>
+        </testsuit>
+    </testsuits>
+</phpunit>
