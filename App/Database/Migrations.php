@@ -26,8 +26,8 @@ class Migrations{
         $db->createTable('artskart', [
             new Row('id', 'int', null, true, true),
             new Row('taxonID', 'int'),
-            new Row('lat', 'double'),
-            new Row('lng', 'double'),
+            new Row('lat', 'FLOAT(10,6)'),
+            new Row('lng', 'FLOAT(10,6)'),
         ]);
         
         // a recipie

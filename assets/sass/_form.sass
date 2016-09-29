@@ -9,7 +9,9 @@
         -moz-appearance:    none
         appearance:         none
         display: block
-        width: calc(100% - 42px)
+        width: calc(100% - 60px)
+        font-size: 16px
+        font-weight: 300
         height: 30px
         color: white
         background-color: $theme-color
@@ -18,16 +20,14 @@
         padding: 20px
         float: left
         border-radius: 3px 0px 0px 3px
-        border-right: 1px solid $theme-color-700
         
     .search-icon button
         float: left
-        width: 40px
+        width: 60px
         height: 40px
         background-color: $theme-color
         cursor: pointer
         border: none
-        border-left: 1px solid $theme-color-300
         box-sizing: border-box
         border-radius: 0px 3px 3px 0px
         &:hover
@@ -77,13 +77,17 @@ input[type='submit']
     
 \::-webkit-input-placeholder
     color: rgba(255, 255, 255, .4)
+    font-style: italic
 
 \:-moz-placeholder
     color: rgba(255, 255, 255, .4)
+    font-style: italic
 
 \::-moz-placeholder
     color: rgba(255, 255, 255, .4)
+    font-style: italic
 
 \:-ms-input-placeholder
     color: rgba(255, 255, 255, .4)
+    font-style: italic
     
