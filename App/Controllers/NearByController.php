@@ -65,45 +65,24 @@ class NearByController extends BaseController {
     }
     
     public function api(){
-        if(empty($_POST['lat'])) $_POST['lat'] = '59.342836';
-        if(empty($_POST['lng'])) $_POST['lng'] = '5.298503';
+        $dist = isset($_GET['dist']) ? $_GET['dist'] : 25;
+        $_GET['lat'] = isset($_GET['lat']) ? $_GET['lat'] : '59.342836';
+        $_GET['lng'] = isset($_GET['lng']) ? $_GET['lng'] : '5.298503';
+        
+        
         $db = new DB();
         
-        return $db->query('SELECT taxonID, lat, lng, ( 6371 * acos( cos( radians(lat) ) * cos( radians( :lat ) ) * cos( radians( :lng ) - radians(lng) ) + sin( radians(lat) ) * sin( radians( :lat ) ) ) ) AS distance FROM artskart HAVING distance < 25 ORDER BY distance', [
-            'lat' => $_POST['lat'],
-            'lng' => $_POST['lng'],
+        return $db->query('SELECT list.navn, list.scientificName, kart.taxonID, kart.lat, kart.lng, 
+        ( 6371 * acos( cos( radians(kart.lat) ) * cos( radians( :lat ) ) * cos( radians( :lng ) - radians(kart.lng) ) + sin( radians(kart.lat) ) *
+        sin( radians( :lat ) ) ) ) 
+        AS distance 
+        FROM artskart as kart 
+        INNER JOIN blacklist AS list
+        ON kart.taxonID = list.taxonID
+        HAVING distance < '.$dist.' ORDER BY distance', [
+            'lat' => $_GET['lat'],
+            'lng' => $_GET['lng'],
         ])->fetchAll();
-        //{"lng":"5.298503","lat":"59.342836","locality":"Breidbukta, Hus\u00f8y","municipality":"Karm\u00f8y","county":"Rogaland","taxonID":84141}
-        return [    
-            [
-                'lat' => 59.342836,
-                'lng' => 5.298503,
-                'taxonID' => 84141,
-                'name'    => 'stillehavsøsters',
-                'locality' => 'hei',
-                'municipality' => 'sted',
-                'county'    => 'ball',
-            ],[
-                'lat' => 59.342836,
-                'lng' => 5.298503,
-                'taxonID' => 84141,
-                'name'    => 'stillehavsøsters',
-                'locality' => 'hei',
-                'municipality' => 'sted',
-                'county'    => 'ball',
-            ],[
-                'lat' => 59.342836,
-                'lng' => 5.298503,
-                'taxonID' => 84141,
-                'name'    => 'stillehavsøsters',
-                'locality' => 'hei',
-                'municipality' => 'sted',
-                'county'    => 'ball',
-            ],
-            
-        ];
-        
-        
     }
     
     

@@ -16,7 +16,7 @@ Direct::post("/login", 'LoginController@post');
 Direct::get("/migrate", 'MigrateController@migrate');
 
 Direct::get("/nearby", 'NearByController@index');
-Direct::get("/nearby_api", 'NearByController@api');
+Direct::get("/nearby_api/{lat}/{lng}/{dist}", 'NearByController@api');
 
 
 Direct::get("/", 'MainController@test');

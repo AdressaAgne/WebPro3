@@ -59,18 +59,19 @@ function setMap(pos) {
     var popups = [];
     
     $.post({
-      url: '/nearby_api',
+      url: '/nearby_api/'+pos.lat+'/'+pos.lng,
       data: {'lat' : pos.lat, 'lng' : pos.lng},
       success: function(taxons){
           console.log(taxons);
         for (var i = 0; i < taxons.length; i++) {
             var data = taxons[i];
             var markerCords = {lat: Number(data.lat), lng: Number(data.lng)};
-            console.log(markerCords);
+            console.log(data);
+            image = '/assets/img/icons/carrot.png';
             markers[i] = new google.maps.Marker({
                 map: map,
                 position: markerCords,
-                title: 'ball'
+                title: data.navn
             });
             
         }

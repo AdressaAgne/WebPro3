@@ -63,7 +63,10 @@ class App {
             $vars = $this->get_vars($this->url);
             
             foreach($route['vars'] as $key => $value){
-                $_GET[$value] = $vars[$key];
+                
+                if(isset($vars[$key])){
+                    $_GET[$value] = $vars[$key];
+                }
             }
         }
 
