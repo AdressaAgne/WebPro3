@@ -3,9 +3,19 @@
 
 <main>
     
-    <section class="row primary-header" style="background-image: url('/assets/img/recipis/reindeer_large.jpg')">
+    <section class="row primary-header" style="background-image: url('/assets/img/recipis/kingcrab.jpg')">
         <div class="container">
             <i class="icon-logo icon--gigantic icon--center"></i>
+            
+            
+            <div class="search">
+                <label class="search-box" for="search">
+                    <input type="search" placeholder="Search...">
+                </label>
+                <label class="search-icon">
+                    <button><i class="icon-search--white icon--small icon--center"></i></button>
+                </label>
+            </div>
         </div>
     </section>
     

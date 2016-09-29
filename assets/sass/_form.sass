@@ -1,3 +1,39 @@
+.search
+    @extend .col-l-4
+    @extend .col-6
+    @extend .col-m-8
+    @extend .col--center
+    padding: 20px
+    input[type='search'], input[type='text']
+        -webkit-appearance: none
+        -moz-appearance:    none
+        appearance:         none
+        display: block
+        width: calc(100% - 42px)
+        height: 30px
+        color: white
+        background-color: $theme-color
+        border: none
+        box-sizing: border-box
+        padding: 20px
+        float: left
+        border-radius: 3px 0px 0px 3px
+        border-right: 1px solid $theme-color-700
+        
+    .search-icon button
+        float: left
+        width: 40px
+        height: 40px
+        background-color: $theme-color
+        cursor: pointer
+        border: none
+        border-left: 1px solid $theme-color-300
+        box-sizing: border-box
+        border-radius: 0px 3px 3px 0px
+        &:hover
+            background-color: $theme-color-700
+        
+
 input[type='text'], input[type='password']
     font-family: 'Roboto', sans-serif
     appearance: none
