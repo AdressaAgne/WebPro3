@@ -73,16 +73,17 @@ class NearByController extends BaseController {
         $db = new DB();
         
         return $db->query('SELECT list.navn, list.scientificName, kart.taxonID, kart.lat, kart.lng, 
-        ( 6371 * acos( cos( radians(kart.lat) ) * cos( radians( :lat ) ) * cos( radians( :lng ) - radians(kart.lng) ) + sin( radians(kart.lat) ) *
-        sin( radians( :lat ) ) ) ) 
-        AS distance 
-        FROM artskart as kart 
-        INNER JOIN blacklist AS list
-        ON kart.taxonID = list.taxonID
-        HAVING distance < '.$dist.' ORDER BY distance', [
-            'lat' => $_GET['lat'],
-            'lng' => $_GET['lng'],
-        ])->fetchAll();
+          ( 6371 * acos( cos( radians(kart.lat) ) * cos( radians( :lat ) ) * cos( radians( :lng ) - radians(kart.lng) ) + sin( radians(kart.lat) ) *
+          sin( radians( :lat ) ) ) ) 
+          AS distance 
+          FROM artskart as kart 
+          JOIN blacklist AS list
+          ON list.taxonID = kart.taxonID
+          HAVING distance < :dist ORDER BY distance', [
+              'lat' => $_GET['lat'],
+              'lng' => $_GET['lng'],
+              'dist' => $dist,
+          ])->fetchAll();
     }
     
     

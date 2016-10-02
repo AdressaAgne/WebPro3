@@ -1,4 +1,9 @@
 // google maps api key: AIzaSyC7i0o5mdEYSbG_wqoWAx53tAP1xxTKVQo 
+
+function getLocation() {
+    if(!navigator.geolocation)  return;
+    navigator.geolocation.getCurrentPosition(showPosition, showError);
+}
 getLocation();
 
 var map;
@@ -12,15 +17,6 @@ function initMap(){
     });
 }
 
-
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
-    } else {
-        return {lat : 0, lng : 0}
-    }
-}
 
 function showPosition(pos) {
     setMap({lat : pos.coords.latitude, lng : pos.coords.longitude})
@@ -58,15 +54,12 @@ function setMap(pos) {
     var markers = [];
     var popups = [];
     
-    $.post({
+    $.get({
       url: '/nearby_api/'+pos.lat+'/'+pos.lng,
-      data: {'lat' : pos.lat, 'lng' : pos.lng},
       success: function(taxons){
-          console.log(taxons);
         for (var i = 0; i < taxons.length; i++) {
             var data = taxons[i];
             var markerCords = {lat: Number(data.lat), lng: Number(data.lng)};
-            console.log(data);
             image = '/assets/img/icons/carrot.png';
             markers[i] = new google.maps.Marker({
                 map: map,
