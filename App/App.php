@@ -70,13 +70,13 @@ class App {
             }
         }
 
-        if(gettype($route['callback']) === 'array'){
-            print_r($route);
-            return;
-        }
+        
+        //controller   method
         
         $view = explode('@', $route['callback']);
-        $obj = call_user_func([new $view[0], $view[1]]);
+        if(!($obj = @call_user_func([new $view[0], $view[1]], array_merge($_GET, $_POST)))){
+            ErrorHandling::fire("Error", $view[0]."@".$view[1]. " could not execute");
+        }
         
         // check if code is api stuff
         if(gettype($obj) !== 'string'){

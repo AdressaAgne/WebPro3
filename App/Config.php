@@ -5,6 +5,10 @@ namespace App;
 
 class Config {
     
+    
+    public static $debug_mode = true;
+    
+    
     /**
     *   Database Connection
     */

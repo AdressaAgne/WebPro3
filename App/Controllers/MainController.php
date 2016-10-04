@@ -18,11 +18,10 @@ class MainController extends BaseController {
         ]);
     }
     
-    
-    public function index(){ 
+    public function index($p){ 
     
         $db = new DB();
-        $data = $db->query("SELECT * FROM blacklist WHERE TaxonID = :id", ['id' => $_GET['id']])->fetch();
+        $data = $db->query("SELECT * FROM blacklist WHERE TaxonID = :id", ['id' => $p['id']])->fetch();
         
         $taxon = Taxon::byId($data['taxonID']);
         if($groups = Taxon::getHigherClassification($taxon)){

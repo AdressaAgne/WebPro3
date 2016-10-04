@@ -14,20 +14,21 @@ class LoginController extends BaseController {
     // run on get /
     
     public function index(){
-        
         return View::make('login');
     }
     
     
-    public function post(){ 
+    public function post($p){ 
         
-        return ['login' => $_POST];
+        return ['login' => $p];
         
     }
     
-    public function reg(){ 
+    public function reg($p){ 
         
-        return ['register' => $_POST];
+        //do stuff
+        
+        return Direct::re('/login', ['login' => true]);
         
     }
 }

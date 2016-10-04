@@ -7,6 +7,8 @@ function getLocation() {
 getLocation();
 
 var map;
+var lat;
+var lng;
 
 function initMap(){ 
     map = new google.maps.Map(document.getElementById('map'), {
@@ -14,12 +16,15 @@ function initMap(){
         zoom: 5,
         styles: styleArray,
         disableDefaultUI: true,
+        disableDoubleClickZoom : true,
     });
 }
 
 
 function showPosition(pos) {
-    setMap({lat : pos.coords.latitude, lng : pos.coords.longitude})
+    lat = pos.coords.latitude;
+    lng = pos.coords.longitude;
+    setMap({lat : lat, lng : lng, dist : 25})
 }
 
 function showError(error) {
@@ -43,32 +48,32 @@ function log(i){
     console.info(i);
 }
 
+$("#map_range").change(function(){
+    setMap({lat : lat, lng : lng, dist : this.value})
+});
+
 function setMap(pos) {
     var zoom = 10;
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: pos,
-        zoom: zoom,
-        styles: styleArray,
-        disableDefaultUI: true,
-    });
     var markers = [];
     var popups = [];
     
     $.get({
-      url: '/nearby_api/'+pos.lat+'/'+pos.lng,
-      success: function(taxons){
-        for (var i = 0; i < taxons.length; i++) {
-            var data = taxons[i];
-            var markerCords = {lat: Number(data.lat), lng: Number(data.lng)};
-            image = '/assets/img/icons/carrot.png';
-            markers[i] = new google.maps.Marker({
-                map: map,
-                position: markerCords,
-                title: data.navn
-            });
-            
-        }
-      },
-      dataType: 'json',
+        url: '/nearby_api/'+pos.lat+'/'+pos.lng+"/"+pos.dist,
+        dataType: 'json',
+        success: function(taxons){
+            for (var i = 0; i < taxons.length; i++) {
+                var data = taxons[i];
+                var markerCords = {lat: Number(data.lat), lng: Number(data.lng)};
+                image = '/assets/img/icons/fish.png';
+                markers[i] = new google.maps.Marker({
+                    map: map,
+                    position: markerCords,
+                    title: data.navn,
+                    icon : image,
+                });
+            }
+            map.panTo(pos);
+            map.setZoom(zoom);
+        },
     });
 }

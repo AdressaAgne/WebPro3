@@ -64,14 +64,14 @@ class NearByController extends BaseController {
         
     }
     
-    public function api(){
-        $dist = isset($_GET['dist']) ? $_GET['dist'] : 25;
-        $_GET['lat'] = isset($_GET['lat']) ? $_GET['lat'] : '59.342836';
-        $_GET['lng'] = isset($_GET['lng']) ? $_GET['lng'] : '5.298503';
+    public function api($p){
+        $p['dist'] = empty($p['dist']) ? $p['dist'] : 25;
+        $p['lat'] = empty($p['lat']) ? $p['lat'] : '59.342836';
+        $p['lng'] = empty($p['lng']) ? $p['lng'] : '5.298503';
         
         
         $db = new DB();
-        
+        // Haversine formula
         return $db->query('SELECT list.navn, list.scientificName, kart.taxonID, kart.lat, kart.lng, 
           ( 6371 * acos( cos( radians(kart.lat) ) * cos( radians( :lat ) ) * cos( radians( :lng ) - radians(kart.lng) ) + sin( radians(kart.lat) ) *
           sin( radians( :lat ) ) ) ) 
@@ -80,11 +80,17 @@ class NearByController extends BaseController {
           JOIN blacklist AS list
           ON list.taxonID = kart.taxonID
           HAVING distance < :dist ORDER BY distance', [
-              'lat' => $_GET['lat'],
-              'lng' => $_GET['lng'],
-              'dist' => $dist,
+              'lat' => $p['lat'],
+              'lng' => $p['lng'],
+              'dist' => $p['dist'],
           ])->fetchAll();
     }
     
+    public function groups(){
+        
+        $data = $this->query("SELECT * FROM blacklist")->fetch();
+        return Taxon::byID($data['taxonID']);
+        return Taxon::getHigherClassification($taxon);
+    }
     
 }

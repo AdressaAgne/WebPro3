@@ -1,15 +1,16 @@
 <?php
 
 namespace App\Controllers;
+use DB;
 
-
-class Controller {
+class Controller extends DB{
     
     public static $site_wide_vars = [
-        'user' => 'agne',
+        
     ];
     
     public function __construct(){
+        parent::__construct();
         
         //This code runs on all pages;
     }

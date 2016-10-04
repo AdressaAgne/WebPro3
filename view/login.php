@@ -23,6 +23,7 @@
                     <input class="accent" type="text" name="mail" placeholder="Mail">
                 </label>
                 
+                <input type="hidden" name="_method" value="put" />
                 <input type="submit" class="accent" value="Register">
                 
             </form>

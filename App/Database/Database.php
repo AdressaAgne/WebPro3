@@ -89,6 +89,12 @@ class Database {
         }
     }
     
+    /**
+     * create a new table
+     * @param  string  $name table name
+     * @param  array   $rows arrow of Row objects
+     * @return boolean
+     */
     public function createTable($name, $rows){        
         $query = "CREATE TABLE `".$name."` (";
         $row_arr = [];
@@ -103,6 +109,12 @@ class Database {
         
     }
     
+    /**
+     * covert variables types to sql variable types
+     * @author Agne *degaard
+     * @param  string   $type
+     * @return string
+     */
     protected static function types($type){
         $types = [
             'int' => 'int(11)',

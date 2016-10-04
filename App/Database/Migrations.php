@@ -20,6 +20,7 @@ class Migrations{
             new Row('risiko', 'varchar'),
             new Row('taxonID', 'int'),
             new Row('canEat', 'boolean', '0'),
+            new Row('family', 'varchar'),
         ]);
         
         //lat lng locations for opserved species

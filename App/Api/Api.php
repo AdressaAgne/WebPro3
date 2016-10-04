@@ -13,7 +13,9 @@ class Api{
      * @return array array with objects from api
      */
     public static function fetchData($str, $api = 'taxon'){
-        $data = file_get_contents(Config::$api_url[$api].$str);
+        if(!($data = @file_get_contents(Config::$api_url[$api].$str))){
+            return null;
+        }
         return json_decode($data);
     }
     
