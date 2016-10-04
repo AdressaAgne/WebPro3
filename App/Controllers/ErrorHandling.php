@@ -1,6 +1,6 @@
 <?php
 namespace App\Controllers;
-use Config;
+use Config, Route;
 
 class ErrorHandling {    
     public static function fire($header, $text, $arr = null){
@@ -86,5 +86,9 @@ class ErrorHandling {
         } 
         return ""; 
     } 
+    
+    public function route(){
+        return Route::lists();
+    }
     
 }

@@ -44,6 +44,14 @@ class NearByController extends BaseController {
     }
     
     
+    public function test1(){
+        return ['test' => 1];
+    }
+    
+    public function test2($p){
+        return ['test' => 2, 'p' => $p];
+    }
+    
     public function fetchAPIdata(){
         // this will run for like 30min...
         
@@ -65,9 +73,9 @@ class NearByController extends BaseController {
     }
     
     public function api($p){
-        $p['dist'] = empty($p['dist']) ? $p['dist'] : 25;
-        $p['lat'] = empty($p['lat']) ? $p['lat'] : '59.342836';
-        $p['lng'] = empty($p['lng']) ? $p['lng'] : '5.298503';
+        $p['dist'] = isset($p['dist']) ? $p['dist'] : 25;
+        $p['lat'] = isset($p['lat']) ? $p['lat'] : '59.342836';
+        $p['lng'] = isset($p['lng']) ? $p['lng'] : '5.298503';
         
         
         $db = new DB();

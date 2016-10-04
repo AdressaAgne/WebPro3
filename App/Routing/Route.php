@@ -35,6 +35,6 @@ class Route {
     }
     
     public static function lists(){
-        return $routes;
+        return self::$routes;
     }
 }

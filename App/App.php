@@ -2,6 +2,7 @@
 namespace App;
 
 use \App\Routing\Direct as Direct;
+use \App\Routing\Route as Route;
 use \App\Config as Config;
 use \App\Controllers\ErrorHandling as ErrorHandling;
 
@@ -35,22 +36,47 @@ class App {
     private $url;
     
     private function get_path(){
-        return preg_replace("/(.*)m=(.*)/uimx", "$2", $_SERVER['QUERY_STRING']);
+        return "/".preg_replace("/(.*)m=(.*)/uimx", "$2", $_SERVER['QUERY_STRING']);
     }
     
     private function get_vars($path){
+        $regex = $this->regexSlash($this->get_current_page());
+        $str = preg_replace("/$regex/uimx", '', $this->get_path());
+        return explode("/", trim($str, "/"));   
+    }
+    
+    protected function regexSlash($str){
+        return preg_replace('/\//uimx', '\\\\/', $str);
+    }
+    
+    protected function get_page(){
         $url = $this->get_path();
-        return explode("/", trim(preg_replace("/^".trim($path, "/")."/uimx", "", $url), "/"));
+        $list = [];
+        // Minify this stuff
+        foreach(Route::lists() as $type => $types){
+            foreach($types as $key => $value){
+               if(preg_match("/".$this->regexSlash($key)."/i", $url)){
+                   $list[] = $key;
+               }
+            }
+        }
+        $lengths = array_map('strlen', $list);
+        $maxLength = max($lengths);
+        $index = array_search($maxLength, $lengths);
+        return ['page' => $list[$index], 'key' => count(explode($list[$index], '/'))];
     }
     
     protected function get_current_page(){
-        return "/" . explode("/", $this->get_path())[0];
+        return $this->get_page()['page'];
     }
-
+    protected function get_page_offset(){
+        return $this->get_page()['key'];
+    }
+    
     public function __construct(){
         $this->url = $this->get_current_page();
         $route = Direct::getCurrentRoute($this->url);
-       
+        
         if(array_key_exists("error", $route)){
             ErrorHandling::fire("View Does not Exist: " . $this->url,
                                 "Please set up a route to 404",
@@ -59,19 +85,15 @@ class App {
                                 ]);
         }
         
-        if(!empty($route['vars']) && $route['vars'][0] !== $this->url){
+        if(!empty($route['vars'])){
             $vars = $this->get_vars($this->url);
             
             foreach($route['vars'] as $key => $value){
-                
                 if(isset($vars[$key])){
                     $_GET[$value] = $vars[$key];
                 }
             }
         }
-
-        
-        //controller   method
         
         $view = explode('@', $route['callback']);
         if(!($obj = @call_user_func([new $view[0], $view[1]], array_merge($_GET, $_POST)))){
@@ -80,7 +102,7 @@ class App {
         
         // check if code is api stuff
         if(gettype($obj) !== 'string'){
-            header('Content-type: application/json');
+            @header('Content-type: application/json');
             echo json_encode($obj, JSON_UNESCAPED_UNICODE);
             return;
         } else {

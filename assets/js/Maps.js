@@ -13,7 +13,7 @@ var lng;
 function initMap(){ 
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat : 59.911491, lng : 10.757933},
-        zoom: 5,
+        zoom: 6,
         styles: styleArray,
         disableDefaultUI: true,
         disableDoubleClickZoom : true,
@@ -61,6 +61,7 @@ function setMap(pos) {
         url: '/nearby_api/'+pos.lat+'/'+pos.lng+"/"+pos.dist,
         dataType: 'json',
         success: function(taxons){
+            console.log(taxons);
             for (var i = 0; i < taxons.length; i++) {
                 var data = taxons[i];
                 var markerCords = {lat: Number(data.lat), lng: Number(data.lng)};
@@ -69,11 +70,10 @@ function setMap(pos) {
                     map: map,
                     position: markerCords,
                     title: data.navn,
-                    icon : image,
                 });
             }
+            map.setZoom(9);
             map.panTo(pos);
-            map.setZoom(zoom);
         },
     });
 }
