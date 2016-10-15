@@ -58,16 +58,14 @@ class Config {
 
     public static $aliases = [
         
-        // Classes
+        // Config
         '\App\Config' => 'Config',
         
+        // Database
         '\App\Database\Database' => 'DB',
         '\App\Database\Row' => 'Row',
         '\App\Database\Migrations' => 'Migrations',
-        '\App\Controllers\Controller' => 'BaseController',
-        '\App\Api\Populate' => 'populate',
-        '\App\Controllers\ErrorHandling' => 'ErrorHandling',
-       
+
         // Routing
         '\App\View' => 'View',
         '\App\Routing\Direct' => 'Direct',
@@ -78,14 +76,16 @@ class Config {
         '\App\Api\Taxon' => 'Taxon',
         '\App\Api\Csv' => 'Csv',
         '\App\Api\Maps' => 'Maps',
+        '\App\Api\Populate' => 'populate',
         
         // Helpres
         
         '\App\Helpers\Units' => 'Units',
         '\App\Helpers\Uploader' => 'Uploader',
+        '\App\Helpers\Compressor' => 'Compressor',
+        '\App\Controllers\ErrorHandling' => 'ErrorHandling',
+        '\App\Controllers\Controller' => 'BaseController',
         
-        //Interfaces
-        //'\App\Interfaces\Controller' => 'Controller',
     ];
     
 }
