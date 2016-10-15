@@ -72,15 +72,25 @@ class NearByController extends BaseController {
         
     }
     
+    public function get_location_by_taxon(){
+        
+        $this->query("Select list.name, list.sicentificName, kart.taxonID, kart.lat, kart.lng FROM artskart WHERE ")-fetchAll();
+        
+        return ['taxons' => $array];
+    }
+    
+    public function taxon_api($p){
+        return $this->query('SELECT navn, taxonId FROM blacklist WHERE navn LIKE :name', ['name' => "%".$p['taxon']."%"])->fetchAll();
+    }
+    
     public function api($p){
         $p['dist'] = isset($p['dist']) ? $p['dist'] : 25;
         $p['lat'] = isset($p['lat']) ? $p['lat'] : '59.342836';
         $p['lng'] = isset($p['lng']) ? $p['lng'] : '5.298503';
         
         
-        $db = new DB();
         // Haversine formula
-        return $db->query('SELECT list.navn, list.scientificName, kart.taxonID, kart.lat, kart.lng, 
+        return $this->query('SELECT list.navn, list.scientificName, kart.taxonID, kart.lat, kart.lng, 
           ( 6371 * acos( cos( radians(kart.lat) ) * cos( radians( :lat ) ) * cos( radians( :lng ) - radians(kart.lng) ) + sin( radians(kart.lat) ) *
           sin( radians( :lat ) ) ) ) 
           AS distance 
@@ -98,7 +108,6 @@ class NearByController extends BaseController {
         
         $data = $this->query("SELECT * FROM blacklist")->fetch();
         return Taxon::byID($data['taxonID']);
-        return Taxon::getHigherClassification($taxon);
     }
     
 }

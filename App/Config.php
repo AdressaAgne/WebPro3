@@ -43,6 +43,8 @@ class Config {
     ];
     
     
+    public static $userFiles = "assets/userFiles/";
+    
     /**
     *   Namespace for controllers
     */
@@ -76,6 +78,11 @@ class Config {
         '\App\Api\Taxon' => 'Taxon',
         '\App\Api\Csv' => 'Csv',
         '\App\Api\Maps' => 'Maps',
+        
+        // Helpres
+        
+        '\App\Helpers\Units' => 'Units',
+        '\App\Helpers\Uploader' => 'Uploader',
         
         //Interfaces
         //'\App\Interfaces\Controller' => 'Controller',

@@ -6,3 +6,5 @@
 *.codekit
 *.esproj
 *.codekit
+
+assets/.DS_Store

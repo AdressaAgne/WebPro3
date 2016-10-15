@@ -10,7 +10,7 @@ use App\Api\Populate as pop;
  * making a view with/without variables to render
  * @return object View
  */
-class LoginController extends BaseController {
+class LoginController extends BaseController{
     // run on get /
     
     public function index(){
@@ -25,9 +25,7 @@ class LoginController extends BaseController {
     }
     
     public function reg($p){ 
-        
-        //do stuff
-        
+
         return Direct::re('/login', ['login' => true]);
         
     }
