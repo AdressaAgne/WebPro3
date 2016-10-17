@@ -80,6 +80,7 @@ class Config {
         
         // Helpres
         
+        '\App\Helpers\Mail' => 'Mail',
         '\App\Helpers\Units' => 'Units',
         '\App\Helpers\Uploader' => 'Uploader',
         '\App\Helpers\Compressor' => 'Compressor',
