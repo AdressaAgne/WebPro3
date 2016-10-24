@@ -38,4 +38,10 @@ class MainController extends BaseController {
             'groupName' => Taxon::getGroupName($taxon),
         ]);
     }
+    
+    public function recipies(){
+        
+        return View::make('recipies');
+    }
+    
 }

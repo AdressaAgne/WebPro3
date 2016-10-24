@@ -1,16 +1,24 @@
 <?php
 namespace App;
 
+
+
 use \App\Routing\Direct as Direct;
 use \App\Routing\Route as Route;
 use \App\Config as Config;
 use \App\Controllers\ErrorHandling as ErrorHandling;
 
+// Start a session if it does not exist
 if(!isset($_SESSION)){
     session_start();
 }
 
-$autoloader = spl_autoload_register(function($class){
+/**
+ * SPL autoloader, so we dont need to include files everywhere
+ * @author Agne *degaard
+ * @param function function($class)
+ */
+spl_autoload_register(function($class){
     $file = implode('/', explode('\\', "{$class}.php"));
     if(file_exists($file)){
         require_once($file);
@@ -29,7 +37,6 @@ foreach(Config::$aliases as $key => $value){
 
 // Adding routing
 require_once('App/Routing/RouteSetup.php');
-
 
 // Start Route Handling
 class App {
@@ -108,7 +115,7 @@ class App {
         } else {
             echo $obj;
         }
-    }
-    
+    }   
 }
+
 new App();

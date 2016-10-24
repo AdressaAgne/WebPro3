@@ -7,16 +7,18 @@ use Config;
 class Compressor {
     
     
-    private $image,
-            $ratioW,
-            $ratioH,
-            $width,
-            $height,
-            $mime,
-            $name,
-            $folder = Config::$userFiles;
+    private $image;
+    private $ratioW;
+    private $ratioH;
+    private $width;
+    private $height;
+    private $mime;
+    private $name;
+    private $folder;
     
     function __construct($file){
+            $this->folder = Config::$userFiles;
+        
             list($this->width, $this->height) = getimagesize($file);
             $this->image = $file;
             $this->mime = getimagesize($file)['mime'];
@@ -86,7 +88,7 @@ class Compressor {
         switch($this->mine){
             case "image/png":
                 imagefill($image,0, 0, 0x7fff0000);
-            $source = imagecreatefrompng($this->image);
+                $source = imagecreatefrompng($this->image);
                 break;
                 
             case "image/jpeg":

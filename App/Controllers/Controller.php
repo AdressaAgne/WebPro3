@@ -6,7 +6,7 @@ use DB;
 class Controller extends DB{
     
     public static $site_wide_vars = [
-        
+        'active_menu_class' => 'nav__item--active',
     ];
     
     public function __construct(){

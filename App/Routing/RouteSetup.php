@@ -12,9 +12,15 @@ Direct::post("/login", 'LoginController@post');
 
 Direct::post("/register", 'LoginController@reg');
 
+
+Direct::get("/recipie", 'MainController@recipies');
 Direct::get("/nearby", 'NearByController@index');
+Direct::get("/about", 'MainController@about');
+
+
 Direct::get("/api/nearby/{lat}/{lng}/{dist}", 'NearByController@api');
 Direct::get("/api/search/{taxon}/{dist}", 'NearByController@taxon_api');
+
 
 
 Direct::get("/route", 'ErrorHandling@route');

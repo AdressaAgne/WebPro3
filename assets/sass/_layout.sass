@@ -13,10 +13,16 @@
     @extend .bg
     max-height: 80vh
     min-height: 350px
+    position: relative
     background-color: $theme-color
     padding: 0px 0px
     color: $theme-color-text
-    
+    &-text
+        position: absolute
+        bottom: 40px
+        text-align: center
+        width: 100%
+        margin: 0px
     
 .secondary-header
     padding: 10px 0px
@@ -27,8 +33,8 @@ footer
     background-color: $theme-color
     height: 300px
     color: $theme-color-text
-    position: relative
     padding: 20px
+    position: relative
     
     .copyright
         width: 100%
@@ -36,6 +42,7 @@ footer
         position: absolute
         bottom: 0px
         left: 0px
+        text-align: center
         padding: 10px
         box-sizing: border-box
     
@@ -86,7 +93,7 @@ footer
         
     &.underline-accent:after
         background-color: $theme-color
-    
+
     
     
     
