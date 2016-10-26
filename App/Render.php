@@ -1,6 +1,7 @@
 <?php
 namespace App;
 
+use Account;
 /**
 *   Small Render Engine, very inspirated by Twig
 */
@@ -12,6 +13,7 @@ class Render {
     private $shortcuts = [
         'layout',
         'active_page',
+        'isLoggedIn',
     ];
     private $helpers = [
         'if',
@@ -20,14 +22,16 @@ class Render {
     ];
     
     public function __construct($code){    
-        $this->addFunction("Raw Output",        "{!([^\}\{]+)!}", "<?php echo $1 ?>");
-        $this->addFunction("Escaped Output",    "{{([^\}\{]+)}}", "<?php echo htmlspecialchars($1, ENT_QUOTES, 'UTF-8') ?>");
-        $this->addFunction("Helpers",           "@([".implode('|', $this->helpers)."]*)[\s]*\((.*)\)", "<?php $1($2) : ?>");
-        $this->addFunction("Helpers End",       "@(end[".implode('|', $this->helpers)."]*)", "<?php $1 ?>");
-        $this->addFunction("shortcuts", "@([".implode('|', $this->shortcuts)."]+)\((.*)\)", "<?php Render::$1($2) ?>");
+        $this->addFunction("Raw Output",     "{!([^\}\{]+)!}", "<?php echo $1 ?>");
+        $this->addFunction("Escaped Output", "{{([^\}\{]+)}}", "<?php echo htmlspecialchars($1, ENT_QUOTES, 'UTF-8') ?>");
+        $this->addFunction("Helpers",        "@(".implode('|', $this->helpers)."){1}[\s]*\((.*)\)", "<?php $1($2) : ?>");
+        $this->addFunction("Helpers End",    "@end(".implode('|', $this->helpers)."){1}", "<?php end$1 ?>");
+        $this->addFunction("shortcuts",      '@(layout|active_page|isLoggedIn){1}\\(([^\\)\\(]*)[\\)]',"<?php Render::$1($2) ?>");
         
         $this->code = $this->render($code);
     }
+    
+
     
     public static function code($code){
         return new Render($code);
@@ -73,6 +77,10 @@ class Render {
         if($_GET['param'] == $page) {
             echo "nav__item--active";
         }
+    }
+    
+    public static function isLoggedIn(){
+        return Account::isLoggedIn();
     }
     
 }

@@ -8,7 +8,6 @@
             <div class="container">
                 <i class="icon-logo icon--gigantic icon--center"></i>
 
-
                 <div class="search">
                     <label class="search-box" for="search">
                         <input type="search" placeholder="Finn arter nær deg" value="">
@@ -33,6 +32,8 @@
     </section>
     
     <section class="container">
+       
+       
        
        @foreach($food as $value)
        

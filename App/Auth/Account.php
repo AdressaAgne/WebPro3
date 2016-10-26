@@ -72,7 +72,6 @@ class Account extends DB{
     
     /**
      * Return if the user is logged in
-     * @author Agne *degaard
      * @return boolean
      */
     public static function isLoggedIn(){

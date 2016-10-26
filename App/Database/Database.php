@@ -50,7 +50,7 @@ class Database {
         }
         return $query->execute() ? $query : false;
     }
-    
+    //db::query("SELECT * from table where row = :value", ['value' => 'hei'])
     /**
      * Select * from class
      * @param  array  [$rows                  = ['*']]
@@ -60,7 +60,7 @@ class Database {
         return self::query('SELECT '.implode(', ', $rows).' FROM '.$table)->fetchAll();
     }
     
-   
+  
     /**
      * Delete a row from a table
      * @param  string       [$col = 'id']   col name
@@ -112,8 +112,8 @@ class Database {
     /**
      * covert variables types to sql variable types
      * @author Agne *degaard
-     * @param  string   $type
-     * @return string
+     * @param  string $type [[Description]]
+     * @return string string
      */
     protected static function types($type){
         $types = [
@@ -144,5 +144,4 @@ class Database {
         $placeholder = implode(",", $placeholder);
         return self::query("INSERT INTO {$table} ({$rows}) VALUE({$placeholder})", $data);
     }
-    
 }

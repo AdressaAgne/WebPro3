@@ -1,8 +1,6 @@
 <?php
 namespace App;
 
-
-
 use \App\Routing\Direct as Direct;
 use \App\Routing\Route as Route;
 use \App\Config as Config;
@@ -107,12 +105,12 @@ class App {
             ErrorHandling::fire("Error", $view[0]."@".$view[1]. " could not execute");
         }
         
-        // check if code is api stuff
         if(gettype($obj) !== 'string'){
             @header('Content-type: application/json');
             echo json_encode($obj, JSON_UNESCAPED_UNICODE);
             return;
         } else {
+            // Echo out the rendered code
             echo $obj;
         }
     }   
