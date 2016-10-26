@@ -42,7 +42,7 @@
        @endforeach
        
        
-       @layout('layout.article_front_left', ['title' => 'Reinstyrs Gryte', 'text' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, tempora.', 'image' => '/assets/img/recipis/reindeer_large.jpg'])
+       @layout('layout.article_front_left', ['title' => 'Reinsdyrsgryte', 'text' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, tempora.', 'image' => '/assets/img/recipis/reindeer_large.jpg'])
         
     </section>
 </main>

@@ -14,7 +14,7 @@ class MainController extends BaseController {
     
     public function test(){
         return View::make('index', [
-            'food' => ['fisk', 'laks', 'mat', 'ball']
+            'food' => ['fisk', 'laks', 'mat', 'ball', 'mia']
         ]);
     }
     
