@@ -17,6 +17,24 @@ class Route {
      * @return string URI
      */
     public static function getCurrentRoute($route){
+        
+        /**
+        *   Change to switc case, for put, delete and update editions.
+        */
+        
+//        if($_SERVER['REQUEST_METHOD'] == "POST"){
+//          switch($_POST['_method']):
+//            
+//            case 'PUT':
+//                array_key_exists($route, self::$routes['put']) ? self::$routes['put'][$route] : null
+//            break;
+//            
+//        } else {
+//            // GET
+//            
+//            
+//        }
+        
         if($_SERVER['REQUEST_METHOD'] == "POST" && array_key_exists($route, self::$routes['post'])){
             return array_key_exists($route, self::$routes['post']) ? self::$routes['post'][$route] : null;
         } else {

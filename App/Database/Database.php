@@ -95,7 +95,7 @@ class Database {
      * @param  array   $rows arrow of Row objects
      * @return boolean
      */
-    public function createTable($name, $rows){        
+    public function createTable($name, array $rows){        
         $query = "CREATE TABLE `".$name."` (";
         $row_arr = [];
         foreach($rows as $key => $row){

@@ -3,7 +3,7 @@ namespace App\Controllers;
 
 use View, Direct, Route; // Routing
 use Taxon, Csv, Maps; // APIs
-use DB, BaseController, Migrations;
+use BaseController, Migrations;
 use App\Api\Populate as pop;
 
 /**
@@ -13,15 +13,15 @@ use App\Api\Populate as pop;
 class MainController extends BaseController {
     
     public function test(){
+
+        
         return View::make('index', [
             'food' => ['fisk', 'laks', 'mat', 'ball', 'mia', 'test3']
         ]);
     }
     
     public function index($p){ 
-    
-        $db = new DB();
-        $data = $db->query("SELECT * FROM blacklist WHERE TaxonID = :id", ['id' => $p['id']])->fetch();
+        $data = $this->query("SELECT * FROM blacklist WHERE TaxonID = :id", ['id' => $p['id']])->fetch();
         
         $taxon = Taxon::byId($data['taxonID']);
         if($groups = Taxon::getHigherClassification($taxon)){

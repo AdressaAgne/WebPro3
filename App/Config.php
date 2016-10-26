@@ -65,6 +65,7 @@ class Config {
         '\App\Database\Database' => 'DB',
         '\App\Database\Row' => 'Row',
         '\App\Database\Migrations' => 'Migrations',
+        '\App\Auth\Account' => 'Account',
 
         // Routing
         '\App\View' => 'View',
