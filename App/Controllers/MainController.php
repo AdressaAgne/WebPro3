@@ -43,5 +43,8 @@ class MainController extends BaseController {
         
         return View::make('recipies');
     }
-    
+    public function about() {
+    	
+    	return View::make('about');
+    }
 }
