@@ -58,7 +58,7 @@ function setMap(pos) {
     var popups = [];
     
     $.get({
-        url: '/nearby_api/'+pos.lat+'/'+pos.lng+"/"+pos.dist,
+        url: '/api/nearby/'+pos.lat+'/'+pos.lng+"/"+pos.dist,
         dataType: 'json',
         success: function(taxons){
             console.log(taxons);
