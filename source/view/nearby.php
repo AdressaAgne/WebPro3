@@ -15,19 +15,6 @@
     </section>
     <div id="map" class="full_map"></div>
 </main>
-    
-<!--
-    @form('action', 'delete')
-        <input type="text" name="" id="">
-    
-    @endform
-    
-    <form action="action">
-        <input type="hidden" type="_method" value="delete">
-        <input type="text" name="" id="">
-    </form>
--->
-
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/assets/js/googleMapsStyle.js"></script>
     <script src="/assets/js/testJson.js"></script>

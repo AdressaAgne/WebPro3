@@ -90,7 +90,7 @@ class NearByController extends BaseController {
         
         
         // Haversine formula
-        return $this->query('SELECT list.navn, list.scientificName, kart.taxonID, kart.lat, kart.lng, 
+        $query = $this->query('SELECT list.navn, list.scientificName, kart.taxonID, kart.lat, kart.lng, 
           ( 6371 * acos( cos( radians(kart.lat) ) * cos( radians( :lat ) ) * cos( radians( :lng ) - radians(kart.lng) ) + sin( radians(kart.lat) ) *
           sin( radians( :lat ) ) ) ) 
           AS distance 
@@ -102,6 +102,8 @@ class NearByController extends BaseController {
               'lng' => $p['lng'],
               'dist' => $p['dist'],
           ])->fetchAll();
+        
+        return empty($query) ? ['data' => null] : $query;
     }
     
     public function groups(){
