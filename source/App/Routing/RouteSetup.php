@@ -6,6 +6,7 @@
 */
 
 Direct::get("/", 'MainController@test');
+Direct::get("/test", 'MainController@testapi');
 
 Direct::get("/login", 'LoginController@index');
 Direct::post("/login", 'LoginController@post');
@@ -20,6 +21,7 @@ Direct::get("/about", 'MainController@about');
 
 Direct::get("/api/nearby/{lat}/{lng}/{dist}", 'NearByController@api');
 Direct::get("/api/search/{taxon}/{dist}", 'NearByController@taxon_api');
+Direct::get("/m", 'MigrateController@migrate');
 
 
 
