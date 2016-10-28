@@ -1,6 +1,11 @@
 {
 "AAInfo": "This is a CodeKit 3 project config file. MODIFYING THE CONTENTS OF THIS FILE IS A POOR LIFE DECISION. Doing so will cause CodeKit to crash and\/or corrupt your project. I know it looks like JSON, but it is *not*. Many numbers in this file are 64-bit long long bitFlags, which JSON does not support. These numbers *cannot* be treated as discrete values and if you attempt to parse this file as standard JSON with any public JSON parser, these values will be corrupted. This file is not backwards-compatible with CodeKit 1 or 2. For more information, see https:\/\/codekitapp.com\/",
 "buildSteps": [
+	{
+		"name": "Process All Remaining Files and Folders",
+		"stepType": 1,
+		"uuidString": "F029923A-4847-4E50-872A-A8F7580515FE"
+		}
 	],
 "creatorBuild": "25378",
 "files": {
@@ -8,6 +13,168 @@
 		"ft": 65536,
 		"oA": 1,
 		"oAP": "\/build\/build",
+		"oF": 0
+		},
+	"\/source\/App\/Api\/Api.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/App\/Api\/Api.php",
+		"oF": 0
+		},
+	"\/source\/App\/Api\/Csv.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/App\/Api\/Csv.php",
+		"oF": 0
+		},
+	"\/source\/App\/Api\/Maps.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/App\/Api\/Maps.php",
+		"oF": 0
+		},
+	"\/source\/App\/Api\/Populate.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/App\/Api\/Populate.php",
+		"oF": 0
+		},
+	"\/source\/App\/Api\/Taxon.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/App\/Api\/Taxon.php",
+		"oF": 0
+		},
+	"\/source\/App\/App.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/App\/App.php",
+		"oF": 0
+		},
+	"\/source\/App\/Auth\/Account.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/App\/Auth\/Account.php",
+		"oF": 0
+		},
+	"\/source\/App\/Config.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/App\/Config.php",
+		"oF": 0
+		},
+	"\/source\/App\/Controllers\/Controller.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/App\/Controllers\/Controller.php",
+		"oF": 0
+		},
+	"\/source\/App\/Controllers\/ErrorHandling.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/App\/Controllers\/ErrorHandling.php",
+		"oF": 0
+		},
+	"\/source\/App\/Controllers\/LoginController.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/App\/Controllers\/LoginController.php",
+		"oF": 0
+		},
+	"\/source\/App\/Controllers\/MainController.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/App\/Controllers\/MainController.php",
+		"oF": 0
+		},
+	"\/source\/App\/Controllers\/MigrateController.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/App\/Controllers\/MigrateController.php",
+		"oF": 0
+		},
+	"\/source\/App\/Controllers\/NearByController.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/App\/Controllers\/NearByController.php",
+		"oF": 0
+		},
+	"\/source\/App\/Database\/Database.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/App\/Database\/Database.php",
+		"oF": 0
+		},
+	"\/source\/App\/Database\/Migrations.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/App\/Database\/Migrations.php",
+		"oF": 0
+		},
+	"\/source\/App\/Database\/Row.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/App\/Database\/Row.php",
+		"oF": 0
+		},
+	"\/source\/App\/Helpers\/Compressor.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/App\/Helpers\/Compressor.php",
+		"oF": 0
+		},
+	"\/source\/App\/Helpers\/Mail.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/App\/Helpers\/Mail.php",
+		"oF": 0
+		},
+	"\/source\/App\/Helpers\/Units.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/App\/Helpers\/Units.php",
+		"oF": 0
+		},
+	"\/source\/App\/Helpers\/Uploader.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/App\/Helpers\/Uploader.php",
+		"oF": 0
+		},
+	"\/source\/App\/Interfaces\/Controller.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/App\/Interfaces\/Controller.php",
+		"oF": 0
+		},
+	"\/source\/App\/Render.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/App\/Render.php",
+		"oF": 0
+		},
+	"\/source\/App\/Routing\/Direct.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/App\/Routing\/Direct.php",
+		"oF": 0
+		},
+	"\/source\/App\/Routing\/Route.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/App\/Routing\/Route.php",
+		"oF": 0
+		},
+	"\/source\/App\/Routing\/RouteSetup.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/App\/Routing\/RouteSetup.php",
+		"oF": 0
+		},
+	"\/source\/App\/View.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/App\/View.php",
 		"oF": 0
 		},
 	"\/source\/assets\/css\/main.css": {
@@ -19,6 +186,920 @@
 		"oAP": "\/build\/assets\/css\/main-ck.css",
 		"oF": 0,
 		"oS": 0
+		},
+	"\/source\/assets\/data\/Fremmedart2012_HøyRisiko.csv": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/assets\/data\/Fremmedart2012_HøyRisiko.csv",
+		"oF": 0
+		},
+	"\/source\/assets\/data\/Fremmedart2012_SværtHøyRisiko.csv": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/assets\/data\/Fremmedart2012_SværtHøyRisiko.csv",
+		"oF": 0
+		},
+	"\/source\/assets\/data\/hi.csv": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/assets\/data\/hi.csv",
+		"oF": 0
+		},
+	"\/source\/assets\/data\/se.csv": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/assets\/data\/se.csv",
+		"oF": 0
+		},
+	"\/source\/assets\/img\/icons\/carrot.png": {
+		"ft": 32768,
+		"iS": 882,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/carrot.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/carrot@2x.png": {
+		"ft": 32768,
+		"iS": 1818,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/carrot@2x.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/chees.png": {
+		"ft": 32768,
+		"iS": 941,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/chees.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/chees@2x.png": {
+		"ft": 32768,
+		"iS": 1647,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/chees@2x.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/chicken.png": {
+		"ft": 32768,
+		"iS": 765,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/chicken.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/chicken@2x.png": {
+		"ft": 32768,
+		"iS": 1562,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/chicken@2x.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/coldrun.png": {
+		"ft": 32768,
+		"iS": 1024,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/coldrun.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/coldrun@2x.png": {
+		"ft": 32768,
+		"iS": 1929,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/coldrun@2x.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/egg.png": {
+		"ft": 32768,
+		"iS": 1095,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/egg.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/egg@2x.png": {
+		"ft": 32768,
+		"iS": 2094,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/egg@2x.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/favicons.zip": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/favicons.zip",
+		"oF": 0
+		},
+	"\/source\/assets\/img\/icons\/fish.png": {
+		"ft": 32768,
+		"iS": 667,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/fish.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/fish@2x.png": {
+		"ft": 32768,
+		"iS": 1251,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/fish@2x.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/knife.png": {
+		"ft": 32768,
+		"iS": 811,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/knife.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/knife@2x.png": {
+		"ft": 32768,
+		"iS": 1527,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/knife@2x.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/logo.png": {
+		"ft": 32768,
+		"iS": 20107,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/logo.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/logo@2x.png": {
+		"ft": 32768,
+		"iS": 43280,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/logo@2x.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/meat.png": {
+		"ft": 32768,
+		"iS": 914,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/meat.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/meat@2x.png": {
+		"ft": 32768,
+		"iS": 1769,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/meat@2x.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/milk.png": {
+		"ft": 32768,
+		"iS": 611,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/milk.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/milk@2x.png": {
+		"ft": 32768,
+		"iS": 1161,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/milk@2x.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/no_gluten.png": {
+		"ft": 32768,
+		"iS": 1818,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/no_gluten.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/no_gluten@2x.png": {
+		"ft": 32768,
+		"iS": 3674,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/no_gluten@2x.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/onion.png": {
+		"ft": 32768,
+		"iS": 697,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/onion.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/onion@2x.png": {
+		"ft": 32768,
+		"iS": 1284,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/onion@2x.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/pan.png": {
+		"ft": 32768,
+		"iS": 553,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/pan.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/pan@2x.png": {
+		"ft": 32768,
+		"iS": 1003,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/pan@2x.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/red_wine.png": {
+		"ft": 32768,
+		"iS": 546,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/red_wine.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/red_wine@2x.png": {
+		"ft": 32768,
+		"iS": 1019,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/red_wine@2x.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/soup.png": {
+		"ft": 32768,
+		"iS": 1239,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/soup.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/soup@2x.png": {
+		"ft": 32768,
+		"iS": 2534,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/soup@2x.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/spatchela.png": {
+		"ft": 32768,
+		"iS": 971,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/spatchela.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/spatchela@2x.png": {
+		"ft": 32768,
+		"iS": 1867,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/spatchela@2x.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/spice.png": {
+		"ft": 32768,
+		"iS": 779,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/spice.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/spice@2x.png": {
+		"ft": 32768,
+		"iS": 1441,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/spice@2x.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/svg\/carrot.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/carrot.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/carrot_white.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/carrot_white.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/chees.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/chees.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/chees_white.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/chees_white.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/chicken.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/chicken.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/chicken_white.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/chicken_white.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/coldrun.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/coldrun.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/coldrun_white.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/coldrun_white.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/egg.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/egg.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/egg_white.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/egg_white.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/empty_star.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/empty_star.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/fish.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/fish.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/fish_white.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/fish_white.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/full_star.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/full_star.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/knife.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/knife.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/knife_white.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/knife_white.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/logo.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/logo.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/logo_transparent.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/logo_transparent.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/logo_white.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/logo_white.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/meat.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/meat.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/meat_white.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/meat_white.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/milk.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/milk.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/milk_white.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/milk_white.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/no_gluten.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/no_gluten.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/no_gluten_white.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/no_gluten_white.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/onion.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/onion.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/onion_white.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/onion_white.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/pan.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/pan.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/pan_white.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/pan_white.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/red_wine.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/red_wine.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/red_wine_white.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/red_wine_white.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/search.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/search.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/search_white.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/search_white.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/soup.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/soup.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/soup_white.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/soup_white.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/spatchela.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/spatchela.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/spatchela_white.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/spatchela_white.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/spice.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/spice.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/spice_white.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/spice_white.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/time.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/time.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/tomato.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/tomato.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/tomato_white.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/tomato_white.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/vegetables.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/vegetables.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/vegetables_white.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/vegetables_white.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/wheat.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/wheat.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/wheat_white.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/wheat_white.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/whisp.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/whisp.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/whisp_white.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/whisp_white.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/white_wine.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/white_wine.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/svg\/white_wine_white.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/build\/assets\/img\/icons\/svg\/white_wine_white.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/assets\/img\/icons\/tomato.png": {
+		"ft": 32768,
+		"iS": 900,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/tomato.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/tomato@2x.png": {
+		"ft": 32768,
+		"iS": 1789,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/tomato@2x.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/vegetables.png": {
+		"ft": 32768,
+		"iS": 1221,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/vegetables.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/vegetables@2x.png": {
+		"ft": 32768,
+		"iS": 2497,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/vegetables@2x.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/wheat.png": {
+		"ft": 32768,
+		"iS": 1019,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/wheat.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/wheat@2x.png": {
+		"ft": 32768,
+		"iS": 1959,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/wheat@2x.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/whisp.png": {
+		"ft": 32768,
+		"iS": 1082,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/whisp.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/whisp@2x.png": {
+		"ft": 32768,
+		"iS": 2138,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/whisp@2x.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/white_wine.png": {
+		"ft": 32768,
+		"iS": 767,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/white_wine.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/icons\/white_wine@2x.png": {
+		"ft": 32768,
+		"iS": 1479,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/icons\/white_wine@2x.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/recipis\/kingcrab.jpg": {
+		"ft": 16384,
+		"iS": 696078,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/recipis\/kingcrab.jpg",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/recipis\/oyster.jpg": {
+		"ft": 16384,
+		"iS": 159787,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/recipis\/oyster.jpg",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/recipis\/pasta.jpg": {
+		"ft": 16384,
+		"iS": 623102,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/recipis\/pasta.jpg",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/assets\/img\/recipis\/reindeer_large.jpg": {
+		"ft": 16384,
+		"iS": 465114,
+		"oA": 0,
+		"oAP": "\/build\/assets\/img\/recipis\/reindeer_large.jpg",
+		"oF": 0,
+		"opt": 1
 		},
 	"\/source\/assets\/js\/googleMapsStyle.js": {
 		"ft": 64,
@@ -208,6 +1289,34 @@
 		"oS": 3,
 		"uL": 1
 		},
+	"\/source\/assets\/sql\/blacklistfood.sql": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/assets\/sql\/blacklistfood.sql",
+		"oF": 0
+		},
+	"\/source\/bower.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/build\/bower-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/source\/bower_components\/jquery\/AUTHORS.txt": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/bower_components\/jquery\/AUTHORS.txt",
+		"oF": 0
+		},
+	"\/source\/bower_components\/jquery\/bower.json": {
+		"ft": 524288,
+		"oA": 2,
+		"oAP": "\/build\/bower_components\/jquery\/bower.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
 	"\/source\/bower_components\/jquery\/dist\/core.js": {
 		"ft": 64,
 		"mi": 1,
@@ -235,6 +1344,12 @@
 		"sC": 1,
 		"tS": 0
 		},
+	"\/source\/bower_components\/jquery\/dist\/jquery.min.map": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/bower_components\/jquery\/dist\/jquery.min.map",
+		"oF": 0
+		},
 	"\/source\/bower_components\/jquery\/dist\/jquery.slim.js": {
 		"ft": 64,
 		"mi": 1,
@@ -253,6 +1368,12 @@
 		"sC": 1,
 		"tS": 0
 		},
+	"\/source\/bower_components\/jquery\/dist\/jquery.slim.min.map": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/bower_components\/jquery\/dist\/jquery.slim.min.map",
+		"oF": 0
+		},
 	"\/source\/bower_components\/jquery\/external\/sizzle\/dist\/sizzle.js": {
 		"ft": 64,
 		"mi": 1,
@@ -270,6 +1391,42 @@
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
+		},
+	"\/source\/bower_components\/jquery\/external\/sizzle\/dist\/sizzle.min.map": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/bower_components\/jquery\/external\/sizzle\/dist\/sizzle.min.map",
+		"oF": 0
+		},
+	"\/source\/bower_components\/jquery\/external\/sizzle\/LICENSE.txt": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/bower_components\/jquery\/external\/sizzle\/LICENSE.txt",
+		"oF": 0
+		},
+	"\/source\/bower_components\/jquery\/LICENSE.txt": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/bower_components\/jquery\/LICENSE.txt",
+		"oF": 0
+		},
+	"\/source\/bower_components\/jquery\/README.md": {
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"eLB": 0,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 2,
+		"oAP": "\/build\/bower_components\/jquery\/README.md",
+		"oF": 0,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
 		},
 	"\/source\/bower_components\/jquery\/src\/ajax.js": {
 		"ft": 64,
@@ -1179,6 +2336,114 @@
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
+		},
+	"\/source\/index.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/index.php",
+		"oF": 0
+		},
+	"\/source\/phpunit.xml": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/phpunit.xml",
+		"oF": 0
+		},
+	"\/source\/README.md": {
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"eLB": 0,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/build\/README.html",
+		"oF": 0,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/source\/view\/about.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/view\/about.php",
+		"oF": 0
+		},
+	"\/source\/view\/groups.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/view\/groups.php",
+		"oF": 0
+		},
+	"\/source\/view\/index.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/view\/index.php",
+		"oF": 0
+		},
+	"\/source\/view\/layout\/article_front.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/view\/layout\/article_front.php",
+		"oF": 0
+		},
+	"\/source\/view\/layout\/article_front_left.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/view\/layout\/article_front_left.php",
+		"oF": 0
+		},
+	"\/source\/view\/layout\/foot.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/view\/layout\/foot.php",
+		"oF": 0
+		},
+	"\/source\/view\/layout\/head.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/view\/layout\/head.php",
+		"oF": 0
+		},
+	"\/source\/view\/login.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/view\/login.php",
+		"oF": 0
+		},
+	"\/source\/view\/nearby.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/view\/nearby.php",
+		"oF": 0
+		},
+	"\/source\/view\/recipie.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/view\/recipie.php",
+		"oF": 0
+		},
+	"\/source\/view\/recipies.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/view\/recipies.php",
+		"oF": 0
+		},
+	"\/WebPro3.esproj\/Project.espressostorage": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/WebPro3.esproj\/Project.espressostorage",
+		"oF": 0
+		},
+	"\/WebPro3.esproj\/user.miatollaksvik.espressostorage": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/WebPro3.esproj\/user.miatollaksvik.espressostorage",
+		"oF": 0
 		}
 	},
 "hooks": [
