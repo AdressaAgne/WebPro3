@@ -72,6 +72,54 @@ class NearByController extends BaseController {
         
     }
     
+    public function testapi(){
+        //fetch all blacklisted species from artsobservasjoner
+        
+        $csv = new Csv();
+        $taxons = ['60303',
+                  '14365',
+                  '84141',
+                  '38890',
+                  '26171',
+                  '3457'];
+
+        $taxons = implode(',', $taxons);
+        $pageSize = 500;
+        
+        $this->clearTable('artskart');
+        $urls = [];
+        for($i = 0; $i < 2; $i++){
+            $pageIndex = ($pageSize * $i);
+            
+//            $url = 'http://artskart2.artsdatabanken.no/Api/Observations/list?pageIndex='.$pageIndex.'&pageSize='.$pageSize.'&Taxons='.$taxons;
+//            $a = json_decode(file_get_contents($url));
+            $urls[] = $url;
+            $data = [];
+            //foreach($a->Observations as $key => $value){
+                $data[] = [
+                    'taxonID' => $value->TaxonId,
+                    'lat' => $value->Longitude,
+                    'lng' => $value->Latitude,
+                ];
+           // }
+            
+            return $this->insert([
+                [
+                    'taxonID' => '84141', 
+                    'lat' => 'tall takk', 
+                    'lng' => 'mertall takk', 
+                
+                ],[
+                    'taxonID' => '1234', 
+                    'lat' => 'tall', 
+                    'lng' => 'mertall', 
+                
+                ],
+            ], 'artskart');
+            
+        }
+    }
+    
     public function get_location_by_taxon(){
         
         $this->query("Select list.name, list.sicentificName, kart.taxonID, kart.lat, kart.lng FROM artskart WHERE ")-fetchAll();

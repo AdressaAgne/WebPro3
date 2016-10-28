@@ -11,7 +11,6 @@ use App\Api\Populate as pop;
  * @return object View
  */
 class MigrateController extends BaseController {
-    // run on get /
     
     public function migrate(){
         

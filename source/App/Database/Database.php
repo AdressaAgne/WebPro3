@@ -32,9 +32,18 @@ class Database {
      * @param array  &$args 
      */
     public static function arrayBinder(&$query, &$args) {
-        foreach ($args as $key => $value) {
-            $query->bindValue(':'.$key, htmlspecialchars($value));
+        if(gettype($args[0]) == 'array'){
+            foreach ($args as $keys => $arg) {
+                foreach ($arg as $key => $value) {
+                    $query->bindValue(':'.$key, htmlspecialchars($value));
+                }
+            }
+        } else {
+            foreach ($args as $key => $value) {
+                $query->bindValue(':'.$key, htmlspecialchars($value));
+            }
         }
+        
 	}
     
     /**
@@ -133,15 +142,26 @@ class Database {
      * @return boo  
      */
     public static function insert(array $data, $table = null){
-        $rows = [];
+        $trows = [];
         $placeholder = [];
         $values = [];
-        foreach($data as $key => $value){
-            $rows[] = $key;
-            $placeholder[] = ":".$key;
+        $insertData = [];
+        foreach($data[0] as $key => $value){
+            $trows[] = $key;
         }
-        $rows = implode(",", $rows);
+        
+        foreach($data as $nr => $rows){
+            $p = [];
+            foreach($rows as $key => $row){
+                $p[] = ":".$key;
+                $insertData[$key] = $row;
+            }
+            $placeholder[] = '('.implode(",", $p).')';
+        }
+        
+        $trows = implode(",", $trows);
         $placeholder = implode(",", $placeholder);
-        return self::query("INSERT INTO {$table} ({$rows}) VALUE({$placeholder})", $data);
+        //return [("INSERT INTO {$table} ({$trows}) VALUE {$placeholder}"), $data];
+        return self::query("INSERT INTO {$table} ({$rows}) VALUE {$placeholder}", $data);
     }
 }
