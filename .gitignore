@@ -16,3 +16,7 @@ WebPro3.esproj/user.miatollaksvik.espressostorage
 build/assets/data/stedsnavn.json
 
 build/assets/data/stedsnavn-min.json
+
+*.espressostorage
+
+WebPro3.esproj/user.miatollaksvik.espressostorage
