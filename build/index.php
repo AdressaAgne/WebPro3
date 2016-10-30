@@ -1,5 +1,5 @@
 <?php
-set_time_limit (600);
+//set_time_limit (6000000);
 
 // The start of everything!
 require_once("App/App.php");

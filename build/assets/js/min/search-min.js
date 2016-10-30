@@ -1,0 +1,1 @@
+$(function(){var n="/api/search/";$("[type=search]").on("keyup",function(){console.info("typing.."),$("#search-result").html(""),$(this).val().length>2&&$.get({url:n+$(this).val(),dataType:"json",success:function(n){console.log(n);for(var e=0;e<n.length;e++)$("#search-result").append("<li><a href='/taxon/item/"+n[e].taxonId+"'>"+n[e].navn+"</a></li>")}})})});

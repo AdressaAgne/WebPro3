@@ -1,7 +1,7 @@
 // google maps api key: AIzaSyC7i0o5mdEYSbG_wqoWAx53tAP1xxTKVQo 
 
 function getLocation() {
-    if(!navigator.geolocation)  return;
+    //if(!navigator.geolocation)  return;
     navigator.geolocation.getCurrentPosition(showPosition, showError);
 }
 getLocation();
@@ -62,18 +62,19 @@ function setMap(pos) {
         dataType: 'json',
         success: function(taxons){
             console.log(taxons);
-            for (var i = 0; i < taxons.length; i++) {
-                var data = taxons[i];
-                var markerCords = {lat: Number(data.lat), lng: Number(data.lng)};
-                image = '/assets/img/icons/fish.png';
-                markers[i] = new google.maps.Marker({
-                    map: map,
-                    position: markerCords,
-                    title: data.navn,
-                });
-            }
-            map.setZoom(9);
-            map.panTo(pos);
+                for (var i = 0; i < taxons.length; i++) {
+                    var data = taxons[i];
+                    var markerCords = {lat: Number(data.lat), lng: Number(data.lng)};
+                    image = '/assets/img/icons/fish.png';
+                    markers[i] = new google.maps.Marker({
+                        map: map,
+                        position: markerCords,
+                        title: data.navn,
+                    });
+                }
+                map.setZoom(9);
+                map.panTo(pos);
+
         },
     });
 }

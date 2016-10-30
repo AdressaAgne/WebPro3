@@ -13,9 +13,11 @@ Direct::post("/login", 'LoginController@post');
 
 Direct::post("/register", 'LoginController@reg');
 
-
-Direct::get("/recipie/item/{taxon}", 'MainController@recipie');
+Direct::get("/recipie/item/{id}", 'MainController@recipie');
 Direct::get("/recipie", 'MainController@recipies');
+Direct::get("/species", 'MainController@species');
+Direct::get("/taxon/item/{taxon}", 'MainController@specie');
+Direct::get("/api/taxon/{taxon}", 'NearByController@get_location_by_taxon');
 Direct::get("/nearby", 'NearByController@index');
 Direct::get("/about", 'MainController@about');
 

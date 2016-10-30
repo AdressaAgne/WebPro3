@@ -84,47 +84,55 @@ class NearByController extends BaseController {
                   '3457'];
 
         $taxons = implode(',', $taxons);
-        $pageSize = 500;
+        $pageSize = 1000;
+
+        $total = json_decode(file_get_contents('http://artskart2.artsdatabanken.no/Api/Observations/list?pageIndex=0&pageSize=1&Taxons='.$taxons))->TotalPages;
+
+        //$this->clearTable('artskart');
         
-        $this->clearTable('artskart');
         $urls = [];
-        for($i = 0; $i < 2; $i++){
-            $pageIndex = ($pageSize * $i);
-            
-//            $url = 'http://artskart2.artsdatabanken.no/Api/Observations/list?pageIndex='.$pageIndex.'&pageSize='.$pageSize.'&Taxons='.$taxons;
-//            $a = json_decode(file_get_contents($url));
-            $urls[] = $url;
+       
+        
+        for($i = 0; $i < $total; $i++){
             $data = [];
-            //foreach($a->Observations as $key => $value){
+            $url = 'http://artskart2.artsdatabanken.no/Api/Observations/list?pageIndex='.$i.'&pageSize='.$pageSize.'&Taxons='.$taxons;
+            $a = json_decode(file_get_contents($url));
+            $urls[] = $url;
+           
+            foreach($a->Observations as $key => $value){
                 $data[] = [
                     'taxonID' => $value->TaxonId,
-                    'lat' => $value->Longitude,
-                    'lng' => $value->Latitude,
+                    'lng' => $value->Longitude,
+                    'lat' => $value->Latitude,
                 ];
-           // }
+            }
             
-            return $this->insert([
-                [
-                    'taxonID' => '84141', 
-                    'lat' => 'tall takk', 
-                    'lng' => 'mertall takk', 
-                
-                ],[
-                    'taxonID' => '1234', 
-                    'lat' => 'tall', 
-                    'lng' => 'mertall', 
-                
-                ],
-            ], 'artskart');
+            $this->insert($data, 'artskart');
             
         }
+        
+        return $a;
     }
     
-    public function get_location_by_taxon(){
+    public function placesApi(){
+        $file = "assets/data/stedsnavn.json";
+        $json = json_decode(file_get_contents($file));
+        $data = [];
+        foreach($json as $key => $value){
+            $data[] = [
+                'name' => $value->properties->for_snavn,
+                'lat' => $value->geometry->coordinates[0],
+                'lng' => $value->geometry->coordinates[1],
+            ];  
+        }
+
+        return $this->insert($data, 'places');
+    }
+    
+    public function get_location_by_taxon($p){
         
-        $this->query("Select list.name, list.sicentificName, kart.taxonID, kart.lat, kart.lng FROM artskart WHERE ")-fetchAll();
-        
-        return ['taxons' => $array];
+        return $this->query("SELECT * FROM artskart WHERE taxonID = :taxon LIMIT 500",['taxon' => $p['taxon']])->fetchAll();
+      
     }
     
     public function taxon_api($p){

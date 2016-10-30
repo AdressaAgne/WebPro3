@@ -7,6 +7,7 @@ class Controller extends DB{
     
     public static $site_wide_vars = [
         'user' => null,
+        'google_key' => 'AIzaSyC7i0o5mdEYSbG_wqoWAx53tAP1xxTKVQo',
     ];
     
     public function __construct(){

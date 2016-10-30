@@ -1,4 +1,5 @@
 .search
+    position: relative
     @extend .col-l-4
     @extend .col-6
     @extend .col-m-8
@@ -9,7 +10,7 @@
         -moz-appearance:    none
         appearance:         none
         display: block
-        width: calc(100% - 60px)
+        width: calc(100% - 120px)
         font-size: 16px
         font-weight: 300
         height: 30px
@@ -21,7 +22,7 @@
         float: left
         border-radius: 3px 0px 0px 3px
         
-    .search-icon button
+    .search-icon button, .geosearch-icon a
         float: left
         width: 60px
         height: 40px
@@ -29,10 +30,31 @@
         cursor: pointer
         border: none
         box-sizing: border-box
-        border-radius: 0px 3px 3px 0px
+        display: block
+        
         &:hover
             background-color: $theme-color-700
         
+    .geosearch-icon a
+        padding: 4px
+        border-radius: 0px 3px 3px 0px
+  
+.search-result
+    position: absolute
+    width: calc(100% - 40px)
+    top: 60px
+    background-color: $theme-color
+    z-index: 99999
+
+    
+#search-result li
+    list-style: none
+    a
+        padding: 10px
+        border-bottom: 1px solid $theme-color-700
+        border-top: 1px solid $theme-color-300
+        width: 100%
+        display: block
 
 input[type='text'], input[type='password']
     font-family: 'Roboto', sans-serif

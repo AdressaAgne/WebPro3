@@ -37,6 +37,7 @@ class Migrations{
             new Row('name', 'varchar'),
             new Row('description', 'text'),
             new Row('image', 'text'),
+            new Row('how', 'text'),
         ]);
         
         // a ingredient for a recipie
@@ -64,5 +65,13 @@ class Migrations{
             new Row('user_id', 'int'),
             new Row('recipie_id', 'int'),
         ]);
+        
+        $db->createTable('places', [
+            new Row('id', 'int', null, true, true),
+            new Row('name', 'varchar(255)'),
+            new Row('lat', 'FLOAT(10,6)'),
+            new Row('lng', 'FLOAT(10,6)'),
+        ]);
+        
     }
 }

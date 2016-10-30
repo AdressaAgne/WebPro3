@@ -20,6 +20,7 @@ class Database {
             $dns .= ';dbname='.Config::$database;
             self::$db = new PDO($dns, Config::$username, Config::$password);
             self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+            //self::$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ); 
             
         } catch (PDOException $e) {
              die('Could not connect to Database'. $e);
@@ -32,18 +33,9 @@ class Database {
      * @param array  &$args 
      */
     public static function arrayBinder(&$query, &$args) {
-        if(gettype($args[0]) == 'array'){
-            foreach ($args as $keys => $arg) {
-                foreach ($arg as $key => $value) {
-                    $query->bindValue(':'.$key, htmlspecialchars($value));
-                }
-            }
-        } else {
-            foreach ($args as $key => $value) {
-                $query->bindValue(':'.$key, htmlspecialchars($value));
-            }
+        foreach ($args as $key => $value) {
+            $query->bindValue(':'.$key, htmlspecialchars($value));
         }
-        
 	}
     
     /**
@@ -153,15 +145,15 @@ class Database {
         foreach($data as $nr => $rows){
             $p = [];
             foreach($rows as $key => $row){
-                $p[] = ":".$key;
-                $insertData[$key] = $row;
+                $p[] = ":".$key.$nr;
+                $insertData[$key.$nr] = $row;
             }
-            $placeholder[] = '('.implode(",", $p).')';
+            $placeholder[] = '('.implode(", ", $p).')';
         }
         
-        $trows = implode(",", $trows);
-        $placeholder = implode(",", $placeholder);
-        //return [("INSERT INTO {$table} ({$trows}) VALUE {$placeholder}"), $data];
-        return self::query("INSERT INTO {$table} ({$rows}) VALUE {$placeholder}", $data);
+        $trows = implode(", ", $trows);
+        $placeholder = implode(", ", $placeholder);
+        //return [("INSERT INTO {$table} ({$trows}) VALUES {$placeholder}"), $insertData];
+        return self::query("INSERT INTO {$table} ({$trows}) VALUES {$placeholder}", $insertData);
     }
 }

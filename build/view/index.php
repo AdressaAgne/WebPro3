@@ -1,6 +1,5 @@
 @layout('layout.head', $user)
 
-
 <main>
     
     <section class="row primary-header" style="background-image: url('/assets/img/recipis/oyster.jpg')">
@@ -15,37 +14,37 @@
                     <label class="search-icon">
                         <button><i class="icon-search--white icon--small icon--center"></i></button>
                     </label>
+                    <label class="geosearch-icon">
+                        <a href="/nearby"><i class="icon-geo--white icon--small icon--center"></i></a>
+                    </label>
+                    
+                    <div class="search-result">
+                        <ul id="search-result">
+
+                        </ul>   
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     
-   
-    <section class="container__side--small visible-m">
-        
-        <div class="container">
-            
-            <h2 class="page-header"><i class="icon-no_gluten--white icon--header"></i> Gluten Fri Oppskrifter</h2>
-            
-        </div>
-        
-    </section>
-    
     <section class="container">
+       <h1 class="page-header underline center">Oppskrifter</h1>
+       @foreach($food as $v)
        
-       
-       
-       @foreach($food as $value)
-       
-           @layout('layout.article_front', ['title' => $value, 'text' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, necessitatibus.', 'image' => '/assets/img/recipis/pasta.jpg'])
+           @layout('layout.article_front', ['v' => $v])
        
        @endforeach
        
+       <h1 class="page-header underline center">Nyheter</h1>
        
-       @layout('layout.article_front_left', ['title' => 'Reinsdyrsgryte', 'text' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, tempora.', 'image' => '/assets/img/recipis/reindeer_large.jpg'])
-        
+       @foreach($food as $v)
+       
+           @layout('layout.article_front', ['v' => $v])
+       
+       @endforeach
     </section>
 </main>
-
-
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="assets/js/min/search-min.js"></script>
 @layout('layout.foot')

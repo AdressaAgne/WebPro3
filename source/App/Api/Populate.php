@@ -18,13 +18,14 @@ class Populate {
         $db->clearTable('blacklist');
         
         foreach($csv->fetchAll() as $key => $value){
-           $db->insert([
+           $db->insert([[
                'scientificName' => $value['Vitenskapelig navn'],
                'navn'           => $value['Norsk navn'],
                'svalbard'       => ($value['Norge/Svalbard'] == 'N' ? false : true),
                'risiko'         => $value['Risiko'],
                'taxonID'        => $value['TaxonId'],
-           ], 'blacklist');
+               'gruppe'        => Taxon::getGroupName(Taxon::byID($value['TaxonId'])),
+           ]], 'blacklist');
         }
         
     }
