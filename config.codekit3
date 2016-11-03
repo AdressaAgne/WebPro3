@@ -11,15 +11,15 @@
 "files": {
 	"\/.gitignore": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/build\/.gitignore",
-		"oF": 0
+		"oF": 1
 		},
 	"\/.travis.yml": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/build\/.travis.yml",
-		"oF": 0
+		"oF": 1
 		},
 	"\/bower.json": {
 		"ft": 524288,
@@ -2280,7 +2280,7 @@
 	"displayValue": "WebPro3",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-punDog",
-	"lastBuiltDate": 499559914
+	"lastBuiltDate": 499560916
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

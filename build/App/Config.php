@@ -14,13 +14,15 @@ class Config {
     */
     
     public static $host = 'localhost';
-//    public static $database = 'agne_no_farlig_godt';
-//    public static $username = 'agne_no_farlig_godt';
-//    public static $password = 'Coleoptera';
+  //public static $database = 'blacklistfood';
+  //public static $username = 'root';
+  //public static $password = 'root';
     
-    public static $database = 'blacklistfood';
-    public static $username = 'root';
-    public static $password = 'root';
+    public static $database = 'agne_no_farlig_godt';
+    public static $username = 'agne_no_farlig_godt';
+    public static $password = 'Coleoptera';
+    
+    
     
     
     public static $cookie_time = 86400 * 30;
