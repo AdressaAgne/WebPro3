@@ -7,7 +7,7 @@ use PDO;
 class Database {
     public static $db;
     public static $table;
-    
+
     /**
      * Init Database connection
      * @private
@@ -15,32 +15,36 @@ class Database {
      */
     public function __construct(){
         try {
-            
+
             $dns = 'mysql:host='.Config::$host;
             $dns .= ';dbname='.Config::$database;
             self::$db = new PDO($dns, Config::$username, Config::$password);
             self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-            //self::$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ); 
-            
+            //self::$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+
         } catch (PDOException $e) {
              die('Could not connect to Database'. $e);
         }
     }
-    
+
+    public static function do(){
+      return new self();
+    }
+
     /**
      * Bind Values to PDO prepare
      * @param object   &$query
-     * @param array  &$args 
+     * @param array  &$args
      */
     public static function arrayBinder(&$query, &$args) {
         foreach ($args as $key => $value) {
             $query->bindValue(':'.$key, htmlspecialchars($value));
         }
 	}
-    
+
     /**
      * Execute a PDO mysql Query
-     * @param  string   $sql                   
+     * @param  string   $sql
      * @param  array    [$args                 = null]
      * @return object
      */
@@ -60,19 +64,19 @@ class Database {
     public static function all($rows = ['*'], $table = null){
         return self::query('SELECT '.implode(', ', $rows).' FROM '.$table)->fetchAll();
     }
-    
-  
+
+
     /**
      * Delete a row from a table
      * @param  string       [$col = 'id']   col name
      * @param  string       [$val = 0]      Value of col to delete
      * @param  string       [$table = null] Table name
-     * @return object/false 
+     * @return object/false
      */
     public static function deleteWhere($col = 'id', $val = 0, $table = null){
         return self::query("DELETE FROM {$table} WHERE {$col} = :val", ['val' => $val]);
     }
-    
+
     /**
      * clear a table
      * @param  string  $table MySQL table
@@ -81,35 +85,35 @@ class Database {
     public static function clearTable($table){
          return self::query("DELETE from $table");
     }
-    
+
     public function clearOut(){
         $this->query('DROP DATABASE IF EXISTS '.Config::$database);
-        
+
         if($this->query('CREATE DATABASE IF NOT EXISTS `'.Config::$database.'` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci; USE `'.Config::$database.'`;')){
             return true;
         }
     }
-    
+
     /**
      * create a new table
      * @param  string  $name table name
      * @param  array   $rows arrow of Row objects
      * @return boolean
      */
-    public function createTable($name, array $rows){        
+    public function createTable($name, array $rows){
         $query = "CREATE TABLE `".$name."` (";
         $row_arr = [];
         foreach($rows as $key => $row){
              $row_arr[] = $row->toString();
         }
-        
+
         $query .= implode(", ", $row_arr);
         $query .= ") ENGINE=InnoDB DEFAULT CHARSET=utf8;";
         //die($query);
         return $this->query($query);
-        
+
     }
-    
+
     /**
      * covert variables types to sql variable types
      * @author Agne *degaard
@@ -123,15 +127,15 @@ class Database {
             'tinyint' => 'tinyint(1)',
             'boolean' => 'tinyint(1)',
         ];
-        
+
         return array_key_exists($type, $types) ? $types[$type] : $type;
-    }    
-    
+    }
+
     /**
      * insert one row to table
-     * @param  array  array $data 
+     * @param  array  array $data
      * @param  string [$table = null] MySQL table
-     * @return boo  
+     * @return boo
      */
     public static function insert(array $data, $table = null){
         $trows = [];
@@ -141,7 +145,7 @@ class Database {
         foreach($data[0] as $key => $value){
             $trows[] = $key;
         }
-        
+
         foreach($data as $nr => $rows){
             $p = [];
             foreach($rows as $key => $row){
@@ -150,7 +154,7 @@ class Database {
             }
             $placeholder[] = '('.implode(", ", $p).')';
         }
-        
+
         $trows = implode(", ", $trows);
         $placeholder = implode(", ", $placeholder);
         //return [("INSERT INTO {$table} ({$trows}) VALUES {$placeholder}"), $insertData];
