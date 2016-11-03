@@ -5,8 +5,8 @@ namespace App\Helpers;
 use Config;
 
 class Compressor {
-    
-    
+
+
     private $image;
     private $ratioW;
     private $ratioH;
@@ -15,24 +15,24 @@ class Compressor {
     private $mime;
     private $name;
     private $folder;
-    
+
     function __construct($file){
-            $this->folder = Config::$userFiles;
-        
+            $this->folder = Config::$files['compressed'];
+
             list($this->width, $this->height) = getimagesize($file);
             $this->image = $file;
             $this->mime = getimagesize($file)['mime'];
-            $this->ratioW = $height / $width;
-            $this->ratioH = $width / $height;
+            $this->ratioW = $this->height / $this->width;
+            $this->ratioH = $this->width / $this->height;
             $this->name = basename($file);
-        
+
             if(!file_exists($this->folder)){
                 mkdir($this->folder, 0777);
             }
-           
-       
+
+
     }
-    
+
     /**
      * static call Compressor($file)->resize...
      * @author Agne *degaard
@@ -42,7 +42,14 @@ class Compressor {
     public static function image($file){
         return new Compressor($file);
     }
-    
+
+
+
+    public function resizeAuto($size) {
+      if($this->width > $this->height) return $this->resizeWidth($size);
+      return $this->resizeHeight($size);
+    }
+
     /**
      * resize image by Width
      * @author Agne *degaard
@@ -54,9 +61,9 @@ class Compressor {
         $h = $w * $this->ratioW;
         $name = ($name == null) ? $this->name : $name;
         return $this->resize($w, $h, $name);
-        
+
     }
-    
+
     /**
      * resize image by Height
      * @author Agne *degaard
@@ -69,12 +76,12 @@ class Compressor {
         $name = ($name == null) ? $this->name : $name;
         return $this->resize($w, $h, $name);
     }
-    
+
     /**
      * Do the actuall resizeing
      * @author Agne *degaard
-     * @param  integer $w    
-     * @param  integer $h    
+     * @param  integer $w
+     * @param  integer $h
      * @param  string  $name
      * @return string  image locaton
      */
@@ -82,40 +89,40 @@ class Compressor {
         $image = imagecreatetruecolor($w, $h);
         imagealphablending($image, true);
         imagesavealpha($image, true);
-        
+
         $folder = $this->folder.intval($w)."x".intval($h)."_".$name;
-        
+
         switch($this->mine){
             case "image/png":
                 imagefill($image,0, 0, 0x7fff0000);
                 $source = imagecreatefrompng($this->image);
                 break;
-                
+
             case "image/jpeg":
                 $source = imagecreatefromjpeg($this->image);
                 break;
-                
+
             default:
                 return "Wrong Image type, only jpeg or png";
                 break;
-                
+
         }
-        
+
         // Resize
         imagecopyresized($image, $source, 0, 0, 0, 0, $w, $h, $this->width, $this->height);
-        
+
         switch($this->mine){
             case "image/png":
                 imagepng($image, $folder);
                 break;
-                
+
             case "image/jpeg":
                 imagejpeg($image, $folder);
                 break;
-                
+
         }
-        
+
         return  $folder; //'data: '.$this->mime.';base64,'.base64_encode($content);
     }
-    
+
 }
