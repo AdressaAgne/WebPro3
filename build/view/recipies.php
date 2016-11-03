@@ -3,18 +3,23 @@
 
 <main>
 
-    <section class="row primary-header" style="background-image: url('/assets/img/recipis/kingcrab.jpg')">
+    <section class="row primary-header" style="background-image: url('/assets/img/recipis/oppskriftbanner.jpg')">
 
         <h1 class="primary-header-text center">Oppskrifter</h1>
         
 
     </section>
     <div class="container">
-        @foreach($food as $v)
-
-            @layout('layout.article_front', ['v' => $v])
-
-        @endforeach
+	    <div class="col-4">
+	    	searvh
+	    </div>
+	    <div class="col-8">
+	        @foreach($food as $res)
+				<div class="col-4">
+		            @layout('layout.recipie', ['res' => $res])
+				</div>
+	        @endforeach
+	     </div>
     </div>
 </main>
 
