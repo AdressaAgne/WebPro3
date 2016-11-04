@@ -4,28 +4,28 @@
 ### PHP
 
 * [ ] User Authentication
-    * [ ] Login
-    * [ ] Register
+    * [x] Login
+    * [x] Register
     * [ ] Porfile Settings
     * [ ] Secutiry Settings
     * [ ] Last login IP check?
 * [ ] Mail System
-* [ ] Image Compressor Class
-* [ ] Image uploader
+* [x] Image Compressor Class
+* [x] Image uploader
 * [ ] Recipe Class
 * [ ] User Class
-* [ ] Unit Convertion Class
+* [x] Unit Convertion Class
 * [ ] Auto Migrate when database is not found
 * [x] Restfull routing
 * [x] base MVC
-* [ ] Better sepecies opservation migration from Artskart API
+* [x] Better sepecies opservation migration from Artskart API
 * [ ] Frontpage recipe algorythem
 * [ ] Recipe rating?
 
 ### Database / MySQL
 
-* [ ] Recipe table
-* [ ] User table
+* [x] Recipe table
+* [x] User table
 * [ ] Units table
 * [x] Species table
 * [x] Species opservations table
@@ -53,7 +53,7 @@
 ## Data
 
 * [ ] Sort data by edible species
-* [ ] Text for our vision
+* [x] Text for our vision
 
 
 # CSS Grid Documentation
