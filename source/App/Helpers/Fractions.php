@@ -19,15 +19,15 @@ class Fractions {
 
         // Make fraction into string
         switch ($onlyDecimals) {
-            case '0.25':
+            case 0.25:
                 $fraction = "¼";
                 break;
 
-            case '0.50':
+            case 0.50:
                 $fraction = "½";
                 break;
 
-            case '0.75':
+            case 0.75:
                 $fraction = "¾";
                 break;
 
