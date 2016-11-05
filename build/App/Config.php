@@ -67,6 +67,10 @@ class Config {
         // Config
         '\App\Config' => 'Config',
 
+        // Modules
+        '\App\Modules\Module' => 'Module',
+        '\App\Modules\Recipie' => 'Recipie',
+        
         // Database
         '\App\Database\Database' => 'DB',
         '\App\Database\Row' => 'Row',
@@ -77,6 +81,7 @@ class Config {
         '\App\View' => 'View',
         '\App\Routing\Direct' => 'Direct',
         '\App\Routing\Route' => 'Route',
+        '\App\Routing\RouteHandler' => 'RouteHandler',
         '\App\Render' => 'Render',
 
         // API

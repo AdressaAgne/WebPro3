@@ -43,7 +43,7 @@ class Uploader {
           $this->errors[] = $this->upload_errors_array[$file['error']];
           return false;
         }
-        agne.jpeg
+        
         $this->filename =  uniqid(basename($file['name']));
         $this->tmp_path = $file['tmp_name'];
         $this->size     = $file['size'];
@@ -61,7 +61,7 @@ class Uploader {
           Compressor::image($file)->resizeAuto(Config::$files['compressedSize']);
           DB::do()->insert('image', [
             'user_id' => $_SESSION['uuid'],
-            'location' => $this->picture_path();
+            'location' => $this->picture_path(),
           ]);
           return true;
         }

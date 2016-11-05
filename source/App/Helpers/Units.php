@@ -58,15 +58,15 @@ class Units {
         return (round($ConvertValue * 4.73176473, 2));
     }
 
-    public static function l_to_imppint($ConvertValue){
-
-        return (round($ConvertValue * 0.175975326, 2));
-    }
-
-    public static function imppint_to_l($ConvertValue){
-
-        return (round($ConvertValue * 5.68261485, 2));
-    }
+//    public static function l_to_imppint($ConvertValue){
+//
+//        return (round($ConvertValue * 0.175975326, 2));
+//    }
+//
+//    public static function imppint_to_l($ConvertValue){
+//
+//        return (round($ConvertValue * 5.68261485, 2));
+//    }
 
 
     // Weight units
