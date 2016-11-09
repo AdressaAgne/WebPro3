@@ -11,7 +11,7 @@
     </section>
     <div class="container">
 	    <div class="col-4">
-	    	searvh
+	    	search
 	    </div>
 	    <div class="col-8">
 	        @foreach($food as $res)
