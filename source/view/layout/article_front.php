@@ -7,6 +7,6 @@
                 <p>{{ substr($v['description'], 0 , 170) }}...</p>
             </div>
         </div>
-        <div class="col-6 food-preview__image" style="background-image: url('/assets/img/recipis/{{$v['image']}}');"></div>
+        <div class="col-6 food-preview__image" style="background-image: url('{{$v['image']}}');"></div>
     </article>
 </a>

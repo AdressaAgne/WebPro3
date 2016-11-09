@@ -75,7 +75,7 @@ class Database {
             foreach($data as $key => $value){
                 $arg[] = "$key = :$key";
             }
-            $where = " WHERE ".implode(" $join ", $args);
+            $where = " WHERE ".implode(" $join ", $arg);
         } else {
             $where = "";
         }
@@ -176,6 +176,8 @@ class Database {
         $trows = implode(", ", $trows);
         $placeholder = implode(", ", $placeholder);
         //return [("INSERT INTO {$table} ({$trows}) VALUES {$placeholder}"), $insertData];
-        return self::query("INSERT INTO {$table} ({$trows}) VALUES {$placeholder}", $insertData);
+        self::query("INSERT INTO {$table} ({$trows}) VALUES {$placeholder}", $insertData);
+        
+        return self::$db->lastInsertId('id');
     }
 }

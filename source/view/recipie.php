@@ -3,7 +3,7 @@
 
 <main>
 
-    <section class="row primary-header" style="background-image: url('/assets/img/recipis/{{$recipie->image}}')">
+    <section class="row primary-header" style="background-image: url('{{$recipie->image}}')">
 
         <h1 class="primary-header-text center">{{$recipie->name}}</h1>
    
@@ -35,4 +35,4 @@
 </main>
 
 
-<!--@layout('layout.foot')-->
+@layout('layout.foot')

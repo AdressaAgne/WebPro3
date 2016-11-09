@@ -21,8 +21,8 @@ class Recipie{
         $this->how      = $query['how'];
         $this->image    = $query['image'];  
         
-        $result = DB::select(['*'], 'ingredients', ['id' => $this->id]);
-        
+        $result = DB::select(['*'], 'ingredients', ['recipie_id' => $this->id])->fetchAll();
+
         foreach($result as $i){
             $this->ingredients[$i['id']] = new Ingredient($i, 'metric');
         }

@@ -1,0 +1,53 @@
+$circle: 380
+
+.pie-chart > circle.front
+    stroke: $theme-color
+    stroke-linecap: round
+    fill: none
+    stroke-width: 10
+    stroke-dasharray: $circle
+    animation: run 1.5s ease forwards
+
+@for $i from 0 to 100
+    [data-percent="#{$i}"]
+        stroke-dashoffset: 3.8 * (100 - $i)
+    
+.pie-chart > circle.behind
+    stroke: #cccccc
+    stroke-linecap: round
+    fill: none
+    stroke-width: 10
+    
+.pie-chart
+    text-align: center
+    
+.pie-chart > text
+    fill: $theme-color
+    font-family: verdana
+
+
+@keyframes run
+    from
+        stroke-dashoffset: $circle
+    to
+        stroke-dashoffset: inheret
+        
+        
+        
+.drop
+    background-color: #efefef
+    padding: 50px
+    margin: 0px auto
+    text-align: center
+    box-sizing: border-box
+    background-size: cover
+    background-position: center center
+    display: block
+
+.drop:hover
+    background-color: #e6e6e6
+    cursor: pointer
+
+.drop.active, .drop:active
+    background-color: #e2e2e2
+    border: 1px solid #d6d6d6

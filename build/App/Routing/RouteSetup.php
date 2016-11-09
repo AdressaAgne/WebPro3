@@ -14,6 +14,9 @@ Direct::post("/login", 'LoginController@post');
 Direct::post("/register", 'LoginController@reg');
 
 Direct::get("/recipie/item/{id}", 'MainController@recipie');
+Direct::get("/recipie/insert", 'RecipieController@index');
+Direct::post("/recipie/insert", 'RecipieController@put');
+Direct::post("recipie/uploadimage", 'RecipieController@upload');
 Direct::get("/recipie", 'MainController@recipies');
 Direct::get("/species", 'MainController@species');
 Direct::get("/taxon/item/{taxon}", 'MainController@specie');
