@@ -24,7 +24,7 @@ class Recipie{
         $result = DB::select(['*'], 'ingredients', ['id' => $this->id]);
         
         foreach($result as $i){
-            $this->ingredients[] = $i;
+            $this->ingredients[] = new Ingredient($i);
         }
 
     }
