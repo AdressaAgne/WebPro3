@@ -33,12 +33,30 @@
         display: block
         
         &:hover
-            background-color: $theme-color-700
+        	background-color: $theme-color-700            
+            
+    \::-webkit-input-placeholder
+         color: rgba(255, 255, 255, .4)
+         font-style: italic
+     
+    \:-moz-placeholder
+         color: rgba(255, 255, 255, .4)
+         font-style: italic
+     
+    \::-moz-placeholder
+         color: rgba(255, 255, 255, .4)
+         font-style: italic
+     
+    \:-ms-input-placeholder
+         color: rgba(255, 255, 255, .4)
+         font-style: italic
+         
         
     .geosearch-icon a
         padding: 4px
         border-radius: 0px 3px 3px 0px
-  
+
+     
 .search-result
     position: absolute
     width: calc(100% - 40px)
@@ -120,20 +138,4 @@ input[type='submit']
     &.accent
         background-color: $accent-color
     
-    
-\::-webkit-input-placeholder
-    color: rgba(255, 255, 255, .4)
-    font-style: italic
-
-\:-moz-placeholder
-    color: rgba(255, 255, 255, .4)
-    font-style: italic
-
-\::-moz-placeholder
-    color: rgba(255, 255, 255, .4)
-    font-style: italic
-
-\:-ms-input-placeholder
-    color: rgba(255, 255, 255, .4)
-    font-style: italic
     
