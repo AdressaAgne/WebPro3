@@ -22,8 +22,9 @@ class MainController extends BaseController {
     }
     
     public function recipie($p){ 
+
         return View::make('recipie', [
-            'r' => new Recipie($this->select(['*'], 'recipies', ['id' => $p['id']])),
+            'recipie' => new Recipie($this->select(['*'], 'recipies', ['id' => $p['id']])->fetch()),
         ]);
     }
     

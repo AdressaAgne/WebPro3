@@ -68,7 +68,6 @@ class Config {
         '\App\Config' => 'Config',
 
         // Modules
-        '\App\Modules\Module' => 'Module',
         '\App\Modules\Recipie' => 'Recipie',
         
         // Database

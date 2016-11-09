@@ -4,8 +4,7 @@ namespace App\Modules;
 
 use DB;
 
-
-class Recipie extends Module{
+class Recipie{
     
     public $id;
     public $name;
@@ -25,9 +24,7 @@ class Recipie extends Module{
         $result = DB::select(['*'], 'ingredients', ['id' => $this->id]);
         
         foreach($result as $i){
-            
             $this->ingredients[] = $i;
-            
         }
 
     }

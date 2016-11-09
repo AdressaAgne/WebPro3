@@ -3,9 +3,9 @@
 
 <main>
 
-    <section class="row primary-header" style="background-image: url('/assets/img/recipis/{{$r['image']}}')">
+    <section class="row primary-header" style="background-image: url('/assets/img/recipis/{{$recipie->image}}')">
 
-        <h1 class="primary-header-text center">{{$r['name']}}</h1>
+        <h1 class="primary-header-text center">{{$recipie->name}}</h1>
    
     </section>
 
@@ -15,18 +15,18 @@
             <div class="col-3">
                <h3 class="center">Ingredients</h3>
                 <ul class="ingredients">
-                    @foreach($i as $key => $ingre)
-                        <li>{{ $ingre['amount'].$ingre['unit'] }} {{$ingre['name']}}</li>
+                    @foreach($recipie->getIngrediets() as $key => $i)
+                        <li>{{ $i['amount'] . $i['unit'] }} {{$i['name']}}</li>
                     @endforeach
                 </ul>
             </div>
 
             <div class="col-9">
                 <h3>Description</h3>
-                <p>{{$r['description']}}</p>
+                <p>{{$recipie->desc}}</p>
 
                 <h3>What to do</h3>
-                <p>{{$r['how']}}</p>
+                <p>{{$recipie->how}}</p>
             </div>
         </div>
 

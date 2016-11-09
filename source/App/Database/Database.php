@@ -80,7 +80,7 @@ class Database {
             $where = "";
         }
         
-        return self::query('SELECT '.implode(', ', $rows).' FROM '.$table.$where, $args)->fetchAll();
+        return self::query('SELECT '.implode(', ', $rows).' FROM '.$table.$where, $args);
     }
     
 
