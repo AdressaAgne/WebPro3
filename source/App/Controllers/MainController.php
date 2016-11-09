@@ -6,6 +6,8 @@ use Taxon, Csv, Maps; // APIs
 use BaseController, Migrations, Row;
 use App\Api\Populate as pop;
 
+use Recipie;
+
 /**
  * making a view with/without variables to render
  * @return object View
@@ -13,6 +15,7 @@ use App\Api\Populate as pop;
 class MainController extends BaseController {
     
     public function test(){
+        
         return View::make('index', [
             'food' => $this->all(['*'], 'recipies'),
         ]);
@@ -20,15 +23,19 @@ class MainController extends BaseController {
     
     public function recipie($p){ 
         return View::make('recipie', [
-            'r' => $this->query('SELECT * from recipies WHERE id = :id',['id' => $p['id']])->fetch(),
-            'i' => $this->query('SELECT * from ingredients WHERE recipie_id = :id',['id' => $p['id']])->fetchAll(),
+            'r' => new Recipie($this->select(['*'], 'recipies', ['id' => $p['id']])),
         ]);
     }
     
     public function recipies(){
         
+        $resipies = $this->all(['*'], 'recipies');
+        foreach($resipies as &$recipie){
+            $recipie = new Recipie($recipie);
+        }
+        
         return View::make('recipies', [
-            'food' => $this->all(['*'], 'recipies'),
+            'food' => $resipies,
         ]);
     }
     public function about() {

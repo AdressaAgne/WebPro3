@@ -65,6 +65,24 @@ class Database {
         return self::query('SELECT '.implode(', ', $rows).' FROM '.$table)->fetchAll();
     }
 
+    
+    
+    public static function select($rows = ['*'], $table = null, $data = null, $join = 'AND'){
+        $args = null;
+        if($data != null){
+            $arg = [];
+            $args = $data;
+            foreach($data as $key => $value){
+                $arg[] = "$key = :$key";
+            }
+            $where = " WHERE ".implode(" $join ", $args);
+        } else {
+            $where = "";
+        }
+        
+        return self::query('SELECT '.implode(', ', $rows).' FROM '.$table.$where, $args)->fetchAll();
+    }
+    
 
     /**
      * Delete a row from a table
