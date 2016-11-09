@@ -1,7 +1,9 @@
 <a href="/recipie/item/{{$res->id}}">
-<article class="col-12">
-	<div class="col-12 recipie-preview" style="background-image: url('/assets/img/recipis/{{$res->image}}');"></div>
-	<h2 class="medium">{{ $res->name}}</h2>
+    <article class="col-12">
+        <div class="recipie-preview" style="background-image: url('/assets/img/recipis/{{$res->image}}');">
+            
+        </div>
+        <div class="recipie-text">{{ $res->name}}</div>
 
-</article>
+    </article>
 </a>

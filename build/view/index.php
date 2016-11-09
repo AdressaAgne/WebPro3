@@ -7,14 +7,14 @@
             <div class="container">
                 <i class="icon-logo icon--gigantic icon--center"></i>
 
-                <div class="search">
+                <div class="search col-l-4 col-6 col-m-8 col--center">
                     <label class="search-box" for="search">
                         <input type="search" placeholder="Finn arter nær deg" value="">
                     </label>
                     <label class="search-icon">
-                        <button><i class="icon-search--white icon--small icon--center"></i></button>
+                        <a href="#"><i class="icon-search--white icon--small icon--center"></i></a>
                     </label>
-                    <label class="geosearch-icon">
+                    <label class="search-icon">
                         <a href="/nearby"><i class="icon-geo--white icon--small icon--center"></i></a>
                     </label>
                     

@@ -16,7 +16,7 @@
                <h3 class="center">Ingredients</h3>
                 <ul class="ingredients">
                     @foreach($recipie->getIngrediets() as $key => $i)
-                        <li>{{ $i['amount'] . $i['unit'] }} {{$i['name']}}</li>
+                        <li>{{ $i }}</li>
                     @endforeach
                 </ul>
             </div>

@@ -1,10 +1,6 @@
 .search
     position: relative
-    @extend .col-l-4
-    @extend .col-6
-    @extend .col-m-8
-    @extend .col--center
-    padding: 20px
+    padding-bottom: 20px
     input[type='search'], input[type='text']
         -webkit-appearance: none
         -moz-appearance:    none
@@ -22,7 +18,7 @@
         float: left
         border-radius: 3px 0px 0px 3px
         
-    .search-icon button, .geosearch-icon a
+    .search-icon a
         float: left
         width: 60px
         height: 40px
@@ -31,10 +27,14 @@
         border: none
         box-sizing: border-box
         display: block
+        padding: 4px
         
         &:hover
         	background-color: $theme-color-700            
-            
+        
+    .search-icon:last-of-type() a
+        border-radius: 0px 3px 3px 0px
+        
     \::-webkit-input-placeholder
          color: rgba(255, 255, 255, .4)
          font-style: italic
@@ -52,9 +52,7 @@
          font-style: italic
          
         
-    .geosearch-icon a
-        padding: 4px
-        border-radius: 0px 3px 3px 0px
+    
 
      
 .search-result
