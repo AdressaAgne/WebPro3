@@ -65,8 +65,8 @@ class Database {
         return self::query('SELECT '.implode(', ', $rows).' FROM '.$table)->fetchAll();
     }
 
-    
-    
+
+
     public static function select($rows = ['*'], $table = null, $data = null, $join = 'AND'){
         $args = null;
         if($data != null){
@@ -79,10 +79,10 @@ class Database {
         } else {
             $where = "";
         }
-        
+
         return self::query('SELECT '.implode(', ', $rows).' FROM '.$table.$where, $args);
     }
-    
+
 
     /**
      * Delete a row from a table
@@ -176,8 +176,11 @@ class Database {
         $trows = implode(", ", $trows);
         $placeholder = implode(", ", $placeholder);
         //return [("INSERT INTO {$table} ({$trows}) VALUES {$placeholder}"), $insertData];
-        self::query("INSERT INTO {$table} ({$trows}) VALUES {$placeholder}", $insertData);
-        
-        return self::$db->lastInsertId('id');
+        $q = self::query("INSERT INTO {$table} ({$trows}) VALUES {$placeholder}", $insertData);
+        $id = self::$db->lastInsertId('id');
+        if($id == 0){
+          return $q;
+        }
+        return $id;
     }
 }
