@@ -57,9 +57,17 @@
                                     <option value="dl">Desiliter</option>
                                     <option value="l">Liter</option>
                                     <option value="oz">Øse</option>
+                                    <option value="ts">T-skje</option>
+                                    <option value="ss">Spiseskje</option>
                                     <option value="" disabled>Vekt</option>
+                                    <option value="mg">Milligram</option>
                                     <option value="g">Gram</option>
-                                    <option value="kg">KiloGram</option>
+                                    <option value="h">Hekto</option>
+                                    <option value="kg">Kilogram</option>
+                                    <option value="" disabled>Andre</option>
+                                    <option value="stk">Stykk</option>
+                                    <option value="fedd">Fedd</option>
+                                    <option value="stk">Bunt</option>
                                 </select>
                             </label>
                         </div>

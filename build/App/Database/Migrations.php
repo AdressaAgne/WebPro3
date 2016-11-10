@@ -76,7 +76,21 @@ class Migrations{
         $db->createTable('image', [
             new Row('id', 'int', null, true, true),
             new Row('user_id', 'int'),
-            new Row('location', 'varchar)'),
+            new Row('location', 'varchar'),
+        ]);
+        
+        
+        $db->createTable('category', [
+            new Row('id', 'int', null, true, true),
+            new Row('name', 'varchar'),
+            new Row('type', 'varchar'),
+        ]);
+        
+        
+        $db->createTable('recipie_category', [
+            new Row('id', 'int', null, true, true),
+            new Row('recipie_id', 'int'),
+            new Row('category_id', 'int'),
         ]);
 
     }

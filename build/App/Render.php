@@ -14,6 +14,7 @@ class Render {
         'layout',
         'active_page',
         'isLoggedIn',
+        'check',
     ];
     private $helpers = [
         'if',
@@ -81,6 +82,12 @@ class Render {
     
     public static function isLoggedIn(){
         return Account::isLoggedIn();
+    }
+    
+    public static function check($var){
+        if(gettype($var) != 'undefined'){
+            echo $var;
+        }
     }
     
 }

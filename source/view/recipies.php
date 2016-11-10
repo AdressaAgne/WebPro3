@@ -10,6 +10,11 @@
     </section>
     <div class="container">
         <div class="row row--line">
+            <div class="col-8">
+		       <ul class="list-simple--horisontal">
+		           <li><a href="/recipie/insert">Ny Oppskrift</a></li>
+		       </ul>
+	        </div>
 	        <div class="col--right">
 		       <ul class="list-simple--horisontal">
 		           <li><a href="#Nyeste">Nyeste</a></li>
@@ -18,7 +23,7 @@
 		       </ul>
 	        </div>
         </div>
-    
+
 	    <div class="row">
 	        <div class="col-4">
                 <div class="search col-12">
