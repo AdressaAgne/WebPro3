@@ -5,20 +5,20 @@ namespace App\Auth;
 use DB, Config;
 
 class Account extends DB{
-    
+
     /**
      * Login User
-     * @param  string  $username                   
-     * @param  string  $password                   
+     * @param  string  $username
+     * @param  string  $password
      * @param  boolean [$remember = false]
      * @return boolean
      */
-    public function login($username, $password, $remember = false){
-        
+    public static function login($username, $password, $remember = false){
+
         $user = $this->query('SELECT * FROM users WHERE username = :username LIMIT 1', ['username' => $username])->fetch();
-        
+
         if(!password_verify($password, $user['password'])) return false;
-        
+
         if($remember) {
             $cookie = sha1(uniqid());
             $this->query('UPDATE users SET cookie=:c WHERE id = :id', ['c' => $cookie, 'id' => $user['id']]);
@@ -26,32 +26,33 @@ class Account extends DB{
         } else {
             $this->removeCookie('remberme');
         }
-        
+
         $_SESSION['uuid'] = $user['id'];
-        
+
         return true;
     }
-    
+
     /**
      * Register a user
      * @param  string  $username
-     * @param  string  $pw1      
-     * @param  string  $pw2      
-     * @param  string  $mail     
+     * @param  string  $pw1
+     * @param  string  $pw2
+     * @param  string  $mail
      * @return boolean
      */
-    public function register($username, $pw1, $pw2, $mail){
-        if($pw1 !== $pw2) return 'passwords does not match';
-        
-        if($this->query('SELECT username FROM users WHERE username = :username LIMIT 1', ['username' => $username])->rowCount() < 0) return 'Username already taken';
-        
-        return $this->insert([
+    public static function register($username, $pw1, $pw2, $mail){
+        if($pw1 != $pw2) return 'passwords does not match';
+
+        //if(DB::do()->query('SELECT username FROM users WHERE username = :username LIMIT 1', ['username' => $username])->rowCount() > 0) return 'Username already taken';
+
+        return DB::do()->insert([[
             'username'  => $username,
-            'password'  => password_hash($pw1),
-            'mail'      => $mail
-        ], 'users');
+            'password'  => $pw1,
+            'mail'      => $mail,
+        ]], 'users');
+
     }
-    
+
     /**
      * Set a $_COOKIE param
      * @param string $name
@@ -60,7 +61,7 @@ class Account extends DB{
     public function setCookie($name, $value){
         setcookie($name, $value, time()+Config::$cookie_time);
     }
-    
+
     /**
      * Remove a $_COOKIE param
      * @param string $name
@@ -69,7 +70,7 @@ class Account extends DB{
         unset($_COOKIE[$name]);
         setcookie($name, null, -1);
     }
-    
+
     /**
      * Return if the user is logged in
      * @return boolean
@@ -77,5 +78,5 @@ class Account extends DB{
     public static function isLoggedIn(){
         return isset($_SESSION['uuid']);
     }
-    
+
 }
