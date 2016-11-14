@@ -1,12 +1,12 @@
  
-<a href="/recipie/item/{{$v['id']}}">
+<a href="/recipie/item/{{$recipe['id']}}">
     <article class="row food-preview">
         <div class="col-6 food-preview__text">
             <div class="content">
-                <h1 class="page-header underline">{{ $v['name'] }}</h1>
-                <p>{{ substr($v['description'], 0 , 170) }}...</p>
+                <h1 class="page-header underline">{{ $recipe['name'] }}</h1>
+                <p>{{ substr($recipe['description'], 0 , 170) }}...</p>
             </div>
         </div>
-        <div class="col-6 food-preview__image" style="background-image: url('{{$v['image']}}');"></div>
+        <div class="col-6 food-preview__image" style="background-image: url('{{$recipe['image']}}');"></div>
     </article>
 </a>

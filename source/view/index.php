@@ -30,17 +30,17 @@
     
     <section class="container">
        <h1 class="page-header underline center">Oppskrifter</h1>
-       @foreach($food as $v)
+       @foreach($food as $recipe)
        
-           @layout('layout.article_front', ['v' => $v])
+           @layout('layout.article_front', ['recipe' => $recipe])
        
        @endforeach
        
        <h1 class="page-header underline center">Nyheter</h1>
        
-       @foreach($food as $v)
+       @foreach($food as $recipe)
        
-           @layout('layout.article_front', ['v' => $v])
+           @layout('layout.article_front', ['recipe' => $recipe])
        
        @endforeach
     </section>
