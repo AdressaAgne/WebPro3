@@ -11,7 +11,7 @@ class RecipieController extends BaseController {
     
     public function index() {
         
-        return View::make('insert.recipie');
+        return View::auth('insert.recipie');
     }
     
     public function put($values) {

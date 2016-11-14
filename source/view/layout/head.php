@@ -14,7 +14,7 @@
 <body>
 
 
-<nav class="nav">
+<nav class="nav nav--fixed">
     <div class="container">
         <ul class="nav--left">
             <li class="nav__item nav__item--burger"><a href="#"><i class="icon-meat--white icon--small icon--text"></i></a></li>
