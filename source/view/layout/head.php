@@ -35,6 +35,7 @@
                 <li class="nav__item @active_page('profile')">
                     <a href="/profile">{{ $user->username }}</a>
                 </li>
+                <li class="nav__item"><a href="/logout">Logout</a></li>
             </ul>
        
        @else

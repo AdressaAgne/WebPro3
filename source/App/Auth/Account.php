@@ -53,6 +53,11 @@ class Account extends DB{
         ]], 'users');
 
     }
+    
+    public static function logout(){
+        self::removeCookie('remberme');
+        session_destroy();
+    }
 
     /**
      * Set a $_COOKIE param

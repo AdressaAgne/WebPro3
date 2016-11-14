@@ -21,6 +21,7 @@ class RecipieController extends BaseController {
             'how' => $values['how'],
             'description' => $values['description'],
             'image' => $values['file'],
+            'user_id' => (isset($_SESSION['uuid']) ? $_SESSION['uuid'] : 0),
         ]], 'recipies');
         
         $data = [];

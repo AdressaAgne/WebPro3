@@ -16,6 +16,11 @@ class LoginController extends BaseController{
         
         return Direct::re('/profile');
     }
+    
+    public function logout(){
+        Account::logout();
+        Direct::re('/login');
+    }
 
     public function reg($user){
         $msg = Account::register($user['username'], $user['password'], $user['password_confirm'], $user['mail']);

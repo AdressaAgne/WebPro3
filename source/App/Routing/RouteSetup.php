@@ -10,6 +10,7 @@ Direct::get("/test", 'NearByController@testapi');
 
 Direct::get("/login", 'LoginController@index');
 Direct::post("/login", 'LoginController@post');
+Direct::get("/logout", 'LoginController@logout');
 
 Direct::post("/register", 'LoginController@reg');
 

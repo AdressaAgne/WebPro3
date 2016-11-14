@@ -24,7 +24,7 @@ class User{
     $result = DB::select(["*"],'recipies',['user_id' => $this->id])->fetchAll();
 
     foreach($result as $key => $value) {
-      $this->recipes[$value['id']] = new Recipe($value);
+      $this->recipes[$value['id']] = new Recipie($value);
     }
     return $this->recipes;
   }//getAllRecipes()

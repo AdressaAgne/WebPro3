@@ -73,6 +73,6 @@ class MainController extends BaseController {
     }
 
     public function profile(){
-      return View::make('profile');
+      return View::auth('profile', '/login');
     }
 }

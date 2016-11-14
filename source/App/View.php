@@ -1,13 +1,20 @@
 <?php
 namespace App;
 
-use Render, BaseController;
+use Render, BaseController, Account, Direct;
 
 class View {
     
     public static function make($url, $vars = null){
         $url = preg_replace("/\\./uimx", "/", $url);
         return self::includeFile("view/{$url}.php", $vars);
+    }
+    
+    public static function auth($url, $direct = '/login', $vars = null){
+        if(Account::isLoggedIn()){
+            return self::make($url, $vars);
+        }
+        return Direct::re($direct);
     }
     
    
