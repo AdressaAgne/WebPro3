@@ -10,12 +10,35 @@
   			<div class="col-6 col-l-8 col-m-4 col--center">
   			</div>
         <div class="row">
+          <!-- user image -->
           <div class="col-4 col-l-4 col-m-12">
-            <img src="../assets/img/recipis/banner.jpg" alt="" />
-          </div>
+            <div class="col-12">
+              <input type="file" name="name" value="" id="file" hidden>
+              <label for="file">
+                <img src="../assets/img/recipis/banner.jpg" alt="" /><!-- Legg inn upload knapp i bildet -->
+              </label>
+            </div>
+          </div><!-- /user image -->
+          <!-- User info-->
           <div class="col-8 col-l-8 col-m-12">
-            <img src="../assets/img/recipis/banner.jpg" alt="" />
-          </div>
+
+            <div class="col-6">
+
+              <p>Epost:</p>
+              <p>{{$user->mail}}</p>
+            </div>
+            <div class="col-6">
+              <!--
+              <p><i class="icon--small icon-meat icontext"></i>Last opp oppskrift</p>
+              <p><i class="icon--small icon-meat"></i>Mine oppskrifter</p>
+              <p><i class="icon--small icon-meat"></i>Favoritter</p>
+            -->
+            <ul class="list-simple">
+              <li><i class="icon--small icon-meat icontext">Last opp oppskrift</i></li>
+            </ul>
+            </div>
+
+          </div><!-- /User info-->
 
           <div class="row">
             <div class="col-12">
