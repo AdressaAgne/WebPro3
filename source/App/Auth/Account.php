@@ -79,4 +79,12 @@ class Account extends DB{
         return isset($_SESSION['uuid']);
     }
 
+    public function changePassword($id, $pw, $newPw){
+      return 0;
+    }//changePassword
+
+    public function changeEmail($newMail){
+      return 0;
+    }//changeEmail()
+
 }

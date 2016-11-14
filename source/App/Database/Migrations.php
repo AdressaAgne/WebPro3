@@ -78,20 +78,26 @@ class Migrations{
             new Row('user_id', 'int'),
             new Row('location', 'varchar'),
         ]);
-        
-        
+
+
         $db->createTable('category', [
             new Row('id', 'int', null, true, true),
             new Row('name', 'varchar'),
             new Row('type', 'varchar'),
         ]);
-        
-        
+
+
         $db->createTable('recipie_category', [
             new Row('id', 'int', null, true, true),
             new Row('recipie_id', 'int'),
             new Row('category_id', 'int'),
         ]);
 
+        $db->createTable('comments',[
+          new Row('id', 'int', null, true, true),
+          new Row('user_id', 'int'),
+          new Row('content' 'varchar'),
+          new Row('recipe_id', 'int')
+        ]);
     }
 }
