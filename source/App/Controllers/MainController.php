@@ -16,8 +16,13 @@ class MainController extends BaseController {
 
     public function test(){
 
+        $recipies = $this->all(['*'], 'recipies');
+        foreach($recipies as &$recipie){
+            $recipie = new Recipie($recipie);
+        }
+        
         return View::make('index', [
-            'food' => $this->all(['*'], 'recipies'),
+            'food' => $recipies,
         ]);
     }
 
@@ -59,10 +64,6 @@ class MainController extends BaseController {
 
 
     public function specie($p) {
-//
-//        $tax = Taxon::byID($p['taxon']);
-//        $group = Taxon::getGroupName($tax);
-//
     	return View::make('taxon', [
             'taxon' => $this->query('SELECT * FROM blacklist WHERE taxonID = :a', [
                 'a' => $p['taxon']

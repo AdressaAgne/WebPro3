@@ -128,7 +128,7 @@ class RouteHandler{
         $class = @call_user_func($funcToCall, $this->extractVars($url));
         
         if(!$class){
-            ErrorHandling::fire("Error", $view[0]."@".$view[1]. " could not execute");
+            ErrorHandling::fire("Error", $this->view[0]."@".$this->view[1]. " could not execute");
             return;
         }
         
