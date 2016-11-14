@@ -150,7 +150,7 @@ class Database {
     }
 
     /**
-     * insert one row to table
+     * insert many rows to table
      * @param  array  array $data
      * @param  string [$table = null] MySQL table
      * @return boo
@@ -175,12 +175,42 @@ class Database {
 
         $trows = implode(", ", $trows);
         $placeholder = implode(", ", $placeholder);
-        //return [("INSERT INTO {$table} ({$trows}) VALUES {$placeholder}"), $insertData];
-        $q = self::query("INSERT INTO {$table} ({$trows}) VALUES {$placeholder}", $insertData);
+
+        $sql = "INSERT INTO {$table} ({$trows}) VALUES {$placeholder}";
+        $q = self::query($sql, $insertData);
         $id = self::$db->lastInsertId('id');
         if($id == 0){
           return $q;
         }
         return $id;
     }
+    
+    /**
+     * Update one row in a table
+     * @author Agne *degaard
+     * @param array $rows       
+     * @param string $table      
+     * @param array $where      
+     * @param string $join = '=' 
+     */
+    public static function update(array $rows, $table, array $where, $join = '='){
+        $data = [];
+        $trows = [];
+        $twhere = [];
+        foreach($rows as $key => $row){
+            $trows[] = "$key $join :key_$key";
+            $data["key_$key"] = $row;
+        }
+        
+        foreach($where as $key => $value){
+            $twhere[] = "$key $join :where_$key";
+            $data["where_$key"] = $value;
+        }
+        
+        $trows = implode(', ', $trows);
+        $twhere = implode(', ', $twhere);
+        $sql = "UPDATE {$table} SET {$trows} WHERE {$twhere}";
+        return self::query($sql, $data);
+    }
+    
 }

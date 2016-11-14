@@ -105,7 +105,32 @@
         var template = document.createElement('div');
         template.innerHTML = '<div class="col-12" id="template">'+html+'</div>';
         elm('#ingredients').appendChild(template);
-        
+    });
+    
+    var dragging = false;
+    var mousedown;
+    var y = 0;
+    var oldY = 0;
+    elm('#drop-container').addEventListener('mousedown', function(e){
+        dragging = true;
+        mousedown = e;
+        oldy = y;
+        elm('#drop-container').addEventListener('mousemove', function(e){
+            elm('#drop-container').setAttribute('for', ''); 
+            if(dragging){
+                mousedown.preventDefault();
+                y = (e.pageY - mousedown.pageY);
+                elm('#drop-container').style.backgroundPositionY = y+"px";
+            }
+        });
+    });
+    
+    document.addEventListener("mouseup", function() {
+        dragging = false;
+        setTimeout(function(){
+            elm('#drop-container').setAttribute('for', 'file');         
+        }, 0);
+    
     });
 
 </script>
