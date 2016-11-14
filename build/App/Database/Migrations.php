@@ -96,7 +96,7 @@ class Migrations{
         $db->createTable('comments',[
           new Row('id', 'int', null, true, true),
           new Row('user_id', 'int'),
-          new Row('content' 'varchar'),
+          new Row('content', 'varchar'),
           new Row('recipe_id', 'int')
         ]);
     }

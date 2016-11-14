@@ -42,5 +42,14 @@ class Recipie{
       return $this->comments;
     }//getComments()
 
+    /********
+    * Setters
+    *********/
+
+    public function changeImage($id){//existing image_id
+
+      //ongoing
+      return DB::update(['image' => $id], 'recipies', ['id' => $this->id]);
+    }//changeImage()
 
 }
