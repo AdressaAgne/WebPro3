@@ -33,21 +33,23 @@
               <p><i class="icon--small icon-meat"></i>Mine oppskrifter</p>
               <p><i class="icon--small icon-meat"></i>Favoritter</p>
             -->
-            <ul class="list-simple">
-              <li><i class="icon--small icon-meat icontext">Last opp oppskrift</i></li>
+            <ul class="ingredients">
+              <li><i class="icon--small icon-meat icon--text"></i> Last opp oppskrift</li>
+              <li><i class="icon--small icon-meat icon--text"></i> Mine oppskrifter</li>
+              <li><i class="icon--small icon-meat icon--text"></i> Favoriter</li>
             </ul>
             </div>
 
           </div><!-- /User info-->
 
           <div class="row">
-            <div class="col-12">
+
               @foreach($user->getAllRecipes() as $recipe)
-
-                  @layout('layout.article_front', ['recipe' => $recipe])
-
+                  <div class="col-6 col-m-12">
+                    @layout('layout.article_front', ['recipe' => $recipe])
+                  </div>
               @endforeach
-            </div>
+
           </div>
         </div><!-- article_front -->
   		</section>
