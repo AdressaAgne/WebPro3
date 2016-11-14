@@ -15,16 +15,16 @@ class Account extends DB{
      */
     public static function login($username, $password, $remember = false){
 
-        $user = $this->query('SELECT * FROM users WHERE username = :username LIMIT 1', ['username' => $username])->fetch();
+        $user = DB::query('SELECT * FROM users WHERE username = :username LIMIT 1', ['username' => $username])->fetch();
 
-        if(!password_verify($password, $user['password'])) return false;
+        if(!password_verify($password, $user['password'])) return 'These credentials does not match any record in our database';
 
         if($remember) {
             $cookie = sha1(uniqid());
-            $this->query('UPDATE users SET cookie=:c WHERE id = :id', ['c' => $cookie, 'id' => $user['id']]);
-            $this->setCookie('remberme', $user['cookie']);
+            DB::query('UPDATE users SET cookie=:c WHERE id = :id', ['c' => $cookie, 'id' => $user['id']]);
+            self::setCookie('remberme', $user['cookie']);
         } else {
-            $this->removeCookie('remberme');
+            self::removeCookie('remberme');
         }
 
         $_SESSION['uuid'] = $user['id'];
@@ -43,11 +43,12 @@ class Account extends DB{
     public static function register($username, $pw1, $pw2, $mail){
         if($pw1 != $pw2) return 'passwords does not match';
 
-        //if(DB::do()->query('SELECT username FROM users WHERE username = :username LIMIT 1', ['username' => $username])->rowCount() > 0) return 'Username already taken';
+        
+        if(DB::query('SELECT username FROM users WHERE username = :username LIMIT 1', ['username' => $username])->rowCount() > 0) return 'Username already taken';
 
-        return DB::do()->insert([[
+        return DB::insert([[
             'username'  => $username,
-            'password'  => $pw1,
+            'password'  => password_hash($pw1, PASSWORD_DEFAULT),
             'mail'      => $mail,
         ]], 'users');
 
@@ -58,7 +59,7 @@ class Account extends DB{
      * @param string $name
      * @param string $value
      */
-    public function setCookie($name, $value){
+    public static function setCookie($name, $value){
         setcookie($name, $value, time()+Config::$cookie_time);
     }
 
@@ -66,7 +67,7 @@ class Account extends DB{
      * Remove a $_COOKIE param
      * @param string $name
      */
-    public function removeCookie($name){
+    public static function removeCookie($name){
         unset($_COOKIE[$name]);
         setcookie($name, null, -1);
     }

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controllers;
-use DB, Account;
+use DB, Account, User;
 
 class Controller extends DB{
     
@@ -10,13 +10,16 @@ class Controller extends DB{
         'google_key' => 'AIzaSyC7i0o5mdEYSbG_wqoWAx53tAP1xxTKVQo',
     ];
     
+    /**
+     * This code runs with all controllers
+     * @private
+     * @author Agne *degaard
+     */
     public function __construct(){
         parent::__construct();
         
         if(Account::isLoggedIn()){
-            $this->site_wide_vars['user'] = $this->query('SELECT * FROM users WHERE id = :id', ['id' => $_SESSION['uuid']]);
+            self::$site_wide_vars['user'] = new User($_SESSION['uuid']);
         }
-        
-        //This code runs on all pages;
     }
 }

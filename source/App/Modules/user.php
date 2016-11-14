@@ -5,9 +5,7 @@ use DB, Account;
 class User{
   public $id;
   public $username;
-  public $password;
   public $cookie;
-  public $name;
   public $mail;
   public $recipes = [];
   //private $profile_image; apør Agnons
@@ -15,17 +13,11 @@ class User{
   public function __construct($id){
     $this->id           = $id;
     $query = DB::select(['*'], 'users', ['id' => $this->id])->fetch();
-
     $this->username     = $query['username'];
-    $this->password     = $query['password'];
     $this->cookie       = $query['cookie'];
-    $this->name         = $query['name'];
     $this->mail         = $query['mail'];
   }//__construct()
 
-  /***************
-  * Getters
-  ****************/
 
   public function getAllRecipes(){
     if(!empty($this->recipes)) return $this->recipes;
@@ -36,9 +28,6 @@ class User{
     return $this->recipes;
   }//getAllRecipes()
 
-  /***************
-  * Setters
-  ****************/
 
   public function changePassword($pw, $newPw){
     return Account::changePassword($this->id, $pw, $newPw);

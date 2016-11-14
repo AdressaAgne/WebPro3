@@ -55,7 +55,6 @@ class Migrations{
             new Row('username', 'varchar'),
             new Row('password', 'varchar'),
             new Row('cookie', 'varchar'),
-            new Row('name', 'varchar', null, true, false, 'UNIQUE'),
             new Row('mail', 'varchar'),
         ]);
 

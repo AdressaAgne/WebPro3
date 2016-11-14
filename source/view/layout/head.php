@@ -29,11 +29,24 @@
 
        
        
+       @if(Account::isLoggedIn())
+       
+            <ul class="nav--right">
+                <li class="nav__item @active_page('profile')">
+                    <a href="/profile">{{ $user->username }}</a>
+                </li>
+            </ul>
+       
+       @else
+       
+            <ul class="nav--right">
+                <li class="nav__item"><a href="/login">Login</a></li>
+            </ul>
+       
+       @endif
        
        
-        <ul class="nav--right">
-            <li class="nav__item"><a href="/login">Login</a></li>
-        </ul>
+        
 
     </div>
 </nav>

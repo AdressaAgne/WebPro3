@@ -69,6 +69,9 @@ class Config {
 
         // Modules
         '\App\Modules\Recipie' => 'Recipie',
+        '\App\Modules\User' => 'User',
+        '\App\Modules\Comment' => 'Comment',
+        '\App\Modules\Ingredient' => 'Ingredient',
         
         // Database
         '\App\Database\Database' => 'DB',
