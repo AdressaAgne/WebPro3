@@ -23,6 +23,7 @@ Direct::get("/taxon/item/{taxon}", 'MainController@specie');
 Direct::get("/api/taxon/{taxon}", 'NearByController@get_location_by_taxon');
 Direct::get("/nearby", 'NearByController@index');
 Direct::get("/about", 'MainController@about');
+Direct::get("/profile", "MainController@profile");
 
 
 Direct::get("/api/nearby/{lat}/{lng}/{dist}", 'NearByController@api');
