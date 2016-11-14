@@ -4,7 +4,15 @@
 	    <section class="row primary-header" style="background-image: url('/assets/img/recipis/reindeer_large.jpg')">
           <h1 class="primary-header-text center">Din Profil</h1>
         </section>
-
+      <section>
+        <nav class="nav">
+            <div class="container">
+                <ul class="nav--left">
+                    <li class="nav__item"><a href="/">Rediger profil</a></li>
+                </ul>
+            </div>
+        </nav>
+      </section>
   		<section  class="container">
   			<h1 class="page-header center underline">{{$user->username}}</h1>
   			<div class="col-6 col-l-8 col-m-4 col--center">
@@ -35,23 +43,21 @@
             -->
             <ul class="ingredients">
               <li><i class="icon--small icon-meat icon--text"></i> Last opp oppskrift</li>
-              <li><i class="icon--small icon-meat icon--text"></i> Mine oppskrifter</li>
               <li><i class="icon--small icon-meat icon--text"></i> Favoriter</li>
             </ul>
             </div>
 
           </div><!-- /User info-->
+        </div>
+        <div class="row">
+          <h1 class="page-header underline center">Mine oppskrifter</h1>
 
-          <div class="row">
+            @foreach($user->getAllRecipes() as $recipe)
 
-              @foreach($user->getAllRecipes() as $recipe)
-                  <div class="col-6 col-m-12">
-                    @layout('layout.article_front', ['recipe' => $recipe])
-                  </div>
-              @endforeach
+                  @layout('layout.article_front', ['recipe' => $recipe])
 
-          </div>
-        </div><!-- article_front -->
+            @endforeach
+        </div>
   		</section>
 	<main>
 
