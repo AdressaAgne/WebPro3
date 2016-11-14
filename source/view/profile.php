@@ -11,15 +11,15 @@
   			</div>
         <div class="row">
           <div class="col-4 col-l-4 col-m-12">
-            <img src="../assets/recipis/banner.jpg" alt="" />
+            <img src="../assets/img/recipis/banner.jpg" alt="" />
           </div>
           <div class="col-8 col-l-8 col-m-12">
-            <img src="../assets/recipis/banner.jpg" alt="" />
+            <img src="../assets/img/recipis/banner.jpg" alt="" />
           </div>
 
           <div class="row">
             <div class="col-12">
-              @foreach($user->getRecipes() as $recipe)
+              @foreach($user->getAllRecipes() as $recipe)
 
                   @layout('layout.article_front', ['recipe' => $recipe])
 

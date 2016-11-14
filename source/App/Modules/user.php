@@ -21,7 +21,8 @@ class User{
 
   public function getAllRecipes(){
     if(!empty($this->recipes)) return $this->recipes;
-    $result = DB::select(["*"],'users',['user_id' => $this->id])->fetAll(); //todo user_id
+    $result = DB::select(["*"],'recipies',['user_id' => $this->id])->fetchAll();
+
     foreach($result as $key => $value) {
       $this->recipes[$value['id']] = new Recipe($value);
     }
