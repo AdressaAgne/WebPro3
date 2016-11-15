@@ -1,6 +1,6 @@
 	<footer class="row">
 	    <div class="container">
-	        
+	        footer
 	    </div>
 	    <div class="copyright">
 	        <div class="container">

@@ -9,22 +9,22 @@
 	
 		<section  class="container">
 			<h1 class="page-header center underline"> Dette jobber vi for </h1>
-			<div class="col-6 col-l-8 col-m-4 col--center visjon">
+			<div class="col-l-4 col-6 col-m-8 col--center visjon">
 			    <p>Vår lidenskap er matlaging  og kjærlighet til den norske naturen. Ved å tilby oppskrifter som baserer seg på svartelistede arter hjelper vi den norske befolkningen å være med på forsvare naturen. Disse svartelistede artene er truende for det norske flora og fauna. Eksempler på dette er <a href="#"> Stillehavsøsters </a> og  <a href="#"> Kanadagås. </a> </p>
 			    <p>Dersom vi lykkes med å holde bestanden av disse truende artene nede vil vi opprettholde den norske naturen slik den var ment å være. Dette er bra for både folk, dyr og planter. </p>
 			    <p>Vi samarbeider med en rekke restauranter og andre bidragsytere for å kunne drive dette prosjektet. Vi er avhengig av støtte og så videre. </p>
 			    <p>Les mer om våre samarbeidspartnere her:</p>
 			</div>
-			<div class="col-6 col-l-8 col-m-4 col--center">
-				<div class="partner">
+			<div class="col-l-4 col-6 col-m-8 col--center">
+				<div class="col-4">
 					<a href="#"><p> Kokken Tor </p>
 					<img src="assets/img/visjon/kokkentor.jpg" /> </a>
 				</div>
-				<div class="partner">
+				<div class="col-4">
 					<a href="#"><p> Hotell Ball </p>
 					<img src="assets/img/visjon/hotell.jpg" /></a>
 				</div>
-				<div class="partner">
+				<div class="col-4">
 					<a href="#"><p> Snøgåsrestauranten</p>
 					<img src="assets/img/visjon/restaurant.jpg" /></a>
 				</div>
