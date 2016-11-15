@@ -46,6 +46,25 @@ class Recipie{
     * Setters
     *********/
 
+    public function rate_recipe($user_id, $rating){
+      ///if empty -> update, else -> create rating
+      if(DB::select(['rating'], 'ratings', ['recipe_id' => $this->id, 'user_id' => $user_id])->rowCount() > 0){
+        return DB::upadte('rating' => $rating, 'ratings', ['user_id' => $user_id, 'recipe_id' => $this->id]);
+      }else{
+        return DB::insert([[
+          'user_id'=> $user_id,
+          'recipe_id' => $this->id,
+          'rating' => $rating
+        ],'ratings']);
+      }
+    }//rate_recipe()
+
+    public static function display_ratings(){
+      $query = DB::select('AVG(rating)', ['ratings']);
+      return = round($query);
+      //$this->avg_rating = blabla;
+    }
+
     public function changeImage($id){//existing image_id
 
       //ongoing
