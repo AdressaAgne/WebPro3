@@ -33,7 +33,7 @@
 
     <section class="container">  
        <div class="row">
-            <label for="">Oppskrifts navn
+            <label for=""><h2>Oppskrifts navn</h2>
                 <input type="text" name="name" placeholder="Oppskrifts navn" class="dark">
             </label>
            
@@ -93,8 +93,27 @@
                 <h3>Hvordan</h3>
                 <textarea name="how" id="" cols="30" rows="10" placeholder="Hvordan lager du oppskriften" class="dark"></textarea>
             </div>
+            
+            <div class="col-12">
+                <h2 class="page-header">Kategorier</h2>
+                <ul class="tags list-simple--horisontal">
+                    <li>
+                        <select name="cat[]" id="cat">
+                            <option value="none" selected disabled>Velg</option>
+                            @foreach($cat as $c)
+                            
+                                <option value="{{$c['id']}}">{{$c['name']}} {{ ($c['type'] == 0 ? ' (Råvare)' : ' (Type Rett)') }}</option>
+                            
+                            @endforeach
+                        </select>
+                    </li>
+                </ul>
+            </div>
+            
         </div>
-        <input type="submit" value="Ferdig">
+        <div class="col-12">
+            <input type="submit" value="Ferdig">
+        </div>
     </section>
 </form>
 </main>
@@ -107,6 +126,21 @@
         template.innerHTML = '<div class="col-12" id="template">'+html+'</div>';
         elm('#ingredients').appendChild(template);
     });
+    
+    var cat = elm('#cat').innerHTML;
+    
+    
+    
+    function catEvent(){
+        var cat_template = document.createElement('li');
+        cat_template.innerHTML = '<select name="cat[]">'+cat+'</select>';
+        
+            this.removeEventListener('change', catEvent);
+        
+        cat_template.addEventListener('change', catEvent);
+        elm('.tags').appendChild(cat_template);
+    };
+    elm('#cat').addEventListener('change', catEvent);                    
     
     var dragging = false;
     var mousedown;

@@ -85,11 +85,6 @@ class Migrations{
             new Row('type', 'varchar'),
         ]);
 
-        $db->createTable('recipie_category', [
-            new Row('id', 'int', null, true, true),
-            new Row('recipie_id', 'int'),
-            new Row('category_id', 'int'),
-        ]);
 
         $db->createTable('comments',[
           new Row('id', 'int', null, true, true),
@@ -108,6 +103,13 @@ class Migrations{
             new Row('name', 'varchar'),
             new Row('type', 'varchar'),
         ]);
+        
+        $db->createTable('recipie_category', [
+            new Row('id', 'int', null, true, true),
+            new Row('recipie_id', 'int'),
+            new Row('category_id', 'int'),
+        ]);
+        
         $db->insert([
             [
                 'name' => 'skalldyr',

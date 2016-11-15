@@ -11,10 +11,14 @@ class RecipieController extends BaseController {
     
     public function index() {
         
-        return View::auth('insert.recipie');
+        return View::auth('insert.recipie', '/login', [
+            'cat' => $this->select(['*'], 'category')->fetchAll()
+        ]);
     }
     
     public function put($values) {
+        
+        return $values;
         
         $id = $this->insert([[
             'name' => $values['name'],
@@ -36,7 +40,16 @@ class RecipieController extends BaseController {
             ];
         }
         
+        $categories = [];
+        foreach($values['cat'] as $cat){
+            $categories[] = [
+                'category_id' => $cat,
+                'recipie_id' => $id
+            ];
+        }
+        
         $this->insert($data, 'ingredients');
+        $this->insert($categories, 'recipie_category');
         
         return Direct::re('/recipie/item/'.$id);
     }
