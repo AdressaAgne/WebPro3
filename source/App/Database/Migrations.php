@@ -145,7 +145,7 @@ class Migrations{
                 'name' => 'insekter',
                 'type' => 1,
             ],[
-                'name' => 'tilbehor',
+                'name' => 'tilbehør',
                 'type' => 1,
             ],
         ], 'category');

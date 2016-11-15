@@ -110,45 +110,45 @@ class Migrations{
             new Row('category_id', 'int'),
         ]);
         
-//        $db->insert([
-//            [
-//                'name' => 'skalldyr',
-//                'type' => 0,
-//            ],[
-//                'name' => 'urter',
-//                'type' => 0,
-//            ],[
-//                'name' => 'rovdyr',
-//                'type' => 0,
-//            ],[
-//                'name' => 'insekter',
-//                'type' => 0,
-//            ],[
-//                'name' => 'frukt og bær',
-//                'type' => 0,
-//            ],[
-//                'name' => 'grønnsaker',
-//                'type' => 0,
-//            ],[
-//                'name' => 'fjærkre',
-//                'type' => 0,
-//            ],[
-//                'name' => 'lunsj',
-//                'type' => 1,
-//            ],[
-//                'name' => 'middag',
-//                'type' => 1,
-//            ],[
-//                'name' => 'snacks',
-//                'type' => 1,
-//            ],[
-//                'name' => 'insekter',
-//                'type' => 1,
-//            ],[
-//                'name' => 'tilbehor',
-//                'type' => 1,
-//            ],
-//        ], 'category');
+        $db->insert([
+            [
+                'name' => 'skalldyr',
+                'type' => 0,
+            ],[
+                'name' => 'urter',
+                'type' => 0,
+            ],[
+                'name' => 'rovdyr',
+                'type' => 0,
+            ],[
+                'name' => 'insekter',
+                'type' => 0,
+            ],[
+                'name' => 'frukt og bær',
+                'type' => 0,
+            ],[
+                'name' => 'grønnsaker',
+                'type' => 0,
+            ],[
+                'name' => 'fjærkre',
+                'type' => 0,
+            ],[
+                'name' => 'lunsj',
+                'type' => 1,
+            ],[
+                'name' => 'middag',
+                'type' => 1,
+            ],[
+                'name' => 'snacks',
+                'type' => 1,
+            ],[
+                'name' => 'insekter',
+                'type' => 1,
+            ],[
+                'name' => 'tilbehør',
+                'type' => 1,
+            ],
+        ], 'category');
            
         return ['populate' => 'done'];
     }
