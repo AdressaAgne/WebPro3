@@ -14,7 +14,7 @@
           </div>
           <div class="col--right">
            <ul class="list-simple--horisontal">
-               <li><a href="#Nyeste">Rediger progil</a></li>
+               <li><a href="#Nyeste">Rediger profil</a></li>
 
            </ul>
           </div>
@@ -34,9 +34,9 @@
           <h1 class="page-header underline center">Mine oppskrifter</h1>
 
             @foreach($user->getAllRecipes() as $recipe)
-
-                  @layout('layout.article_front', ['recipe' => $recipe])
-
+                <div class="col-4 col-m-6">
+                    @layout('layout.article_vertical', ['recipe' => $recipe])
+                </div>
             @endforeach
         </div>
   		</section>
