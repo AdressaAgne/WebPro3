@@ -1,4 +1,4 @@
-@layout('layout.head', $user)
+@layout('layout.head')
 
 <main>
     
