@@ -98,16 +98,16 @@ class Migrations{
           new Row('recipe_id', 'int')
         ]);
         
+        
+    }
+    
+    public static function populate(){
+        $db = new DB();
         $db->createTable('category', [
             new Row('id', 'int', null, true, true),
             new Row('name', 'varchar'),
             new Row('type', 'varchar'),
         ]);
-    }
-    
-    public static function populate(){
-        $db = new DB();
-        
         $db->insert([
             [
                 'name' => 'skalldyr',
