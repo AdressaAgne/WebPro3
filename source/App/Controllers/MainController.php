@@ -74,8 +74,4 @@ class MainController extends BaseController {
             INNER JOIN ingredients as i ON i.recipie_id = r.id WHERE i.taxonID = :taxon',['taxon' => $p['taxon']])->fetchAll(),
         ]);
     }
-
-    public function profile(){
-      return View::auth('profile', '/login');
-    }
 }

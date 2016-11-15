@@ -8,13 +8,13 @@
         <div class="row row--line">
             <div class="col-8">
            <ul class="list-simple--horisontal">
-               <li><a href="/recipie/insert">Ny Oppskrift</a></li>
+               <li><a href="/recipie/insert">Lag Ny Oppskrift</a></li>
                <li><a href="#">Favoritter</a></li>
            </ul>
           </div>
           <div class="col--right">
            <ul class="list-simple--horisontal">
-               <li><a href="#Nyeste">Rediger profil</a></li>
+               <li><a href="/profile/update">Rediger profil</a></li>
 
            </ul>
           </div>
@@ -25,8 +25,8 @@
         <!-- user image -->
           <div class="col-4 col--center">
             <input type="file" name="name" value="" id="file" hidden>
-            <label for="file">
-              <img src="../assets/img/recipis/banner.jpg" alt="" /><!-- Legg inn upload knapp i bildet -->
+            <label for="file" class="image--circle col--center" style="background-image: url('/assets/img/recipis/banner.jpg')">
+
             </label>
           </div>
         </div>

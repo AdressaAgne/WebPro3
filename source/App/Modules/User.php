@@ -7,6 +7,7 @@ class User{
   public $username;
   public $cookie;
   public $mail;
+  public $password;
   public $recipes = [];
   //private $profile_image; apør Agnons
 
@@ -16,6 +17,7 @@ class User{
     $this->username     = $query['username'];
     $this->cookie       = $query['cookie'];
     $this->mail         = $query['mail'];
+    $this->password     = $query['password'];
   }//__construct()
 
 
@@ -30,12 +32,12 @@ class User{
   }//getAllRecipes()
 
 
-  public function changePassword($pw, $newPw){
-    return Account::changePassword($this->id, $pw, $newPw);
+  public function changePassword($pw, $newPw, $newPw2){
+      return Account::changePassword(new self($this->id), $pw, $newPw, $newPw2);
   }
 
   public function changeEmail($newMail){
-    return Account::changeEmail($newMail);
+      return Account::changeEmail($newMail);
   }//changeEmail()
 
 

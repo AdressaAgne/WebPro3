@@ -19,12 +19,17 @@ Direct::get("/recipie/insert", 'RecipieController@index');
 Direct::post("/recipie/insert", 'RecipieController@put');
 Direct::post("recipie/uploadimage", 'RecipieController@upload');
 Direct::get("/recipie", 'MainController@recipies');
+
+
 Direct::get("/species", 'MainController@species');
 Direct::get("/taxon/item/{taxon}", 'MainController@specie');
 Direct::get("/api/taxon/{taxon}", 'NearByController@get_location_by_taxon');
 Direct::get("/nearby", 'NearByController@index');
 Direct::get("/about", 'MainController@about');
-Direct::get("/profile", "MainController@profile");
+
+Direct::get("/profile", "ProfileController@index");
+Direct::get("/profile/update", "ProfileController@profieEdit");
+Direct::post("/profile/update", "ProfileController@edit");
 
 
 Direct::get("/api/nearby/{lat}/{lng}/{dist}", 'NearByController@api');

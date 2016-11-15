@@ -2,7 +2,7 @@
 
 namespace App\Auth;
 
-use DB, Config;
+use DB, Config, User;
 
 class Account extends DB{
 
@@ -85,8 +85,14 @@ class Account extends DB{
         return isset($_SESSION['uuid']);
     }
 
-    public function changePassword($id, $pw, $newPw){
-      return 0;
+    public function changePassword(User $user, $pw, $newPw, $newpw2){
+        if($newPw !== $newpw2) return 'The new password does not match';
+        
+        if(!password_verify($pw, $user->password)) return 'Old Password is wrong';
+        
+        $msg = DB::update(['password' => password_hash($newPw, PASSWORD_DEFAULT)], 'users', ['id' => $user->id]);
+        
+        return $msg;
     }//changePassword
 
     public function changeEmail($newMail){

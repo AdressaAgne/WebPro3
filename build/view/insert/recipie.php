@@ -50,8 +50,8 @@
                         </div>
 
                         <div class="col-4">
-                            <label for="">Volum/Vekt
-                                <select name="unit[]" id="">
+                            <label for="units" class="select">Volum/Vekt
+                                <select name="unit[]" id="units">
                                     <option value="" disabled selected>Velg</option>
                                     <option value="" disabled>Volum</option>
                                     <option value="dl">Desiliter</option>
@@ -69,6 +69,7 @@
                                     <option value="fedd">Fedd</option>
                                     <option value="stk">Bunt</option>
                                 </select>
+                                <label class="icon" for="units"><i class="icon-arrow_down--white icon--small"></i></label>
                             </label>
                         </div>
 

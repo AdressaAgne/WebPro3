@@ -80,9 +80,19 @@ select
     color: $theme-color-text
     border-radius: 0px
     padding: 10px
+
     &:hover
         background-color: $theme-color-700
-    
+label.select 
+    position: relative
+    & label.icon
+        width: 0px
+        height: 0px
+        overflow: visible
+        position: absolute
+        top: 20px
+        right: 0px
+        
         
 input[type='text'], input[type='password'], textarea, .input
     font-family: 'Roboto', sans-serif

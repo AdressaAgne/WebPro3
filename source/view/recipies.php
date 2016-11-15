@@ -12,7 +12,7 @@
         <div class="row row--line">
             <div class="col-8">
 		       <ul class="list-simple--horisontal">
-		           <li><a href="/recipie/insert">Ny Oppskrift</a></li>
+		           <li><a href="/recipie/insert">Lag Ny Oppskrift</a></li>
 		       </ul>
 	        </div>
 	        <div class="col--right">
