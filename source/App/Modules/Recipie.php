@@ -45,7 +45,7 @@ class Recipie{
     public function rate_recipe($user_id, $rating){
       ///if empty -> update, else -> create rating
       if(DB::select(['rating'], 'ratings', ['recipe_id' => $this->id, 'user_id' => $user_id])->rowCount() > 0){
-        return DB::upadte(['rating' => $rating], 'ratings', ['user_id' => $user_id, 'recipe_id' => $this->id]);
+        return DB::update(['rating' => $rating], 'ratings', ['user_id' => $user_id, 'recipe_id' => $this->id]);
       }else{
         return DB::insert([[
           'user_id'=> $user_id,
@@ -55,8 +55,8 @@ class Recipie{
       }
     }//rate_recipe()
 
-    public static function display_ratings(){
-      $query = DB::select(['AVG(rating)'], 'ratings');
+    public function display_ratings(){
+      $query = DB::select(['AVG(rating)'], 'ratings', ['recipe_id' => $this->id]);
       return round($query);
       //$this->avg_rating = blabla;
     }
