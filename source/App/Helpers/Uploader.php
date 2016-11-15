@@ -69,15 +69,18 @@ class Uploader {
         
         try{
             if(move_uploaded_file($file['tmp_name'], $this->picture_path())) {
+                $compressSize = Config::$files['compressedSize'];
+                $folder = Compressor::image($this->picture_path())->resizeAuto($compressSize);
+                
+                $folder = trim($folder, '.');
+                unlink($this->picture_path());
+                
+                DB::do()->insert([[
+                    'user_id' => 1,
+                    'location' => $folder,
+                ]], 'image');
 
-              Compressor::image($file)->resizeAuto(Config::$files['compressedSize']);
-
-              DB::do()->insert([[
-                'user_id' => 1,
-                'location' => $this->picture_path(),
-              ]], 'image');
-
-              return trim($this->picture_path(), '.');
+              return $folder;
             }
         } catch (Exception $e) {
              return ['error' => $e];   

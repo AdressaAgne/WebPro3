@@ -17,20 +17,20 @@ class Compressor {
     private $folder;
 
     function __construct($file){
-            $this->folder = Config::$files['compressed'];
+            $this->folder = ".".Config::$files['compressed'];
 
             list($this->width, $this->height) = getimagesize($file);
             $this->image = $file;
-            $this->mime = getimagesize($file)['mime'];
+            $this->mime = mime_content_type($file);
             $this->ratioW = $this->height / $this->width;
             $this->ratioH = $this->width / $this->height;
             $this->name = basename($file);
 
             if(!file_exists($this->folder)){
-                mkdir($this->folder, 0777);
+                if(!mkdir($this->folder, 0777, true)){
+                    return ['error' => 'error creating folder '.$this->folder];
+                }
             }
-
-
     }
 
     /**
@@ -58,6 +58,7 @@ class Compressor {
      * @return string  image location
      */
     public function resizeWidth($w, $name = null){
+        if($this->width < $w) $w = $this->width;
         $h = $w * $this->ratioW;
         $name = ($name == null) ? $this->name : $name;
         return $this->resize($w, $h, $name);
@@ -72,6 +73,7 @@ class Compressor {
      * @return string  image location
      */
     public function resizeHeight($h, $name = null){
+        if($this->height < $h) $h = $this->height;
         $w = $h * $this->ratioH;
         $name = ($name == null) ? $this->name : $name;
         return $this->resize($w, $h, $name);
@@ -92,7 +94,7 @@ class Compressor {
 
         $folder = $this->folder.intval($w)."x".intval($h)."_".$name;
 
-        switch($this->mine){
+        switch($this->mime){
             case "image/png":
                 imagefill($image,0, 0, 0x7fff0000);
                 $source = imagecreatefrompng($this->image);
@@ -111,7 +113,7 @@ class Compressor {
         // Resize
         imagecopyresized($image, $source, 0, 0, 0, 0, $w, $h, $this->width, $this->height);
 
-        switch($this->mine){
+        switch($this->mime){
             case "image/png":
                 imagepng($image, $folder);
                 break;

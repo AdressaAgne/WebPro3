@@ -129,12 +129,9 @@
     
     var cat = elm('#cat').innerHTML;
     
-    
-    
     function catEvent(){
         var cat_template = document.createElement('li');
         cat_template.innerHTML = '<select name="cat[]">'+cat+'</select>';
-        
             this.removeEventListener('change', catEvent);
         
         cat_template.addEventListener('change', catEvent);

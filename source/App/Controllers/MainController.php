@@ -35,6 +35,7 @@ class MainController extends BaseController {
     public function recipies(){
 
         $resipies = $this->all(['*'], 'recipies');
+        
         foreach($resipies as &$recipie){
             $recipie = new Recipie($recipie);
         }

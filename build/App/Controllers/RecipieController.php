@@ -18,8 +18,6 @@ class RecipieController extends BaseController {
     
     public function put($values) {
         
-        return $values;
-        
         $id = $this->insert([[
             'name' => $values['name'],
             'how' => $values['how'],
@@ -40,21 +38,23 @@ class RecipieController extends BaseController {
             ];
         }
         
-        $categories = [];
-        foreach($values['cat'] as $cat){
-            $categories[] = [
-                'category_id' => $cat,
-                'recipie_id' => $id
-            ];
+        if(!empty($values['cat'])){
+            $categories = [];
+            foreach($values['cat'] as $cat){
+                $categories[] = [
+                    'category_id' => $cat,
+                    'recipie_id' => $id
+                ];
+            }
+            $this->insert($categories, 'recipie_category');
         }
         
         $this->insert($data, 'ingredients');
-        $this->insert($categories, 'recipie_category');
         
         return Direct::re('/recipie/item/'.$id);
     }
     
-    public function upload($values){
+    public function ajaxUpload($values){
         $up = new Uploader($_FILES['file']);
         
         return ['path' => $up->upload()];

@@ -48,7 +48,7 @@ class Config {
     public static $files            = [
       "original" => "/assets/userFiles/original/",
       "compressed" => "/assets/userFiles/compressed/",
-      "compressedSize" => 400,
+      "compressedSize" => 800,
       ];
 
     /**
