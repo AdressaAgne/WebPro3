@@ -16,7 +16,7 @@
             </div>
 
             <div class="col-8 col-m-6">
-		            <div class="col-12 res-des">
+		            <div class="col-12 res-desc">
 		            	<h1>{{$recipie->name}}</h1>     	
 			            <h3>Description</h3>
 			            <p>{{$recipie->desc}}</p> 	
