@@ -1,7 +1,7 @@
 
-1. [#todo]()
-2. [#css-grid-documentation]()
-3. [#dackend-documentation]()
+1. [Todo](#todo)
+2. [CSS Grid Documentation](#css-grid-documentation)
+3. [Backend Documentation](#backend-documentation)
 4. [live preview](https://farliggodt.agne.no)
 
 
