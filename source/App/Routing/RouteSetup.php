@@ -29,7 +29,7 @@ Direct::get("/profile", "MainController@profile");
 
 Direct::get("/api/nearby/{lat}/{lng}/{dist}", 'NearByController@api');
 Direct::get("/api/search/{taxon}/{dist}", 'NearByController@taxon_api');
-//Direct::get("/m", 'MigrateController@migrate');
+Direct::get("/m", 'MigrateController@populate');
 
 
 

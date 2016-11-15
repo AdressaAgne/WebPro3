@@ -16,15 +16,16 @@
 
 <nav class="nav nav--fixed">
     <div class="container">
-        <ul class="nav--left">
-            <li class="nav__item nav__item--burger"><a href="#"><i class="icon-meat--white icon--small icon--text"></i></a></li>
+        <ul class="nav--left ">
+            <li class="nav__item nav__item--burger">
+                <a href="#"><i class="icon-burger--white icon--small icon--text"></i></a>
+            </li>
            
             <li class="nav__item @active_page('')"><a href="/">Hjem</a></li>
             <li class="nav__item @active_page('recipie')"><a href="/recipie">Oppskrifter</a></li>
             <li class="nav__item @active_page('nearby')"><a href="/nearby">Kart</a></li>
             <li class="nav__item @active_page('species')"><a href="/species">Arter</a></li>
             <li class="nav__item @active_page('about')"><a href="/about">Visjon</a></li>
-           
         </ul>
 
        

@@ -16,4 +16,8 @@ class MigrateController extends BaseController {
         
         return Migrations::install();
     }
+    
+    public function populate(){
+        return Migrations::populate();
+    }
 }

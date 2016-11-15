@@ -12,7 +12,7 @@ class LoginController extends BaseController{
     }
 
     public function post($user){
-        $msg = Account::login($user['username'], $user['password']);
+        $msg = Account::login($user['username'], $user['password'], isset($user['remember']));
         
         return Direct::re('/profile');
     }

@@ -38,37 +38,30 @@
             
 	            <div class="res-categorie">
 	                <h2> RÅVARE </h2>
-                    <!--	    Change to Category Loop from db           -->
 	                <ul>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="" value="fisk">Fisk
-                            </label>
-                        </li>
-                        <li><label><input type="checkbox" name="" value="skalldyr">Skalldyr</label></li>
-                        <li><label><input type="checkbox" name="" value="urter">Urter</label></li>
-                        <li><label><input type="checkbox" name="" value="rovdyr">Rovdyr</label></li>
-                        <li><label><input type="checkbox" name="" value="insekter">Insekter</label></li>
-                        <li><label><input type="checkbox" name="" value="fruktogberry">Frukt og bær</label></li>
-                        <li><label><input type="checkbox" name="" value="vegetables">Grønnsaker</label></li>
-                        <li><label><input type="checkbox" name="" value="poultry">Fjærkre</label></li>
+                        @foreach($category_zero as $cat)
+                            <li>
+                                <input type="checkbox" name="" id="cat-{{$cat['id']}}" value="{{$cat['id']}}">
+                                <label class="checkbox" for="cat-{{$cat['id']}}">{{ ucfirst($cat['name']) }}</label>
+                            </li>
+                        @endforeach
 	                </ul>
 	            </div>
 	            <div class="res-categorie">
 	                <h2> TYPE RETT </h2>
 	                <ul>
-	                    <li><label><input type="checkbox" name="" value="frokost">Frokost</label> </li>
-	                    <li><label><input type="checkbox" name="" value="lunsj">Lunsj</label></li>
-	                    <li><label><input type="checkbox" name="" value="middag">Middag</label></li>
-	                    <li><label><input type="checkbox" name="" value="snacks">Snacks</label></li>
-	                    <li><label><input type="checkbox" name="" value="insekter">Insekter</label></li>
-	                    <li><label><input type="checkbox" name="" value="tilbehor">Tilbehør</label></li>
+	                    @foreach($category_one as $cat)
+                            <li>
+                                <input type="checkbox" name="" id="cat-{{$cat['id']}}" value="{{$cat['id']}}">
+                                <label class="checkbox" for="cat-{{$cat['id']}}">{{ ucfirst($cat['name']) }}</label>
+                            </li>
+                       @endforeach
 	                </ul>
 	            </div>
 	        </div>
 	        <div class="col-8">
 	            @foreach($food as $res)
-	                        <div class="col-4">
+	                        <div class="col-4 col-m-6">
 	                            @layout('layout.recipie', ['res' => $res])
 	                        </div>
 	            @endforeach

@@ -1,6 +1,7 @@
 @layout('layout.head')
 
 <main>
+<!--
     <section class="map_info">
         <div class="col-12">
             <h2 class="page-heeader center"></h2>
@@ -13,12 +14,13 @@
             </label>
         </div>
     </section>
-    <div id="map" class="full_map"></div>
+-->
+    <div id="map" class="full_map col-12"></div>
 </main> 
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/assets/js/min/googleMapsStyle-min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key={{$google_key}}&callback=initMap" async defer></script>
     <script src="/assets/js/min/Maps-min.js"></script>
 
-</body>
-</html>
+
+@layout('layout.scripts')

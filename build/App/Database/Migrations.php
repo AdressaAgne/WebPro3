@@ -85,7 +85,6 @@ class Migrations{
             new Row('type', 'varchar'),
         ]);
 
-
         $db->createTable('recipie_category', [
             new Row('id', 'int', null, true, true),
             new Row('recipie_id', 'int'),
@@ -98,5 +97,57 @@ class Migrations{
           new Row('content', 'varchar'),
           new Row('recipe_id', 'int')
         ]);
+        
+        $db->createTable('category', [
+            new Row('id', 'int', null, true, true),
+            new Row('name', 'varchar'),
+            new Row('type', 'varchar'),
+        ]);
+    }
+    
+    public static function populate(){
+        $db = new DB();
+        
+        $db->insert([
+            [
+                'name' => 'skalldyr',
+                'type' => 0,
+            ],[
+                'name' => 'urter',
+                'type' => 0,
+            ],[
+                'name' => 'rovdyr',
+                'type' => 0,
+            ],[
+                'name' => 'insekter',
+                'type' => 0,
+            ],[
+                'name' => 'frukt og bær',
+                'type' => 0,
+            ],[
+                'name' => 'grønnsaker',
+                'type' => 0,
+            ],[
+                'name' => 'fjærkre',
+                'type' => 0,
+            ],[
+                'name' => 'lunsj',
+                'type' => 1,
+            ],[
+                'name' => 'middag',
+                'type' => 1,
+            ],[
+                'name' => 'snacks',
+                'type' => 1,
+            ],[
+                'name' => 'insekter',
+                'type' => 1,
+            ],[
+                'name' => 'tilbehor',
+                'type' => 1,
+            ],
+        ], 'category');
+           
+        return ['populate' => 'done'];
     }
 }

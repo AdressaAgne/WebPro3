@@ -8,8 +8,7 @@
 	        </div>
 	    </div>
 	</footer>
-    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-
+    @layout('layout.scripts')
 </body>
 
 </html>

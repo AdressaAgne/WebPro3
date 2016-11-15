@@ -41,6 +41,8 @@ class MainController extends BaseController {
 
         return View::make('recipies', [
             'food' => $resipies,
+            'category_zero' => $this->select(['*'], 'category', ['type' => 0])->fetchAll(),
+            'category_one' => $this->select(['*'], 'category', ['type' => 1])->fetchAll(),
         ]);
     }
     public function about() {
