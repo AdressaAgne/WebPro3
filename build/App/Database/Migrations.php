@@ -92,10 +92,18 @@ class Migrations{
           new Row('content', 'varchar'),
           new Row('recipe_id', 'int')
         ]);
-        
-        
+
+        $db->createTable('ratings',[
+          new Row('id', 'int', null, true, true),
+          new Row('user_id', 'int'),
+          new Row('recipe_id', 'int'),
+          new Row('rating', 'tinyint')
+        ]);
+
+
+
     }
-    
+
     public static function populate(){
         $db = new DB();
         $db->createTable('category', [
@@ -103,13 +111,13 @@ class Migrations{
             new Row('name', 'varchar'),
             new Row('type', 'varchar'),
         ]);
-        
+
         $db->createTable('recipie_category', [
             new Row('id', 'int', null, true, true),
             new Row('recipie_id', 'int'),
             new Row('category_id', 'int'),
         ]);
-        
+
         $db->insert([
             [
                 'name' => 'skalldyr',
@@ -149,7 +157,7 @@ class Migrations{
                 'type' => 1,
             ],
         ], 'category');
-           
+
         return ['populate' => 'done'];
     }
 }
