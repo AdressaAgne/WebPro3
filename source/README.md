@@ -1,3 +1,10 @@
+
+1. [#todo:](todo)
+2. [#CSS Grid Documentation](CSS)
+3. [#Backend Documentation](php backend)
+4. [live preview](https://farliggodt.agne.no)
+
+
 # Todo:
 
 ## Backend
@@ -12,8 +19,8 @@
 * [ ] Mail System
 * [x] Image Compressor Class
 * [x] Image uploader
-* [ ] Recipe Class
-* [ ] User Class
+* [x] Recipe Class
+* [x] User Class
 * [x] Unit Convertion Class
 * [ ] Auto Migrate when database is not found
 * [x] Restfull routing
@@ -21,21 +28,31 @@
 * [x] Better sepecies opservation migration from Artskart API
 * [ ] Frontpage recipe algorythem
 * [ ] Recipe rating?
+* [ ] Convert image strings to image id's from image table
+* [ ] Edit Profile
+* [ ] Admin Panel
+* [ ] Recipe Sorting
+* [ ] Rename Recipie to Recipe in all files....
+* [ ] Rating/Voting
+* [ ] Comments
+* [ ] Images for Species
+* [ ] Write Database class documentaion
+* [x] Added Build and Source folder
 
 ### Database / MySQL
 
 * [x] Recipe table
 * [x] User table
-* [ ] Units table
+* [x] Units table
 * [x] Species table
 * [x] Species opservations table
 
 ## Frontend
 ### HTML / CSS
 
-* [ ] Profile Page
-* [ ] Vision Page
-* [ ] Recipe page
+* [x] Profile Page
+* [x] Vision Page
+* [x] Recipe page
 * [ ] Settings for Nearby Species
 * [ ] Mail Template
 
