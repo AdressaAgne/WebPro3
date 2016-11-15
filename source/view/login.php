@@ -5,7 +5,9 @@
     <div class="register-screen">
         <div class="container">
             <h1 class="page-header underline center">Register</h1>
-
+            @if(isset($register_msg))
+                <span class="error-msg">{{$register_msg}}</span>
+            @endif
 
             <form action="/register" method="post" class="hidden-opacity" autocomplete="off">
                 <label for="username">Username
@@ -31,7 +33,9 @@
     <div class="login-screen">
          <div class="container">
             <h1 class="page-header underline underline-accent center">Login</h1>
-
+            @if(isset($login_msg))
+                <span class="error-msg">{{$login_msg}}</span>
+            @endif
             <form action="" method="post" class="hidden-opacity" autocomplete="off">
 
                 <label for="username">Username
@@ -56,6 +60,11 @@
     var reg = document.querySelector(".register-screen");
     var log = document.querySelector(".login-screen");
 
+    @if(isset($username))
+        reg.className = "register-screen disable";
+        log.className = "login-screen active";
+    @endif
+    
     reg.addEventListener('click', function(){
         reg.className = "register-screen active";
         log.className = "login-screen disable";

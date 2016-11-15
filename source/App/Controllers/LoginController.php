@@ -13,7 +13,9 @@ class LoginController extends BaseController{
 
     public function post($user){
         $msg = Account::login($user['username'], $user['password'], isset($user['remember']));
-        
+        if($msg !== true){
+            return View::make('login', ['login_msg' => $msg]);
+        }
         return Direct::re('/profile');
     }
     
@@ -25,8 +27,12 @@ class LoginController extends BaseController{
     public function reg($user){
         $msg = Account::register($user['username'], $user['password'], $user['password_confirm'], $user['mail']);
 
-        return Direct::re('/login', ['username' => $user['username'],
-                                     'mail'    => $user['mail'],
-                                     'message' => $msg]);
+        
+        if(intval($msg) > 0){
+            return View::make('login', ['username' => $user['username']]);
+        }
+        
+        return View::make('login', ['register_msg' => $msg]);
+        
     }
 }
