@@ -28,7 +28,7 @@
 	        <div class="col-4">
                 <div class="search col-12">
                     <label class="search-box" for="search">
-                        <input type="search" placeholder="Søk..." value="">
+                        <input class="search-one" type="search" placeholder="Søk..." value="">
                     </label>
                     <label class="search-icon">
                         <a><i class="icon-search--white icon--small icon--center"></i></a>
