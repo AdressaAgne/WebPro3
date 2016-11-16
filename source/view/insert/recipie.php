@@ -15,7 +15,7 @@
     }
 </style>
 <main>
-<form action="/recipie/insert" method="post">
+@form('/recipie/insert','post')
     <section class="row primary-header" style="background-image: url('')">
         <label for="file" class="drop dropped" id="drop-container">
             <svg height="150" width="150" class="pie-chart" id="svg">
@@ -115,7 +115,7 @@
             <input type="submit" value="Ferdig">
         </div>
     </section>
-</form>
+@formend()
 </main>
 @layout('layout.scripts')
 <script src="/assets/js/min/uploader-min.js"></script>

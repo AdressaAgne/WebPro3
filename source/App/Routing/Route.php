@@ -7,6 +7,7 @@ class Route {
         'get'       => [],
         'post'      => [],
         'update'    => [],
+        'put'       => [],
         'delete'    => [],
         'error'     => [],
     ];
@@ -22,33 +23,52 @@ class Route {
         *   Change to switc case, for put, delete and update editions.
         */
         
-//        if($_SERVER['REQUEST_METHOD'] == "POST"){
-//          switch($_POST['_method']):
-//            
-//            case 'PUT':
-//                array_key_exists($route, self::$routes['put']) ? self::$routes['put'][$route] : null
-//            break;
-//            
-//        } else {
-//            // GET
-//            
-//            
-//        }
-        
-        if($_SERVER['REQUEST_METHOD'] == "POST" && array_key_exists($route, self::$routes['post'])){
-            return array_key_exists($route, self::$routes['post']) ? self::$routes['post'][$route] : null;
+        if($_SERVER['REQUEST_METHOD'] == "POST"){
+          switch($_POST['_method']) {
+                case 'PUT':
+                    return self::method('put', $route);
+                break;
+
+                case 'UPDATE':
+                    return self::method('update', $route);
+                break;
+
+                case 'DELETE':
+                    return self::method('delete', $route);
+                break;
+              
+                case 'POST':
+                    return self::method('post', $route);
+                break;
+
+                default:
+                    if(array_key_exists('405', self::$routes['error'])){
+                        return self::$routes['error']['405'];
+                    } else {
+                        return ['error' => '405 Method '.$_POST['_method'].' not allowed'];
+                    }
+                break;
+            }
         } else {
             if(array_key_exists($route, self::$routes['get'])){
                 return self::$routes['get'][$route];
             } else {
-                return array_key_exists('404', self::$routes['error']) ? self::$routes['error']['404'] : self::error();
+                return array_key_exists($route, self::$routes['get']) ? self::$routes['get'][$route] : ['error' => 'no route', 'callback' => 'no callback'];
             }
-        } 
+        }
     }
     
-    public static function error(){
+    public static function method($method, $route){
+        if(array_key_exists($route, self::$routes[$method])){
+            return self::$routes[$method][$route];
+        } else {
+            return ['error' => 'No route to '.$route.' with _method '.$method];
+        }
+    }
+    
+    public static function error($error){
         
-        return ['error' => '404'];
+        return ['error' => $error];
         
     }
     

@@ -18,7 +18,7 @@ class Config {
     public static $username = 'root';
     public static $password = 'root';
 
-
+    public static $form_token = '';
 
 
     public static $cookie_time = 86400 * 30;

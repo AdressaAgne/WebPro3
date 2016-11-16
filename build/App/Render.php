@@ -16,7 +16,7 @@ class Render {
         'isLoggedIn',
         'check',
         'form',
-        'endform',
+        'formend',
     ];
     private $helpers = [
         'if',
@@ -27,10 +27,11 @@ class Render {
     public function __construct($code){    
         $this->addFunction("Raw Output",     "{!([^\}\{]+)!}", "<?php echo $1 ?>");
         $this->addFunction("Escaped Output", "{{([^\}\{]+)}}", "<?php echo htmlspecialchars($1, ENT_QUOTES, 'UTF-8') ?>");
+        $this->addFunction("shortcuts",      "@(".implode('|', $this->shortcuts)."){1}\\(([^\\)\\(]*)[\\)]","<?php Render::$1($2) ?>");
         $this->addFunction("Helpers",        "@(".implode('|', $this->helpers)."){1}[\s]*\((.*)\)", "<?php $1($2) : ?>");
         $this->addFunction("Helpers End",    "@end(".implode('|', $this->helpers)."){1}", "<?php end$1 ?>");
         $this->addFunction("Else",    "@else", "<?php else : ?>");
-        $this->addFunction("shortcuts",      "@(".implode('|', $this->shortcuts)."){1}\\(([^\\)\\(]*)[\\)]","<?php Render::$1($2) ?>");
+        
         
         $this->code = $this->render($code);
     }
@@ -87,17 +88,32 @@ class Render {
         return Account::isLoggedIn();
     }
     
-    public static function form($page, $method){ 
-        if($method == 'get'){
-            echo "<form action='$page' method='GET'></form>";
+    public static function form($page, $method, $attrs = null){ 
+        $method = strtoupper($method);
+        $token = Config::$form_token;
+        
+        if($attrs != null){
+            foreach($attrs as $key => &$value){
+                $value = "$key='$value'";
+            }
+
+            $attrs = implode(' ', $attrs);
         } else {
-            echo '<form action="<?= $page ?>" method="POST"></form>';
+            $attrs = '';
+        }
+        
+        
+        if($method == 'get'){
+            echo "<form action='$page' method='GET' $attrs>";
+        } else {
+            echo "<form action='$page' method='POST' $attrs>";
         }
         echo "<input type='hidden' name='_method' value='$method' />";
+        echo "<input type='hidden' name='_token' value='$token' />";
         
     }
     
-    public static function endform(){
+    public static function formend(){
         echo "</form>";
     }
     

@@ -41,6 +41,10 @@ class Direct extends Route{
     
     //<input type="hidden" name="_method" value="PUT">
     public static function put($a, $b){
+        return new Direct($a, $b, 'put');
+    }
+    
+    public static function update($a, $b){
         return new Direct($a, $b, 'update');
     }
    
@@ -52,8 +56,8 @@ class Direct extends Route{
         return new Direct($a, $b, 'error');
     }
     public static function something($a, $b){
-        self::get($a, $b."@index");
-        self::post($a, $b."@post");
+        self::get($a, "$b@index");
+        self::post($a, "$b@post");
     }
     
     

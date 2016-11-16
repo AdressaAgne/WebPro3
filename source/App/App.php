@@ -41,7 +41,7 @@ require_once('App/Routing/RouteSetup.php');
 class App extends RouteHandler{
     
     public function __construct(){
-        
+        Config::$form_token = uniqid();
         $page = $this->getPageData();
         
         if(gettype($page) !== 'string'){

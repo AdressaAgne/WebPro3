@@ -18,7 +18,7 @@
                 
                 <div class="col-6">
                     
-                    <form action="/profile/update" method="post">
+                    @form('/profile/update', 'update')
                         <h2 class="page-header underline center">Endre Passord</h2>
                         
                         @if(isset($msg))
@@ -46,9 +46,7 @@
                         <div class="col-12">
                             <input type="submit" value="Endre">
                         </div>
-                        
-                        
-                    </form>
+                    @formend()
                     
                 </div>
                 <div class="col-6">

@@ -8,8 +8,7 @@
             @if(isset($register_msg))
                 <span class="error-msg">{{$register_msg}}</span>
             @endif
-
-            <form action="/register" method="post" class="hidden-opacity" autocomplete="off">
+            @form('/register', 'put', ['class' => 'hidden-opacity'])
                 <label for="username">Username
                     <input class="accent" type="text" name="username" placeholder="Username">
                 </label>
@@ -25,8 +24,7 @@
 
                 <input type="hidden" name="_method" value="put" />
                 <input type="submit" class="accent" value="Register">
-
-            </form>
+            @formend()
 
         </div>
     </div>
@@ -36,7 +34,8 @@
             @if(isset($login_msg))
                 <span class="error-msg">{{$login_msg}}</span>
             @endif
-            <form action="" method="post" class="hidden-opacity" autocomplete="off">
+            
+            @form('', 'post', ['class' => 'hidden-opacity'])
 
                 <label for="username">Username
                     <input type="text" name="username" placeholder="Username" value="">
@@ -48,7 +47,7 @@
                 <label class="checkbox accent" for="remember">Remember me</label>
 
                 <input type="submit" value="Login">
-            </form>
+            @formend()
 
         </div>
     </div>

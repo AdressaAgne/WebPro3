@@ -85,7 +85,7 @@ class Account extends DB{
         return isset($_SESSION['uuid']);
     }
 
-    public function changePassword(User $user, $pw, $newPw, $newpw2){
+    public static function changePassword(User $user, $pw, $newPw, $newpw2){
         if($newPw !== $newpw2) return 'The new password does not match';
         
         if(!password_verify($pw, $user->password)) return 'Old Password is wrong';

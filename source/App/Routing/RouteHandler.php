@@ -110,18 +110,14 @@ class RouteHandler{
     private function callController($url){
         $this->route = Direct::getCurrentRoute($url);
        // die(print_r([$url, $this->route], true));
+        
+        if(!array_key_exists('callback', $this->route)){
+            return $this->route;
+        }
+        
         $this->view = explode('@', $this->route['callback']);
         
         
-        if(array_key_exists("error", $this->route)){
-            ErrorHandling::fire("View Does not Exist: " . $url,
-                                "Please set up a route to 404",
-                                ['App/Routing/RouteSetup.php', 
-                                 'Direct::err("404", "Controller@method");'
-                                ]);
-            
-            return;
-        }
         
         $funcToCall = [$this->getMethod(), $this->getClass()];
         

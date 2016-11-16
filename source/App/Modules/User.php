@@ -23,7 +23,8 @@ class User{
 
   public function getAllRecipes(){
     if(!empty($this->recipes)) return $this->recipes;
-    $result = DB::select(["*"],'recipies',['user_id' => $this->id])->fetchAll();
+    $result = DB::query('SELECT r.*, i.big as image, i.small as thumbnail FROM recipies AS r
+        INNER JOIN image AS i ON r.image = i.id WHERE r.user_id = :id',['id' => $this->id])->fetchAll();
 
     foreach($result as $key => $value) {
       $this->recipes[$value['id']] = new Recipie($value);

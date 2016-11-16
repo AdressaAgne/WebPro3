@@ -12,12 +12,11 @@ Direct::get("/login", 'LoginController@index');
 Direct::post("/login", 'LoginController@post');
 Direct::get("/logout", 'LoginController@logout');
 
-Direct::post("/register", 'LoginController@reg');
+Direct::put("/register", 'LoginController@reg');
 
 Direct::get("/recipie/item/{id}", 'RecipieController@recipie');
 Direct::get("/recipie/insert", 'RecipieController@index');
-Direct::post("/recipie/insert", 'RecipieController@put');
-Direct::post("recipie/uploadimage", 'RecipieController@ajaxUpload');
+Direct::put("/recipie/insert", 'RecipieController@put');
 Direct::get("/recipie", 'RecipieController@recipies');
 
 
@@ -29,9 +28,10 @@ Direct::get("/about", 'MainController@about');
 
 Direct::get("/profile", "ProfileController@index");
 Direct::get("/profile/update", "ProfileController@profieEdit");
-Direct::post("/profile/update", "ProfileController@edit");
+Direct::update("/profile/update", "ProfileController@edit");
 
 
+Direct::post("recipie/uploadimage", 'RecipieController@ajaxUpload');
 Direct::get("/api/nearby/{lat}/{lng}/{dist}", 'NearByController@api');
 Direct::get("/api/search/{taxon}/{dist}", 'NearByController@taxon_api');
 Direct::get("/m/p", 'MigrateController@populate');
