@@ -28,7 +28,7 @@ class Route {
         if($_SERVER['REQUEST_METHOD'] == "POST"){
             //CSRF token
             if($_POST['_token'] != $_SESSION['_token']){
-               return self::$error('401');
+               return self::error('401');
             } 
 
             switch(strtoupper($_POST['_method'])) {
@@ -38,7 +38,6 @@ class Route {
                 break;
 
                 case 'UPDATE':
-                    return $_POST;
                     return self::method('update', $route);
                 break;
 

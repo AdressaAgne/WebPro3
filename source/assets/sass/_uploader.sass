@@ -26,13 +26,23 @@ $circle: 380
     font-family: verdana
 
 
+.info-text
+    color: #009688
+    display: block
+
+.pie-chart > text
+    fill: #009688
+.pie-chart > circle.front
+    stroke: #009688
+    
 @keyframes run
     from
         stroke-dashoffset: $circle
     to
         stroke-dashoffset: auto
-        
-.drop
+   
+
+.drop, .circle-drop
     background-color: #efefef
     padding: 50px
     margin: 0px auto
@@ -41,10 +51,16 @@ $circle: 380
     background-size: cover
     background-position: center center
     display: block
-
+    cursor: pointer
+    
+.circle-drop
+    padding: 25px 0px
+    border-radius: 100px
+    width: 200px
+    height: 200px
+    
 .drop:hover
     background-color: #e6e6e6
-    cursor: pointer
 
 .drop.active, .drop:active
     background-color: #e2e2e2

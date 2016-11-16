@@ -93,7 +93,7 @@ class Render {
         echo "<p>".preg_replace('/\\n/', '</p><p>', $str)."</p>";
     }
     
-    public static function form($page, $method, $attrs = null){ 
+    public static function form($page = "", $method = "post", $attrs = null){ 
         $method = strtoupper($method);
         $token = $_SESSION['_token'];
         

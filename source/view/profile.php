@@ -15,7 +15,6 @@
           <div class="col--right">
            <ul class="list-simple--horisontal">
                <li><a href="/profile/update">Rediger profil</a></li>
-
            </ul>
           </div>
         </div>
@@ -24,10 +23,18 @@
   		     <h1 class="page-header center underline">{{$user->username}}</h1>
         <!-- user image -->
           <div class="col-4 col--center">
-            <input type="file" name="name" value="" id="file" hidden>
-            <label for="file" class="image--circle col--center" style="background-image: url('{{$user->avatar}}')">
-
+            <label for="file" class="circle-drop" id="drop-container" style="background-image: url('{{$user->avatar}}')">
+                <svg height="150" width="150" class="pie-chart" id="svg">
+                    <circle class="behind"cx="50%" cy="50%" r="40%" />
+                    <circle class="front" cx="50%" cy="50%" r="40%" data-percent="0" />
+                    <text y="80" transform="translate(80)">
+                       <tspan x="0" text-anchor="middle">0%</tspan>
+                    </text>
+                </svg>
             </label>
+            @form()
+         <input type="file" id="file" hidden="">
+         @formend()
           </div>
         </div>
         <div class="row">
@@ -42,4 +49,5 @@
   		</section>
 	<main>
 @layout('layout.scripts')
+<script src="/assets/js/min/profile-min.js"></script>
 @layout('layout.foot')

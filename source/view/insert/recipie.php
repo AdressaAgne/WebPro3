@@ -1,19 +1,5 @@
 @layout('layout.head')
 
-<style>
-    h3, .info-text{
-        color: #009688;
-    }
-    .info-text{
-        display: block;
-    }
-    .pie-chart > text {
-        fill: #009688;
-    }
-    .pie-chart > circle.front {
-        stroke: #009688;
-    }
-</style>
 <main>
 @form('/recipie/insert','post')
     <section class="row primary-header" style="background-image: url('')">
@@ -27,8 +13,10 @@
             </svg>
             <span class="info-text">Klikk for a laste opp bilde</span>
         </label>
+        @from()
         <input type="file" id="file" hidden="">
         <input type="text" name="file" id="fileText" class="dark" hidden>
+        @formend()
     </section>
 
     <section class="container">  

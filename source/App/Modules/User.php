@@ -18,8 +18,7 @@ class User{
         $query = DB::query('SELECT * FROM users as u 
         INNER JOIN image AS i ON u.image = i.id
         WHERE u.id = :id', ['id' => $query])->fetch();
-    }  
-      
+    }
     $this->id           = $query['id'];
     $this->username     = $query['username'];
     $this->cookie       = $query['cookie'];

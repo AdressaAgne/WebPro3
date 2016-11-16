@@ -2,7 +2,7 @@
 namespace App\Controllers;
 
 use View, Direct; // Routing
-use BaseController, User;
+use BaseController, User, Account, Uploader;
 
 /**
  * making a view with/without variables to render
@@ -27,5 +27,14 @@ class ProfileController extends BaseController {
     
     public function profieEdit(){
         return View::auth('edit.profile', '/login');
+    }
+    
+    public function ajaxUpload($values){
+        $up = new Uploader($_FILES['file']);
+        $up = $up->upload();
+        
+        $this->update(['image' => $up['id']],'users', ['id' => Account::get_id()]);
+        
+        return ['path' => $up['folder'], 'id' => $up['id']];
     }
 }

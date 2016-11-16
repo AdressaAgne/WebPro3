@@ -2,7 +2,7 @@
 
 var info = 0;
 function upload(files){
-    ajax('recipie/uploadimage', {file : files[0], '_token' : elm('[name=_token]').value, '_method' : 'post'}, function(data){
+    ajax('profile/image', {file : files[0], '_token' : elm('[name=_token]').value, '_method' : 'post'}, function(data){
         data = JSON.parse(data);
         window.console.log(data);
         
@@ -10,7 +10,6 @@ function upload(files){
             elm('.error').innerHTML = '<h2>'+data.error+'</h2>';
         } else {
             
-            elm('#fileText').value = data.id;
             elm('#drop-container').style.backgroundImage = "url('"+data.path+"')";
         
         }
@@ -19,10 +18,8 @@ function upload(files){
         var p = Math.floor( (e.loaded / e.total) * 100 );
         if(info === 0){
             info++;
-            elm('.info-text').textContent = "Uploading";
         }
         if(p >= 100){
-            elm('.info-text').textContent = "Processing";
             document.getElementById("svg").setAttribute("class", "pie-chart processing");
         }
         elm('[data-percent]').setAttribute("data-percent", p);
