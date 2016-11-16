@@ -40,7 +40,9 @@ class MainController extends BaseController {
     public function species() {
 
     	return View::make('taxons', [
-            'taxon' => $this->query('SELECT * FROM blacklist WHERE taxonID = :a OR taxonID = :b OR taxonID = :c OR taxonID = :d OR taxonID = :e OR taxonID = :f', [
+            'taxon' => $this->query('SELECT b.*, im.big as image, im.small as thumbnail FROM blacklist as b
+             INNER JOIN image as im ON b.image = im.id
+            WHERE taxonID = :a OR taxonID = :b OR taxonID = :c OR taxonID = :d OR taxonID = :e OR taxonID = :f', [
                 'a' => 60303,
                 'b' => 14365,
                 'c' => 84141,

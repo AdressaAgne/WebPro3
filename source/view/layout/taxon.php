@@ -5,7 +5,7 @@
                 <h3 class="">{{ ucfirst($tax['navn']) }}</h3>
                 <p><em>{{$tax['scientificName']}}</em></p>
             </div>   
-        <div class="recipie-preview" style="background-image: url('/assets/img/recipis/kingcrab.jpg');"></div>
+        <div class="recipie-preview" style="background-image: url('{{$tax['thumbnail']}}');"></div>
     </article>
 </a>
 

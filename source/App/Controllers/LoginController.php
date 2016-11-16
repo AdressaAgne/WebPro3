@@ -29,7 +29,7 @@ class LoginController extends BaseController{
 
         
         if(intval($msg) > 0){
-            return View::make('login', ['username' => $user['username']]);
+            return Direct::re('/login');
         }
         
         return View::make('login', ['register_msg' => $msg]);

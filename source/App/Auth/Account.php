@@ -99,4 +99,7 @@ class Account extends DB{
       return 0;
     }//changeEmail()
 
+    public static function get_id(){
+        return (isset($_SESSION['uuid']) ? $_SESSION['uuid'] : false);
+    }
 }

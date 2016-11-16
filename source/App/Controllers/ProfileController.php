@@ -2,7 +2,7 @@
 namespace App\Controllers;
 
 use View, Direct; // Routing
-use BaseController, user;
+use BaseController, User;
 
 /**
  * making a view with/without variables to render

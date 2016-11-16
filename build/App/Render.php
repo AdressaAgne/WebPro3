@@ -17,6 +17,7 @@ class Render {
         'check',
         'form',
         'formend',
+        'format',
     ];
     private $helpers = [
         'if',
@@ -86,6 +87,10 @@ class Render {
     
     public static function isLoggedIn(){
         return Account::isLoggedIn();
+    }
+    
+    public static function format($str){
+        echo "<p>".preg_replace('/\\n/', '</p><p>', $str)."</p>";
     }
     
     public static function form($page, $method, $attrs = null){ 

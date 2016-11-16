@@ -58,6 +58,7 @@ class Migrations{
             new Row('username', 'varchar'),
             new Row('password', 'varchar'),
             new Row('cookie', 'varchar'),
+            new Row('image', 'int', '1'),
             new Row('mail', 'varchar'),
         ]);
 
@@ -170,47 +171,22 @@ class Migrations{
                 'description' => 'En deilig rett som inneholder flere ingredienser fra svartelista. ',
                 'image' => 1,
                 'user_id' => 1,
-                'how' => 'Rens Fisken og skjær den i 4-5 cm tykke stykker. Legg stykkene i et
-                halvdypt fat eller en bolle, krydre dem godt med salt og hell
-                halvparten av oljen over. La dem stå og trekke ca 1 time.
-                Skrell og grovhakk løken. Bland den med resten av oljen sammen
-                med purren skåret i skiver. Krydre dette med pepper, ha det i varm
-                gryte og la det få litt farge. Dryss så melet over, spe med så mye
-                fiskekraft at det blir nok til å dekke fiskestykkene. Spe med vann om
-                nødvendig.
-                Ha fiskestykkene og enerbærene opp i gryten. La fisken koke på svak
-                varme til den er halvmør, 12-15 minutter. Tilsett så hakket persille og
-                kok retten ferdig i nye 12-15 minutter. Smak til med salt og pepper.
-                Retten smaker godt både varm og kald. Server surbrød eller
-                grovbrød til.',
+                'how' => 'Rens Fisken og skjær den i 4-5 cm tykke stykker. Legg stykkene i et halvdypt fat eller en bolle, krydre dem godt med salt og hell halvparten av oljen over. La dem stå og trekke ca 1 time.
+                Skrell og grovhakk løken. Bland den med resten av oljen sammen med purren skåret i skiver. Krydre dette med pepper, ha det i varm gryte og la det få litt farge. Dryss så melet over, spe med så mye fiskekraft at det blir nok til å dekke fiskestykkene. Spe med vann om nødvendig.
+                Ha fiskestykkene og enerbærene opp i gryten. La fisken koke på svak varme til den er halvmør, 12-15 minutter. Tilsett så hakket persille og kok retten ferdig i nye 12-15 minutter. Smak til med salt og pepper. Retten smaker godt både varm og kald. Server surbrød eller grovbrød til.',
             ],[
                 'name' => 'Pai med lerkesopp',
                 'description' => 'En deilig pai som kan lages med mange forskjellige typer sopp. Her har vi brukt Lerkesopp som er en svartelistet art.',
                 'image' => 1,
                 'user_id' => 1,
-                'how' => 'Smuldre smøret i melet ved å bruke ngrene eller en foodprocessor. Tilsett vann og arbeid
-                deigen raskt sammen (i foodprocessor 10-120 sek). Kjevle ut deigen eller trykk den ut i en
-                form. Prikk den med en ga}el og la den hvile i kjøleskapet i 20-30 min. Varm stekeovn til 200
-                ºC. Forstek paibunnen midt i stekeovnen i ca 10 min. Rens og del soppen i biter. Fres sopp og
-                løk i smør i en panne til soppvæsken har kokt inn. Krydre med salt, pepper og timian. Visp
-                sammen egg og matøte. Legg soppblandingen i den forstekte paibunnen og hell over
-                eggeblandingen. Dryss på ost. Stek midt i stekeovnen i ca 30 min. Server med en grønn salat
-                og ev sprøstekt bacon, spekeskinke eller røkelaks.',
+                'how' => 'Smuldre smøret i melet ved å bruke ngrene eller en foodprocessor. Tilsett vann og arbeid deigen raskt sammen (i foodprocessor 10-120 sek). Kjevle ut deigen eller trykk den ut i en form. Prikk den med en gaffel og la den hvile i kjøleskapet i 20-30 min. Varm stekeovn til 200ºC. Forstek paibunnen midt i stekeovnen i ca 10 min. Rens og del soppen i biter. Fres sopp og løk i smør i en panne til soppvæsken har kokt inn. Krydre med salt, pepper og timian. Visp sammen egg og matøte. Legg soppblandingen i den forstekte paibunnen og hell over eggeblandingen. Dryss på ost. Stek midt i stekeovnen i ca 30 min. Server med en grønn salat og ev sprøstekt bacon, spekeskinke eller røkelaks.',
             ],[
                 'name' => 'Kjørvelpesto',
-                'description' => 'Denne passer best til sk og kjøtt, men kan også brukes på sandwiches
-                og wraps. Kjørvel er ikke så mye brukt i det norske kjøkken, men om så
-                vanligere på kontinentet, i land som Frankrike, Tyskland og Italia. Men
-                kjørvelen hadde egentlig passet ypperlig inn i det norske kjøkkenet,
-                særlig til tradisjonelle skeretter som skekaker.',
+                'description' => 'Denne passer best til fisk og kjøtt, men kan også brukes på sandwiches og wraps. Kjørvel er ikke så mye brukt i det norske kjøkken, men om så vanligere på kontinentet, i land som Frankrike, Tyskland og Italia. Men kjørvelen hadde egentlig passet ypperlig inn i det norske kjøkkenet, særlig til tradisjonelle skeretter som skekaker.',
                 'image' => 1,
                 'user_id' => 1,
-                'how' => 'Kjør alle ingrediensene i en kjøkkenmaskin med
-                knivblad til en jevn masse. Smak til med salt og
-                pepper. Ønskes en tynnere konsistens kan det
-                tilsettes litt mer olivenolje.
-                Tips! Pestoen kan også blandes med rømme eller
-                créme fraîche og brukes som dipp eller dressing.',
+                'how' => 'Kjør alle ingrediensene i en kjøkkenmaskin med knivblad til en jevn masse. Smak til med salt og pepper. Ønskes en tynnere konsistens kan det tilsettes litt mer olivenolje.
+                Tips! Pestoen kan også blandes med rømme eller créme fraîche og brukes som dipp eller dressing.',
             ],
         ], 'recipies');
         

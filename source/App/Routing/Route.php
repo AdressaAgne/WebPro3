@@ -30,13 +30,15 @@ class Route {
             if($_POST['_token'] != $_SESSION['_token']){
                return self::$error('401');
             } 
-            
-            switch($_POST['_method']) {
+
+            switch(strtoupper($_POST['_method'])) {
+                    
                 case 'PUT':
                     return self::method('put', $route);
                 break;
 
                 case 'UPDATE':
+                    return $_POST;
                     return self::method('update', $route);
                 break;
 
@@ -49,14 +51,14 @@ class Route {
                 break;
 
                 default:
-                    return self::$error('405');
+                    return self::error('405');
                 break;
             }
         } else {
             if(array_key_exists($route, self::$routes['get'])){
                 return self::$routes['get'][$route];
             } else {
-                return self::$error('404');
+                return self::error('404');
             }
         }
     }
@@ -65,7 +67,7 @@ class Route {
         if(array_key_exists($route, self::$routes[$method])){
             return self::$routes[$method][$route];
         } else {
-            return self::$error('404');
+            return self::error('404');
         }
     }
     

@@ -18,6 +18,7 @@ Direct::get("/recipie/item/{id}", 'RecipieController@recipie');
 Direct::get("/recipie/insert", 'RecipieController@index');
 Direct::put("/recipie/insert", 'RecipieController@put');
 Direct::get("/recipie", 'RecipieController@recipies');
+Direct::put("/recipie/comment", 'RecipieController@writecomment');
 
 
 Direct::get("/species", 'MainController@species');

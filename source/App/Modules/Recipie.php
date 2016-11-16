@@ -12,20 +12,25 @@ class Recipie{
     public $how;
     public $image;
     public $thumbnail;
+    public $user_id;
 
     public $comments = [];
     public $ingredients = [];
     public $categories = [];
 
     public function __construct($query){
-        $this->id       = $query['id'];
-        $this->name     = $query['name'];
-        $this->desc     = $query['description'];
-        $this->how      = $query['how'];
-        $this->image    = $query['image'];
+        $this->id           = $query['id'];
+        $this->name         = $query['name'];
+        $this->desc         = $query['description'];
+        $this->how          = $query['how'];
+        $this->image        = $query['image'];
         $this->thumbnail    = $query['thumbnail'];
+        $this->user_id      = $query['user_id'];
     }
-
+    
+    public function getUser(){
+        return new User($this->user_id);
+    }//getUser()
 
     public function getIngrediets(){
         if(!empty($this->ingredients)) return $this->ingredients;
@@ -46,7 +51,7 @@ class Recipie{
         INNER JOIN category AS c ON rc.category_id = c.id WHERE rc.recipie_id = :id', ['id' => $this->id])->fetchAll();
         
         foreach($result as $cat){
-            $this->categories[$cat['id']] = $cat['name'].($cat['type'] == 0 ? ' (Råvare)' : ' (Type Rett)');
+            $this->categories[] = $cat['name'].($cat['type'] == 0 ? ' (Råvare)' : ' (Type Rett)');
         }
         
         return $this->categories;
@@ -55,10 +60,14 @@ class Recipie{
     public function getComments(){
         if(!empty($this->comments)) return $this->comments;
         
-        $query = DB::select(['*'], 'comments', ['recipie_id' => $this->id])->fetchAll();
+        $query = DB::query('SELECT * FROM comments as c
+        JOIN users AS u ON c.user_id = u.id
+        JOIN image AS i ON u.image = i.id
+        WHERE recipe_id = :id
+        GROUP BY c.id', ['id' => $this->id])->fetchAll();
         
         foreach($query as $key => $value){
-            $this->comments[$value['id']] = new Comment($value);
+            $this->comments[] = new Comment($value);
         }
         
         return $this->comments;

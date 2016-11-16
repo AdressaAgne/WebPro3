@@ -2,55 +2,75 @@
 
 
 <main>
-
+    <section class="row primary-header" style="background-image: url('/assets/img/recipis/reindeer_large.jpg')"></section>
     <section class="container">
 
         <div class="row recipie-view">
-            <div class="col-4 col-m-6">
-               <img src="{{$recipie->image}}"/>
-
-
-            <p>Lagre som favoritt </p>
-            <p>Vurder denne oppskriften</p>
-            <p>2 Kommentarer </p>
-
-            <!-- Rating btns -->
-            <span class="star-rating">
-              <input type="radio" name="rating" value="1"><i></i>
-              <input type="radio" name="rating" value="2"><i></i>
-              <input type="radio" name="rating" value="3"><i></i>
-              <input type="radio" name="rating" value="4"><i></i>
-              <input type="radio" name="rating" value="5"><i></i>
-            </span>
-
-
-
-
-          </div><!-- col -->
-
-
-
-
-            <div class="col-8 col-m-6">
-                <div class="col-12 res-desc">
-                    <h1>{{$recipie->name}}</h1>
-                    <h3>Description</h3>
-                    <p>{{$recipie->desc}}</p>
-                </div>
-
-                <div class="row">
-                    <div class="col-4 col-m-12">
-                        <h3>Ingredients</h3>
-                         <ul class="ingredients">
-                             @foreach($recipie->getIngrediets() as $key => $i)
-                                 <li>{{ $i }}</li>
-                             @endforeach
-                         </ul>
-                     </div>
-                     <div class="col-8 col-m12">
-                        <h3>What to do</h3>
-                        <p>{{$recipie->how}}</p>
+            <div class="row">
+                <div class="col-4">
+                    <img src="{{$recipie->image}}"/>
+                    
+                    <div class="col-12">
+                        <h3 class="sub-header">Vurder</h3>
+                        <span class="star-rating">
+                            <input type="radio" name="rating" value="1"><i></i>
+                            <input type="radio" name="rating" value="2"><i></i>
+                            <input type="radio" name="rating" value="3"><i></i>
+                            <input type="radio" name="rating" value="4"><i></i>
+                            <input type="radio" name="rating" value="5"><i></i>
+                        </span>
                     </div>
+                    
+                    <div class="col-12">
+                        <h3>Ingredients</h3>
+                        <ul class="ingredients">
+                            @foreach($recipie->getIngrediets() as $key => $i)
+                                <li>{! $i !}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                 </div>
+                 <div class="col-8 col-m12">
+                    <div class="col-12 res-desc">
+                        <h1 class="sub-header">{{$recipie->name}}</h1>
+                        <h3>Description</h3>
+                        <p>@format($recipie->desc)</p>
+                    </div>
+                   
+                    <div class="col-12 res-desc">
+                        <h3 class="sub-header">Hvordan</h3>
+                        <div class="col--center">@format($recipie->how)</div>
+                    </div>
+                    
+                    <div class="col-12 res-desc">
+                        
+                        @if(Account::isLoggedIn())
+                            @form('/recipie/comment', 'put')
+                            <h3 class="sub-header">Skriv en kommentar</h3>
+                            <textarea name="content" id="" cols="30" rows="5" class="dark" placeholder="Din kommentar her"></textarea>
+                            <input type="hidden" name="id" value="{{$recipie->id}}">
+                            <input type="submit" value="Send">
+                            @formend()
+                        @else
+                            <h3 class="sub-header"><a href="/login">Login</a> og skriv en kommentar</h3>
+                        @endif
+                        
+                    </div>
+                    
+                    <div class="col-12 res-desc" id="comments">
+                        <h3 class="sub-header">Kommentarer</h3>
+                        @foreach($recipie->getComments() as $key => $comment)
+
+                                <div class="comment">
+                                    <a href="/users/{{$comment->user->username}}"><div class="image" style="background-image: url('{{$comment->user->avatar_thumb}}');"></div></a>
+                                    <div class="name"><h3><a href="/users/{{$comment->user->username}}">{{$comment->user->username}}</a></h3></div>
+                                    <div class="content">{{ $comment->content }}</div>
+                                </div>
+                                
+
+                        @endforeach
+                    </div>
+                    
                 </div>
             </div>
         </div>

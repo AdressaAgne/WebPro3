@@ -30,7 +30,16 @@ class Ingredient{
      * @author Agne *degaard
      */
     public function __toString(){
-        return ($this->amount != 0 ? $this->amount . $this->unit . " " : '')  . ucfirst($this->name);
+        $str = "";
+        if($this->taxonID != "") $str .= "<a href='/taxon/item/{$this->taxonID}'>";
+        
+        $str .= ($this->amount != 0 ? $this->amount . " " . $this->unit . " " : '');
+        
+        $str .= ucfirst($this->name);
+        
+        if($this->taxonID != "") $str .= "</a>";
+            
+        return $str;
     }
     
 }

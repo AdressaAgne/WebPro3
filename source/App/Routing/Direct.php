@@ -34,12 +34,10 @@ class Direct extends Route{
         return new Direct("/".trim(preg_replace("/(.*)\/(\\{(.*)\\})/uiUmx", "$1", $a), "/"), $b, 'get', $get);
     }
     
-    //<input type="hidden" name="_method" value="DELETE">
     public static function delete($a, $b){
         return new Direct($a, $b, 'delete');
     }
     
-    //<input type="hidden" name="_method" value="PUT">
     public static function put($a, $b){
         return new Direct($a, $b, 'put');
     }
@@ -54,10 +52,6 @@ class Direct extends Route{
     
     public static function err($a, $b){
         return new Direct($a, $b, 'error');
-    }
-    public static function something($a, $b){
-        self::get($a, "$b@index");
-        self::post($a, "$b@post");
     }
     
     

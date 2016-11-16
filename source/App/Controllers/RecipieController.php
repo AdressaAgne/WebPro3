@@ -3,14 +3,15 @@ namespace App\Controllers;
 
 use View, Direct, Route; // Routing
 use Taxon, Csv, Maps; // APIs
-use BaseController, Uploader, Recipie;
+use BaseController, Uploader, Recipie, Account;
 
 
 class RecipieController extends BaseController {
     
     public function recipie($p){
-        $recipie = $this->query('SELECT r.*, i.big as image, i.small as thumbnail FROM recipies AS r
-         JOIN image AS i ON r.image = i.id WHERE r.id = :id', ['id' => $p['id']])->fetch();
+        $recipie = $this->query('SELECT r.*, i.big as image, i.small as thumbnail
+        FROM recipies AS r
+        JOIN image AS i ON r.image = i.id WHERE r.id = :id', ['id' => $p['id']])->fetch();
 
         return View::make('recipie', [
             'recipie' => new Recipie($recipie),
@@ -83,6 +84,17 @@ class RecipieController extends BaseController {
         $up = new Uploader($_FILES['file']);
         $up = $up->upload();
         return ['path' => $up['folder'], 'id' => $up['id']];
+    }
+    
+    public function writeComment($values){
+        $this->insert([[
+            'user_id' => Account::get_id(),
+            'content' => $values['content'],
+            'recipe_id' => $values['id'],
+        ]], 'comments');
+        
+        return Direct::re('/recipie/item/'.$values['id']."#comments");
+        
     }
     
 }

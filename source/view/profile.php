@@ -2,8 +2,8 @@
 
 	<main>
 	    <section class="row primary-header" style="background-image: url('/assets/img/recipis/reindeer_large.jpg')">
-        <h1 class="primary-header-text center">Din Profil</h1>
-      </section>
+            <h1 class="primary-header-text center">Din Profil</h1>
+        </section>
   		<section class="container">
         <div class="row row--line">
             <div class="col-8">
@@ -25,7 +25,7 @@
         <!-- user image -->
           <div class="col-4 col--center">
             <input type="file" name="name" value="" id="file" hidden>
-            <label for="file" class="image--circle col--center" style="background-image: url('/assets/img/recipis/banner.jpg')">
+            <label for="file" class="image--circle col--center" style="background-image: url('{{$user->avatar}}')">
 
             </label>
           </div>
