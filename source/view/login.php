@@ -43,7 +43,7 @@
                 <label for="password">Password
                     <input  type="password" name="password" placeholder="Passwrod">
                 </label>
-                <input type="checkbox" name="" id="remember" value="remember">
+                <input type="checkbox" name="remember" id="remember" value="remember">
                 <label class="checkbox accent" for="remember">Remember me</label>
 
                 <input type="submit" value="Login">

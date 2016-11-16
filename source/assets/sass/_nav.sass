@@ -13,6 +13,7 @@
         margin: 0px
         padding: 0px
         float: left
+        position: relative
         a
             padding: 20px
             display: block
@@ -28,6 +29,16 @@
             font-weight: bold
             &:hover
                 background-color: $theme-color
+        &--image
+            @extend .bg
+            margin: 0px
+            height: 30px
+            width: 30px
+            border-radius: 24px
+            margin-bottom: -10px
+            margin-top: -20px
+            margin-right: 5px
+            display: inline-block
     &__item--burger
         display: none
     ul
@@ -38,11 +49,7 @@
         &.nav--right
             float: right
             
-@media (max-width: $iron-grid-breakpoint-small)
-    
-            
-    
-    
+@media (max-width: $iron-grid-breakpoint-medium)
     .nav__item, .nav__item a
         width: 100%
         

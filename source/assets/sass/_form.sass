@@ -56,8 +56,8 @@
      
 .search-result
     position: absolute
-    width: calc(100% - 40px)
-    top: 60px
+    width: calc(100%)
+    top: 40px
     background-color: $theme-color
     z-index: 99999
 
@@ -65,11 +65,14 @@
 #search-result li
     list-style: none
     a
+        color: $theme-color-text
         padding: 10px
         border-bottom: 1px solid $theme-color-700
         border-top: 1px solid $theme-color-300
         width: 100%
         display: block
+        &:hover
+            background-color: $theme-color-700
 
 select
     -webkit-appearance: none

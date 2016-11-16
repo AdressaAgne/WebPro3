@@ -44,10 +44,9 @@ class App extends RouteHandler{
 
         // CSRF token - Cross-site Request Forgery
         if (!isset($_SESSION['_token'])){
-            $_SESSION['_token'] = md5(uniqid(rand(), TRUE));
+            $_SESSION['_token'] = Config::$form_token;
             Config::$form_token = $_SESSION['_token'];
         }
-        
         
         $page = $this->getPageData();
         

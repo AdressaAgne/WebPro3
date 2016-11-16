@@ -34,7 +34,7 @@
        
             <ul class="nav--right">
                 <li class="nav__item @active_page('profile')">
-                    <a href="/profile">{{ $user->username }}</a>
+                    <a href="/profile"><div class="nav__item--image" style="background-image: url('{{ $user->avatar_thumb }}');"></div>{{ $user->username }}</a>
                 </li>
                 <li class="nav__item"><a href="/logout">Logout</a></li>
             </ul>
