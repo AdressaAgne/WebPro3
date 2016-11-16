@@ -35,20 +35,21 @@ class Config {
         'se' => 'assets/data/se.csv',
     ];
 
-    public static $api_url = [
+    public static $api_url    = [
         'taxon' => "http://data.artsdatabanken.no/Api/Taxon/",
         'maps'  => "http://artskart2.artsdatabanken.no/api/",
     ];
-    public static $api_types = [
+    public static $api_types  = [
       'scientificName'        => 'ScientificName?ScientificName=',
       'scientificNameSuggest' => 'ScientificName/Suggest?ScientificName=',
     ];
 
 
-    public static $files            = [
+    public static $files      = [
       "original" => "/assets/userFiles/original/",
       "compressed" => "/assets/userFiles/compressed/",
-      "compressedSize" => 800,
+      "compressedSize" => 600,
+      "compressedSize2" => 1000,
       ];
 
     /**

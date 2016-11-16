@@ -9,7 +9,7 @@ class Migrations{
     public static function install(){
         //$name, $type, $default = null, $not_null = true, $auto_increment = false)
         $db = new DB();
-        $db->clearOut();
+        //$db->clearOut();
 
         // blacklisted species
         $db->createTable('blacklist', [
@@ -21,6 +21,7 @@ class Migrations{
             new Row('taxonID', 'int'),
             new Row('canEat', 'boolean', '0'),
             new Row('family', 'varchar'),
+            new Row('image', 'int'),
         ]);
 
         //lat lng locations for opserved species
@@ -29,14 +30,14 @@ class Migrations{
             new Row('taxonID', 'int'),
             new Row('lat', 'FLOAT(10,6)'),
             new Row('lng', 'FLOAT(10,6)'),
-        ]);
+        ], false);
 
         // a recipie
         $db->createTable('recipies', [
             new Row('id', 'int', null, true, true),
             new Row('name', 'varchar'),
             new Row('description', 'text'),
-            new Row('image', 'text'),
+            new Row('image', 'int'),
             new Row('how', 'text'),
         ]);
 
@@ -74,7 +75,8 @@ class Migrations{
 
         $db->createTable('image', [
             new Row('id', 'int', null, true, true),
-            new Row('user_id', 'int'),
+            new Row('small', 'varchar'),
+            new Row('big', 'varchar'),
             new Row('location', 'varchar'),
         ]);
 
@@ -100,12 +102,6 @@ class Migrations{
           new Row('rating', 'tinyint')
         ]);
 
-
-
-    }
-
-    public static function populate(){
-        $db = new DB();
         $db->createTable('category', [
             new Row('id', 'int', null, true, true),
             new Row('name', 'varchar'),
@@ -118,6 +114,12 @@ class Migrations{
             new Row('category_id', 'int'),
         ]);
 
+        self::populate();
+    }
+
+    public static function populate(){
+        $db = new DB();
+        
         $db->insert([
             [
                 'name' => 'skalldyr',

@@ -118,8 +118,10 @@ class Database {
      * @param  array   $rows arrow of Row objects
      * @return boolean
      */
-    public function createTable($name, array $rows){
-        $query = "CREATE TABLE `".$name."` (";
+    public function createTable($table, array $rows, $drop = true){
+        $query = "";
+        if($drop) $query .= "DROP TABLE IF EXISTS `".$table."`;";
+        $query .= "CREATE TABLE `".$table."` (";
         $row_arr = [];
         foreach($rows as $key => $row){
              $row_arr[] = $row->toString();
@@ -127,9 +129,7 @@ class Database {
 
         $query .= implode(", ", $row_arr);
         $query .= ") ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-        //die($query);
         return $this->query($query);
-
     }
 
     /**

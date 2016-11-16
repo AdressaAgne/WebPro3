@@ -70,14 +70,20 @@ class Uploader {
         try{
             if(move_uploaded_file($file['tmp_name'], $this->picture_path())) {
                 $compressSize = Config::$files['compressedSize'];
-                $folder = Compressor::image($this->picture_path())->resizeAuto($compressSize);
+                $compressSize2 = Config::$files['compressedSize2'];
+                
+                $small = Compressor::image($this->picture_path())->resizeAuto($compressSize);
+                $big = Compressor::image($this->picture_path())->resizeAuto($compressSize2);
                 
                 $folder = trim($folder, '.');
                 unlink($this->picture_path());
                 
+                $id = (isset($_SESSION['uuid']) ? $_SESSION['uuid'] : 0);
+                
                 DB::do()->insert([[
-                    'user_id' => 1,
-                    'location' => $folder,
+                    'user_id' => $id,
+                    'small' => $small,
+                    'big' => $big,
                 ]], 'image');
 
               return $folder;
