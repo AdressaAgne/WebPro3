@@ -1,6 +1,8 @@
 <?php
 namespace App\Routing;
 
+use Config;
+
 class Route {
     
     public static $routes = [
@@ -24,7 +26,12 @@ class Route {
         */
         
         if($_SERVER['REQUEST_METHOD'] == "POST"){
-          switch($_POST['_method']) {
+            //CSRF token
+            if($_POST['_token'] != $_SESSION['_token']){
+                return ['error' => 'post highjack detected'];
+            } 
+            
+            switch($_POST['_method']) {
                 case 'PUT':
                     return self::method('put', $route);
                 break;

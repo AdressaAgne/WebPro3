@@ -41,7 +41,14 @@ require_once('App/Routing/RouteSetup.php');
 class App extends RouteHandler{
     
     public function __construct(){
-        Config::$form_token = uniqid();
+
+        // CSRF token - Cross-site Request Forgery
+        if (!isset($_SESSION['_token'])){
+            $_SESSION['_token'] = md5(uniqid(rand(), TRUE));
+            Config::$form_token = $_SESSION['_token'];
+        }
+        
+        
         $page = $this->getPageData();
         
         if(gettype($page) !== 'string'){

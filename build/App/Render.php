@@ -90,7 +90,7 @@ class Render {
     
     public static function form($page, $method, $attrs = null){ 
         $method = strtoupper($method);
-        $token = Config::$form_token;
+        $token = $_SESSION['_token'];
         
         if($attrs != null){
             foreach($attrs as $key => &$value){
