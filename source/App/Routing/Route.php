@@ -28,7 +28,7 @@ class Route {
         if($_SERVER['REQUEST_METHOD'] == "POST"){
             //CSRF token
             if($_POST['_token'] != $_SESSION['_token']){
-                return ['error' => 'post highjack detected'];
+               return self::$error('401');
             } 
             
             switch($_POST['_method']) {
@@ -49,18 +49,14 @@ class Route {
                 break;
 
                 default:
-                    if(array_key_exists('405', self::$routes['error'])){
-                        return self::$routes['error']['405'];
-                    } else {
-                        return ['error' => '405 Method '.$_POST['_method'].' not allowed'];
-                    }
+                    return self::$error('405');
                 break;
             }
         } else {
             if(array_key_exists($route, self::$routes['get'])){
                 return self::$routes['get'][$route];
             } else {
-                return array_key_exists('404', self::$routes['error']) ? self::$routes['error']['404'] : ['error' => '404: Please set up a 404 page'];
+                return self::$error('404');
             }
         }
     }
@@ -69,13 +65,13 @@ class Route {
         if(array_key_exists($route, self::$routes[$method])){
             return self::$routes[$method][$route];
         } else {
-            return ['error' => 'No route to '.$route.' with _method '.$method];
+            return self::$error('404');
         }
     }
     
     public static function error($error){
         
-        return ['error' => $error];
+        return array_key_exists($error, self::$routes['error']) ? self::$routes['error'][$error] : ['error' => "$error: Please set up a $error page"];
         
     }
     
