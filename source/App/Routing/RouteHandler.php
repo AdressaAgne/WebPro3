@@ -25,7 +25,7 @@ class RouteHandler{
      * @return array 
      */
     private function get_vars($path){
-        $regex = $this->regexSlash($this->get_current_page());
+        $regex = $this->regexSlash($this->get_page());
         $str = preg_replace("/$regex/uimx", '', $this->get_path());
         return explode("/", trim($str, "/"));   
     }
@@ -49,6 +49,8 @@ class RouteHandler{
         $url = $this->get_path();
         $list = [];
         // Minify this stuff
+        
+        
         foreach(Route::lists() as $type => $types){
             foreach($types as $key => $value){
                if(preg_match("/".$this->regexSlash($key)."/i", $url)){
@@ -59,16 +61,12 @@ class RouteHandler{
         $lengths = array_map('strlen', $list);
         $maxLength = max($lengths);
         $index = array_search($maxLength, $lengths);
-        return ['page' => $list[$index], 'key' => count(explode($list[$index], '/'))];
-    }
-    
-    /**
-     * Get the page data from Route.php
-     * @author Agne *degaard
-     * @return array
-     */
-    private function get_current_page(){
-        return $this->get_page()['page'];
+        
+        if($list[$index] == '/' && $url != '/'){
+            return $url;
+        }
+        
+        return $list[$index];
     }
     
     
@@ -78,7 +76,7 @@ class RouteHandler{
      * @return string
      */
     public function getPageData(){
-        $url = $this->get_current_page();
+        $url = $this->get_page();
         
         return $this->callController($url);
     }
@@ -109,24 +107,17 @@ class RouteHandler{
      */
     private function callController($url){
         $this->route = Direct::getCurrentRoute($url);
-       // die(print_r([$url, $this->route], true));
         
-        if(!array_key_exists('callback', $this->route)){
+        if(array_key_exists('error', $this->route)){
             return $this->route;
         }
         
         $this->view = explode('@', $this->route['callback']);
         
-        
-        
         $funcToCall = [$this->getMethod(), $this->getClass()];
         
         $class = call_user_func($funcToCall, $this->extractVars($url));
         
-//        if(!$class){
-//            ErrorHandling::fire("Error", $this->view[0]."@".$this->view[1]. " could not execute");
-//            return;
-//        }
         
         return $class;
     }

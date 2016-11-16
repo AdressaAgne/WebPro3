@@ -53,7 +53,7 @@ class Route {
             if(array_key_exists($route, self::$routes['get'])){
                 return self::$routes['get'][$route];
             } else {
-                return array_key_exists($route, self::$routes['get']) ? self::$routes['get'][$route] : ['error' => 'no route', 'callback' => 'no callback'];
+                return array_key_exists('404', self::$routes['error']) ? self::$routes['error']['404'] : ['error' => '404: Please set up a 404 page'];
             }
         }
     }

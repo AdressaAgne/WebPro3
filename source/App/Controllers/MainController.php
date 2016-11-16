@@ -15,7 +15,7 @@ use Recipie;
 class MainController extends BaseController {
 
     public function error(){
-        return ['error' => 404];
+        return View::make('error.404');
     }
     
     public function test(){
