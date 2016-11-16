@@ -10,23 +10,26 @@ class Populate {
     /**
      * populate database with taxons/species from Taxon CSV files
      */
-    public static function run(){
+    public static function run($fast = true){
         $db = new DB();
         $csv = new Csv();
         
         // Clear the table before populating with new data;
         $db->clearTable('blacklist');
-        
+        $data = [];
         foreach($csv->fetchAll() as $key => $value){
-           $db->insert([[
+           $data[] = [
                'scientificName' => $value['Vitenskapelig navn'],
                'navn'           => $value['Norsk navn'],
                'svalbard'       => ($value['Norge/Svalbard'] == 'N' ? false : true),
                'risiko'         => $value['Risiko'],
                'taxonID'        => $value['TaxonId'],
-               'gruppe'        => Taxon::getGroupName(Taxon::byID($value['TaxonId'])),
-           ]], 'blacklist');
+               'image'         =>   1,
+               'family'        =>  ($fast == true ? 'groupname' : Taxon::getGroupName(Taxon::byID($value['TaxonId']))),
+           ];
         }
+        
+        $db->insert($data, 'blacklist');
         
     }
     

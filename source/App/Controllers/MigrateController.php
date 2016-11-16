@@ -14,7 +14,11 @@ class MigrateController extends BaseController {
     
     public function migrate(){
         
-        return Migrations::install();
+        Migrations::install();
+        
+        pop::run();
+        
+        return ['database was reset' => true];
     }
     
     public function populate(){

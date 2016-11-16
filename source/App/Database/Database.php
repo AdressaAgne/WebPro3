@@ -120,8 +120,12 @@ class Database {
      */
     public function createTable($table, array $rows, $drop = true){
         $query = "";
-        if($drop) $query .= "DROP TABLE IF EXISTS `".$table."`;";
-        $query .= "CREATE TABLE `".$table."` (";
+        if($drop) {
+            $query .= "DROP TABLE IF EXISTS `".$table."`; CREATE TABLE ";
+        } else {
+            $query .= "CREATE TABLE IF NOT EXISTS ";
+        }
+        $query .= "`".$table."` (";
         $row_arr = [];
         foreach($rows as $key => $row){
              $row_arr[] = $row->toString();

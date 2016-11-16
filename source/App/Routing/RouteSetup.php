@@ -34,7 +34,8 @@ Direct::post("/profile/update", "ProfileController@edit");
 
 Direct::get("/api/nearby/{lat}/{lng}/{dist}", 'NearByController@api');
 Direct::get("/api/search/{taxon}/{dist}", 'NearByController@taxon_api');
-Direct::get("/m", 'MigrateController@populate');
+Direct::get("/m/p", 'MigrateController@populate');
+Direct::get("/m", 'MigrateController@migrate');
 
 
 

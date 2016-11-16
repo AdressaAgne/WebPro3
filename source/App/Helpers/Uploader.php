@@ -80,13 +80,13 @@ class Uploader {
                 
                 $id = (isset($_SESSION['uuid']) ? $_SESSION['uuid'] : 0);
                 
-                DB::do()->insert([[
+                $id = DB::do()->insert([[
                     'user_id' => $id,
                     'small' => $small,
                     'big' => $big,
                 ]], 'image');
 
-              return $folder;
+              return $id;
             }
         } catch (Exception $e) {
              return ['error' => $e];   
