@@ -29,7 +29,7 @@ class Populate {
            ];
         }
         
-        $db->insert($data, 'blacklist');
+        return $db->insert($data, 'blacklist');
         
     }
     

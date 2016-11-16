@@ -17,13 +17,13 @@ class RecipieController extends BaseController {
     }
     
     public function put($values) {
-        
+        $userid = (isset($_SESSION['uuid']) ? $_SESSION['uuid'] : 0);
         $id = $this->insert([[
             'name' => $values['name'],
             'how' => $values['how'],
             'description' => $values['description'],
             'image' => $values['file'],
-            'user_id' => (isset($_SESSION['uuid']) ? $_SESSION['uuid'] : 0),
+            'user_id' => $userid,
         ]], 'recipies');
         
         $data = [];
@@ -56,8 +56,8 @@ class RecipieController extends BaseController {
     
     public function ajaxUpload($values){
         $up = new Uploader($_FILES['file']);
-        
-        return ['path' => $up->upload()];
+        $up = $up->upload();
+        return ['path' => $up['folder'], 'id' => $up['id']];
     }
     
 }

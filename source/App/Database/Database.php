@@ -21,6 +21,7 @@ class Database {
             self::$db = new PDO($dns, Config::$username, Config::$password);
             self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
             self::$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+            //self::$db->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
 
         } catch (PDOException $e) {
              die('Could not connect to Database'. $e);
@@ -112,6 +113,8 @@ class Database {
         }
     }
 
+    
+    public $tableStatus = [];
     /**
      * create a new table
      * @param  string  $name table name
@@ -121,7 +124,8 @@ class Database {
     public function createTable($table, array $rows, $drop = true){
         $query = "";
         if($drop) {
-            $query .= "DROP TABLE IF EXISTS `".$table."`; CREATE TABLE ";
+            $this->query("DROP TABLE IF EXISTS `".$table."`");
+            $query .= "CREATE TABLE ";
         } else {
             $query .= "CREATE TABLE IF NOT EXISTS ";
         }
@@ -133,7 +137,9 @@ class Database {
 
         $query .= implode(", ", $row_arr);
         $query .= ") ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-        return $this->query($query);
+        $return = $this->query($query);
+        $this->tableStatus[] = $return;
+        return $return;
     }
 
     /**

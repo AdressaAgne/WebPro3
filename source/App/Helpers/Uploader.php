@@ -75,7 +75,8 @@ class Uploader {
                 $small = Compressor::image($this->picture_path())->resizeAuto($compressSize);
                 $big = Compressor::image($this->picture_path())->resizeAuto($compressSize2);
                 
-                $folder = trim($folder, '.');
+                $big = trim($big, '.');
+                $small = trim($small, '.');
                 unlink($this->picture_path());
                 
                 $id = (isset($_SESSION['uuid']) ? $_SESSION['uuid'] : 0);
@@ -86,7 +87,7 @@ class Uploader {
                     'big' => $big,
                 ]], 'image');
 
-              return $id;
+              return ['id' => $id, 'folder' => $big];
             }
         } catch (Exception $e) {
              return ['error' => $e];   

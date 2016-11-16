@@ -14,11 +14,11 @@ class MigrateController extends BaseController {
     
     public function migrate(){
         
-        Migrations::install();
+        $m = Migrations::install();
         
-        pop::run();
+        $p = pop::run();
         
-        return ['database was reset' => true];
+        return ['database was reset' => true, 'tables' => count($m), 'Migration' => $m, 'population' => $p];
     }
     
     public function populate(){

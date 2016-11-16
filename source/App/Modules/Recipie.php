@@ -11,6 +11,7 @@ class Recipie{
     public $desc;
     public $how;
     public $image;
+    public $thumbnail;
 
     public $comments = [];
     public $ingredients = [];
@@ -22,6 +23,7 @@ class Recipie{
         $this->desc     = $query['description'];
         $this->how      = $query['how'];
         $this->image    = $query['image'];
+        $this->thumbnail    = $query['thumbnail'];
     }
 
 
@@ -29,7 +31,7 @@ class Recipie{
         if(!empty($this->ingredients)) return $this->ingredients;
         
         $result = DB::select(['*'], 'ingredients', ['recipie_id' => $this->id])->fetchAll();
-        
+
         foreach($result as $i){
             $this->ingredients[$i['id']] = new Ingredient($i, 'metric');
         }

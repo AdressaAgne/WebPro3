@@ -28,13 +28,15 @@ class MainController extends BaseController {
 
     public function recipie($p){
         return View::make('recipie', [
-            'recipie' => new Recipie($this->select(['*'], 'recipies', ['id' => $p['id']])->fetch()),
+            'recipie' => new Recipie($this->query('SELECT r.*, i.big as image, i.small as thumbnail FROM recipies AS r
+        INNER JOIN image AS i ON r.image = i.id WHERE r.id = :id', ['id' => $p['id']])->fetch()),
         ]);
     }
 
     public function recipies(){
 
-        $resipies = $this->all(['*'], 'recipies');
+        $resipies = $this->query('SELECT r.*, i.big as image, i.small as thumbnail FROM recipies AS r
+        INNER JOIN image AS i ON r.image = i.id')->fetchAll();
         
         foreach($resipies as &$recipie){
             $recipie = new Recipie($recipie);

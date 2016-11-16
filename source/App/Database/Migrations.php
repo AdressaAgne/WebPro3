@@ -38,6 +38,7 @@ class Migrations{
             new Row('name', 'varchar'),
             new Row('description', 'text'),
             new Row('image', 'int'),
+            new Row('user_id', 'int'),
             new Row('how', 'text'),
         ]);
 
@@ -48,6 +49,7 @@ class Migrations{
             new Row('amount', 'float'),
             new Row('unit', 'varchar'),
             new Row('recipie_id', 'int'),
+            new Row('taxonID', 'varchar'),
         ]);
 
         // User Account
@@ -75,9 +77,9 @@ class Migrations{
 
         $db->createTable('image', [
             new Row('id', 'int', null, true, true),
+            new Row('user_id', 'int'),
             new Row('small', 'varchar'),
             new Row('big', 'varchar'),
-            new Row('location', 'varchar'),
         ]);
 
 
@@ -115,6 +117,8 @@ class Migrations{
         ]);
 
         self::populate();
+        
+        return $db->tableStatus;
     }
 
     public static function populate(){

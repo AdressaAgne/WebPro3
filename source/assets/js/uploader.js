@@ -10,7 +10,7 @@ function upload(files){
             elm('.error').innerHTML = '<h2>'+data.error+'</h2>';
         } else {
             
-            elm('#fileText').value = data.path;
+            elm('#fileText').value = data.id;
             elm('#drop-container').style.backgroundImage = "url('"+data.path+"')";
         
         }

@@ -39,7 +39,7 @@
            
        </div>
         <div class="row">
-            <div class="col-6">
+            <div class="col-6 col-m-12">
                <h3>Ingredienser</h3>
                 <div class="ingredients" id="ingredients">
                     <div class="col-12" id="template">
@@ -86,7 +86,7 @@
                 </div>
             </div>
 
-            <div class="col-6">
+            <div class="col-6 col-m-12">
                 <h3>Beskrivelse</h3>
                 <textarea name="description" id="" placeholder="Beskrivelse av oppskrift" class="dark"></textarea>
 
