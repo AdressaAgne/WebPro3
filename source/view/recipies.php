@@ -26,7 +26,7 @@
 
 	    <div class="row">
 	        <div class="col-4">
-                <div class="search col-12">
+                <div class="search col-8">
                     <label class="search-box" for="search">
                         <input class="search-one" type="search" placeholder="Søk..." value="">
                     </label>
