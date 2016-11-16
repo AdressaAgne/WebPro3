@@ -1,12 +1,15 @@
  
 <a href="/taxon/item/{{$tax['taxonID']}}">
-    <article class="row food-preview">
-        <div class="col-6 food-preview__text">
+    <article class="col-12">    
             <div class="content">
-                <h1 class="page-header underline">{{ ucfirst($tax['navn']) }}</h1>
+                <h3 class="">{{ ucfirst($tax['navn']) }}</h3>
                 <p><em>{{$tax['scientificName']}}</em></p>
-            </div>
-        </div>
-        <div class="col-6 food-preview__image" style="background-image: url('/assets/img/recipis/kingcrab.jpg');"></div>
+            </div>   
+        <div class="recipie-preview" style="background-image: url('/assets/img/recipis/kingcrab.jpg');"></div>
     </article>
 </a>
+
+
+
+
+

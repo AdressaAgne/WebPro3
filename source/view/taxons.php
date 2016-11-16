@@ -20,11 +20,11 @@
             </div>
         </div>
     
-    <div class="container">
+    <div class="container col-8">
         @foreach($taxon as $tax)
-
-            @layout('layout.taxon', ['tax' => $tax])
-
+			<div class="col-4 col-m-6">
+            	@layout('layout.taxon', ['tax' => $tax])
+			</div>
         @endforeach
     </div>
 </main>
@@ -32,3 +32,4 @@
 <script src="/assets/js/min/artsearch-min.js"></script>
 
 @layout('layout.foot')
+
