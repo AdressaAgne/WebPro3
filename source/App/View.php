@@ -37,7 +37,7 @@ class View {
                 eval("?>" . $code);
             return ob_get_clean();
         }
-        return false;
+        return ['error' => 'could not find: '.$filename];
     }
     
 }

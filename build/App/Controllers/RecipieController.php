@@ -3,10 +3,35 @@ namespace App\Controllers;
 
 use View, Direct, Route; // Routing
 use Taxon, Csv, Maps; // APIs
-use BaseController, Uploader;
+use BaseController, Uploader, Recipie;
 
 
 class RecipieController extends BaseController {
+    
+    public function recipie($p){
+        $recipie = $this->query('SELECT r.*, i.big as image, i.small as thumbnail FROM recipies AS r
+         JOIN image AS i ON r.image = i.id WHERE r.id = :id', ['id' => $p['id']])->fetch();
+
+        return View::make('recipie', [
+            'recipie' => new Recipie($recipie),
+        ]);
+    }
+
+    public function recipies(){
+
+        $resipies = $this->query('SELECT r.*, i.big as image, i.small as thumbnail FROM recipies AS r
+         JOIN image AS i ON r.image = i.id')->fetchAll();
+        
+        foreach($resipies as &$recipie){
+            $recipie = new Recipie($recipie);
+        }
+
+        return View::make('recipies', [
+            'food' => $resipies,
+            'category_zero' => $this->select(['*'], 'category', ['type' => 0])->fetchAll(),
+            'category_one' => $this->select(['*'], 'category', ['type' => 1])->fetchAll(),
+        ]);
+    }
     
     
     public function index() {

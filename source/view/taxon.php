@@ -31,9 +31,9 @@
                     <h1 class="page-header underline center">Oppskrifter med {{ $taxon['navn'] }}</h1>
                 @endif
                 
-                @foreach($oppskrift as $v)
+                @foreach($oppskrift as $recipe)
 
-                    @layout('layout.article_front', ['v' => $v])
+                    @layout('layout.article_front', ['recipe' => $recipe])
 
                 @endforeach
             </div>

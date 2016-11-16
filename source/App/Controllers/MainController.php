@@ -16,7 +16,9 @@ class MainController extends BaseController {
 
     public function test(){
 
-        $recipies = $this->all(['*'], 'recipies');
+        $recipies = $this->query('SELECT r.*, i.big as image, i.small as thumbnail FROM recipies AS r
+        INNER JOIN image AS i ON r.image = i.id')->fetchAll();
+        
         foreach($recipies as &$recipie){
             $recipie = new Recipie($recipie);
         }
@@ -25,29 +27,7 @@ class MainController extends BaseController {
             'food' => $recipies,
         ]);
     }
-
-    public function recipie($p){
-        return View::make('recipie', [
-            'recipie' => new Recipie($this->query('SELECT r.*, i.big as image, i.small as thumbnail FROM recipies AS r
-        INNER JOIN image AS i ON r.image = i.id WHERE r.id = :id', ['id' => $p['id']])->fetch()),
-        ]);
-    }
-
-    public function recipies(){
-
-        $resipies = $this->query('SELECT r.*, i.big as image, i.small as thumbnail FROM recipies AS r
-        INNER JOIN image AS i ON r.image = i.id')->fetchAll();
-        
-        foreach($resipies as &$recipie){
-            $recipie = new Recipie($recipie);
-        }
-
-        return View::make('recipies', [
-            'food' => $resipies,
-            'category_zero' => $this->select(['*'], 'category', ['type' => 0])->fetchAll(),
-            'category_one' => $this->select(['*'], 'category', ['type' => 1])->fetchAll(),
-        ]);
-    }
+    
     public function about() {
 
     	return View::make('about');
@@ -69,12 +49,21 @@ class MainController extends BaseController {
 
 
     public function specie($p) {
+        
+        $recipies = $this->query('SELECT r.*, im.big as image, im.small as thumbnail FROM recipies as r
+            INNER JOIN ingredients as i ON i.recipie_id = r.id
+            INNER JOIN image as im ON r.image = im.id
+            WHERE i.taxonID = :taxon',['taxon' => $p['taxon']])->fetchAll();
+        
+        foreach($recipies as &$recipie){
+            $recipie = new Recipie($recipie);
+        }
+        
     	return View::make('taxon', [
             'taxon' => $this->query('SELECT * FROM blacklist WHERE taxonID = :a', [
                 'a' => $p['taxon']
             ])->fetch(),
-            'oppskrift' => $this->query('SELECT r.* FROM recipies as r
-            INNER JOIN ingredients as i ON i.recipie_id = r.id WHERE i.taxonID = :taxon',['taxon' => $p['taxon']])->fetchAll(),
+            'oppskrift' => $recipies,
         ]);
     }
 }

@@ -14,11 +14,11 @@ Direct::get("/logout", 'LoginController@logout');
 
 Direct::post("/register", 'LoginController@reg');
 
-Direct::get("/recipie/item/{id}", 'MainController@recipie');
+Direct::get("/recipie/item/{id}", 'RecipieController@recipie');
 Direct::get("/recipie/insert", 'RecipieController@index');
 Direct::post("/recipie/insert", 'RecipieController@put');
 Direct::post("recipie/uploadimage", 'RecipieController@ajaxUpload');
-Direct::get("/recipie", 'MainController@recipies');
+Direct::get("/recipie", 'RecipieController@recipies');
 
 
 Direct::get("/species", 'MainController@species');
