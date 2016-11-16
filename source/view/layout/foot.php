@@ -8,7 +8,6 @@
 	        </div>
 	    </div>
 	</footer>
-    @layout('layout.scripts')
 </body>
 
 </html>

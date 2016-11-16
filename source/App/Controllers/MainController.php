@@ -14,6 +14,10 @@ use Recipie;
  */
 class MainController extends BaseController {
 
+    public function error(){
+        return ['error' => 404];
+    }
+    
     public function test(){
 
         $recipies = $this->query('SELECT r.*, i.big as image, i.small as thumbnail FROM recipies AS r

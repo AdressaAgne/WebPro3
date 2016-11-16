@@ -47,6 +47,7 @@
        @endforeach
     </section>
 </main>
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
+@layout('layout.scripts')
+
 <script src="assets/js/min/search-min.js"></script>
 @layout('layout.foot')

@@ -41,5 +41,5 @@
         </div>
   		</section>
 	<main>
-
+@layout('layout.scripts')
 @layout('layout.foot')

@@ -15,6 +15,8 @@ class Render {
         'active_page',
         'isLoggedIn',
         'check',
+        'form',
+        'endform',
     ];
     private $helpers = [
         'if',
@@ -83,6 +85,20 @@ class Render {
     
     public static function isLoggedIn(){
         return Account::isLoggedIn();
+    }
+    
+    public static function form($page, $method){ 
+        if($method == 'get'){
+            echo "<form action='$page' method='GET'></form>";
+        } else {
+            echo '<form action="<?= $page ?>" method="POST"></form>';
+        }
+        echo "<input type='hidden' name='_method' value='$method' />";
+        
+    }
+    
+    public static function endform(){
+        echo "</form>";
     }
     
     public static function check($var){

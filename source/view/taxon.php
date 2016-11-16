@@ -49,7 +49,8 @@
 
 <div id="map" class="taxon-map"></div>
 
-<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+@layout('layout.scripts')
+
 <script src="/assets/js/min/googleMapsStyle-min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key={{$google_key}}&callback=initMap" async defer></script>
 <script>

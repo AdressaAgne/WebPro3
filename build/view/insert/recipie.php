@@ -117,7 +117,7 @@
     </section>
 </form>
 </main>
-
+@layout('layout.scripts')
 <script src="/assets/js/min/uploader-min.js"></script>
 <script>
     var html = elm('#template').innerHTML;

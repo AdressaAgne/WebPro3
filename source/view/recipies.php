@@ -69,6 +69,6 @@
 	    </div>
     </div>
 </main>
-
+@layout('layout.scripts')
 
 @layout('layout.foot')

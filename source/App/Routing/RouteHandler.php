@@ -109,7 +109,7 @@ class RouteHandler{
      */
     private function callController($url){
         $this->route = Direct::getCurrentRoute($url);
-        
+       // die(print_r([$url, $this->route], true));
         $this->view = explode('@', $this->route['callback']);
         
         

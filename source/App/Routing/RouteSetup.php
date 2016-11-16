@@ -42,5 +42,4 @@ Direct::get("/m", 'MigrateController@migrate');
 Direct::get("/route", 'ErrorHandling@route');
 
 
-
-//Direct::err("404", 'MainController@error');
+Direct::err("404", 'MainController@error');

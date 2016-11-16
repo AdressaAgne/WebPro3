@@ -28,6 +28,7 @@
         @endforeach
     </div>
 </main>
+@layout('layout.scripts')
 
 <script src="/assets/js/min/artsearch-min.js"></script>
 

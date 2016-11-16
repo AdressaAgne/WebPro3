@@ -39,7 +39,7 @@
             <form action="" method="post" class="hidden-opacity" autocomplete="off">
 
                 <label for="username">Username
-                    <input type="text" name="username" placeholder="Username" value="@check($username)">
+                    <input type="text" name="username" placeholder="Username" value="">
                 </label>
                 <label for="password">Password
                     <input  type="password" name="password" placeholder="Passwrod">
