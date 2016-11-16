@@ -32,7 +32,7 @@ function upload(files){
 }
 
 elm("#drop-container").onDrop(function(files){
-    upload(files);
+    if(files.length > 0)  upload(files);
 }).onDragOver(function(){
     this.className = "drop active";
     
@@ -42,5 +42,5 @@ elm("#drop-container").onDrop(function(files){
 });
 
 elm("#file").addEventListener('change', function(){
-   upload(this.files);
+    if(files.length > 0) upload(this.files);
 });
