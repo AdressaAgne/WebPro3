@@ -6,8 +6,6 @@
     <section class="row primary-header" style="background-image: url('/assets/img/arter/banner.jpg')">
 
         <h1 class="primary-header-text center">Arter</h1>
-        
-
     </section>
     <div class="container">
         <div class="row row--line">
