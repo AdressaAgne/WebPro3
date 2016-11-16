@@ -71,5 +71,9 @@
     </section>
 
 </main>
-
 @layout('layout.foot')
+<script>
+  $(".star-rating input").on("click", function(){
+    console.log($(this).val());
+  });
+</script>
