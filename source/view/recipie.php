@@ -3,23 +3,39 @@
 
 <main>
 
-    <section class="container"> 
-   
+    <section class="container">
+
         <div class="row recipie-view">
             <div class="col-4 col-m-6">
                <img src="{{$recipie->image}}"/>
-            
-            
+
+
             <p>Lagre som favoritt </p>
             <p>Vurder denne oppskriften</p>
             <p>2 Kommentarer </p>
-            </div>
+
+            <!-- Rating btns -->
+            <span class="star-rating">
+              <input type="radio" name="rating" value="1"><i></i>
+              <input type="radio" name="rating" value="2"><i></i>
+              <input type="radio" name="rating" value="3"><i></i>
+              <input type="radio" name="rating" value="4"><i></i>
+              <input type="radio" name="rating" value="5"><i></i>
+            </span>
+
+
+
+
+          </div><!-- col -->
+
+
+
 
             <div class="col-8 col-m-6">
                 <div class="col-12 res-desc">
-                    <h1>{{$recipie->name}}</h1>     	
+                    <h1>{{$recipie->name}}</h1>
                     <h3>Description</h3>
-                    <p>{{$recipie->desc}}</p> 	
+                    <p>{{$recipie->desc}}</p>
                 </div>
 
                 <div class="row">
@@ -40,21 +56,20 @@
         </div>
         <div class="row">
             <ul class="list-simple--horisontal">
-                
+
                 @foreach($recipie->getCategories() as $key => $cat)
-                
+
                     <li>{{$cat}}</li>
-                
+
                 @endforeach
-                
+
             </ul>
-            
-            
-        </div> 
+
+
+        </div>
 
     </section>
 
 </main>
-
 
 @layout('layout.foot')
