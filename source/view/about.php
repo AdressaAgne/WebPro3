@@ -14,15 +14,15 @@
                 </div>
                 <div class="col-l-4 col-6 col-m-8 col--center">
                     <div class="col-4">
-                        <a href="#"><p> Kokken Tor </p>
-                        <img src="assets/img/visjon/kokkentor.jpg" /> </a>
+                        <a href="#"><p> Jesper Viktor </p>
+                        <img src="assets/img/visjon/kokk.jpg" /> </a>
                     </div>
                     <div class="col-4">
-                        <a href="#"><p> Hotell Ball </p>
+                        <a href="#"><p> Hotell Jensen </p>
                         <img src="assets/img/visjon/hotell.jpg" /></a>
                     </div>
                     <div class="col-4">
-                        <a href="#"><p> Snøgåsrestauranten</p>
+                        <a href="#"><p> Restaurant Østersen</p>
                         <img src="assets/img/visjon/restaurant.jpg" /></a>
                     </div>
                 </div>

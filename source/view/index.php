@@ -8,7 +8,7 @@
                 <div class="col-12">
                     <i class="icon-logo icon--gigantic icon--center"></i>
 
-                    <div class="search col-l-4 col-6 col-m-8 col--center">
+                    <div class="search col-l-4 col-4 col-m-8 col--center">
                         <label class="search-box" for="search">
                             <input type="search" placeholder="Finn arter nær deg" value="">
                         </label>

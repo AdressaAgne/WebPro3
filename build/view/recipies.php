@@ -3,7 +3,7 @@
 
 <main>
 
-    <section class="row primary-header" style="background-image: url('/assets/img/recipis/oppskriftbanner.jpg')">
+    <section class="row primary-header" style="background-image: url('/assets/img/recipis/banner.jpg')">
 
         <h1 class="primary-header-text center">Oppskrifter</h1>
         
