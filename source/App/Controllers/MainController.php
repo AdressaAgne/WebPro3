@@ -42,13 +42,19 @@ class MainController extends BaseController {
     	return View::make('taxons', [
             'taxon' => $this->query('SELECT b.*, im.big as image, im.small as thumbnail FROM blacklist as b
              INNER JOIN image as im ON b.image = im.id
-            WHERE taxonID = :a OR taxonID = :b OR taxonID = :c OR taxonID = :d OR taxonID = :e OR taxonID = :f', [
+            WHERE taxonID = :a OR taxonID = :b OR taxonID = :c OR taxonID = :d OR taxonID = :e OR taxonID = :f OR taxonID = :g OR taxonID = :h OR taxonID = :i OR taxonID = :j OR taxonID = :k OR taxonID = :l' , [
                 'a' => 60303,
                 'b' => 14365,
                 'c' => 84141,
                 'd' => 38890,
                 'e' => 26171,
                 'f' => 3457,
+                'g' => 59373,
+                'h' => 1784,
+                'i' => 61212, 
+                'j' => 31106,
+                'k' => 31227,
+                'l' => 60308, 
             ])->fetchAll(),
         ]);
     }
