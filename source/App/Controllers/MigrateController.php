@@ -16,9 +16,8 @@ class MigrateController extends BaseController {
         
         $m = Migrations::install();
         
-        $p = pop::run();
         
-        return ['database was reset' => true, 'tables' => count($m), 'Migration' => $m, 'population' => $p];
+        return ['database was reset' => true, 'tables' => count($m), 'Migration' => $m];
     }
     
     public function populate(){

@@ -2,7 +2,7 @@
 
 namespace App\Database;
 
-use DB;
+use DB, App\Api\Populate as blacklist;
 
 class Migrations{
 
@@ -117,14 +117,14 @@ class Migrations{
             new Row('category_id', 'int'),
         ]);
 
-        self::populate();
         
-        return $db->tableStatus;
+        
+        return [$db->tableStatus, self::populate()];
     }
 
     public static function populate(){
         $db = new DB();
-        
+        blacklist::run();
         $db->insert([
             [
                 'name' => 'skalldyr',
@@ -133,7 +133,7 @@ class Migrations{
                 'name' => 'urter',
                 'type' => 0,
             ],[
-                'name' => 'rovdyr',
+                'name' => 'pattedyr',
                 'type' => 0,
             ],[
                 'name' => 'insekter',
@@ -277,9 +277,87 @@ class Migrations{
             'user_id' => 1,
             'small' => '/assets/img/recipis/kingcrab.jpg',
             'big' => '/assets/img/recipis/kingcrab.jpg',
-            ]
+            ],[
+            'user_id' => 1,
+            'small' => '/assets/img/arter/canadagoose.jpg',
+            'big' => '/assets/img/arter/canadagoose.jpg',
+            ],[
+            'user_id' => 1,
+            'small' => '/assets/img/arter/gresslauk.jpg',
+            'big' => '/assets/img/arter/gresslauk.jpg',
+            ],[
+            'user_id' => 1,
+            'small' => '/assets/img/arter/hagepastinakk.jpg',
+            'big' => '/assets/img/arter/hagepastinakk.jpg',
+            ],[
+            'user_id' => 1,
+            'small' => '/assets/img/arter/hagerips.jpg',
+            'big' => '/assets/img/arter/hagerips.jpg',
+            ],[
+            'user_id' => 1,
+            'small' => '/assets/img/arter/hare.jpg',
+            'big' => '/assets/img/arter/hare.jpg',
+            ],[
+            'user_id' => 1,
+            'small' => '/assets/img/arter/kjorvel.jpg',
+            'big' => '/assets/img/arter/kjorvel.jpg',
+            ],[
+            'user_id' => 1,
+            'small' => '/assets/img/arter/kongekrabbe.jpg',
+            'big' => '/assets/img/arter/kongekrabbe.jpg',
+            ],[
+            'user_id' => 1,
+            'small' => '/assets/img/arter/lerkesopp.jpg',
+            'big' => '/assets/img/arter/lerkesopp.jpg',
+            ],[
+            'user_id' => 1,
+            'small' => '/assets/img/arter/mink.jpg',
+            'big' => '/assets/img/arter/mink.jpg',
+            ],[
+            'user_id' => 1,
+            'small' => '/assets/img/arter/niland.jpg',
+            'big' => '/assets/img/arter/niland.jpg',
+            ],[
+            'user_id' => 1,
+            'small' => '/assets/img/arter/stillehavs.jpg',
+            'big' => '/assets/img/arter/stillehavs.jpg',
+            ],[
+            'user_id' => 1,
+            'small' => '/assets/img/arter/strandkarse.jpg',
+            'big' => '/assets/img/arter/strandkarse.jpg',
+            ],[
+            'user_id' => 1,
+            'small' => '/assets/img/arter/timian.jpg',
+            'big' => '/assets/img/arter/timian.jpg',
+            ],[
+            'user_id' => 1,
+            'small' => '/assets/img/arter/trout.jpg',
+            'big' => '/assets/img/arter/trout.jpg',
+            ],[
+            'user_id' => 1,
+            'small' => '/assets/img/arter/villsvin.jpg',
+            'big' => '/assets/img/arter/villsvin.jpg',
+            ],
         ],'image');
         
-        return ['populate' => 'done'];
+       
+        
+        return ['populate' => 'done', 'updates' => [
+             $db->update(['image' => 2], 'blacklist', ['taxonID' => 3457]),
+             $db->update(['image' => 3], 'blacklist', ['taxonID' => 59373]),
+             $db->update(['image' => 4], 'blacklist', ['taxonID' => 60308]),
+             $db->update(['image' => 5], 'blacklist', ['taxonID' => 63574]),
+             $db->update(['image' => 6], 'blacklist', ['taxonID' => 31106]),
+             $db->update(['image' => 7], 'blacklist', ['taxonID' => 60303]),
+             $db->update(['image' => 8], 'blacklist', ['taxonID' => 14365]),
+             $db->update(['image' => 9], 'blacklist', ['taxonID' => 38890]),
+             $db->update(['image' => 10], 'blacklist', ['taxonID' => 31227]),
+             $db->update(['image' => 11], 'blacklist', ['taxonID' => 3413]),
+             $db->update(['image' => 12], 'blacklist', ['taxonID' => 84141]),
+             $db->update(['image' => 13], 'blacklist', ['taxonID' => 61212]),
+             $db->update(['image' => 14], 'blacklist', ['taxonID' => 62346]),
+             $db->update(['image' => 15], 'blacklist', ['taxonID' => 26171]),
+             $db->update(['image' => 16], 'blacklist', ['taxonID' => 31237]),
+        ]];
     }
 }

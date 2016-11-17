@@ -42,7 +42,7 @@ class MainController extends BaseController {
     	return View::make('taxons', [
             'taxon' => $this->query('SELECT b.*, im.big as image, im.small as thumbnail FROM blacklist as b
              INNER JOIN image as im ON b.image = im.id
-            WHERE taxonID = :a OR taxonID = :b OR taxonID = :c OR taxonID = :d OR taxonID = :e OR taxonID = :f OR taxonID = :g OR taxonID = :h OR taxonID = :i OR taxonID = :j OR taxonID = :k OR taxonID = :l OR taxonID = :m OR taxonID = :n OR taxonID = :o' , [
+            WHERE taxonID = :a OR taxonID = :b OR taxonID = :c OR taxonID = :d OR taxonID = :e OR taxonID = :f OR taxonID = :g OR taxonID = :h OR taxonID = :i OR taxonID = :j OR taxonID = :k OR taxonID = :l OR taxonID = :m OR taxonID = :n OR taxonID = :o ORDER BY b.navn' , [
                 'a' => 60303,
                 'b' => 14365,
                 'c' => 84141,
@@ -75,7 +75,9 @@ class MainController extends BaseController {
         }
         
     	return View::make('taxon', [
-            'taxon' => $this->query('SELECT * FROM blacklist WHERE taxonID = :a', [
+            'taxon' => $this->query('SELECT b.*, im.big as image, im.small as thumbnail FROM blacklist as b
+            INNER JOIN image AS im ON b.image = im.id 
+            WHERE taxonID = :a', [
                 'a' => $p['taxon']
             ])->fetch(),
             'oppskrift' => $recipies,

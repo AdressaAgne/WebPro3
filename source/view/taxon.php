@@ -3,7 +3,7 @@
 
 <main>
 
-    <section class="row primary-header" style="background-image: url('/assets/img/recipis/kjorvel2.jpg')">
+    <section class="row primary-header" style="background-image: url('{{$taxon['image']}}')">
 
     </section>
     <div class="container">
