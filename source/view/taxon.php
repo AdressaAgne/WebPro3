@@ -3,7 +3,7 @@
 
 <main>
 
-    <section class="row primary-header" style="background-image: url('{{$taxon['image']}}')">
+    <section class="row primary-header" style="background-image: url('{{$taxon['image']}}'); background-position: center {{$taxon['position']}};">
 
     </section>
     <div class="container">
@@ -32,9 +32,9 @@
                 @endif
                 
                 @foreach($oppskrift as $recipe)
-
-                    @layout('layout.article_front', ['recipe' => $recipe])
-
+                    <div class="col-3 col-m-4 col-s-6">
+                        @layout('layout.recipie', ['res' => $recipe])
+                    </div>
                 @endforeach
             </div>
             <div class="col-12">

@@ -7,7 +7,7 @@
             <div class="row">
                 <h1 class="page-header center underline">Dette jobber vi for</h1>
                 <div class="col-l-4 col-6 col-m-8 col--center visjon">
-                    <p>Vår lidenskap er matlaging  og kjærlighet til den norske naturen. Ved å tilby oppskrifter som baserer seg på svartelistede arter hjelper vi den norske befolkningen å være med på forsvare naturen. Disse svartelistede artene er truende for det norske flora og fauna. Eksempler på dette er <a href="http://webpro3/taxon/item/84141"> Stillehavsøsters </a> og  <a href="http://webpro3/taxon/item/3457"> Kanadagås. </a> </p>
+                    <p>Vår lidenskap er matlaging  og kjærlighet til den norske naturen. Ved å tilby oppskrifter som baserer seg på svartelistede arter hjelper vi den norske befolkningen å være med på forsvare naturen. Disse svartelistede artene er truende for det norske flora og fauna. Eksempler på dette er <a href="/taxon/item/84141"> Stillehavsøsters </a> og  <a href="/taxon/item/3457"> Kanadagås. </a> </p>
                     <p>Dersom vi lykkes med å holde bestanden av disse truende artene nede vil vi opprettholde den norske naturen slik den var ment å være. Dette er bra for både folk, dyr og planter. </p>
                     <p>Vi samarbeider med en rekke restauranter og andre bidragsytere for å kunne drive dette prosjektet. Vi er avhengig av støtte og så videre. </p>
                     <p>Les mer om våre samarbeidspartnere her:</p>

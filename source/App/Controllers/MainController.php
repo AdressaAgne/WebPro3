@@ -75,7 +75,7 @@ class MainController extends BaseController {
         }
         
     	return View::make('taxon', [
-            'taxon' => $this->query('SELECT b.*, im.big as image, im.small as thumbnail FROM blacklist as b
+            'taxon' => $this->query('SELECT b.*, im.big as image, im.small as thumbnail, im.position as position FROM blacklist as b
             INNER JOIN image AS im ON b.image = im.id 
             WHERE taxonID = :a', [
                 'a' => $p['taxon']

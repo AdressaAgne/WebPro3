@@ -40,6 +40,7 @@ class Migrations{
             new Row('image', 'int'),
             new Row('user_id', 'int'),
             new Row('how', 'text'),
+            new Timestamp(),
         ]);
 
         // a ingredient for a recipie
@@ -60,6 +61,7 @@ class Migrations{
             new Row('cookie', 'varchar'),
             new Row('image', 'int', '1'),
             new Row('mail', 'varchar'),
+            new Timestamp(),
         ]);
 
         // connect the recipies and user
@@ -81,6 +83,8 @@ class Migrations{
             new Row('user_id', 'int'),
             new Row('small', 'varchar'),
             new Row('big', 'varchar'),
+            new Row('position', 'varchar', 'center'),
+            new Timestamp(),
         ]);
 
 
@@ -95,14 +99,16 @@ class Migrations{
           new Row('id', 'int', null, true, true),
           new Row('user_id', 'int'),
           new Row('content', 'varchar'),
-          new Row('recipe_id', 'int')
+          new Row('recipe_id', 'int'),
+          new Timestamp(),
         ]);
 
         $db->createTable('ratings',[
-          new Row('id', 'int', null, true, true),
-          new Row('user_id', 'int'),
-          new Row('recipe_id', 'int'),
-          new Row('rating', 'tinyint')
+            new Row('id', 'int', null, true, true),
+            new Row('user_id', 'int'),
+            new Row('recipe_id', 'int'),
+            new Row('rating', 'tinyint'),
+            new Timestamp(),
         ]);
 
         $db->createTable('category', [
@@ -277,66 +283,82 @@ class Migrations{
             'user_id' => 1,
             'small' => '/assets/img/recipis/kingcrab.jpg',
             'big' => '/assets/img/recipis/kingcrab.jpg',
+            'position' => 'center',
             ],[
             'user_id' => 1,
             'small' => '/assets/img/arter/canadagoose.jpg',
             'big' => '/assets/img/arter/canadagoose.jpg',
+            'position' => '25%',
             ],[
             'user_id' => 1,
             'small' => '/assets/img/arter/gresslauk.jpg',
             'big' => '/assets/img/arter/gresslauk.jpg',
+            'position' => 'center',
             ],[
             'user_id' => 1,
             'small' => '/assets/img/arter/hagepastinakk.jpg',
             'big' => '/assets/img/arter/hagepastinakk.jpg',
+            'position' => 'center',
             ],[
             'user_id' => 1,
             'small' => '/assets/img/arter/hagerips.jpg',
             'big' => '/assets/img/arter/hagerips.jpg',
+            'position' => 'center',
             ],[
             'user_id' => 1,
             'small' => '/assets/img/arter/hare.jpg',
             'big' => '/assets/img/arter/hare.jpg',
+            'position' => 'top',
             ],[
             'user_id' => 1,
             'small' => '/assets/img/arter/kjorvel.jpg',
             'big' => '/assets/img/arter/kjorvel.jpg',
+            'position' => 'center',
             ],[
             'user_id' => 1,
             'small' => '/assets/img/arter/kongekrabbe.jpg',
             'big' => '/assets/img/arter/kongekrabbe.jpg',
+            'position' => 'center',
             ],[
             'user_id' => 1,
             'small' => '/assets/img/arter/lerkesopp.jpg',
             'big' => '/assets/img/arter/lerkesopp.jpg',
+            'position' => 'center',
             ],[
             'user_id' => 1,
             'small' => '/assets/img/arter/mink.jpg',
             'big' => '/assets/img/arter/mink.jpg',
+            'position' => 'top',
             ],[
             'user_id' => 1,
             'small' => '/assets/img/arter/niland.jpg',
             'big' => '/assets/img/arter/niland.jpg',
+            'position' => 'center',
             ],[
             'user_id' => 1,
             'small' => '/assets/img/arter/stillehavs.jpg',
             'big' => '/assets/img/arter/stillehavs.jpg',
+            'position' => 'center',
             ],[
             'user_id' => 1,
             'small' => '/assets/img/arter/strandkarse.jpg',
             'big' => '/assets/img/arter/strandkarse.jpg',
+            'position' => 'center',
             ],[
             'user_id' => 1,
             'small' => '/assets/img/arter/timian.jpg',
             'big' => '/assets/img/arter/timian.jpg',
+            'position' => 'center',
             ],[
             'user_id' => 1,
             'small' => '/assets/img/arter/trout.jpg',
             'big' => '/assets/img/arter/trout.jpg',
+            'position' => 'center',
             ],[
             'user_id' => 1,
             'small' => '/assets/img/arter/villsvin.jpg',
             'big' => '/assets/img/arter/villsvin.jpg',
+            'position' => 'center',
             ],
         ],'image');
         
