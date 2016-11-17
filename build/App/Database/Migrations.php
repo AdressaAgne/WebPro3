@@ -175,7 +175,7 @@ class Migrations{
 
         $db->insert([
             [
-                'name' => 'Karpe i grønt',
+                'name' => 'Regnbueørret i grønt',
                 'description' => 'En deilig rett som inneholder flere ingredienser fra svartelista. ',
                 'image' => 19,
                 'user_id' => 1,
@@ -211,16 +211,39 @@ class Migrations{
                 Del eplene i grove biter. Fyll gåsen med epler, svisker og aprikoser. Bruk en kjøttnål eller sy sammen åpningen om nødvendig.
                 Legg gåsen på en rist over en langpanne og stek den ved 250 grader i 20 minutter. Senk temperaturen til 150 grader, hell litt vann i langpannen og stek videre i ca. 2 1/2 time. La gåsen hvile ca. 20 minutter før den skjæres opp.
                 Skum fettet av stekesjyen i langpannen. Ta vare på alt fettet, det kan fryses ned til senere bruk. Mål opp innkokt kraft og stekesjy. Visp sammen 2 spiseskjeer gåsefett med hvetemel i en kasserolle. La blandingen brunes lett under omrøring. Tilsett 8 desiliter kraft/stekesjy og kok opp. La sausen småkoke til den får passe tykk konsistens. Visp inn ripsgelé og smak sausen til med salt og pepper.',
+            ],[
+                'name' => 'Stillehavsøsters på grillen',
+                'description' => 'Å grille østers er ikke bare en smakfull opplevelse, det er også veldig gøy! Og så slipper man faktisk den litt vanskelig åpningsprosessen. Du bare legger hele østers på grillen og så popper de opp når de er klare. 
+                Da kan du velge å gratinere den videre med litt ost og gressløk eller servere dem med klassisk tilbehør som sitron og rødløk. ',
+                'image' => 22,
+                'user_id' => 1,
+                'how' => 'Skyll og rens eventuelt bort stein og tang fra skjellene. Fyr opp en grill og legg østersen på grillen. Beregn ca 6 østers per person til en forrett og litt flere til hovedrett. Etter ca 5 minutter vil østersen poppe opp. Da kan du enkelt brekke av det øverste skjellet. Men pass på varm væske når du håndterer grillet østers!
+                Velg din favoritttopping til østersen. En liten bit blåmuggost eller et dryss parmesan sammen med litt gressløk eller finhakket hvitløk er veldig godt. Finhakket rødløk og en skje balsamico ga gode og karamelliserte østers. Prøv også med kun en skvis sitronsaft. La gjerne gjestene velge sin egen topping.
+                Server grillede og gratinerte østers sammen sammen med gode bobler!',
+            ],[
+                'name' => 'Salat med Kongekrabbe',
+                'description' => 'Salat nicoise er en klassisk fransk salat som normalt lages med ansjos. I denne oppskriften har vi brukt kongekrabbe i stedet. Server med en hjemmelaget dressing.',
+                'image' => 23,
+                'user_id' => 1,
+                'how' => 'Rens kongekrabbebein og del i mindre stykker. Hardkok egg i ca. 9 minutter, avkjøl, skrell og del i to. Forvell aspargesbønner i 2 minutter i lettsaltet vann, avkjøl i kaldt vann og del i to.
+                Skjær salat i grove strimler, rødløk i tynne strimler, agurk i tynne skiver, tomat i båter og paprika i terninger. 
+                Bland alt i en salatbolle, og ha i oliven og kapers. Legg stykker av kongekrabbebein på toppen. ',
+            ],[
+                'name' => 'Villsvingryte',
+                'description' => 'Høsten er en finfin tid for så mangt på matfronten. I tillegg til at skogen byr på sopp og bær, er det også tiden da jakt bedrives. Jakten er en viktig kilde til kjøtt i vår husholdning, som langt på vei har erstattet kjøtt fra tamgris og storfe. Viltkjøtt er smaksrikt, magert og fullt av næringsstoffer som kroppen har godt av. For en kokk byr viltet på spennende utfordringer, ettersom man skal utnytte et helt dyr. Det er jo ikke bare ytre- og indrefileten som skal brukes, man får deilige steker, nakke, ribbe og kraftbein «på kjøpet» også! Denne middagen laget vi av en stor villsvinnakke da mormor og morfar var på besøk fra Sverige. Gryter kan se litt trist ut på bilder, men det er få ting som er så rikt på smak som en skikkelig villsvingryte.',
+                'image' => 24,
+                'user_id' => 1,
+                'how' => 'Kutt kjøttet og grønnsakene i grove terninger. Brun alt i en stekepanne. Kok ut panna med ølen. Legg kjøtt og grønnsaker i en gryte, tilsett tomater, fløte og vann. La gryta putre til kjøttet er mørt, 2-3 timer. Kok poteter.',
             ],
         ], 'recipies');
         
         $db->insert([
            [
-                'name' => 'karpe',
+                'name' => 'Ørret',
                 'amount' => '1.5',
                 'unit' => 'kg',
                 'recipie_id' => 1,
-                'taxonID' => '',
+                'taxonID' => '26171',
            ],[
                 'name' => 'løk',
                 'amount' => '1',
@@ -240,11 +263,11 @@ class Migrations{
                 'recipie_id' => 1,
                 'taxonID' => '',
            ],[
-                'name' => 'persille',
+                'name' => 'kjørvel',
                 'amount' => '1',
                 'unit' => 'bunt',
                 'recipie_id' => 1,
-                'taxonID' => '',
+                'taxonID' => '60303',
            ],[
                 'name' => 'enerbær',
                 'amount' => '2-3',
@@ -359,7 +382,164 @@ class Migrations{
                 'unit' => 'ss',
                 'recipie_id' => 5,
                 'taxonID' => '63574',
-           ], 
+           ],[
+                'name' => 'Stillehavsøsters',
+                'amount' => '24',
+                'unit' => 'stk',
+                'recipie_id' => 6,
+                'taxonID' => '84141',
+           ],[
+                'name' => 'Rødløk',
+                'amount' => '1',
+                'unit' => 'stk',
+                'recipie_id' => 6,
+                'taxonID' => '',
+           ],[
+                'name' => 'Blåmuggost',
+                'amount' => '100',
+                'unit' => 'g',
+                'recipie_id' => 6,
+                'taxonID' => '',
+           ],[
+                'name' => 'Parmesan',
+                'amount' => '100',
+                'unit' => 'g',
+                'recipie_id' => 6,
+                'taxonID' => '',
+           ],[
+                'name' => 'Sitron',
+                'amount' => '1',
+                'unit' => 'stk',
+                'recipie_id' => 6,
+                'taxonID' => '',
+           ],[
+                'name' => 'Balsamicoeddik',
+                'amount' => '6',
+                'unit' => 'ss',
+                'recipie_id' => 6,
+                'taxonID' => '',
+           ],[
+                'name' => 'Hvitløk',
+                'amount' => '3',
+                'unit' => 'fedd',
+                'recipie_id' => 6,
+                'taxonID' => '',
+           ],[
+                'name' => 'Gressløk',
+                'amount' => '1',
+                'unit' => 'bunt',
+                'recipie_id' => 6,
+                'taxonID' => '59373',
+           ],[
+                'name' => 'Kongekrabbe',
+                'amount' => '1',
+                'unit' => 'kokt ben av',
+                'recipie_id' => 7,
+                'taxonID' => '14365',
+           ],[
+                'name' => 'Egg',
+                'amount' => '4',
+                'unit' => 'stk',
+                'recipie_id' => 7,
+                'taxonID' => '',
+           ],[
+                'name' => 'Aspargesbønner',
+                'amount' => '150',
+                'unit' => 'g',
+                'recipie_id' => 7,
+                'taxonID' => '',
+           ],[
+                'name' => 'Hjertesalat',
+                'amount' => '1',
+                'unit' => 'stk',
+                'recipie_id' => 7,
+                'taxonID' => '',
+           ],[
+                'name' => 'Rødløk',
+                'amount' => '0.5',
+                'unit' => 'stk',
+                'recipie_id' => 7,
+                'taxonID' => '',
+           ],[
+                'name' => 'Agurk',
+                'amount' => '0.5',
+                'unit' => 'stk',
+                'recipie_id' => 7,
+                'taxonID' => '',
+           ],[
+                'name' => 'Tomat',
+                'amount' => '4',
+                'unit' => 'stk',
+                'recipie_id' => 7,
+                'taxonID' => '',
+           ],[
+                'name' => 'Kapers',
+                'amount' => '1',
+                'unit' => 'ss',
+                'recipie_id' => 7,
+                'taxonID' => '',
+           ],[
+                'name' => 'Svinenakke av Villsvin',
+                'amount' => '1',
+                'unit' => 'kg',
+                'recipie_id' => 8,
+                'taxonID' => '31237',
+           ],[
+                'name' => 'Løk',
+                'amount' => '2',
+                'unit' => 'stk',
+                'recipie_id' => 8,
+                'taxonID' => '',
+           ],[
+                'name' => 'Gulrøtter',
+                'amount' => '5',
+                'unit' => '',
+                'recipie_id' => 8,
+                'taxonID' => '',
+           ],[
+                'name' => 'Hvitløk',
+                'amount' => '3',
+                'unit' => 'fedd',
+                'recipie_id' => 8,
+                'taxonID' => '',
+           ],[
+                'name' => 'Sopp (gjerne Lerkesopp)',
+                'amount' => '50',
+                'unit' => 'g',
+                'recipie_id' => 8,
+                'taxonID' => '38890',
+           ],[
+                'name' => 'Hakkede tomater',
+                'amount' => '1',
+                'unit' => 'boks',
+                'recipie_id' => 8,
+                'taxonID' => '',
+           ],[
+                'name' => 'Fløte',
+                'amount' => '3',
+                'unit' => 'dl',
+                'recipie_id' => 8,
+                'taxonID' => '',
+           ],[
+                'name' => 'Mørkt øl',
+                'amount' => '2',
+                'unit' => 'dl',
+                'recipie_id' => 8,
+                'taxonID' => '',
+           ], [
+                'name' => 'Vann',
+                'amount' => '3',
+                'unit' => 'dl',
+                'recipie_id' => 8,
+                'taxonID' => '',
+           ], [
+                'name' => 'Krydder',
+                'amount' => '',
+                'unit' => '',
+                'recipie_id' => 8,
+                'taxonID' => '',
+           ],   
+          
         ], 'ingredients');
 
         $db->insert([
@@ -412,7 +592,7 @@ class Migrations{
             'user_id' => 1,
             'small' => '/assets/img/arter/mink.jpg',
             'big' => '/assets/img/arter/mink.jpg',
-            'position' => 'top',
+            'position' => '25%',
             ],[
             'user_id' => 1,
             'small' => '/assets/img/arter/niland.jpg',
@@ -437,7 +617,7 @@ class Migrations{
             'user_id' => 1,
             'small' => '/assets/img/arter/trout.jpg',
             'big' => '/assets/img/arter/trout.jpg',
-            'position' => 'center',
+            'position' => '20%',
             ],[
             'user_id' => 1,
             'small' => '/assets/img/arter/villsvin.jpg',
@@ -467,6 +647,21 @@ class Migrations{
             'user_id' => 1,
             'small' => '/assets/img/recipis/goose.jpg',
             'big' => '/assets/img/recipis/goose.jpg',
+            'position' => 'center',
+            ],[
+            'user_id' => 1,
+            'small' => '/assets/img/recipis/oystergrill.jpg',
+            'big' => '/assets/img/recipis/oystergrill.jpg',
+            'position' => 'center',
+            ],[
+            'user_id' => 1,
+            'small' => '/assets/img/recipis/kongesalat.jpg',
+            'big' => '/assets/img/recipis/kongesalat.jpg',
+            'position' => 'center',
+            ],[
+            'user_id' => 1,
+            'small' => '/assets/img/recipis/stew.jpg',
+            'big' => '/assets/img/recipis/stew.jpg',
             'position' => 'center',
             ],
         ],'image');
