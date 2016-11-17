@@ -2,7 +2,7 @@
 
 
 <main>
-    <section class="row primary-header" style="background-image: url('/assets/img/recipis/reindeer_large.jpg')"></section>
+    <section class="row primary-header" style="background-image: url('/assets/img/recipis/banner2.jpg')"></section>
     <section class="container">
 
         <div class="row recipie-view">
