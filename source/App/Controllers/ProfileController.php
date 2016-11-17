@@ -11,7 +11,7 @@ use BaseController, User, Account, Uploader;
 class ProfileController extends BaseController {
 
     public function index(){
-        return View::auth('profile', '/login');
+        return View::make('profile');
     }
     
     public function edit($param){
@@ -19,14 +19,14 @@ class ProfileController extends BaseController {
         $msg = $user->changePassword($param['old_pw'], $param['new_pw'], $param['new_pw2']);
         
         if(gettype($msg) == 'string'){
-            return View::auth('edit.profile', '/login', ['msg' => $msg]);
+            return View::make('edit.profile', ['msg' => $msg]);
         }
         
         return Direct::re('/profile');
     }
     
     public function profieEdit(){
-        return View::auth('edit.profile', '/login');
+        return View::make('edit.profile');
     }
     
     public function ajaxUpload($values){

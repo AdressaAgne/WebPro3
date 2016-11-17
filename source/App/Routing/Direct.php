@@ -6,10 +6,17 @@ use Config;
 
 class Direct extends Route{
     
+    private $middleware = [];
+    private $route = '';
+    private $type = '';
+    
     public function __construct($route, $callback, $type, $get = null){
+        $this->route = $route;
+        $this->type = $type;
         parent::$routes[$type][$route] = [
                                     'callback' => Config::$controllers.$callback,
-                                    'vars' => $get, 
+                                    'vars' => $get,
+                                    'middleware' => [],
                                 ];
     }
     
@@ -54,6 +61,23 @@ class Direct extends Route{
         return new Direct($a, $b, 'error');
     }
     
+    public static function stack($a){
+        
+    }
+    
+    public function Auth($callback = null){
+        parent::$routes[$this->type][$this->route]['middleware']['auth'] = true;
+        if(gettype($callback) == 'function' && $callback != null){
+            parent::$routes[$this->type][$this->route]['middleware']['callback'] = $callback;
+        }
+    }
+    
+    public function Admin($callback = null){
+        parent::$routes[$this->type][$this->route]['middleware']['auth'] = true;
+        if(gettype($callback) == 'function' & $callback != null){
+            parent::$routes[$this->type][$this->route]['middleware']['callback'] = $callback;
+        }
+    }
     
     /**
      * Gets called when a method on \App\Direct does not exist

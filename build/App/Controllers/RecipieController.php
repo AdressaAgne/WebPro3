@@ -36,8 +36,7 @@ class RecipieController extends BaseController {
     
     
     public function index() {
-        
-        return View::auth('insert.recipie', '/login', [
+        return View::make('insert.recipie', [
             'cat' => $this->select(['*'], 'category')->fetchAll()
         ]);
     }

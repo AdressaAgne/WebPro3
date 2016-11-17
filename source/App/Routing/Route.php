@@ -54,16 +54,23 @@ class Route {
                 break;
             }
         } else {
-            if(array_key_exists($route, self::$routes['get'])){
-                return self::$routes['get'][$route];
-            } else {
-                return self::error('404');
-            }
+            return self::method('get', $route);
         }
     }
     
     public static function method($method, $route){
+        
         if(array_key_exists($route, self::$routes[$method])){
+            $key = self::$routes[$method][$route];
+            
+            if(isset($key['middleware']['auth'])){
+                if(isset($key['middleware']['callback'])){
+                    call_user_func($key['middleware']['callback']);   
+                }
+                if(!isset($_SESSION['uuid'])){
+                    return self::error('403');   
+                }
+            }
             return self::$routes[$method][$route];
         } else {
             return self::error('404');
