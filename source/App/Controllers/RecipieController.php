@@ -125,7 +125,7 @@ class RecipieController extends BaseController {
                     JOIN image AS i ON r.image = i.id
                     JOIN ratings as ra ON ra.recipe_id = r.id
                     GROUP BY r.id
-                    ORDER BY rating DESC'
+                    ORDER BY rating DESC';
 
 
       $alfabetisk = "";
