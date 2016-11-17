@@ -112,4 +112,30 @@ class RecipieController extends BaseController {
         }
     }
 
+    public function sort($str){
+      //if alfabetisk
+      switch($str){
+        case 'nyeste' :
+          $this->select();
+          break;
+
+        case 'beste' :
+          $this->select();
+          break;
+
+        case 'alfabetisk' :
+          $this->select();
+          break;
+
+        default :
+
+          echo "not be wurking";
+      }
+      //if Nyeste
+      //if høyest ratet
+
+
+      return 0;
+    }//sort()
+
 }

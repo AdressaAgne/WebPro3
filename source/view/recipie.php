@@ -97,6 +97,7 @@
 @layout('layout.scripts')
 
 <script>
+  //Give rating
   $(".star-rating input").on("click", function(){
     console.log('ajax');
     $.post({
@@ -108,10 +109,14 @@
         id : {{$recipie->id}}
       },
       success : function(data) {
-        console.log(data);
+        //console.log(data);
+      },
+      error : function(){
+        console.log("failed to update rating");
       }
     });
   });
+
 </script>
 
 @layout('layout.foot')

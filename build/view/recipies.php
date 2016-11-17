@@ -6,7 +6,7 @@
     <section class="row primary-header" style="background-image: url('/assets/img/recipis/banner.jpg')">
 
         <h1 class="primary-header-text center">Oppskrifter</h1>
-        
+
     </section>
     <div class="container">
         <div class="row row--line">
@@ -16,10 +16,10 @@
 		       </ul>
 	        </div>
 	        <div class="col--right">
-		       <ul class="list-simple--horisontal">
-		           <li><a href="#Nyeste">Nyeste</a></li>
-		           <li><a href="#Bestrangert">Best rangert</a></li>
-		           <li><a href="#aa">A - Å</a></li>
+		       <ul class="list-simple--horisontal" id="sortering">
+		           <li><a href="#Nyeste" name="sorting" value="nyeste">Nyeste</a></li>
+		           <li><a href="#Bestrangert" name="sorting" value="beste">Best rangert</a></li>
+		           <li><a href="#aa" name="sorting" value="alfabetisk">A - Å</a></li>
 		       </ul>
 	        </div>
         </div>
@@ -34,8 +34,8 @@
                         <a><i class="icon-search--white icon--small icon--center"></i></a>
                     </label>
                 </div>
-        
-            
+
+
 	            <div class="res-categorie">
 	                <h2> RÅVARE </h2>
 	                <ul>
@@ -69,6 +69,17 @@
 	    </div>
     </div>
 </main>
+
 @layout('layout.scripts')
+
+<script>
+  $("#sortering li a").on("click", function(e){
+    e.preventDefault();
+    $.post({
+      url : "recipie/rating",
+      data : $(this).attr("value")
+    });
+  });
+</script>
 
 @layout('layout.foot')
