@@ -203,7 +203,7 @@ class Database {
      * @param array $where      
      * @param string $join = '=' 
      */
-    public static function update(array $rows, $table, array $where, $join = '='){
+    public static function update(array $rows, $table, array $where, $join = '=', $wherejoin = 'AND'){
         $data = [];
         $trows = [];
         $twhere = [];
@@ -218,7 +218,7 @@ class Database {
         }
         
         $trows = implode(', ', $trows);
-        $twhere = implode(', ', $twhere);
+        $twhere = implode(" $wherejoin ", $twhere);
         $sql = "UPDATE {$table} SET {$trows} WHERE {$twhere}";
         return self::query($sql, $data);
     }
