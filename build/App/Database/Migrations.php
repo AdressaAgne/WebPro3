@@ -234,6 +234,13 @@ class Migrations{
                 'image' => 24,
                 'user_id' => 1,
                 'how' => 'Kutt kjøttet og grønnsakene i grove terninger. Brun alt i en stekepanne. Kok ut panna med ølen. Legg kjøtt og grønnsaker i en gryte, tilsett tomater, fløte og vann. La gryta putre til kjøttet er mørt, 2-3 timer. Kok poteter.',
+            ],[
+                'name' => 'Haresuppe',
+                'description' => 'Høsten er en finfin tid for så mangt på matfronten. I tillegg til at skogen byr på sopp og bær, er det også tiden da jakt bedrives. Jakten er en viktig kilde til kjøtt i vår husholdning, som langt på vei har erstattet kjøtt fra tamgris og storfe. Viltkjøtt er smaksrikt, magert og fullt av næringsstoffer som kroppen har godt av. For en kokk byr viltet på spennende utfordringer, ettersom man skal utnytte et helt dyr. Det er jo ikke bare ytre- og indrefileten som skal brukes, man får deilige steker, nakke, ribbe og kraftbein «på kjøpet» også! Denne middagen laget vi av en stor villsvinnakke da mormor og morfar var på besøk fra Sverige. Gryter kan se litt trist ut på bilder, men det er få ting som er så rikt på smak som en skikkelig villsvingryte.',
+                'image' => 25,
+                'user_id' => 1,
+                'how' => 'Del harene, og legg vekk indre- og ytrefiletene og lårene. Dette kan brukes senere til andre retter. Hakk resten i småbiter som legges i langpanne og brunes i ovn ved 225 C til bena er pent brune.
+                Skjær grønnsakene i biter, og fres dem i smør i en stor kjele. Tilsett så tomatpuré, hell over madeira og la alt koke noen minutter. Legg de brunede ben- og kjøttbitene i kjelen, hell over viltbuljongen (eller vannet) og gi det et oppkok. Skum godt, ha i krydderet og la alt småkoke i ca 2 timer. Når det er ferdig siles suppen. Smak til med sukker, salt, pepper og revet ingefær. Smaksett med sitron.',
             ],
         ], 'recipies');
         
@@ -526,17 +533,59 @@ class Migrations{
                 'unit' => 'dl',
                 'recipie_id' => 8,
                 'taxonID' => '',
-           ], [
+           ],[
                 'name' => 'Vann',
                 'amount' => '3',
                 'unit' => 'dl',
                 'recipie_id' => 8,
                 'taxonID' => '',
-           ], [
+           ],[
                 'name' => 'Krydder',
                 'amount' => '',
                 'unit' => '',
                 'recipie_id' => 8,
+                'taxonID' => '',
+           ],[
+                'name' => 'Hare',
+                'amount' => '2',
+                'unit' => 'stk flådd',
+                'recipie_id' => 9,
+                'taxonID' => '31106',
+           ],[
+                'name' => 'Sellerirot',
+                'amount' => '1',
+                'unit' => 'bit',
+                'recipie_id' => 9,
+                'taxonID' => '',
+           ],[
+                'name' => 'Purre',
+                'amount' => '1',
+                'unit' => 'stk',
+                'recipie_id' => 9,
+                'taxonID' => '',
+           ],[
+                'name' => 'Madeira',
+                'amount' => '3',
+                'unit' => 'dl',
+                'recipie_id' => 9,
+                'taxonID' => '',
+           ],[
+                'name' => 'Løk',
+                'amount' => '2',
+                'unit' => 'stk ',
+                'recipie_id' => 9,
+                'taxonID' => '',
+           ],[
+                'name' => 'Viltkraft',
+                'amount' => '2',
+                'unit' => 'dl',
+                'recipie_id' => 9,
+                'taxonID' => '',
+           ],[
+                'name' => 'Fløte',
+                'amount' => '2',
+                'unit' => 'dl',
+                'recipie_id' => 9,
                 'taxonID' => '',
            ],   
           
@@ -662,6 +711,11 @@ class Migrations{
             'user_id' => 1,
             'small' => '/assets/img/recipis/stew.jpg',
             'big' => '/assets/img/recipis/stew.jpg',
+            'position' => 'center',
+            ],[
+            'user_id' => 1,
+            'small' => '/assets/img/recipis/haresuppe.jpg',
+            'big' => '/assets/img/recipis/haresuppe.jpg',
             'position' => 'center',
             ],
         ],'image');
