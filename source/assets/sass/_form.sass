@@ -11,8 +11,8 @@
         font-weight: 300
         height: 30px
         color: black
-        background-color: white
-        border: 1px solid lightgrey
+        background-color: #f8f8f8
+        border: 1px solid $paper-devider-color
         box-sizing: border-box
         padding: 20px
         float: left
@@ -22,40 +22,49 @@
 
     .search-icon
         &.geobtn a
-            margin-left: 5px
-            border-radius: 3px 0px 0px 3px
+          margin-left: 5px
+          border-radius: 3px 3px 3px 3px
+
+        &.searchbtn a
+          border-radius: 0px 3px 3px 0px
+          border-left: 0
+
 
         a
           float: left
           width: 50px
           height: 42px
-          background-color: white
+          background-color: $theme-color-text
           cursor: pointer
-          border: 1px solid lightgrey
+          border: 1px solid $paper-devider-color
           box-sizing: border-box
           display: block
           padding: 4px
 
           &:hover
-          	background-color: $theme-color-700
+          	background-color: #ededed
 
-    .search-icon:last-of-type() a
+    /*.search-icon:first-of-type() a
+        border-radius: 3px 0px 0px 3px
+        border-left: 0
+
+    /*.search-icon:last-of-type() a
         border-radius: 0px 3px 3px 0px
 
     \::-webkit-input-placeholder
-         color: rgba(255, 255, 255, .4)
+         color: rgba(0, 0, 0, .4)
          font-style: italic
 
     \:-moz-placeholder
-         color: rgba(255, 255, 255, .4)
+         color: rgba(0, 0, 0, .4)
          font-style: italic
 
     \::-moz-placeholder
-         color: rgba(255, 255, 255, .4)
+         color: rgba(0, 0, 0, .4)
          font-style: italic
 
     \:-ms-input-placeholder
-         color: rgba(255, 255, 255, .4)
+         color: rgba(0, 0, 0, .4)
          font-style: italic
 
 .search-result
