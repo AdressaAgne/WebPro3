@@ -30,8 +30,8 @@
                     <label class="search-box" for="search">
                         <input class="search-one" type="search" placeholder="Søk..." value="">
                     </label>
-                    <label class="search-icon">
-                        <a><i class="icon-search--white icon--small icon--center"></i></a>
+                    <label class="search-icon searchbtn">
+                        <a><i class="icon-search--theme icon--small icon--center"></i></a>
                     </label>
                 </div>
 
