@@ -18,7 +18,7 @@ class Config {
     public static $username = 'root';
     public static $password = 'root';
 
-    public static $form_token = '';
+    public static $form_token = 'jlhkgfdlkshdjkskdfskjdhf';
 
 
     public static $cookie_time = 86400 * 30;
@@ -73,7 +73,7 @@ class Config {
         '\App\Modules\User' => 'User',
         '\App\Modules\Comment' => 'Comment',
         '\App\Modules\Ingredient' => 'Ingredient',
-        
+
         // Database
         '\App\Database\Database' => 'DB',
         '\App\Database\Row' => 'Row',

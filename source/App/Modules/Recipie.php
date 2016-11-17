@@ -27,74 +27,62 @@ class Recipie{
         $this->thumbnail    = $query['thumbnail'];
         $this->user_id      = $query['user_id'];
     }
-    
+
     public function getUser(){
         return new User($this->user_id);
     }//getUser()
 
     public function getIngrediets(){
         if(!empty($this->ingredients)) return $this->ingredients;
-        
+
         $result = DB::select(['*'], 'ingredients', ['recipie_id' => $this->id])->fetchAll();
 
         foreach($result as $i){
             $this->ingredients[$i['id']] = new Ingredient($i, 'metric');
         }
-        
+
         return $this->ingredients;
     }
 
     public function getCategories(){
         if(!empty($this->categories)) return $this->categories;
-        
+
         $result = DB::query('SELECT * FROM recipie_category as rc
         INNER JOIN category AS c ON rc.category_id = c.id WHERE rc.recipie_id = :id', ['id' => $this->id])->fetchAll();
-        
+
         foreach($result as $cat){
             $this->categories[] = $cat['name'].($cat['type'] == 0 ? ' (Råvare)' : ' (Type Rett)');
         }
-        
+
         return $this->categories;
     }
 
     public function getComments(){
         if(!empty($this->comments)) return $this->comments;
-        
+
         $query = DB::query('SELECT * FROM comments as c
         JOIN users AS u ON c.user_id = u.id
         JOIN image AS i ON u.image = i.id
         WHERE recipe_id = :id
         GROUP BY c.id', ['id' => $this->id])->fetchAll();
-        
+
         foreach($query as $key => $value){
             $this->comments[] = new Comment($value);
         }
-        
-        return $this->comments;
-    }
 
-    public function rate_recipe($user_id, $rating){
-        if(DB::select(['rating'], 'ratings', ['recipe_id' => $this->id, 'user_id' => $user_id])->rowCount() > 0){
-            return DB::update(['rating' => $rating], 'ratings', ['user_id' => $user_id, 'recipe_id' => $this->id]);
-        } else {
-            return DB::insert([[
-                'user_id'=> $user_id,
-                'recipe_id' => $this->id,
-                'rating' => $rating
-            ],'ratings']);
-        }
+        return $this->comments;
     }
 
     public function display_ratings(){
         $query = DB::select(['AVG(rating)'], 'ratings', ['recipe_id' => $this->id]);
-      
+
         return round($query);
     }
 
     //ongoing
     public function changeImage($id){
 
-      
+
         return DB::update(['image' => $id], 'recipies', ['id' => $this->id]);
     }
 

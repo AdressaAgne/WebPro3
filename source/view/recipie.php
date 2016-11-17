@@ -98,14 +98,15 @@
 
 <script>
   $(".star-rating input").on("click", function(){
+    console.log('ajax');
     $.post({
       url: "recipie/rating",
       data: {
-        'rating' : $('name[rating]').val(),
-        '_method' : $('name[_method]').val(),
-        '_token' : $('name[_token]').val()
+        rating : $('[name=rating]:checked').val(),
+        _method : 'update',
+        _token : $('[name=_token]').val(),
+        id : {{$recipie->id}}
       },
-      dataType : 'json',
       success : function(data) {
         console.log(data);
       }

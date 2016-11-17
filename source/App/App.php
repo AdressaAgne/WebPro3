@@ -21,9 +21,9 @@ spl_autoload_register(function($class){
     $file = implode('/', explode('\\', "{$class}.php"));
     if(file_exists($file)){
         require_once($file);
-    } else { 
-        ErrorHandling::fire("class not found: $class", "", [  
-            "class: $class", 
+    } else {
+        ErrorHandling::fire("class not found: $class", "", [
+            "class: $class",
             "file: $file",
         ]);
     }
@@ -39,17 +39,17 @@ require_once('App/Routing/RouteSetup.php');
 
 // Start Route Handling
 class App extends RouteHandler{
-    
+
     public function __construct(){
 
         // CSRF token - Cross-site Request Forgery
         if (!isset($_SESSION['_token'])){
-            $_SESSION['_token'] = Config::$form_token;
+            $_SESSION['_token'] = uniqid();
             Config::$form_token = $_SESSION['_token'];
         }
-        
+
         $page = $this->getPageData();
-        
+
         if(gettype($page) !== 'string'){
             @header('Content-type: application/json');
             echo json_encode($page, JSON_UNESCAPED_UNICODE);
@@ -58,7 +58,7 @@ class App extends RouteHandler{
             // Echo out the rendered code
             echo $page;
         }
-    }   
+    }
 }
 
 new App();
