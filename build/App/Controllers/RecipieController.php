@@ -114,13 +114,28 @@ class RecipieController extends BaseController {
 
     public function sort($str){
       //if alfabetisk
+
+      $recipies = $this->query('SELECT r.*, i.big as image, i.small as thumbnail FROM recipies AS r
+       JOIN image AS i ON r.image = i.id')->fetchAll();
+
+      $nyeste     = "SELECT * FROM recipies ORDER BY TIMESTAMP DESC";//FIKS! TODO
+
+      $beste      = 'SELECT r.*,ra.*, i.big as image, i.small as thumbnail, (ra.rating / count(ra.*)) as rating
+                    FROM recipies AS r
+                    JOIN image AS i ON r.image = i.id
+                    JOIN ratings as ra ON ra.recipe_id = r.id
+                    GROUP BY r.id
+                    ORDER BY rating DESC'
+
+
+      $alfabetisk = "";
       switch($str){
         case 'nyeste' :
-          $this->select();
+          return $this->select($nyeste)->fetchAll();
           break;
 
         case 'beste' :
-          $this->select();
+          $this->select($beste)->fetchAll();
           break;
 
         case 'alfabetisk' :
