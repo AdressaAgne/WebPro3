@@ -9,9 +9,10 @@
             <div class="row">
                 <div class="col-4">
                     <img src="{{$recipie->image}}"/>
-                    
+
                     <div class="col-12">
                         <h3 class="sub-header">Vurder</h3>
+                        @form('', 'update')
                         <span class="star-rating">
                             <input type="radio" name="rating" value="1"><i></i>
                             <input type="radio" name="rating" value="2"><i></i>
@@ -19,8 +20,9 @@
                             <input type="radio" name="rating" value="4"><i></i>
                             <input type="radio" name="rating" value="5"><i></i>
                         </span>
+                        @formend()
                     </div>
-                    
+
                     <div class="col-12">
                         <h3>Ingredients</h3>
                         <ul class="ingredients">
@@ -36,14 +38,14 @@
                         <h3>Description</h3>
                         <p>@format($recipie->desc)</p>
                     </div>
-                   
+
                     <div class="col-12 res-desc">
                         <h3 class="sub-header">Hvordan</h3>
                         <div class="col--center">@format($recipie->how)</div>
                     </div>
-                    
+
                     <div class="col-12 res-desc">
-                        
+
                         @if(Account::isLoggedIn())
                             @form('/recipie/comment', 'put')
                             <h3 class="sub-header">Skriv en kommentar</h3>
@@ -54,9 +56,9 @@
                         @else
                             <h3 class="sub-header"><a href="/login">Login</a> og skriv en kommentar</h3>
                         @endif
-                        
+
                     </div>
-                    
+
                     <div class="col-12 res-desc" id="comments">
                         <h3 class="sub-header">Kommentarer</h3>
                         @foreach($recipie->getComments() as $key => $comment)
@@ -66,11 +68,11 @@
                                     <div class="name"><h3><a href="/users/{{$comment->user->username}}">{{$comment->user->username}}</a></h3></div>
                                     <div class="content">{{ $comment->content }}</div>
                                 </div>
-                                
+
 
                         @endforeach
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -96,7 +98,18 @@
 
 <script>
   $(".star-rating input").on("click", function(){
-    console.log($(this).val());
+    $.post({
+      url: "recipie/rating",
+      data: {
+        'rating' : $('name[rating]').val(),
+        '_method' : $('name[_method]').val(),
+        '_token' : $('name[_token]').val()
+      },
+      dataType : 'json',
+      success : function(data) {
+        console.log(data);
+      }
+    });
   });
 </script>
 
