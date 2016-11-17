@@ -16,7 +16,14 @@ class AdminController extends BaseController {
 
     public function index(){
         
-        return View::make('admin.index');
+        return View::make('admin.index', [
+            'sepcies' => $this->query('SELECT b.*, im.small, count(i.id) as recipes
+            FROM blacklist AS b
+            LEFT JOIN ingredients AS i ON i.taxonID = b.taxonID
+            LEFT JOIN image AS im ON b.image = im.id 
+            GROUP BY b.id
+            ORDER BY b.navn, b.canEat')->fetchAll(),
+        ]);
         
     }
 }
