@@ -10,50 +10,54 @@
         font-size: 16px
         font-weight: 300
         height: 30px
-        color: white
-        background-color: $theme-color
-        border: none
+        color: black
+        background-color: white
+        border: 1px solid lightgrey
         box-sizing: border-box
         padding: 20px
         float: left
         border-radius: 3px 0px 0px 3px
         &.search-one
-            width: calc(100% - 60px)   
-        
-    .search-icon a
-        float: left
-        width: 60px
-        height: 40px
-        background-color: $theme-color
-        cursor: pointer
-        border: none
-        box-sizing: border-box
-        display: block
-        padding: 4px
-        
-        &:hover
-        	background-color: $theme-color-700            
-        
+            width: calc(100% - 50px)
+
+    .search-icon
+        &.geobtn a
+            margin-left: 5px
+            border-radius: 3px 0px 0px 3px
+
+        a
+          float: left
+          width: 50px
+          height: 42px
+          background-color: white
+          cursor: pointer
+          border: 1px solid lightgrey
+          box-sizing: border-box
+          display: block
+          padding: 4px
+
+          &:hover
+          	background-color: $theme-color-700
+
     .search-icon:last-of-type() a
         border-radius: 0px 3px 3px 0px
-        
+
     \::-webkit-input-placeholder
          color: rgba(255, 255, 255, .4)
          font-style: italic
-     
+
     \:-moz-placeholder
          color: rgba(255, 255, 255, .4)
          font-style: italic
-     
+
     \::-moz-placeholder
          color: rgba(255, 255, 255, .4)
          font-style: italic
-     
+
     \:-ms-input-placeholder
          color: rgba(255, 255, 255, .4)
          font-style: italic
-         
-     
+
 .search-result
     position: absolute
     width: calc(100%)
@@ -61,7 +65,7 @@
     background-color: $theme-color
     z-index: 99999
 
-    
+
 #search-result li
     list-style: none
     a
@@ -88,7 +92,7 @@ select
 
     &:hover
         background-color: $theme-color-700
-label.select 
+label.select
     position: relative
     & label.icon
         width: 0px
@@ -97,8 +101,8 @@ label.select
         position: absolute
         top: 20px
         right: 0px
-        
-        
+
+
 input[type='text'], input[type='password'], textarea, .input
     font-family: 'Roboto', sans-serif
     appearance: none
@@ -109,13 +113,13 @@ input[type='text'], input[type='password'], textarea, .input
     color: $theme-color-text
     margin: 5px 0px
     border-bottom: 2px solid $theme-color
-    
+
     &.accent
         border-bottom: 2px solid $accent-color
-        
+
     &.alternative
         background-color: $theme-color-700
-        
+
     &.dark
         color: $theme-color
         \::-webkit-input-placeholder
@@ -133,7 +137,7 @@ input[type='text'], input[type='password'], textarea, .input
         \:-ms-input-placeholder
              color: rgba(0, 0, 0, .4)
              font-style: italic
-        
+
 input[type=range]
     -webkit-appearance: none
     width: 100%
@@ -147,7 +151,7 @@ input[type=range]::-webkit-slider-thumb
     border-radius: 10px
     background-color: $accent-color
     border: 5px solid $accent-color-700
-    
+
 
 input[type=range]:focus
     outline: none
@@ -157,12 +161,12 @@ input[type=range]::-ms-track
     cursor: pointer
     width: 100%
     background: $theme-color-700
-	
-    
+
+
 label
     display: block
     width: 100%
-    
+
 input[type='submit'], button, .btn, .button
     margin: 10px 0px;
     display: block
@@ -182,9 +186,9 @@ input[type='submit'], button, .btn, .button
         background-color: $theme-color-700
     &.accent
         background-color: $accent-color
-    
 
-        
+
+
 input[type="checkbox"]
     display: none
 
@@ -200,37 +204,20 @@ input[type="checkbox"]
             height: 15px
             left: 0px
             border: 1px solid $paper-devider-color
-        
+
     &:checked + .checkbox
         &:before
             border: 1px solid $accent-color-300
             background-color: $accent-color
             box-shadow: inset 2px 2px 0px $theme-color-text, inset -2px -2px 0px $theme-color-text
-        
+
     &:checked + .checkbox.accent
              &:before
                 border: 1px solid $theme-color-300
                 background-color: $theme-color
                 box-shadow: inset 2px 2px 0px $accent-color, inset -2px -2px 0px $accent-color
-                
-                
-                
-#artsearch 
+
+
+
+#artsearch
 	cursor: pointer
-	
-
-	
-
-
-
-
-
-
-
-	
-	
-	
-	
-	
-	
-	
