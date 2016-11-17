@@ -2,7 +2,7 @@
 
 namespace App\Database;
 
-use DB, App\Api\Populate as blacklist;
+use DB, App\Api\Populate as blacklist, Account;
 
 class Migrations{
 
@@ -131,6 +131,8 @@ class Migrations{
     public static function populate(){
         $db = new DB();
         blacklist::run();
+        Account::register('miamia', '123', '123', 'mail');
+        
         $db->insert([
             [
                 'name' => 'skalldyr',
@@ -175,7 +177,7 @@ class Migrations{
             [
                 'name' => 'Karpe i grønt',
                 'description' => 'En deilig rett som inneholder flere ingredienser fra svartelista. ',
-                'image' => 1,
+                'image' => 19,
                 'user_id' => 1,
                 'how' => 'Rens Fisken og skjær den i 4-5 cm tykke stykker. Legg stykkene i et halvdypt fat eller en bolle, krydre dem godt med salt og hell halvparten av oljen over. La dem stå og trekke ca 1 time.
                 Skrell og grovhakk løken. Bland den med resten av oljen sammen med purren skåret i skiver. Krydre dette med pepper, ha det i varm gryte og la det få litt farge. Dryss så melet over, spe med så mye fiskekraft at det blir nok til å dekke fiskestykkene. Spe med vann om nødvendig.
@@ -183,16 +185,32 @@ class Migrations{
             ],[
                 'name' => 'Pai med lerkesopp',
                 'description' => 'En deilig pai som kan lages med mange forskjellige typer sopp. Her har vi brukt Lerkesopp som er en svartelistet art.',
-                'image' => 1,
+                'image' => 18,
                 'user_id' => 1,
                 'how' => 'Smuldre smøret i melet ved å bruke ngrene eller en foodprocessor. Tilsett vann og arbeid deigen raskt sammen (i foodprocessor 10-120 sek). Kjevle ut deigen eller trykk den ut i en form. Prikk den med en gaffel og la den hvile i kjøleskapet i 20-30 min. Varm stekeovn til 200ºC. Forstek paibunnen midt i stekeovnen i ca 10 min. Rens og del soppen i biter. Fres sopp og løk i smør i en panne til soppvæsken har kokt inn. Krydre med salt, pepper og timian. Visp sammen egg og matøte. Legg soppblandingen i den forstekte paibunnen og hell over eggeblandingen. Dryss på ost. Stek midt i stekeovnen i ca 30 min. Server med en grønn salat og ev sprøstekt bacon, spekeskinke eller røkelaks.',
             ],[
                 'name' => 'Kjørvelpesto',
-                'description' => 'Denne passer best til fisk og kjøtt, men kan også brukes på sandwiches og wraps. Kjørvel er ikke så mye brukt i det norske kjøkken, men om så vanligere på kontinentet, i land som Frankrike, Tyskland og Italia. Men kjørvelen hadde egentlig passet ypperlig inn i det norske kjøkkenet, særlig til tradisjonelle skeretter som skekaker.',
-                'image' => 1,
+                'description' => 'Denne passer best til fisk og kjøtt, men kan også brukes på sandwiches og wraps. Kjørvel er ikke så mye brukt i det norske kjøkken, men om så vanligere på kontinentet, i land som Frankrike, Tyskland og Italia. Men kjørvelen hadde egentlig passet ypperlig inn i det norske kjøkkenet, særlig til tradisjonelle fiskeretter som fiskekaker.',
+                'image' => 17,
                 'user_id' => 1,
                 'how' => 'Kjør alle ingrediensene i en kjøkkenmaskin med knivblad til en jevn masse. Smak til med salt og pepper. Ønskes en tynnere konsistens kan det tilsettes litt mer olivenolje.
                 Tips! Pestoen kan også blandes med rømme eller créme fraîche og brukes som dipp eller dressing.',
+            ],[
+                'name' => 'Ripsgele',
+                'description' => 'Med riktig mengde sukker, og naturlig stivelse i bærene, kan ripssaft bli til gelé uten andre tilsetningsstoffer.',
+                'image' => 20,
+                'user_id' => 1,
+                'how' => 'Kok opp rips, og tilsett litt vann. Kok til det safter seg – det tar cirka to minutter. Sil bærene, og la dem renne godt av. Mål opp hvor mye væske du har, og tilsett 100 gram sukker per desiliter væske. På 500 gram rips får du cirka halvannen desiliter saft. Kok opp saften under omrøring, og ha i litt og litt sukker. Rør til alt sukkeret har smeltet. Skum av eventuelt skum, og fyll geleen på rene glass. Hvis det er lite pektin, det vil si naturlig stivelse, i bæra, kan det være du må tilsette litt pektin. For å sjekke om geleen er stiv nok, kan du ha en spiseskje ferdig «gelésaft» på en tallerken. Avkjøl. Stryk skjeen gjennom geleen. Hvis det står igjen en stripe der du strøk skjeen, er geleen sannsynligvis passe stiv.',
+            ],[
+                'name' => 'Helstekt Kanadagås',
+                'description' => 'Gås er veldig godt og egnet på langbordet. Man kan bruke alle typer gås, men vi har selvfølgelig brukt Kanadagås i denne oppskrifen.',
+                'image' => 21,
+                'user_id' => 1,
+                'how' => 'Skjær av vingene på gåsen, ta ut innmaten og fjern noe av fettet i buken. Brun vinger og innmat over svak varme i det fettet som smelter ut. 
+                Tilsett grønnsaker skåret i biter, og brun det hele et par minutter til. Tilsett rødvin og la det koke inn til 1/3. Hell over vann så det dekker. La kraften småputre et par timer. Sil og kok inn kraften til halv mengde. Skyll og tørk av gåsen innvendig og utvendig. Gni den godt inn med salt og pepper, både inne i skroget og på skinnsiden. 
+                Del eplene i grove biter. Fyll gåsen med epler, svisker og aprikoser. Bruk en kjøttnål eller sy sammen åpningen om nødvendig.
+                Legg gåsen på en rist over en langpanne og stek den ved 250 grader i 20 minutter. Senk temperaturen til 150 grader, hell litt vann i langpannen og stek videre i ca. 2 1/2 time. La gåsen hvile ca. 20 minutter før den skjæres opp.
+                Skum fettet av stekesjyen i langpannen. Ta vare på alt fettet, det kan fryses ned til senere bruk. Mål opp innkokt kraft og stekesjy. Visp sammen 2 spiseskjeer gåsefett med hvetemel i en kasserolle. La blandingen brunes lett under omrøring. Tilsett 8 desiliter kraft/stekesjy og kok opp. La sausen småkoke til den får passe tykk konsistens. Visp inn ripsgelé og smak sausen til med salt og pepper.',
             ],
         ], 'recipies');
         
@@ -275,7 +293,73 @@ class Migrations{
                 'unit' => 'g',
                 'recipie_id' => 2,
                 'taxonID' => '38890',
-           ] 
+           ],[
+                'name' => 'rips',
+                'amount' => '500',
+                'unit' => 'g',
+                'recipie_id' => 4,
+                'taxonID' => '63574',
+           ],[
+                'name' => 'vann',
+                'amount' => '2',
+                'unit' => 'ss',
+                'recipie_id' => 4,
+                'taxonID' => '',
+           ],[
+                'name' => 'sukker',
+                'amount' => '150',
+                'unit' => 'g',
+                'recipie_id' => 4,
+                'taxonID' => '',
+           ],[
+                'name' => 'Kanadagås',
+                'amount' => '1',
+                'unit' => 'stk',
+                'recipie_id' => 5,
+                'taxonID' => '3457',
+           ],[
+                'name' => 'Eple',
+                'amount' => '4',
+                'unit' => 'stk',
+                'recipie_id' => 5,
+                'taxonID' => '',
+           ],[
+                'name' => 'Aprikos',
+                'amount' => '300',
+                'unit' => 'g',
+                'recipie_id' => 5,
+                'taxonID' => '',
+           ],[
+                'name' => 'Svisker',
+                'amount' => '300',
+                'unit' => 'g',
+                'recipie_id' => 5,
+                'taxonID' => '',
+           ],[
+                'name' => 'Timian',
+                'amount' => '',
+                'unit' => '',
+                'recipie_id' => 5,
+                'taxonID' => '62346',
+           ],[
+                'name' => 'Kraft',
+                'amount' => '8',
+                'unit' => 'dl',
+                'recipie_id' => 5,
+                'taxonID' => '',
+           ],[
+                'name' => 'Hvetemel',
+                'amount' => '1.5',
+                'unit' => 'ss',
+                'recipie_id' => 5,
+                'taxonID' => '',
+           ],[
+                'name' => 'Ripsgele',
+                'amount' => '2',
+                'unit' => 'ss',
+                'recipie_id' => 5,
+                'taxonID' => '63574',
+           ], 
         ], 'ingredients');
 
         $db->insert([
@@ -358,6 +442,31 @@ class Migrations{
             'user_id' => 1,
             'small' => '/assets/img/arter/villsvin.jpg',
             'big' => '/assets/img/arter/villsvin.jpg',
+            'position' => 'center',
+            ],[
+            'user_id' => 1,
+            'small' => '/assets/img/recipis/kjorvel.jpg',
+            'big' => '/assets/img/recipis/kjorvel.jpg',
+            'position' => 'center',
+            ],[
+            'user_id' => 1,
+            'small' => '/assets/img/recipis/pai.jpg',
+            'big' => '/assets/img/recipis/pai.jpg',
+            'position' => 'center',
+            ],[
+            'user_id' => 1,
+            'small' => '/assets/img/recipis/karpe.jpg',
+            'big' => '/assets/img/recipis/karpe.jpg',
+            'position' => 'center',
+            ],[
+            'user_id' => 1,
+            'small' => '/assets/img/recipis/ripsgele.jpg',
+            'big' => '/assets/img/recipis/ripsgele.jpg',
+            'position' => 'center',
+            ],[
+            'user_id' => 1,
+            'small' => '/assets/img/recipis/goose.jpg',
+            'big' => '/assets/img/recipis/goose.jpg',
             'position' => 'center',
             ],
         ],'image');
