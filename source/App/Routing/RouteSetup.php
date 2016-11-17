@@ -43,6 +43,7 @@ Direct::get("/m", 'MigrateController@migrate');
 
 
 Direct::get("/route", 'ErrorHandling@route')->Admin();
+Direct::get("/admin", 'AdminController@index')->Admin();
 
 
 Direct::err("404", 'MainController@error');
