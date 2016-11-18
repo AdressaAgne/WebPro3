@@ -621,7 +621,7 @@ class Migrations{
             'user_id' => 1,
             'small' => '/assets/img/arter/hare.jpg',
             'big' => '/assets/img/arter/hare.jpg',
-            'position' => 'top',
+            'position' => '30%',
             ],[
             'user_id' => 1,
             'small' => '/assets/img/arter/kjorvel.jpg',
@@ -646,7 +646,7 @@ class Migrations{
             'user_id' => 1,
             'small' => '/assets/img/arter/niland.jpg',
             'big' => '/assets/img/arter/niland.jpg',
-            'position' => 'center',
+            'position' => '17%',
             ],[
             'user_id' => 1,
             'small' => '/assets/img/arter/stillehavs.jpg',

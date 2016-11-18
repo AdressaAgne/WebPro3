@@ -21,9 +21,14 @@
                         {{ ucfirst($taxon['navn']) }} er i gruppen {{ strtolower($taxon['gruppe']) }}
                     </div>
                 @endif
-                <div class="col-12">Latin: <em>{{ $taxon['scientificName'] }}</em> </div>
-                <div class="col-12">På Svalbard: {{ ($taxon['svalbard'] == 0 ? 'Nei' : 'Ja') }} </div>
-                <div class="col-12">Risiko: {{ $taxon['risiko'] }} </div>
+                <div class="col-12 taxon-info">
+                <h4> Info </h4>
+	                <ul>
+	                	<li>Latin: <em>{{ $taxon['scientificName'] }}</em> </li>
+	                	<li>På Svalbard: {{ ($taxon['svalbard'] == 0 ? 'Nei' : 'Ja') }} </li>
+	               		<li> Risiko: {{ $taxon['risiko'] }} </li>
+	               	</ul>
+               </div>
             </div>
             
             <div class="col-12">
