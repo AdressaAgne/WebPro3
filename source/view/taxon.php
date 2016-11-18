@@ -10,7 +10,7 @@
         <h1 class="page-header underline center">{{ ucfirst($taxon['navn']) }}</h1> 
         
         <div class="row">
-        	<div class="col-4 taxon-info">
+        	<div class="col-5 taxon-info">
         		<img src="{{$taxon['image']}}"/>
         		<div>
         			<ul>
@@ -25,8 +25,8 @@
         			</ul>
         		</div>
         	</div>
-            <div class="col-8 taxon-info">
-                <h2>Om {{ $taxon['navn'] }}</h2>
+            <div class="col-7 taxon-info">
+                <h2>Om {{ ucfirst($taxon['navn']) }}</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum repellat ad rerum distinctio, nobis nostrum quam sequi quisquam cum obcaecati dolorum, esse excepturi, numquam eaque dolore eveniet nulla eius assumenda!</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam amet molestias veritatis, necessitatibus deserunt dolores eveniet quis sed eos inventore reiciendis, ipsum incidunt in dolorem optio ut, delectus. Atque, optio.</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam amet molestias veritatis, necessitatibus deserunt dolores eveniet quis sed eos inventore reiciendis, ipsum incidunt in dolorem optio ut, delectus. Atque, optio.</p>     
@@ -35,7 +35,7 @@
             
             <div class="col-12 line">
                 @if(count($oppskrift) > 0)
-                    <h1 class="page-header underline center">Oppskrifter med {{ $taxon['navn'] }}</h1>
+                    <h1 class="page-header underline center">Oppskrifter med {{ ucfirst($taxon['navn']) }}</h1>
                 @endif
                 
                 @foreach($oppskrift as $recipe)
@@ -45,7 +45,7 @@
                 @endforeach
             </div>
             <div class="col-12">
-                <h1 class="page-header underline center">Hvor finner jeg {{ $taxon['navn'] }}</h1>
+                <h1 class="page-header underline center">Hvor finner jeg {{ ucfirst($taxon['navn']) }}</h1>
             </div>
         </div>
         
