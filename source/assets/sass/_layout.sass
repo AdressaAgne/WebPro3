@@ -171,7 +171,6 @@ footer
     @extend .bg
     &:hover
         &:before, &:after
-            transition: all .4s ease
             background-image: inherit
             width: 100%
             height: inherit
@@ -182,6 +181,7 @@ footer
             transform: rotate(5deg) translateX(-15px) translateY(8%) skewX(-4deg) skewY(4deg)
      
     &:before, &:after
+        transition: all .4s ease
         @extend .bg
         position: absolute
         width: 90%
