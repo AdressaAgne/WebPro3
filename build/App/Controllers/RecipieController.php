@@ -114,29 +114,34 @@ class RecipieController extends BaseController {
 
     public function sorting($str){
       //if alfabetisk
-      $query = 'SELECT r.*,ra.*, i.big as image, i.small as thumbnail, (ra.rating / count(ra.*)) as rating
+      $query = 'SELECT r.*, i.big as image, i.small as thumbnail, (SUM(ra.rating) / count(ra.id)) as rating
               FROM recipies AS r
               JOIN image AS i ON r.image = i.id
-              JOIN ratings as ra ON ra.recipe_id = r.id
+              LEFT JOIN ratings AS ra ON ra.recipe_id = r.id
               GROUP BY r.id
               ORDER BY ';
 
       switch($str['sortingMethod']){
 
         case 'nyeste' :
-          $query += 'TIMESTAMP DESC';
+          $query .= 'r.time DESC';
           break;
         case 'beste' :
-          $query += 'rating DESC';
+          $query .= 'rating DESC';
           break;
         case 'alfabetisk' :
-          $query += 'recipe DESC';
+          $query .= 'r.name DESC';
           break;
         default :
-          $query += 'rating DESC'; //Shows highest ranked as default
+          $query .= 'rating DESC'; //Shows highest ranked as default
       }
 
-      $result = $this->select($query)->fetchAll();
+      $result = $this->query($query)->fetchAll();
+
+      foreach ($result as $key => &$res) {
+          $res = New Recipie($res);
+      }
+
       return View::make('recipes_sorted', ['result' => $result]);
     }//sort()
 

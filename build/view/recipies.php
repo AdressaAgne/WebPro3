@@ -60,7 +60,7 @@
 	                </ul>
 	            </div>
 	        </div>
-	        <div class="col-8">
+	        <div class="col-8" id="recipes">
 	            @foreach($food as $res)
 	                        <div class="col-4 col-m-6">
 	                            @layout('layout.recipie', ['res' => $res])
@@ -85,7 +85,8 @@
         _token : $('[name=_token]').val(),
         _method : 'post'
       },
-      success : function(){
+      success : function(data){
+        $('#recipes').html(data);
         console.log("req done. Sorting by: " + $(that).attr('data-value'));
       },
       error : function(){
