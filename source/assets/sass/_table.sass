@@ -1,0 +1,23 @@
+table
+    border-collapse: collapse
+    width: 100%
+    thead
+        width: 100%
+        tr  
+            td
+                border: 1px solid $theme-color-700
+                padding: 10px
+                color: $theme-color-text
+                background-color: $theme-color
+                overflow: hidden
+    tbody
+        tr
+            td
+                padding: 10px
+                border-left: 1px solid $paper-devider-color
+                border-bottom: 1px solid $paper-devider-color
+                &:last-of-type()
+                    border-right: 1px solid $paper-devider-color
+                &.image
+                    @extend .bg
+            

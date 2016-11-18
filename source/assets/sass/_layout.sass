@@ -8,7 +8,7 @@
     max-height: 80vh
     min-height: 350px
     background: rgba(96, 125, 139, .1)
-    
+
 .primary-header
     @extend .bg
     max-height: 80vh
@@ -22,12 +22,12 @@
         text-align: center
         width: 100%
         margin: 0px
-    
+
 .secondary-header
     padding: 10px 0px
     background-color: $theme-color-300
     color: $theme-color-text
-    
+
 footer
     background-color: $theme-color
     color: $theme-color-text
@@ -38,7 +38,7 @@ footer
     clear: both
     float: left
     @extend .clearfix
-    
+
     .copyright
         width: 100%
         background-color: $theme-color-700
@@ -48,7 +48,7 @@ footer
         text-align: center
         padding: 10px
         box-sizing: border-box
-    
+
 .container
     font-family: 'Roboto', sans-serif
     font-weight: 300
@@ -69,12 +69,13 @@ footer
         box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, .2)
         &:hover
             background-color: $accent-color-700
-        
+
         &--small
             width: 100%
             color: $accent-color-text
             background-color: $accent-color
             padding: 20px
+    
 
 .page-header
     text-shadow: 0px 1px rgba(0, 0, 0, .6)
@@ -93,7 +94,7 @@ footer
         bottom: -20px
         height: 2px
         background-color: $accent-color
-        
+
     &.underline-accent:after
         background-color: $theme-color
 
@@ -101,17 +102,17 @@ footer
     li
         list-style: none
         padding: 0px
-    
+
     &--horisontal
         li
             display: inline-block
             margin-left: 20px
-           
+
 
 .res-categorie
 	margin-top: 30px
-	
-	& h2 
+
+	& h2
 		font-size: 1.5em
 		color: #999
 		margin-bottom: 15px
@@ -121,9 +122,9 @@ footer
 		color: #555
 	& input
 
-	
-    
-    
+
+
+
 // Food Blocks
 
 .food-preview
@@ -148,17 +149,17 @@ footer
             transform: translateX(-50%)
             height: 1px
             background-color: $accent-color
-        
+
         &:before
             top: 20px
         &:after
             bottom: 20px
-        
+
     &__image
         box-shadow: inset 2px 2px 0px rgba(255, 255, 255, .4), inset -2px -2px 0px rgba(255, 255, 255, .4)
         height: 300px
         @extend .bg
-        
+
 
 .recipie-preview
 	height: 125px
@@ -169,15 +170,15 @@ footer
 .recipie-text
     padding-top: 5px
     font-size: 16px
-    
+
 .center
     text-align: center
-    
+
 .login
     position: fixed
     top: 0px
     width: 100%
-    
+
 .login-screen, .register-screen
     @extend .clearfix
     height: calc(100vh - 55px)
@@ -195,15 +196,15 @@ footer
         left: 50%
         top: 50%
         transform: translateX(-50%) translateY(-50%)
-    
+
     .hidden-opacity
         transition: all .5s ease
         height: 0px
         overflow: hidden
         display: block
         opacity: 0
-        
-        
+
+
     &.active
         cursor: auto
         width: 80%
@@ -212,27 +213,27 @@ footer
             left: 50%
             top: 100px
             transform: translateX(-50%)
-        
+
         .hidden-opacity
             overflow: visible
             height: 300px
             opacity: 1
-            
-            
+
+
     &.disable
         cursor: pointer
         width: 20%
-        
+
     h1
         font-size: 72px
-        
+
 @media (max-width: $iron-grid-breakpoint-small)
     .login-screen
         margin-top: 0px
-    
+
     .login-screen, .register-screen
         width: 100%
-        
+
         height: calc(50vh - 27.5px)
         .container
             left: 50%
@@ -240,7 +241,7 @@ footer
             transform: translateX(-50%) translateY(-50%)
             .page-header
                 font-size: 30px
-        
+
         &.active
             width: 100%
             height: calc(80vh - 27.5px)
@@ -250,61 +251,61 @@ footer
         &.disable
             width: 100%
             height: calc(20vh - 27.5px)
-                
+
 .login-screen
     background-color: $accent-color
-    
-    
+
+
 .register-screen
     background-color: $theme-color
-    
-    
-    
-    
+
+
+
+
 .ingredients
     width: 100%
     margin-bottom: 30px
-    
+
     li
         padding: 10px
         border-bottom: 1px solid $paper-devider-color
         list-style: none
-        
+
 .recipie-view
 	margin-top: 40px
 	& img
 		margin-top: 20px
 	& h1
 		margin-bottom: 20px
-		
+
 .res-desc
 	margin-bottom: 20px
 	margin-left: 15px
 	& p
 		max-width: 550px
-		
+
 .image--circle
     @extend .bg
     display: block
     border-radius: 50%
     width: 250px
     height: 250px
-    
-.visjon 
+
+.visjon
 
 	& p
     	max-width: 600px
-    	
+
 .partner
-	
+
 	height: 150px
 	width: 150px
 	margin-right: 15px
 	margin-bottom: 100px
 	float: left
-	
-    	
-    
+
+
+
 .taxon-prew
      margin-bottom: 15px
      color: #454545
@@ -314,14 +315,3 @@ footer
      	height: 55px
      & h3
      	padding-bottom: 0
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    

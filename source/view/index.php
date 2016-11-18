@@ -30,14 +30,17 @@
         </div>
     </section>
 
-    <section class="container">
+    <section class="container mainsite">
+      <div class="front-newest col-5">
        <h1 class="page-header underline center">Oppskrifter</h1>
        @foreach($food as $recipe)
 
            @layout('layout.article_front', ['recipe' => $recipe])
 
        @endforeach
-
+       </div>
+       <hr class="vertical-line col-2">
+       <div class="front-rated col-5">
        <h1 class="page-header underline center">Nyheter</h1>
 
        @foreach($food as $recipe)
@@ -45,6 +48,7 @@
            @layout('layout.article_front', ['recipe' => $recipe])
 
        @endforeach
+     </div>
     </section>
 </main>
 @layout('layout.scripts')
