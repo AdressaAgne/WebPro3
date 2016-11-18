@@ -5,11 +5,14 @@ table
         width: 100%
         tr  
             td
-                border: 1px solid $theme-color-700
                 padding: 10px
                 color: $theme-color-text
                 background-color: $theme-color
                 overflow: hidden
+                &:first-of-type()
+                    border-radius: 3px 0px 0px 0px
+                &:last-of-type()
+                    border-radius: 0px 3px 0px 0px 
     tbody
         tr
             td
