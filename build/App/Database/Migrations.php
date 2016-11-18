@@ -111,11 +111,6 @@ class Migrations{
             new Timestamp(),
         ]);
 
-        $db->createTable('category', [
-            new Row('id', 'int', null, true, true),
-            new Row('name', 'varchar'),
-            new Row('type', 'varchar'),
-        ]);
 
         $db->createTable('recipie_category', [
             new Row('id', 'int', null, true, true),
@@ -243,6 +238,17 @@ class Migrations{
                 Skjær grønnsakene i biter, og fres dem i smør i en stor kjele. Tilsett så tomatpuré, hell over madeira og la alt koke noen minutter. Legg de brunede ben- og kjøttbitene i kjelen, hell over viltbuljongen (eller vannet) og gi det et oppkok. Skum godt, ha i krydderet og la alt småkoke i ca 2 timer. Når det er ferdig siles suppen. Smak til med sukker, salt, pepper og revet ingefær. Smaksett med sitron.',
             ],
         ], 'recipies');
+        
+        $db->insert([
+        	[
+        		'recipie_id' => 1,
+        		'category_id' => 1,
+        	],[
+        		'recipie_id' => 1,
+        		'category_id' => 10,
+        	],
+        	
+        ], 'recipie_category');
         
         $db->insert([
            [
