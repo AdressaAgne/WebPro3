@@ -19,6 +19,7 @@ Direct::put("/recipie/insert", 'RecipieController@put')->Auth();
 Direct::get("/recipie", 'RecipieController@recipies');
 Direct::put("/recipie/comment", 'RecipieController@writecomment')->Auth();
 Direct::update("/recipie/rating", 'RecipieController@rate')->Auth();
+Direct::post('/recipie/sort', 'RecipieController@sort');
 
 
 Direct::get("/species", 'MainController@species');
@@ -39,7 +40,6 @@ Direct::get("/api/search/{taxon}/{dist}", 'NearByController@taxon_api');
 
 Direct::get("/m/p", 'MigrateController@populate');
 Direct::get("/m", 'MigrateController@migrate');
-
 
 
 Direct::get("/route", 'ErrorHandling@route')->Admin();
