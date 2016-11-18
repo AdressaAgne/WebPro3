@@ -123,18 +123,18 @@ class RecipieController extends BaseController {
 
       switch($str){
         case 'nyeste' :
-          $nyeste       = $query  += 'TIMESTAMP DESC';
-          return $this->select($nyeste)->fetchAll();
+          $query += 'TIMESTAMP DESC';
+          return $this->select($query)->fetchAll();
           break;
 
         case 'beste' :
-          $beste        = $query  += 'rating DESC';
-          $this->select($beste)->fetchAll();
+          $query += 'rating DESC';
+          $this->select($query)->fetchAll();
           break;
 
         case 'alfabetisk' :
-          $alfabetisk   = $query  += 'recipe DESC';
-          $this->select($alfabetisk)->fetchAll();
+          $query += 'recipe DESC';
+          $this->select($query)->fetchAll();
           break;
 
         default :
