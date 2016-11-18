@@ -30,23 +30,30 @@
         </div>
     </section>
 
-    <section class="container mainsite row">
-      <div class="front-content vertical-line">
-       <h3 class="page-header center uppercase">Nyeste Oppskrifter</h3>
-       @foreach($food as $recipe)
+    <section class="container">
+     <div class="row mainsite">
+             
+          <div class="no-padding col-6 front-content">
+              <div class="first-col">
+               <h3 class="page-header center uppercase">Nyeste Oppskrifter</h3>
+               @foreach($food as $recipe)
+                    <div class="no-padding col-12 front-article">
+                        @layout('layout.presentation_front', ['recipe' => $recipe])
+                    </div>
+               @endforeach
+               </div>
+           </div>
+           <div class="no-padding col-6 front-content"> 
+              <div class="second-col"> 
+               <h3 class="page-header center uppercase">Best rangerte oppsrkifter</h3>
 
-           @layout('layout.presentation_front', ['recipe' => $recipe])
-
-       @endforeach
-       </div>
-       <div class="front-content">
-       <h3 class="page-header center uppercase">Best rangerte oppsrkifter</h3>
-
-       @foreach($food as $recipe)
-
-           @layout('layout.presentation_front', ['recipe' => $recipe])
-
-       @endforeach
+               @foreach($food as $recipe)
+                    <div class="no-padding col-12 front-article">
+                        @layout('layout.presentation_front', ['recipe' => $recipe])
+                    </div>
+               @endforeach
+               </div> 
+         </div>
      </div>
     </section>
 </main>
