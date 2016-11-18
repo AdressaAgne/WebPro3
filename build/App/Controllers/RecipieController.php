@@ -124,28 +124,18 @@ class RecipieController extends BaseController {
       switch($str){
         case 'nyeste' :
           $query += 'TIMESTAMP DESC';
-          return $this->select($query)->fetchAll();
           break;
-
         case 'beste' :
           $query += 'rating DESC';
-          $this->select($query)->fetchAll();
           break;
-
         case 'alfabetisk' :
           $query += 'recipe DESC';
-          $this->select($query)->fetchAll();
           break;
-
         default :
-
-          echo "not be wurking";
+          $query += 'TIMESTAMP DESC';
       }
-      //if Nyeste
-      //if høyest ratet
-
-
-      return 0;
+      $result = $this->select($query)->fetchAll();
+      return View::make('recipes_sorted', $result]);
     }//sort()
 
 }
