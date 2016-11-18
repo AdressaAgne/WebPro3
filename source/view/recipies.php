@@ -85,7 +85,10 @@
         _method : 'post'
       },
       success : function(){
-        console.log("skjiit");
+        console.log("req done");
+      },
+      error : function(){
+        console.log("req fail");
       }
     });
   });

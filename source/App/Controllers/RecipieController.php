@@ -122,6 +122,7 @@ class RecipieController extends BaseController {
               ORDER BY ';
 
       switch($str->sortingMethod){
+
         case 'nyeste' :
           $query += 'TIMESTAMP DESC';
           break;
@@ -135,7 +136,7 @@ class RecipieController extends BaseController {
           $query += 'rating DESC'; //Shows highest ranked as default
       }
       $result = $this->select($query)->fetchAll();
-      return View::make('recipes_sorted', $result);
+      return View::make('recipes_sorted', ['result' => $result]);
     }//sort()
 
 }
