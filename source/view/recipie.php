@@ -89,7 +89,14 @@
 
 
         </div>
-
+        <div class="row">
+            <h1 class="page-header underline center">Relatert til {{$recipie->name}}</h1>
+            @foreach($recipie->getRelated() as $res)
+                <div class="col-4 col-m-6">
+                    @layout('layout.recipie', ['res' => $res])
+                </div>
+            @endforeach
+        </div>
     </section>
 
 </main>

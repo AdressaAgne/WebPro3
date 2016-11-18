@@ -56,7 +56,25 @@ class Recipie{
 
         return $this->categories;
     }
-
+    
+    public function getRelated(){
+        
+        $recipies = DB::query("SELECT r.*, im.big as image, im.small as thumbnail FROM recipies as r
+            INNER JOIN ingredients as i ON i.recipie_id = r.id
+            INNER JOIN image as im ON r.image = im.id
+            WHERE i.taxonID IS NOT NULL AND i.recipie_id != :id 
+            AND i.taxonID IN (SELECT taxonID FROM ingredients WHERE recipie_id = :id and taxonID != '')
+            GROUP BY r.id",
+            ['id' => $this->id, 'id' => $this->id])->fetchAll();
+        
+        foreach($recipies as &$recipie){
+            $recipie = new Self($recipie);
+        }
+        
+        return $recipies;
+        
+    }
+    
     public function getComments(){
         if(!empty($this->comments)) return $this->comments;
 
