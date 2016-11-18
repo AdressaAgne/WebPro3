@@ -121,19 +121,19 @@ class RecipieController extends BaseController {
               GROUP BY r.id
               ORDER BY ';
 
-      $nyeste       = $query  += 'TIMESTAMP DESC';
-      $beste        = $query  += 'rating DESC';
-      $alfabetisk   = $query  += 'recipe DESC';
       switch($str){
         case 'nyeste' :
+          $nyeste       = $query  += 'TIMESTAMP DESC';
           return $this->select($nyeste)->fetchAll();
           break;
 
         case 'beste' :
+          $beste        = $query  += 'rating DESC';
           $this->select($beste)->fetchAll();
           break;
 
         case 'alfabetisk' :
+          $alfabetisk   = $query  += 'recipe DESC';
           $this->select($alfabetisk)->fetchAll();
           break;
 
