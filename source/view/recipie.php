@@ -43,7 +43,7 @@
                  <div class="col-8 col-m12">
                     <div class="col-12 res-desc">
                         <h1 class="sub-header">{{$recipie->name}}</h1>
-                        <h3>Description</h3>
+                        <h3></h3>
                         <p>@format($recipie->desc)</p>
                     </div>
 
