@@ -31,6 +31,14 @@
                             @endforeach
                         </ul>
                     </div>
+                    <div class="row category-list">
+                    	<h3> Kategorier </h3>
+                        <ul class="list-simple--horisontal">
+                            @foreach($recipie->getCategories() as $key => $cat)       
+                                <li><a href="/recipie/category">{{ ucfirst($cat['name'])}}</a></li>
+                            @endforeach
+                        </ul>
+                  	</div>
                  </div>
                  <div class="col-8 col-m12">
                     <div class="col-12 res-desc">
@@ -72,23 +80,10 @@
 
                         @endforeach
                     </div>
-
                 </div>
             </div>
         </div>
-        <div class="row">
-            <ul class="list-simple--horisontal">
-
-                @foreach($recipie->getCategories() as $key => $cat)
-
-                    <li>{{$cat}}</li>
-
-                @endforeach
-
-            </ul>
-
-
-        </div>
+        
         <div class="row">
             <h1 class="page-header underline center">Relatert til {{$recipie->name}}</h1>
             @foreach($recipie->getRelated() as $res)

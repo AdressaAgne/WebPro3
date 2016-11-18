@@ -130,6 +130,9 @@ class Migrations{
         
         $db->insert([
             [
+                'name' => 'fisk',
+                'type' => 0,
+            ],[
                 'name' => 'skalldyr',
                 'type' => 0,
             ],[
@@ -149,6 +152,9 @@ class Migrations{
                 'type' => 0,
             ],[
                 'name' => 'fjærkre',
+                'type' => 0,
+            ],[
+                'name' => 'sopp',
                 'type' => 0,
             ],[
                 'name' => 'lunsj',
@@ -245,8 +251,68 @@ class Migrations{
         		'category_id' => 1,
         	],[
         		'recipie_id' => 1,
+        		'category_id' => 11,
+        	],[
+        		'recipie_id' => 2,
+        		'category_id' => 9,
+        	],[
+        		'recipie_id' => 2,
         		'category_id' => 10,
-        	],
+        	],[
+        		'recipie_id' => 2,
+        		'category_id' => 11,
+        	],[
+        		'recipie_id' => 3,
+        		'category_id' => 3,
+        	],[
+        		'recipie_id' => 3,
+        		'category_id' => 14,
+        	],[
+        		'recipie_id' => 4,
+        		'category_id' => 6,
+        	],[
+        		'recipie_id' => 4,
+        		'category_id' => 14,
+        	],[
+        		'recipie_id' => 5,
+        		'category_id' => 8,
+        	],[
+        		'recipie_id' => 5,
+        		'category_id' => 11,
+        	],[
+        		'recipie_id' => 6,
+        		'category_id' => 2,
+        	],[
+        		'recipie_id' => 6,
+        		'category_id' => 10,
+        	],[
+        		'recipie_id' => 6,
+        		'category_id' => 11,
+        	],[
+        		'recipie_id' => 6,
+        		'category_id' => 12,
+        	],[
+        		'recipie_id' => 7,
+        		'category_id' => 2,
+        	],[
+        		'recipie_id' => 7,
+        		'category_id' => 10,
+        	],[
+        		'recipie_id' => 8,
+        		'category_id' => 4,
+        	],[
+        		'recipie_id' => 8,
+        		'category_id' => 9,
+        	],[
+        		'recipie_id' => 8,
+        		'category_id' => 11,
+        	],[
+        		'recipie_id' => 9,
+        		'category_id' => 4,
+        	],[
+        		'recipie_id' => 9,
+        		'category_id' => 11,
+        	],        	
         	
         ], 'recipie_category');
         

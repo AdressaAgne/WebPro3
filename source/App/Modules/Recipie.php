@@ -47,12 +47,9 @@ class Recipie{
     public function getCategories(){
         if(!empty($this->categories)) return $this->categories;
 
-        $result = DB::query('SELECT * FROM recipie_category as rc
+        $this->categories = DB::query('SELECT * FROM recipie_category as rc
         INNER JOIN category AS c ON rc.category_id = c.id WHERE rc.recipie_id = :id', ['id' => $this->id])->fetchAll();
 
-        foreach($result as $cat){
-            $this->categories[] = $cat['name'].($cat['type'] == 0 ? ' (Råvare)' : ' (Type Rett)');
-        }
 
         return $this->categories;
     }
