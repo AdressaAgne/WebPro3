@@ -31,7 +31,7 @@
     </section>
 
     <section class="container mainsite row">
-      <div class="front-content">
+      <div class="front-content vertical-line">
        <h3 class="page-header center uppercase">Nyeste Oppskrifter</h3>
        @foreach($food as $recipe)
 
@@ -39,7 +39,6 @@
 
        @endforeach
        </div>
-       <hr class="vertical-line"/>
        <div class="front-content">
        <h3 class="page-header center uppercase">Best rangerte oppsrkifter</h3>
 
