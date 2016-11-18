@@ -18,9 +18,9 @@
 	        <div class="col--right">
 		       <ul class="list-simple--horisontal" id="sortering">
                <input type="hidden" value="@csrf()" name="_token">
-		           <li><a href="#Nyeste" name="sorting" value="nyeste">Nyeste</a></li>
-		           <li><a href="#Bestrangert" name="sorting" value="beste">Best rangert</a></li>
-		           <li><a href="#aa" name="sorting" value="alfabetisk">A - Å</a></li>
+		           <li><a href="" name="sorting" data-value="nyeste">Nyeste</a></li>
+		           <li><a href="" name="sorting" data-value="beste">Best rangert</a></li>
+		           <li><a href="" name="sorting" data-value="alfabetisk">A - Å</a></li>
 		       </ul>
 	        </div>
         </div>
@@ -78,11 +78,14 @@
   $("#sortering li a").on("click", function(e){
     e.preventDefault();
     $.post({
-      url : "recipie/sort",
+      url : "/recipie/sort",
       data : {
-        sortingMethod : $(this).attr("value")
+        sortingMethod : $(this).attr('data-value'),
         _token : $('[name=_token]').val(),
         _method : 'post'
+      },
+      success : function(){
+        console.log("skjiit");
       }
     });
   });

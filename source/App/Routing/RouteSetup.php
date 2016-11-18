@@ -19,7 +19,7 @@ Direct::put("/recipie/insert", 'RecipieController@put')->Auth();
 Direct::get("/recipie", 'RecipieController@recipies');
 Direct::put("/recipie/comment", 'RecipieController@writecomment')->Auth();
 Direct::update("/recipie/rating", 'RecipieController@rate')->Auth();
-Direct::post('/recipie/sort', 'RecipieController@sort');
+Direct::post('/recipie/sort', 'RecipieController@sorting');
 
 
 Direct::get("/species", 'MainController@species');

@@ -112,7 +112,7 @@ class RecipieController extends BaseController {
         }
     }
 
-    public function sort($str){
+    public function sorting($str){
       //if alfabetisk
       $query = 'SELECT r.*,ra.*, i.big as image, i.small as thumbnail, (ra.rating / count(ra.*)) as rating
               FROM recipies AS r
