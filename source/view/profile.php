@@ -42,7 +42,7 @@
 
             @foreach($user->getAllRecipes() as $recipe)
                 <div class="col-4 col-m-6">
-                    @layout('layout.article_vertical', ['recipe' => $recipe])
+                    @layout('layout.recipie', ['res' => $recipe])
                 </div>
             @endforeach
         </div>

@@ -20,7 +20,7 @@
                 </thead>
                 @foreach($sepcies as $specie)
                 <tbody>
-                    <tr>
+                    <tr id="specie-{{$specie['id']}}">
                         <td>{{$specie['navn']}}</td>
                         <td>{{$specie['scientificName']}}</td>
                         <td>{{$specie['recipes']}}</td>

@@ -37,7 +37,7 @@ class Database {
      * @param object   &$query
      * @param array  &$args
      */
-    public static function arrayBinder(&$query, &$args) {
+    private static function arrayBinder(&$query, &$args) {
         foreach ($args as $key => $value) {
             $query->bindValue(':'.$key, htmlspecialchars($value));
         }
