@@ -119,7 +119,7 @@ class RecipieController extends BaseController {
               JOIN image AS i ON r.image = i.id
               JOIN ratings as ra ON ra.recipe_id = r.id
               GROUP BY r.id
-              ORDER BY '
+              ORDER BY ';
 
       $nyeste       = $query  += 'TIMESTAMP DESC';
       $beste        = $query  += 'rating DESC';
