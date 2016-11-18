@@ -76,18 +76,21 @@
 <script>
   //Sortering
   $("#sortering li a").on("click", function(e){
-    var that = this;
+    $("#recipes").fadeOut(50, function(){});
     e.preventDefault();
+    var _this = this;
     $.post({
       url : "/recipie/sort",
       data : {
-        sortingMethod : $(that).attr('data-value'),
+        sortingMethod : $(_this).attr('data-value'),
         _token : $('[name=_token]').val(),
         _method : 'post'
       },
       success : function(data){
+        $("#recipes").fadeIn(200, function(){});
         $('#recipes').html(data);
-        console.log("req done. Sorting by: " + $(that).attr('data-value'));
+
+        console.log("req done. Sorting by: " + $(_this).attr('data-value'));
       },
       error : function(){
         console.log("req fail");
