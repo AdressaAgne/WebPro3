@@ -30,22 +30,22 @@
         </div>
     </section>
 
-    <section class="container mainsite">
-      <div class="front-newest col-5">
-       <h1 class="page-header underline center">Oppskrifter</h1>
+    <section class="container mainsite row">
+      <div class="front-content">
+       <h3 class="page-header center uppercase">Nyeste Oppskrifter</h3>
        @foreach($food as $recipe)
 
-           @layout('layout.article_front', ['recipe' => $recipe])
+           @layout('layout.presentation_front', ['recipe' => $recipe])
 
        @endforeach
        </div>
-       <hr class="vertical-line col-2">
-       <div class="front-rated col-5">
-       <h1 class="page-header underline center">Nyheter</h1>
+       <hr class="vertical-line"/>
+       <div class="front-content">
+       <h3 class="page-header center uppercase">Best rangerte oppsrkifter</h3>
 
        @foreach($food as $recipe)
 
-           @layout('layout.article_front', ['recipe' => $recipe])
+           @layout('layout.presentation_front', ['recipe' => $recipe])
 
        @endforeach
      </div>
