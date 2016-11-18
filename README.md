@@ -160,16 +160,16 @@ Direct::get("/admin", 'controller@method')->admin($callback);
 
 ### Init
 Use the App/Config.php to enter your database login information
-
+All Controllers extend DB, so you can do $this->query() instead.
 ### Queries
 ```php
 // Basic query
-DB:query($SQL, [$params]);
-DB:query("SELECT name, username FROM users WHERE id = :id", ['id' => 3]);
+DB::query($SQL, [$params]);
+DB::query("SELECT name, username FROM users WHERE id = :id", ['id' => 3]);
 
 //Select
-DB:select([$rows...], $table, [$where], $join = 'AND');
-DB:select(['name', 'username'], 'users', ['id' => 3, 'id' => 4], 'OR');
+DB::select([$rows...], $table, [$where], $join = 'AND');
+DB::select(['name', 'username'], 'users', ['id' => 3, 'id' => 4], 'OR');
 
 // Select everything
 DB::all([$rows], $table);
@@ -190,6 +190,8 @@ DB::deleteWhere('id', 10, 'users');
 
 ### Creating a table / Migrations (App/Database/Migration)
 ```php
+$db = new DB();
+
 $db->createTable('users', [
    new Row('id', 'int', null, true, true),
    new Row('username', 'varchar'),
