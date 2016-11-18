@@ -28,16 +28,16 @@
 * [x] Better sepecies opservation migration from Artskart API
 * [ ] Frontpage recipe algorythem
 * [ ] Recipe rating?
-* [ ] Convert image strings to image id's from image table
-* [ ] Edit Profile
+* [x] Convert image strings to image id's from image table
+* [x] Edit Profile
 * [ ] Admin Panel
 * [ ] Recipe Sorting
 * [ ] Rename Recipie to Recipe in all files....
-* [ ] Rating/Voting
-* [ ] Comments
+* [x] Comments
 * [ ] Images for Species
 * [ ] Write Database class documentaion
 * [x] Added Build and Source folder
+* [x] 
 
 ### Database / MySQL
 
@@ -105,6 +105,7 @@ We also built our own backend framework. Very simple and easy to learn.
 
 ## Logic and Basic Template - App/Controllers
 
+View Logic is run here then passed as variables to the views.
 ```php
 namespace App\Controllers;
 
@@ -117,9 +118,8 @@ class MainController extends BaseController {
       ]);
    }
 }
-```    
-
-View Logic is run here then passed as variables to the views.
+```   
+To make a JSON API just return an array insted of a View.
 
 ## Setup a view - App/Routing/RouteSetup.php
 ### Get Requests
@@ -138,6 +138,53 @@ Direct::post("/submit/{mail}/{text}", 'MainController@submit');
 Or you could just use normal $_POST variables
 ```php
 Direct::post("/submit", 'MainController@submit');
+```
+
+### Other HTTP requests
+```php
+Direct::put("/page", 'controller@method');
+Direct::delete("/page", 'controller@method');
+Direct::update("/page", 'controller@method');
+Direct::err("404", 'controller@method');
+```
+
+### Auth for HTTP requests
+By using ->Auth() this will require a user to be logged inn. ->admin() requeris the logged inn user to be an admin
+```php
+Direct::delete("/page", 'controller@method')->auth($callback);
+Direct::update("/page", 'controller@method')->admin($callback);
+```
+
+## Security
+###  SQL injection & Secondary SQL injection
+By using the DB class everything is escaped, so you dont need to worry about SQL injection, if you use this all the time you will be safe.
+```php
+   DB::query("SELECT name, username FROM users WHERE id = :id", ['id' => 3])->fetchAll();
+   DB::select(['name', 'username'], 'users', ['id' => 3])->fetchAll();
+```
+### XSS Injection
+Using {{ }} to echo out will add a htmlspecialchars() function around
+```html
+{{ $variable }}
+```
+Using {! !} will echo a raw string, without htmlspecialchars(). Be carefull with this one.
+```html
+{! $variable !}
+```
+
+### CSRF token
+Cross-site Request Forgery token are added to prevent people from spamming post requests from other sites.
+This will echo out a form with both _method and _token
+```html
+@form($action, $method, [$args...])
+   <input type="text" placeholder="username">   
+   <input type="password" placeholder="password"> 
+@formend()
+```
+
+This will echo out the csrf token
+```html
+   @csrf()
 ```
 
 ## Views and HTML
@@ -160,6 +207,11 @@ Please don't write any logic in a view, use the controller and pas data to the v
 @if(1 == 1)
 
 <h3>yay 1 = 1</h3>
+
+@else
+
+
+<h3>boo 1 != 1</h3>
 
 @endif
 
