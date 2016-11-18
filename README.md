@@ -112,13 +112,15 @@ namespace App\Controllers;
 use View, BaseController;
 
 class MainController extends BaseController {
-   public function index(){
+   public function index($params){
+      $username = $params['username'];
       return View::make('index', [
-         'var' => 'value',
+         'var' => $username,
       ]);
    }
 }
-```   
+```
+$params is $_GET and $_POST merged together
 To make a JSON API just return an array insted of a View.
 
 ## Setup a view - App/Routing/RouteSetup.php
@@ -126,7 +128,6 @@ To make a JSON API just return an array insted of a View.
 This wil run the index method in the MainController class.
 ```php
 Direct::get("/", 'MainController@index');
-Direct::get("/item/{id}", 'MainController@item');
 ```
 
 ### Post Requests
@@ -151,16 +152,62 @@ Direct::err("404", 'controller@method');
 ### Auth for HTTP requests
 By using ->Auth() this will require a user to be logged inn. ->admin() requeris the logged inn user to be an admin
 ```php
-Direct::delete("/page", 'controller@method')->auth($callback);
-Direct::update("/page", 'controller@method')->admin($callback);
+Direct::get("/profile", 'controller@method')->auth($callback);
+Direct::get("/admin", 'controller@method')->admin($callback);
 ```
+
+## Database (App/Database/Database)
+
+### Init
+Use the App/Config.php to enter your database login information
+
+### Queries
+```php
+// Basic query
+DB:query($SQL, [$params]);
+DB:query("SELECT name, username FROM users WHERE id = :id", ['id' => 3]);
+
+//Select
+DB:select([$rows...], $table, [$where], $join = 'AND');
+DB:select(['name', 'username'], 'users', ['id' => 3, 'id' => 4], 'OR');
+
+// Select everything
+DB::all([$rows], $table);
+DB::all(['name', 'username'], 'users');
+
+//Insert rows
+DB::insert([[$row => $value]], $table);
+DB::insert([['name' => 'Frank'],['name' => 'George']], 'users');
+
+//Update rows
+DB::update([$rows], $table, [$where], $rowsjoin = '=', $wherejoin = 'AND');
+DB::update(['name' => 'ron'], 'users', ['name' => 'Frank']);
+
+//Delete a row
+DB::deleteWhere($col = 'id', $val = 0, $table = null);
+DB::deleteWhere('id', 10, 'users');
+```
+
+### Creating a table / Migrations (App/Database/Migration)
+```php
+$db->createTable('users', [
+   new Row('id', 'int', null, true, true),
+   new Row('username', 'varchar'),
+   new Row('password', 'varchar'),
+   new Row('mail', 'varchar'),
+   new Timestamp(),
+]);
+
+new Row($name, $type, $default = null, $not_null = true, $auto_increment = false);
+```
+
 
 ## Security
 ###  SQL injection & Secondary SQL injection
 By using the DB class everything is escaped, so you dont need to worry about SQL injection, if you use this all the time you will be safe.
 ```php
-   DB::query("SELECT name, username FROM users WHERE id = :id", ['id' => 3])->fetchAll();
-   DB::select(['name', 'username'], 'users', ['id' => 3])->fetchAll();
+DB::query("SELECT name, username FROM users WHERE id = :id", ['id' => 3])->fetchAll();
+DB::select(['name', 'username'], 'users', ['id' => 3])->fetchAll();
 ```
 ### XSS Injection
 Using {{ }} to echo out will add a htmlspecialchars() function around
@@ -176,10 +223,21 @@ Using {! !} will echo a raw string, without htmlspecialchars(). Be carefull with
 Cross-site Request Forgery token are added to prevent people from spamming post requests from other sites.
 This will echo out a form with both _method and _token
 ```html
-@form($action, $method, [$args...])
+@form('/login', 'put', ['class' => 'login'])
    <input type="text" placeholder="username">   
    <input type="password" placeholder="password"> 
 @formend()
+```
+
+Will output:
+
+```html
+<form action="/login" method="POST" class="login">
+   <input type="hidden" name="_method" value="PUT">
+   <input type="hidden" name="_token" value="ujbf23kd872niw9">
+   <input type="text" placeholder="username">   
+   <input type="password" placeholder="password"> 
+</form>
 ```
 
 This will echo out the csrf token
@@ -209,7 +267,6 @@ Please don't write any logic in a view, use the controller and pas data to the v
 <h3>yay 1 = 1</h3>
 
 @else
-
 
 <h3>boo 1 != 1</h3>
 
