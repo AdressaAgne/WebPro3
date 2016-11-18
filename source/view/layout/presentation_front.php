@@ -6,7 +6,7 @@
         <div class="no-padding col-6 col-m-12">
             <div class="no-padding col-12">
                 <h4 class="uppercase">{{ $recipe->name }}</h4>
-                <p>Skrevet av {{$recipe->getUser()->username}}</p>
+                <p><i>Skrevet av {{$recipe->getUser()->username}}</i></p>
                 <p>{{ substr($recipe->desc, 0 , 50) }}...</p>
             </div>
         </div>
