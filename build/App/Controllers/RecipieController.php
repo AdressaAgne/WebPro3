@@ -135,6 +135,7 @@ class RecipieController extends BaseController {
         default :
           $query += 'rating DESC'; //Shows highest ranked as default
       }
+
       $result = $this->select($query)->fetchAll();
       return View::make('recipes_sorted', ['result' => $result]);
     }//sort()

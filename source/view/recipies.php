@@ -76,16 +76,17 @@
 <script>
   //Sortering
   $("#sortering li a").on("click", function(e){
+    var that = this;
     e.preventDefault();
     $.post({
       url : "/recipie/sort",
       data : {
-        sortingMethod : $(this).attr('data-value'),
+        sortingMethod : $(that).attr('data-value'),
         _token : $('[name=_token]').val(),
         _method : 'post'
       },
       success : function(){
-        console.log("req done");
+        console.log("req done. Sorting by: " + $(that).attr('data-value'));
       },
       error : function(){
         console.log("req fail");
