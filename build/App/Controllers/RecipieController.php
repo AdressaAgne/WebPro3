@@ -121,7 +121,7 @@ class RecipieController extends BaseController {
               GROUP BY r.id
               ORDER BY ';
 
-      switch($str->sortingMethod){
+      switch($str['sortingMethod']){
 
         case 'nyeste' :
           $query += 'TIMESTAMP DESC';
