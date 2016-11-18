@@ -59,6 +59,7 @@ class MainController extends BaseController {
                 'n' => 31237,
                 'o' => 62346,
             ])->fetchAll(),
+            'categories' => $this->select(['*'], 'category', ['type' => 0])
         ]);
     }
 

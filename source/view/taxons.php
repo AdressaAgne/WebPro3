@@ -11,9 +11,16 @@
         <div class="row row--line">
             <div class="col--right">
     	       <ul class="list-simple--horisontal">
-    	           <li><a href="#Nyeste">Alle kategorier</a></li>
-    	           <li><a href="#Bestrangert">Høyeste risiko</a></li>
-    	           <li><a href="#aa">A - Å</a></li>   
+    	       		<div class="dropdown">
+	    	           <li class="dropbtn"><a href="#">Alle kategorier</a>
+	    	           		<div class="dropdown-content"><ul>
+	    	           			@foreach($categories as $key => $cat)       
+	    	           			    <li><a href="#">{{ ucfirst($cat['name'])}}</a></li>
+	    	           			@endforeach 		
+	    	           		</ul></div></li>
+    	           		</div>
+    	           <li><a href="#">Høyeste risiko</a></li>
+    	           <li><a href="#">A - Å</a></li>   
     	           <li><input type="search" id="artsearchfield" style="display: none;"></li>
     	           <li id="artsearch">SØK</li>
     	       </ul>
