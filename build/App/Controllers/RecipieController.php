@@ -135,7 +135,7 @@ class RecipieController extends BaseController {
           $query += 'TIMESTAMP DESC';
       }
       $result = $this->select($query)->fetchAll();
-      return View::make('recipes_sorted', $result]);
+      return View::make('recipes_sorted', $result);
     }//sort()
 
 }
