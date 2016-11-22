@@ -18,7 +18,7 @@ class MainController extends BaseController {
         return View::make('error.404');
     }
     
-    public function test(){
+    public function index(){
 
         $recipies = $this->query('SELECT r.*, i.big as image, i.small as thumbnail FROM recipies AS r
         INNER JOIN image AS i ON r.image = i.id')->fetchAll();

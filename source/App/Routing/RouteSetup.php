@@ -5,7 +5,7 @@
 *   Direct::[get, post, put, update, delete](url, controller@method)->[auth(callback), admin]
 */
 
-Direct::get("/", 'MainController@test');
+Direct::get("/", 'MainController@index');
 
 Direct::get("/login", 'LoginController@index');
 Direct::post("/login", 'LoginController@post');
