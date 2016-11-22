@@ -21,7 +21,7 @@ class MainController extends BaseController {
     public function index(){
 
         $recipies = $this->query('SELECT r.*, i.big as image, i.small as thumbnail FROM recipies AS r
-        INNER JOIN image AS i ON r.image = i.id')->fetchAll();
+        INNER JOIN image AS i ON r.image = i.id LIMIT 2')->fetchAll();
         
         foreach($recipies as &$recipie){
             $recipie = new Recipie($recipie);

@@ -31,7 +31,7 @@
     </section>
 
     <section class="container">
-     <div class="row mainsite">
+     <div class="no-padding row mainsite">
              
           <div class="no-padding col-6 front-content first-col">
                <h3 class="page-header center uppercase">Nyeste Oppskrifter</h3>
@@ -51,6 +51,16 @@
                @endforeach
          </div>
      </div>
+    </section>
+    <section class="container">
+        <div class="no-padding col-12 news">
+            <h2 class="page-header center uppercase underline">Nyheter</h2>
+            @foreach($food as $recipe)
+                    <div class="no-padding col-12">
+                        @layout('layout.presentation_news', ['recipe' => $recipe])
+                    </div>
+               @endforeach
+        </div>
     </section>
 </main>
 @layout('layout.scripts')
