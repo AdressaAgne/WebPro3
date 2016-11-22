@@ -181,8 +181,53 @@ class Migrations{
 
 		$db->insert([
 			[
-				'category_id' 	=> 0,
+				'category_id' 	=> 1,
+				'taxon_id'		=> '26171',
+			],[
+				'category_id' 	=> 2,
+				'taxon_id'		=> '14365',
+			],[
+				'category_id' 	=> 2,
+				'taxon_id'		=> '84141',
+			],[
+				'category_id' 	=> 3,
+				'taxon_id'		=> '59373',
+			],[
+				'category_id' 	=> 3,
+				'taxon_id'		=> '61212',
+			],[
+				'category_id' 	=> 3,
+				'taxon_id'		=> '62346',
+			],[
+				'category_id' 	=> 3,
+				'taxon_id'		=> '60303',
+			],[
+				'category_id' 	=> 4,
+				'taxon_id'		=> '31106',
+			],[
+				'category_id' 	=> 4,
+				'taxon_id'		=> '31227',
+			],[
+				'category_id' 	=> 4,
+				'taxon_id'		=> '31237',
+			],[
+				'category_id' 	=> 6,
+				'taxon_id'		=> '63574',
+			],[
+				'category_id' 	=> 7,
+				'taxon_id'		=> '60308',
+			],[
+				'category_id' 	=> 8,
+				'taxon_id'		=> '3413',
+			],[
+				'category_id' 	=> 8,
 				'taxon_id'		=> '3457',
+			],[
+				'category_id' 	=> 9,
+				'taxon_id'		=> '38890',
+			],[
+				'category_id' 	=> 8,
+				'taxon_id'		=> '38890',
 			],
 		], 'taxons_category');
 
