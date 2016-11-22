@@ -42,7 +42,7 @@
                @endforeach
            </div>
            <div class="no-padding col-6 front-content second-col">    
-               <h3 class="page-header center uppercase">Best rangerte oppsrkifter</h3>
+               <h3 class="page-header center uppercase">Best rangerte oppskrifter</h3>
 
                @foreach($food as $recipe)
                     <div class="no-padding col-12">

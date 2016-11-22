@@ -42,6 +42,7 @@
 @layout('layout.scripts')
 
 <script src="/assets/js/min/artsearch-min.js"></script>
+<script src="/assets/js/min/sorttaxons-min.js"></script>
 
 @layout('layout.foot')
 
