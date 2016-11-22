@@ -130,7 +130,17 @@ class RecipieController extends BaseController {
           $query .= 'rating DESC';
           break;
         case 'alfabetisk' :
-          $query .= 'r.name ASC';
+
+          if(!isset($_SESSION['alfabetical'])){
+            $_SESSION['alfabetical'] = false;
+          }
+          if($_SESSION['alfabetical'] == false){
+            $query .= 'r.name ASC';
+            $_SESSION['alfabetical'] = true;
+          }else{
+            $query .= 'r.name DESC';
+            $_SESSION['alfabetical'] = false;
+          }
           break;
         default :
           $query .= 'rating DESC'; //Shows highest ranked as default
