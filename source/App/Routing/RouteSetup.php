@@ -23,6 +23,7 @@ Direct::post('/recipie/sort', 'RecipieController@sorting');
 
 
 Direct::get("/species", 'SpeciesController@index');
+Direct::post("/species/sorting", 'SpeciesController@sorting');
 Direct::get("/taxon/item/{taxon}", 'SpeciesController@item');
 Direct::get("/api/taxon/{taxon}", 'NearByController@get_location_by_taxon');
 Direct::get("/nearby", 'NearByController@index');

@@ -45,5 +45,36 @@ class SpeciesController extends BaseController {
             ])->fetch(),
             'oppskrift' => $recipies,
         ]);
+       
     }
+    public function sorting($data) {
+    	
+    	if(!isset($data['id'])) {
+
+    		$query = $this->query('SELECT b.*, im.big as image, im.small as thumbnail FROM blacklist as b
+    		 INNER JOIN image as im ON b.image = im.id
+    		WHERE taxonID IN (SELECT taxonID from blacklist WHERE image != 1)')->fetchAll();
+    	
+    	} else {
+	    	
+	    	$query = $this->query('SELECT *, i.small AS thumbnail FROM taxons_category AS tc 
+	    	INNER JOIN category AS c ON tc.category_id = c.id
+	    	INNER JOIN blacklist AS b ON b.taxonID = tc.taxon_id
+	    	INNER JOIN image AS i ON b.image = i.id
+	    	WHERE c.id IN (:ids)', ['ids' => implode(', ', $data['id'])])->fetchAll();
+	    
+    	}
+    	
+    	
+    	return View::make('layout.taxons_sorted', [
+    		'taxons' => $query,
+     	]);
+    }
+    
+    
+    
+    
+    
+    
+    
 }

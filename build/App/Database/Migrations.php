@@ -117,8 +117,12 @@ class Migrations{
             new Row('recipie_id', 'int'),
             new Row('category_id', 'int'),
         ]);
-
         
+        $db->createTable('taxons_category', [
+            new Row('id', 'int', null, true, true),
+            new Row('taxon_id', 'int'),
+            new Row('category_id', 'int'),
+        ]);
         
         return [$db->tableStatus, self::populate()];
     }
@@ -173,6 +177,14 @@ class Migrations{
                 'type' => 1,
             ],
         ], 'category');
+
+
+		$db->insert([
+			[
+				'category_id' 	=> 0,
+				'taxon_id'		=> '3457',
+			],
+		], 'taxons_category');
 
         $db->insert([
             [

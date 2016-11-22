@@ -20,6 +20,7 @@
         <div class="row">
         	<div class="col-3 col-m-6 res-categorie">
 		        <h2> Kategorier </h2>
+		        @form('', 'POST')
 		        <ul>
 		            @foreach($categories as $key => $cat)
 		            <li>
@@ -28,9 +29,10 @@
 		            @endforeach
 		            </li>
 		        </ul>
+		        @formend()
 	        </div>
         
-		    <div class="col-9 col-m-6">
+		    <div class="col-9 col-m-6" id="taxon-container">
 		        @foreach($taxon as $tax)
 					<div class="col-4 col-m-12">
 		            	@layout('layout.taxon', ['tax' => $tax])
