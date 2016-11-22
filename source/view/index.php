@@ -55,11 +55,6 @@
     <section class="container">
         <div class="no-padding col-12 news">
             <h2 class="page-header center uppercase underline">Nyheter</h2>
-            @foreach($food as $recipe)
-                    <div class="no-padding col-12">
-                        @layout('layout.presentation_news', ['recipe' => $recipe])
-                    </div>
-               @endforeach
         </div>
     </section>
 </main>
