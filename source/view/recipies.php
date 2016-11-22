@@ -60,7 +60,16 @@
 	                </ul>
 	            </div>
 	        </div>
+          <div id='loading' style='display:none;'>
+            <label for="file">
+                <svg height="150" width="150" class="pie-chart processing" id="svg">
+                  <circle class="behind"cx="50%" cy="50%" r="40%" />
+                  <circle class="front" cx="50%" cy="50%" r="40%" data-percent="0" />
+                </svg>
+            </label>
+          </div>
 	        <div class="col-9" id="recipes">
+
 	            @foreach($food as $res)
 	                        <div class="col-4 col-m-6">
 	                            @layout('layout.recipie', ['res' => $res])
@@ -79,6 +88,9 @@
     $("#recipes").fadeOut(50, function(){});
     e.preventDefault();
     var _this = this;
+
+    $('#loading').show();
+
     $.post({
       url : "/recipie/sort",
       data : {
@@ -87,6 +99,7 @@
         _method : 'post'
       },
       success : function(data){
+        $('#loading').hide();
         $("#recipes").fadeIn(200, function(){});
         $('#recipes').html(data);
 
