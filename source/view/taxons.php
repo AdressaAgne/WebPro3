@@ -11,29 +11,33 @@
         <div class="row row--line">
             <div class="col--right">
     	       <ul class="list-simple--horisontal">
-    	       		<div class="dropdown">
-	    	           <li class="dropbtn"><a href="#">Alle kategorier</a>
-	    	           		<div class="dropdown-content"><ul>
-	    	           			@foreach($categories as $key => $cat)       
-	    	           			    <li><a href="#">{{ ucfirst($cat['name'])}}</a></li>
-	    	           			@endforeach 		
-	    	           		</ul></div></li>
-    	           		</div>
-    	           <li><a href="#">Høyeste risiko</a></li>
     	           <li><a href="#">A - Å</a></li>   
     	           <li><input type="search" id="artsearchfield" style="display: none;"></li>
     	           <li id="artsearch">SØK</li>
     	       </ul>
             </div>
         </div>
-    
-    <div class="container col-8">
-        @foreach($taxon as $tax)
-			<div class="col-4 col-m-6">
-            	@layout('layout.taxon', ['tax' => $tax])
-			</div>
-        @endforeach
-    </div>
+        <div class="row">
+        	<div class="col-3 res-categorie">
+		        <h2> Kategorier </h2>
+		        <ul>
+		            @foreach($categories as $key => $cat)
+		            <li>
+		                <input type="checkbox" name="" id="cat-{{$cat['id']}}" value="{{$cat['id']}}">
+		                <label class="checkbox" for="cat-{{$cat['id']}}">{{ ucfirst($cat['name']) }}</label>
+		            @endforeach
+		            </li>
+		        </ul>
+	        </div>
+        
+		    <div class="col-9">
+		        @foreach($taxon as $tax)
+					<div class="col-4 col-m-6">
+		            	@layout('layout.taxon', ['tax' => $tax])
+					</div>
+		        @endforeach
+		    </div>
+		</div>
 </main>
 @layout('layout.scripts')
 

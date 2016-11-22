@@ -26,8 +26,8 @@
         </div>
 
 	    <div class="row">
-	        <div class="col-4">
-                <div class="search col-8">
+	        <div class="col-3">
+                <div class="search col-12">
                     <label class="search-box" for="search">
                         <input class="search-one" type="search" placeholder="Søk..." value="">
                     </label>
@@ -60,7 +60,7 @@
 	                </ul>
 	            </div>
 	        </div>
-	        <div class="col-8" id="recipes">
+	        <div class="col-9" id="recipes">
 	            @foreach($food as $res)
 	                        <div class="col-4 col-m-6">
 	                            @layout('layout.recipie', ['res' => $res])
