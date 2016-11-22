@@ -130,7 +130,7 @@ class RecipieController extends BaseController {
           $query .= 'rating DESC';
           break;
         case 'alfabetisk' :
-          $query .= 'r.name DESC';
+          $query .= 'r.name ASC';
           break;
         default :
           $query .= 'rating DESC'; //Shows highest ranked as default
