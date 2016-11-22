@@ -22,8 +22,8 @@ Direct::update("/recipie/rating", 'RecipieController@rate')->Auth();
 Direct::post('/recipie/sort', 'RecipieController@sorting');
 
 
-Direct::get("/species", 'MainController@species');
-Direct::get("/taxon/item/{taxon}", 'MainController@specie');
+Direct::get("/species", 'SpeciesController@index');
+Direct::get("/taxon/item/{taxon}", 'SpeciesController@item');
 Direct::get("/api/taxon/{taxon}", 'NearByController@get_location_by_taxon');
 Direct::get("/nearby", 'NearByController@index');
 Direct::get("/about", 'MainController@about');
