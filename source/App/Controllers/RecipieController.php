@@ -155,4 +155,33 @@ class RecipieController extends BaseController {
       return View::make('recipes_sorted', ['result' => $result]);
     }//sort()
 
+    public function categorySort($data){
+/*
+      if(!isset($data['id'])) {
+
+        $query = $this->query('SELECT b.*, im.big as image, im.small as thumbnail FROM blacklist as b
+         INNER JOIN image as im ON b.image = im.id
+        WHERE taxonID IN (SELECT taxonID from blacklist WHERE image != 1)')->fetchAll();
+
+      } else {
+        $ids = [];
+        $idData = [];
+        foreach($data['id'] as $key => $id){
+          $idData['id'.$key] = $id;
+          $ids[] = ':id'.$key;
+        }
+
+        $query = $this->query('SELECT *, i.small AS thumbnail FROM recipie_category AS rc
+        INNER JOIN category AS c ON rc.category_id = c.id
+        INNER JOIN recipies AS b ON b.taxonID = rc.taxon_id
+        INNER JOIN image AS i ON b.image = i.id
+        WHERE c.id IN ('.implode(', ', $ids).')', $idData);
+
+      }
+*/
+
+      //return View::make('layout.recipes_cat_sort' 'result' = $result);
+      return "Sort TODO";
+    }
+
 }

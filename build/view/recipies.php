@@ -112,4 +112,6 @@
   });
 </script>
 
+<script src="/assets/js/min/sortRecipes-min.js"></script>
+
 @layout('layout.foot')
