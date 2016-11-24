@@ -152,7 +152,7 @@ class RecipieController extends BaseController {
           $res = New Recipie($res);
       }
 
-      return View::make('recipes_sorted', ['result' => $result]);
+      return View::make('layout.recipes_cat_sort', ['result' => $result]);
     }//sort()
 
     public function categorySort($data){
@@ -160,9 +160,8 @@ class RecipieController extends BaseController {
 
       if(!isset($data['id'])) {
 
-        $query = $this->query('SELECT b.*, im.big as image, im.small as thumbnail FROM blacklist as b
-         INNER JOIN image as im ON b.image = im.id
-        WHERE taxonID IN (SELECT taxonID from blacklist WHERE image != 1)')->fetchAll();
+        $query = $this->query('SELECT r.*, i.big as image, i.small as thumbnail FROM recipies AS r
+           JOIN image AS i ON r.image = i.id')->fetchAll();
 
       } else {
         $ids = [];
@@ -175,7 +174,7 @@ class RecipieController extends BaseController {
         $query = $this->query('SELECT *, i.small AS thumbnail FROM recipie_category AS rc
 	    	INNER JOIN category AS c ON rc.category_id = c.id
 	    	INNER JOIN recipies AS r ON r.id = rc.recipie_id
-	    	JOIN image AS i ON r.image = i.id
+	    	INNER JOIN image AS i ON r.image = i.id
 	    	WHERE c.id IN ('.implode(', ', $ids).')', $idData);
 
       }
