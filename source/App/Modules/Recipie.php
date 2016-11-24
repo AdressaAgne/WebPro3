@@ -18,14 +18,16 @@ class Recipie{
     public $ingredients = [];
     public $categories = [];
 
-    public function __construct($query){
-        $this->id           = $query['id'];
-        $this->name         = $query['name'];
-        $this->desc         = $query['description'];
-        $this->how          = $query['how'];
-        $this->image        = $query['image'];
-        $this->thumbnail    = $query['thumbnail'];
-        $this->user_id      = $query['user_id'];
+    public function __construct($query = null){
+        if($query != null){
+            $this->id           = $query['id'];
+            $this->name         = $query['name'];
+            $this->desc         = $query['description'];
+            $this->how          = $query['how'];
+            $this->image        = $query['image'];
+            $this->thumbnail    = $query['thumbnail'];
+            $this->user_id      = $query['user_id'];
+        }
     }
 
     public function getUser(){

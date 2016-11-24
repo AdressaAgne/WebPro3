@@ -4,6 +4,8 @@ namespace App\Database;
 use Config;
 use PDO;
 
+use Recipie, Comment, Ingredient, User;
+
 class Database {
     public static $db;
     public static $table;
@@ -49,8 +51,11 @@ class Database {
      * @param  array    [$args                 = null]
      * @return object
      */
-    public static function query($sql, $args = null){
+    public static function query($sql, $args = null, $class = null){
         $query = self::$db->prepare($sql);
+        if($class != null){
+            $query->setFetchMode(PDO::FETCH_CLASS, $class);   
+        }
         if($args !== null){
             self::arrayBinder($query, $args);
         }

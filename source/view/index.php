@@ -35,7 +35,7 @@
              
           <div class="no-padding col-6 front-content first-col">
                <h3 class="page-header center uppercase">Nyeste Oppskrifter</h3>
-               @foreach($food as $recipe)
+               @foreach($newest as $recipe)
                     <div class="no-padding col-12">
                         @layout('layout.presentation_front', ['recipe' => $recipe])
                     </div>
@@ -44,7 +44,7 @@
            <div class="no-padding col-6 front-content second-col">    
                <h3 class="page-header center uppercase">Best rangerte oppskrifter</h3>
 
-               @foreach($food as $recipe)
+               @foreach($ratings as $recipe)
                     <div class="no-padding col-12">
                         @layout('layout.presentation_front', ['recipe' => $recipe])
                     </div>

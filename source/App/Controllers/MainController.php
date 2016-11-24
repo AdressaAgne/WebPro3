@@ -20,15 +20,28 @@ class MainController extends BaseController {
     
     public function index(){
 
-        $recipies = $this->query('SELECT r.*, i.big as image, i.small as thumbnail FROM recipies AS r
-        INNER JOIN image AS i ON r.image = i.id LIMIT 2')->fetchAll();
+        $ratings = $this->query('SELECT r.*, rate.rating as rating, i.big as image, i.small as thumbnail
+        FROM recipies AS r
+        INNER JOIN image AS i ON r.image = i.id
+        INNER JOIN ratings AS rate ON rate.recipe_id = r.id
+        ORDER BY rating DESC LIMIT 2')->fetchAll();
         
-        foreach($recipies as &$recipie){
+        foreach($ratings as &$recipie){
+            $recipie = new Recipie($recipie);
+        }
+        
+        $newest = $this->query('SELECT r.*, i.big as image, i.small as thumbnail
+        FROM recipies AS r
+        INNER JOIN image AS i ON r.image = i.id
+        ORDER BY time DESC LIMIT 2')->fetchAll();
+        
+        foreach($newest as &$recipie){
             $recipie = new Recipie($recipie);
         }
         
         return View::make('index', [
-            'food' => $recipies,
+            'ratings' => $ratings,
+            'newest' => $newest,
         ]);
     }
     
