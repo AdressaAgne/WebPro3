@@ -18,7 +18,7 @@ for(var i = 0; i < checkboxes.length; i++){
 		}
 
 		ajax('recipes/sorting', dataList, function(data) {
-			//console.log(data);
+			console.log(data);
 
 			elm('#recipes').innerHTML = data;
 
