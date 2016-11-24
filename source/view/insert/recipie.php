@@ -21,10 +21,11 @@
 
     <section class="container">  
        <div class="row">
-            <label for=""><h2>Oppskrifts navn</h2>
-                <input type="text" name="name" placeholder="Oppskrifts navn" class="dark">
-            </label>
-           
+       		<div class="col-5 upload-res">
+	            <label for=""><h2>Oppskriftens navn</h2>
+	                <input type="text" name="name" placeholder="Oppskrifts navn" class="dark">
+	            </label>
+            </div>        
        </div>
         <div class="row">
             <div class="col-6 col-m-12">
