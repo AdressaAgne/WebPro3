@@ -21,11 +21,8 @@ class RecipieController extends BaseController {
     public function recipies(){
 
         $resipies = $this->query('SELECT r.*, i.big as image, i.small as thumbnail FROM recipies AS r
-         JOIN image AS i ON r.image = i.id')->fetchAll();
+         JOIN image AS i ON r.image = i.id', 'Recipie')->fetchAll();
 
-        foreach($resipies as &$recipie){
-            $recipie = new Recipie($recipie);
-        }
 
         return View::make('recipies', [
             'food' => $resipies,
@@ -146,11 +143,8 @@ class RecipieController extends BaseController {
           $query .= 'rating DESC'; //Shows highest ranked as default
       }
 
-      $result = $this->query($query)->fetchAll();
+      $result = $this->query($query, 'Recipie')->fetchAll();
 
-      foreach ($result as $key => &$res) {
-          $res = New Recipie($res);
-      }
 
       return View::make('layout.recipes_cat_sort', ['result' => $result]);
     }//sort()
@@ -161,7 +155,7 @@ class RecipieController extends BaseController {
       if(!isset($data['id'])) {
 
         $query = $this->query('SELECT r.*, i.big as image, i.small as thumbnail FROM recipies AS r
-           JOIN image AS i ON r.image = i.id')->fetchAll();
+           JOIN image AS i ON r.image = i.id', 'Recipie')->fetchAll();
 
       } else {
         $ids = [];
@@ -175,10 +169,9 @@ class RecipieController extends BaseController {
 	    	INNER JOIN category AS c ON rc.category_id = c.id
 	    	INNER JOIN recipies AS r ON r.id = rc.recipie_id
 	    	INNER JOIN image AS i ON r.image = i.id
-	    	WHERE c.id IN ('.implode(', ', $ids).')', $idData);
+	    	WHERE c.id IN ('.implode(', ', $ids).')', $idData, 'Recipie');
 
       }
-
 
       return View::make('layout.recipes_cat_sort', [
     		'result' => $query

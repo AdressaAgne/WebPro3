@@ -37,11 +37,8 @@ class Recipie{
     public function getIngrediets(){
         if(!empty($this->ingredients)) return $this->ingredients;
 
-        $result = DB::select(['*'], 'ingredients', ['recipie_id' => $this->id])->fetchAll();
+        $result = DB::select(['*'], 'ingredients', ['recipie_id' => $this->id], 'Ingredient')->fetchAll();
 
-        foreach($result as $i){
-            $this->ingredients[$i['id']] = new Ingredient($i, 'metric');
-        }
 
         return $this->ingredients;
     }
@@ -64,11 +61,8 @@ class Recipie{
             WHERE i.taxonID IS NOT NULL AND i.recipie_id != :id 
             AND i.taxonID IN (SELECT taxonID FROM ingredients WHERE recipie_id = :id and taxonID != '')
             GROUP BY r.id",
-            ['id' => $this->id, 'id' => $this->id])->fetchAll();
+            ['id' => $this->id, 'id' => $this->id], 'Recipie')->fetchAll();
         
-        foreach($recipies as &$recipie){
-            $recipie = new Self($recipie);
-        }
         
         return $recipies;
         
@@ -81,11 +75,7 @@ class Recipie{
         JOIN users AS u ON c.user_id = u.id
         JOIN image AS i ON u.image = i.id
         WHERE recipe_id = :id
-        GROUP BY c.id', ['id' => $this->id])->fetchAll();
-
-        foreach($query as $key => $value){
-            $this->comments[] = new Comment($value);
-        }
+        GROUP BY c.id', ['id' => $this->id], 'Comment')->fetchAll();
 
         return $this->comments;
     }

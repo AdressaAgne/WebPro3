@@ -5,6 +5,9 @@ use DB, Account, User, Comment, Ingredient, Recipie;
 
 class SQLController extends DB{
     
+    private $joins = [];
+    private $table = [];
+    
     private $sql = [
       'recipie' => '
         SELECT r.*, rate.rating as rating, i.big as image, i.small as thumbnail
@@ -15,6 +18,25 @@ class SQLController extends DB{
       ',  
         
     ];
+    
+    
+    public function __construct($table){
+        
+        $this->table = $table;
+        
+        return self;
+    }
+    
+    public function leftJoin($table, $on){
+        $this->joins = "LEFT JOIN $table ON $on";
+        
+        return self;
+    }
+    
+    public function innerJoin(){
+        
+        
+    }
     
     public function preset($table = 'recipie', $class = 'Recipie'){
         

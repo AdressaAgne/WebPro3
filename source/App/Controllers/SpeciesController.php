@@ -31,11 +31,7 @@ class SpeciesController extends BaseController {
         $recipies = $this->query('SELECT r.*, im.big as image, im.small as thumbnail FROM recipies as r
             INNER JOIN ingredients as i ON i.recipie_id = r.id
             INNER JOIN image as im ON r.image = im.id
-            WHERE i.taxonID = :taxon',['taxon' => $p['taxon']])->fetchAll();
-        
-        foreach($recipies as &$recipie){
-            $recipie = new Recipie($recipie);
-        }
+            WHERE i.taxonID = :taxon',['taxon' => $p['taxon']], 'Recipie')->fetchAll();
         
     	return View::make('taxon', [
             'taxon' => $this->query('SELECT b.*, im.big as image, im.small as thumbnail, im.position as position FROM blacklist as b

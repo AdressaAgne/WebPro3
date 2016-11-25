@@ -53,10 +53,10 @@ class Database {
      */
     public static function query($sql, $args = null, $class = null){
         $query = self::$db->prepare($sql);
-        if($class != null){
+        if($class != null || gettype($args) == 'string'){
             $query->setFetchMode(PDO::FETCH_CLASS, $class);   
         }
-        if($args !== null){
+        if($args !== null && gettype($args) == 'array'){
             self::arrayBinder($query, $args);
         }
         return $query->execute() ? $query : false;

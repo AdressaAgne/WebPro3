@@ -12,16 +12,24 @@ class Comment{
     public $recipe_id;
 
     public $ingredients = [];
-    public $user;
+    public $user = null;
 
-    public function __construct($query){
-        $this->id           = $query['id'];
-        $this->user_id      = $query['user_id'];
-        $this->content      = $query['content'];
-        $this->recipe_id    = $query['recipe_id'];
-        $this->user = new User($query);
+    public function __construct($query = null){
+        if($query != null){
+            $this->id           = $query['id'];
+            $this->user_id      = $query['user_id'];
+            $this->content      = $query['content'];
+            $this->recipe_id    = $query['recipe_id'];
+        }
     }
 
+    public function user() {
+        if($this->user == null){
+            $this->user =  new User($this->user_id);   
+        }
+        
+        return $this->user;
+    }
 
     public function getRecipe(){
       return new Recipie($this->user_id);

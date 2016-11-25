@@ -24,20 +24,13 @@ class MainController extends BaseController {
         FROM recipies AS r
         INNER JOIN image AS i ON r.image = i.id
         INNER JOIN ratings AS rate ON rate.recipe_id = r.id
-        ORDER BY rating DESC LIMIT 2')->fetchAll();
+        ORDER BY rating DESC LIMIT 2', 'Recipie')->fetchAll();
         
-        foreach($ratings as &$recipie){
-            $recipie = new Recipie($recipie);
-        }
         
         $newest = $this->query('SELECT r.*, i.big as image, i.small as thumbnail
         FROM recipies AS r
         INNER JOIN image AS i ON r.image = i.id
-        ORDER BY time DESC LIMIT 2')->fetchAll();
-        
-        foreach($newest as &$recipie){
-            $recipie = new Recipie($recipie);
-        }
+        ORDER BY time DESC LIMIT 2', 'Recipie')->fetchAll();
         
         return View::make('index', [
             'ratings' => $ratings,
