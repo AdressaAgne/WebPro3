@@ -24,10 +24,8 @@ class Comment{
     }
 
     public function user() {
-        if($this->user == null){
-            $this->user =  new User($this->user_id);   
-        }
-        
+        if($this->user != null) return $this->user;
+        $this->user =  new User($this->user_id);   
         return $this->user;
     }
 
@@ -36,3 +34,5 @@ class Comment{
     }//getUser()
 
 }
+
+
