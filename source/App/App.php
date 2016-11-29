@@ -52,6 +52,7 @@ class App extends RouteHandler{
         $cached_file .= trim(preg_replace('/\//u', '_', $this->get_path()), '.').".html";
         
         if(!isset($_SESSION['uuid']) && $_SERVER['REQUEST_METHOD'] != "POST" && Config::$debug_mode == false && file_exists($cached_file) && (filemtime($cached_file) + Config::$cache_time > time())){
+            
             echo file_get_contents($cached_file);
             
         } else {
@@ -64,6 +65,10 @@ class App extends RouteHandler{
                 return;
                 
             } else {
+                
+                // Echo out the rendered code
+                echo $page;
+                
                 // save cached file
                 if(Config::$debug_mode == false && $_SERVER['REQUEST_METHOD'] != "POST" && !isset($_SESSION['uuid'])){
                     if(!file_exists(Config::$cache_folder)){
@@ -74,8 +79,6 @@ class App extends RouteHandler{
                     $w = fwrite($file, "<!--- Cached Version ".time()." --->\n".$page);
                     fclose($file);
                 }
-                // Echo out the rendered code
-                echo $page;
             }
         }
     }

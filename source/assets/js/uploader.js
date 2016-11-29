@@ -19,11 +19,10 @@ function upload(files){
         var p = Math.floor( (e.loaded / e.total) * 100 );
         if(info === 0){
             info++;
-            elm('.info-text').textContent = "Uploading";
+            elm('.info-text').textContent = "Laster opp";
         }
         if(p >= 100){
-            elm('.info-text').textContent = "Processing";
-            document.getElementById("svg").setAttribute("class", "pie-chart processing");
+            elm('.info-text').textContent = "Ferdig";
         }
         elm('[data-percent]').setAttribute("data-percent", p);
         elm('tspan').textContent = p+"%";
@@ -42,5 +41,5 @@ elm("#drop-container").onDrop(function(files){
 });
 
 elm("#file").addEventListener('change', function(){
-    if(files.length > 0) upload(this.files);
+    if(this.files.length > 0) upload(this.files);
 });
