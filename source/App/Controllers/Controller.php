@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Controllers;
-use Account, User;
+use DB, Account, User;
 
-class Controller extends SQLController{
+class Controller extends DB{
     
     public static $site_wide_vars = [
         'user' => null,

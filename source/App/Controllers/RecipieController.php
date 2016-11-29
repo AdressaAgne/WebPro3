@@ -33,7 +33,6 @@ class RecipieController extends BaseController {
 
 
     public function index() {
-
         return View::make('insert.recipie',[
             'cat' => $this->select(['*'], 'category')->fetchAll()
         ]);
@@ -147,36 +146,33 @@ class RecipieController extends BaseController {
 
 
       return View::make('layout.recipes_cat_sort', ['result' => $result]);
-    }//sort()
+    }
 
     public function categorySort($data){
-
-
-      if(!isset($data['id'])) {
+        if(!isset($data['id'])) {
 
         $query = $this->query('SELECT r.*, i.big as image, i.small as thumbnail FROM recipies AS r
            JOIN image AS i ON r.image = i.id', 'Recipie')->fetchAll();
 
-      } else {
-        $ids = [];
-        $idData = [];
-        foreach($data['id'] as $key => $id){
-          $idData['id'.$key] = $id;
-          $ids[] = ':id'.$key;
+        } else {
+            $ids = [];
+            $idData = [];
+            foreach($data['id'] as $key => $id){
+                $idData['id'.$key] = $id;
+                $ids[] = ':id'.$key;
+            }
+
+            $query = $this->query('SELECT r.*, i.small AS thumbnail FROM recipie_category AS rc
+                INNER JOIN category AS c ON rc.category_id = c.id
+                INNER JOIN recipies AS r ON r.id = rc.recipie_id
+                INNER JOIN image AS i ON r.image = i.id
+                WHERE c.id IN ('.implode(', ', $ids).')', $idData, 'Recipie');
+
         }
 
-        $query = $this->query('SELECT *, i.small AS thumbnail FROM recipie_category AS rc
-	    	INNER JOIN category AS c ON rc.category_id = c.id
-	    	INNER JOIN recipies AS r ON r.id = rc.recipie_id
-	    	INNER JOIN image AS i ON r.image = i.id
-	    	WHERE c.id IN ('.implode(', ', $ids).')', $idData, 'Recipie');
-
-      }
-
-      return View::make('layout.recipes_cat_sort', [
+        return View::make('layout.recipes_cat_sort', [
     		'result' => $query
      	]);
-      //return "Sort TODO";
     }
 
 }

@@ -7,7 +7,7 @@
             <div class="no-padding col-12">
                 <h4 class="uppercase">{{ $recipe->name }}</h4>
                 <p><i>Skrevet av {{$recipe->getUser()->username}}</i></p>
-                <p>{{ substr($recipe->desc, 0 , 50) }}...</p>
+                <p>{{ substr($recipe->description, 0 , 50) }}...</p>
             </div>
         </div>
     </article>

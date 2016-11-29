@@ -12,6 +12,7 @@
 
                     <div class="col-12">
                         <h3 class="sub-header">Vurder</h3>
+                        @if(Account::isLoggedIn())
                         @form('', 'update')
                         <span class="star-rating">
                             <input type="radio" name="rating" value="1"><i></i>
@@ -21,6 +22,9 @@
                             <input type="radio" name="rating" value="5"><i></i>
                         </span>
                         @formend()
+                        @else
+                            <span>Login for a vurdere</span>
+                        @endif
                     </div>
 
                     <div class="col-12">
@@ -31,7 +35,7 @@
                             @endforeach
                         </ul>
                     </div>
-                    <div class="row category-list">
+                    <div class="col-12">
                     	<h3> Kategorier </h3>
                         <ul class="list-simple--horisontal">
                             @foreach($recipie->getCategories() as $key => $cat)       
@@ -111,7 +115,7 @@
         id : {{$recipie->id}}
       },
       success : function(data) {
-        //console.log(data);
+        console.log(data);
       },
       error : function(){
         console.log("failed to update rating");
