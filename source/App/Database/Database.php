@@ -74,7 +74,13 @@ class Database {
 
 
 
-    public static function select($rows = ['*'], $table = null, $data = null, $join = 'AND'){
+    public static function select($rows = ['*'], $table = null, $data = null, $join = 'AND', $class = null){
+        
+        if($join == 'AND' || $join == 'OR'){
+        } else {
+            $class = $join;
+        }
+        
         $args = null;
         if($data != null){
             $arg = [];
@@ -87,7 +93,7 @@ class Database {
             $where = "";
         }
 
-        return self::query('SELECT '.implode(', ', $rows).' FROM '.$table.$where, $args);
+        return self::query('SELECT '.implode(', ', $rows).' FROM '.$table.$where, $args, $class);
     }
 
 

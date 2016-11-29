@@ -8,7 +8,7 @@ class Recipie{
 
     public $id;
     public $name;
-    public $desc;
+    public $description;
     public $how;
     public $image;
     public $thumbnail;
@@ -22,7 +22,7 @@ class Recipie{
         if($query != null){
             $this->id           = $query['id'];
             $this->name         = $query['name'];
-            $this->desc         = $query['description'];
+            $this->description  = $query['description'];
             $this->how          = $query['how'];
             $this->image        = $query['image'];
             $this->thumbnail    = $query['thumbnail'];
@@ -37,8 +37,7 @@ class Recipie{
     public function getIngrediets(){
         if(!empty($this->ingredients)) return $this->ingredients;
 
-        $result = DB::select(['*'], 'ingredients', ['recipie_id' => $this->id], 'Ingredient')->fetchAll();
-
+        $this->ingredients = DB::select(['*'], 'ingredients', ['recipie_id' => $this->id], 'Ingredient')->fetchAll();
 
         return $this->ingredients;
     }
