@@ -120,27 +120,23 @@ class RecipieController extends BaseController {
       switch($str['sortingMethod']){
 
         case 'nyeste' :
-          $query .= 'r.time DESC';
+          $query .= 'r.time';
           break;
-        case 'beste' :
-          $query .= 'rating DESC';
-          break;
-        case 'alfabetisk' :
 
-          if(!isset($_SESSION['alfabetical'])){
-            $_SESSION['alfabetical'] = false;
-          }
-          if($_SESSION['alfabetical'] == false){
-            $query .= 'r.name ASC';
-            $_SESSION['alfabetical'] = true;
-          }else{
-            $query .= 'r.name DESC';
-            $_SESSION['alfabetical'] = false;
-          }
+        case 'beste' :
+          $query .= 'rating';
           break;
+
+        case 'alfabetisk' :
+          $query .= 'r.name';
+          break;
+
         default :
-          $query .= 'rating DESC'; //Shows highest ranked as default
+          $query .= 'rating'; //Shows highest ranked as default
+          break;
       }
+
+      $query .= ($str['order'] == 'true' ? ' DESC' : ' ASC');
 
       $result = $this->query($query, 'Recipie')->fetchAll();
 

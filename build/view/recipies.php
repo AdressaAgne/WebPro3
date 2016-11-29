@@ -84,6 +84,7 @@
 
 <script>
   //Sortering
+  var order = true;
   $("#sortering li a").on("click", function(e){
     $("#recipes").fadeOut(50, function(){});
     e.preventDefault();
@@ -96,9 +97,12 @@
       data : {
         sortingMethod : $(_this).attr('data-value'),
         _token : $('[name=_token]').val(),
-        _method : 'post'
+        _method : 'post',
+        order   : order,
       },
       success : function(data){
+        console.log(data);
+        order = !order;
         $('#loading').hide();
         $("#recipes").fadeIn(200, function(){});
         $('#recipes').html(data);
