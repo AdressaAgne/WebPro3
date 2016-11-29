@@ -6,7 +6,7 @@ namespace App;
 class Config {
 
 
-    public static $debug_mode = false;
+    public static $debug_mode = true;
 
 
     /**

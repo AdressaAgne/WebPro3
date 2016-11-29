@@ -9,6 +9,8 @@ for(var i = 0; i < checkboxes.length; i++){
 			'_token' 	: elm('[name=_token]').value,
 			'_method' 	: 'POST',
 		};
+		$("#recipes").fadeOut(50, function(){});
+    $('#loading').show();
 
 		var boxes = document.querySelectorAll('[type=checkbox]:checked');
 		var checkboxid = [];
@@ -20,6 +22,8 @@ for(var i = 0; i < checkboxes.length; i++){
 		ajax('recipes/sorting', dataList, function(data) {
 			console.log(data);
 
+			$('#loading').hide();
+			$("#recipes").fadeIn(200, function(){});
 			elm('#recipes').innerHTML = data;
 
 

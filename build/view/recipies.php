@@ -59,9 +59,9 @@
                        @endforeach
 	                </ul>
 	            </div>
-	        </div>
-          <div id='loading' style='display:none;'>
-            <label for="file">
+	        </div><!-- Col3 -->
+          <div class="col-9" id="loading" style="display:none;">
+            <label for="file" class="col--center" style="width: 150px;">
                 <svg height="150" width="150" class="pie-chart processing" id="svg">
                   <circle class="behind"cx="50%" cy="50%" r="40%" />
                   <circle class="front" cx="50%" cy="50%" r="40%" data-percent="0" />
