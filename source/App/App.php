@@ -47,16 +47,36 @@ class App extends RouteHandler{
             $_SESSION['_token'] = uniqid();
             Config::$form_token = $_SESSION['_token'];
         }
-
-        $page = $this->getPageData();
-
-        if(gettype($page) !== 'string'){
-            @header('Content-type: application/json');
-            echo json_encode($page, JSON_UNESCAPED_UNICODE);
-            return;
+        
+        $cached_file = './'.Config::$cache_folder.'cached_';
+        $cached_file .= trim(preg_replace('/\//u', '_', $this->get_path()), '.').".html";
+        
+        if(!isset($_SESSION['uuid']) && $_SERVER['REQUEST_METHOD'] != "POST" && Config::$debug_mode == false && file_exists($cached_file) && (filemtime($cached_file) + Config::$cache_time > time())){
+            echo file_get_contents($cached_file);
+            
         } else {
-            // Echo out the rendered code
-            echo $page;
+            $page = $this->getPageData();
+            
+            if(gettype($page) !== 'string'){
+                
+                @header('Content-type: application/json');
+                echo json_encode($page, JSON_UNESCAPED_UNICODE);
+                return;
+                
+            } else {
+                // save cached file
+                if(Config::$debug_mode == false && $_SERVER['REQUEST_METHOD'] != "POST" && !isset($_SESSION['uuid'])){
+                    if(!file_exists(Config::$cache_folder)){
+                        mkdir(Config::$cache_folder, 0777, true);
+                    }
+
+                    $file = fopen($cached_file, 'w');
+                    $w = fwrite($file, "<!--- Cached Version ".time()." --->\n".$page);
+                    fclose($file);
+                }
+                // Echo out the rendered code
+                echo $page;
+            }
         }
     }
 }

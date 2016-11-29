@@ -13,10 +13,8 @@
             </svg>
             <span class="info-text">Klikk for a laste opp bilde</span>
         </label>
-        @from()
         <input type="file" id="file" hidden="">
         <input type="text" name="file" id="fileText" class="dark" hidden>
-        @formend()
     </section>
 
     <section class="container">  

@@ -23,7 +23,7 @@ class Database {
             self::$db = new PDO($dns, Config::$username, Config::$password);
             self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
             self::$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-            //self::$db->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
+            self::$db->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
 
         } catch (PDOException $e) {
              die('Could not connect to Database'. $e);

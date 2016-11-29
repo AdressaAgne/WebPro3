@@ -14,7 +14,7 @@ class RouteHandler{
      * @author Agne *degaard
      * @return string 
      */
-    private function get_path(){
+    protected function get_path(){
         return "/".preg_replace("/(.*)m=(.*)/uimx", "$2", $_SERVER['QUERY_STRING']);
     }
     
@@ -45,7 +45,7 @@ class RouteHandler{
      * @author Agne *degaard
      * @return array
      */
-    private function get_page(){
+    protected function get_page(){
         $url = $this->get_path();
         $list = [];
         // Minify this stuff
@@ -67,6 +67,11 @@ class RouteHandler{
         }
         
         return $list[$index];
+    }
+    
+    public static function page(){
+        $page = new self();
+        return trim($page->get_page(), '/');
     }
     
     

@@ -2,6 +2,7 @@
 namespace App;
 
 use Account;
+use \App\Routing\RouteHandler as RouteHandler;
 /**
 *   Small Render Engine, very inspirated by Twig
 */
@@ -84,7 +85,7 @@ class Render {
      * @param string $page
      */
     public static function active_page($page){
-        if($_GET['param'] == $page) {
+        if(RouteHandler::page() == $page) {
             echo "nav__item--active";
         }
     }
