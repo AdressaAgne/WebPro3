@@ -64,12 +64,16 @@ All Controllers extend DB, so you can do $this->query() instead.
 ### Queries
 ```php
 // Basic query
-DB::query($SQL, [$params]);
+DB::query($SQL, [$params], $class);
 DB::query("SELECT name, username FROM users WHERE id = :id", ['id' => 3]);
+DB::query("SELECT name, username FROM users WHERE id = :id", ['id' => 3], 'User');
+DB::query("SELECT name, username FROM users", 'User']);
 
 //Select
 DB::select([$rows...], $table, [$where], $join = 'AND');
+DB::select([$rows...], $table, [$where], $class = null);
 DB::select(['name', 'username'], 'users', ['id' => 3, 'id' => 4], 'OR');
+DB::select(['name', 'username'], 'users', ['id' => 3, 'id' => 4], 'Recipe');
 
 // Select everything
 DB::all([$rows], $table);
@@ -102,6 +106,9 @@ $db->createTable('users', [
 
 new Row($name, $type, $default = null, $not_null = true, $auto_increment = false);
 ```
+
+## Caching
+The framework will cache all pages and store them as html files in _/assets/cache/_ with name cached_url_path.html, the cache time can be changed in config.php, defaults to 3600s/1h.
 
 
 ## Security
