@@ -9,9 +9,9 @@ View Logic is run here then passed as variables to the views.
 ```php
 namespace App\Controllers;
 
-use View, BaseController;
+use View;
 
-class MainController extends BaseController {
+class MainController extends Controller {
    public function index($params){
       $username = $params['username'];
       return View::make('index', [
