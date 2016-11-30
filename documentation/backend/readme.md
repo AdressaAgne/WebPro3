@@ -41,6 +41,8 @@ Or you could just use normal $_POST variables
 Direct::post("/submit", 'MainController@submit');
 ```
 
+_Note:_ put, post, update, delete requires a csrf token. 
+
 ### Other HTTP requests
 ```php
 Direct::put("/page", 'controller@method');
