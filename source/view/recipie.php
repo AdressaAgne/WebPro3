@@ -26,10 +26,11 @@
                             <span>Login for a vurdere</span>
                         @endif
                         <ul class="ratings">
-                            @foreach($recipie->getRecipeRating() as $key => $i)
-                                <li>{! $key, $i !}</li>
-                            @endforeach
+                             <p>Vurdert til {{ (int) $recipie->rating }} av {{ $recipie->total}} totalt vurderinger</p>
                         </ul>
+                        <script>
+                          document.querySelector('[name=rating]:nth-of-type({{ (int) $recipie->rating }})').setAttribute('checked', 'checked');
+                        </script>
                     </div>
 
                     <div class="col-12">
