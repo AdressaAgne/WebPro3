@@ -1,7 +1,21 @@
 $width: 130px
 $height: 25px
 
-.star-rating
+.star-rating-fixed
+    @for $i from 1 to 6
+        .stars-#{$i}
+            position: absolute
+            left: 0
+            top: 0
+            height: 100%
+            width: 20%
+            z-index: 1
+            background: url('../img/icons/svg/full_star.svg')
+            background-size: contain
+            width: 20% * $i
+
+
+.star-rating, .star-rating-fixed
     font-size: 0
     white-space: nowrap
     display: block
