@@ -81,16 +81,10 @@ class Recipie{
     }
 
     public function getRecipeRating(){
-
         return DB::query("SELECT FLOOR(AVG(ra.rating)), count(ra.id)
         FROM ratings AS ra
         INNER JOIN recipies ON recipies.id = :id
         WHERE ra.recipe_id = :id", ['id' => $this->id])->fetch();
-
-
-      /*
-
-      */
     }//getRecipeRating()
 
 
