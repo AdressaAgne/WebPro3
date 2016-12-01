@@ -23,8 +23,12 @@ class RecipieController extends BaseController {
 
     public function recipies(){
 
-        $resipies = $this->query('SELECT r.*, i.big as image, i.small as thumbnail FROM recipies AS r
-         JOIN image AS i ON r.image = i.id', 'Recipie')->fetchAll();
+        $resipies = $this->query('SELECT r.*, i.big as image, i.small as thumbnail, AVG(ra.rating) as rating
+         FROM recipies AS r
+         INNER JOIN image AS i ON r.image = i.id
+         LEFT JOIN ratings AS ra ON ra.recipe_id = r.id
+         GROUP BY r.id
+         ORDER BY rating desc', 'Recipie')->fetchAll();
 
 
         return View::make('recipies', [
