@@ -25,6 +25,11 @@
                         @else
                             <span>Login for a vurdere</span>
                         @endif
+                        <ul class="ratings">
+                            @foreach($recipie->getRecipeRating() as $key => $i)
+                                <li>{! $key, $i !}</li>
+                            @endforeach
+                        </ul>
                     </div>
 
                     <div class="col-12">
@@ -38,7 +43,7 @@
                     <div class="col-12">
                     	<h3> Kategorier </h3>
                         <ul class="list-simple--horisontal">
-                            @foreach($recipie->getCategories() as $key => $cat)       
+                            @foreach($recipie->getCategories() as $key => $cat)
                                 <li><a href="/recipie/category">{{ ucfirst($cat['name'])}}</a></li>
                             @endforeach
                         </ul>
@@ -87,7 +92,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="row">
             <h1 class="page-header underline center">Relatert til {{$recipie->name}}</h1>
             @foreach($recipie->getRelated() as $res)
