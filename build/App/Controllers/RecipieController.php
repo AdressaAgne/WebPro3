@@ -178,8 +178,18 @@ class RecipieController extends BaseController {
      	]);
     }
 
-    public function editRecipe(){
-      return View::make('edit/recipe');
+    public function editRecipe($id){
+
+      $recipe = $this->query('SELECT r.*, i.big as image, i.small as thumbnail
+                              FROM recipies AS r
+                              INNER JOIN image AS i ON r.image = i.id
+                              WHERE r.id = :id',
+                              ['id' => $id['id']], 'Recipie')->fetch();
+
+      if($recipe->user_id != Account::get_id()) return Direct::re('/recipie/item/'.$id);
+
+      return View::make('edit/recipe', ['recipe' => $recipe]);
+
     }//editRecipe()
 
     public function getRecipe($id){

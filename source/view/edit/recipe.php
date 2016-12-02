@@ -21,7 +21,7 @@
        <div class="row">
        		<div class="col-5 upload-res">
 	            <label for=""><h2>Oppskriftens navn</h2>
-	                <input type="text" name="name" placeholder="Oppskrifts navn" class="dark">
+	                <input type="text" name="name" class="dark" value="{{$recipe->name}}">
 	            </label>
             </div>
        </div>
@@ -71,14 +71,15 @@
                 <div class="col-12">
                     <button type="button" id="add">Legg til ny ingrediens</button>
                 </div>
+                <!-- Loop ingredients here -->
             </div>
 
             <div class="col-6 col-m-12">
                 <h3>Beskrivelse</h3>
-                <textarea name="description" id="" placeholder="Beskrivelse av oppskrift" class="dark"></textarea>
+                <textarea name="description" id="" placeholder="Beskrivelse av oppskrift" class="dark">{{$recipe->description}}</textarea>
 
                 <h3>Hvordan</h3>
-                <textarea name="how" id="" cols="30" rows="10" placeholder="Hvordan lager du oppskriften" class="dark"></textarea>
+                <textarea name="how" id="" cols="30" rows="10" placeholder="Hvordan lager du oppskriften" class="dark">{{$recipe->how}}</textarea>
             </div>
 
             <div class="col-12">
@@ -87,7 +88,7 @@
                     <li>
                         <select name="cat[]" id="cat">
                             <option value="none" selected disabled>Velg</option>
-                            @foreach($cat as $c)
+                            @foreach($recipe->getCategories() as $c)
 
                                 <option value="{{$c['id']}}">{{$c['name']}} {{ ($c['type'] == 0 ? ' (Råvare)' : ' (Type Rett)') }}</option>
 
