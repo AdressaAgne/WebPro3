@@ -77,7 +77,7 @@
        	
         <div class="row news clearfix">
    			<div class="col-4">
-   				<img src="assets/img/arter/stillehavs.jpg" width="300px"/>
+   				<img src="assets/img/news/osters.jpg" width="300px"/>
    			</div>
    			<div class="col-8">
    				<h3 class="uppercase"> Stadig mer Stillehavsøsters </h3>
