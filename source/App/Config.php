@@ -22,7 +22,7 @@ class Config {
 
 
     public static $cookie_time = 86400 * 30;
-    public static $cache_time = 60 * 10;
+    public static $cache_time = 3600;
     public static $cache_folder = 'assets/cache/';
 
     /**
