@@ -11,7 +11,7 @@
           <div class="row row--line">
             <div class="col--right">
              <ul class="list-simple--horisontal">
-               <li><a href="recipe/edit_recipe">Rediger oppskrift</a></li>
+               <li><a href="/edit/recipie/item/{{$recipie->id}}" id="{{$recipie->id}}">Rediger oppskrift</a></li>
              </ul>
             </div>
           </div>

@@ -21,7 +21,7 @@ Direct::put("/recipie/comment", 'RecipieController@writecomment')->Auth();
 Direct::update("/recipie/rating", 'RecipieController@rate')->Auth();
 Direct::post('/recipie/sort', 'RecipieController@sorting');
 Direct::post('/recipes/sorting', 'RecipieController@categorySort');
-Direct::get('/recipe/edit_recipe', 'RecipieController@editRecipe')->Auth();
+Direct::get('/edit/recipie/item/{id}', 'RecipieController@editRecipe')->Auth();
 
 Direct::get("/species", 'SpeciesController@index');
 Direct::post("/species/sorting", 'SpeciesController@sorting');

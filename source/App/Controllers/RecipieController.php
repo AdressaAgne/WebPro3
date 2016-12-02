@@ -182,4 +182,8 @@ class RecipieController extends BaseController {
       return View::make('edit/recipe');
     }//editRecipe()
 
+    public function getRecipe($id){
+      return DB::select(['*'], 'recipies', ['recipie_id' => $id])->fetchAll();
+    }//getRecipe()
+
 }
