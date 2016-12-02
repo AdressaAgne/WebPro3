@@ -53,9 +53,45 @@
      </div>
     </section>
     <section class="container">
-        <div class="no-padding col-12 news">
-            <h2 class="page-header center uppercase underline">Nyheter</h2>
-        </div>
+    	<div class="col-12">
+        	<h2 class="page-header center uppercase underline" id="news">Nyheter</h2>
+       	</div>
+       	<div class="row news clearfix">
+       		<div class="col-4">
+       			<img src="assets/img/news/bent.jpg" width="300px"/>
+       		</div>
+       		<div class="col-8">
+       			<h3 class="uppercase"> Nyttige tips fra kokken </h3>
+       			<p>Jesper Victor, Kokk ved Restaurant Østersen,  gir deg 
+       			sine beste tips for å tilbedre Regnbueørret. There are many
+       			 variations of passages of Lorem Ipsum available, but the
+       			 majority have suffered alteration in some form, by injected 
+       			 humour, or randomised words which don't look even slightly 
+       			 believable. If you are going to use a passage of Lorem Ipsum, 
+       			 you need to be sure there isn't anything embarrassing hidden 
+       			 in the middle of text. 
+       			</p>
+       			<a href="#news"<p>LES MER</p></a>
+       		</div>
+       	</div>
+       	
+        <div class="row news clearfix">
+   			<div class="col-4">
+   				<img src="assets/img/arter/stillehavs.jpg" width="300px"/>
+   			</div>
+   			<div class="col-8">
+   				<h3 class="uppercase"> Stadig mer Stillehavsøsters </h3>
+   				<p>Det har blitt gjort mange ere observasjoner
+   					av Stillehavsøsters det siste året. Økningen er
+   					på omtrent 30 prosent, og det er i Oslofjordområdet
+   					økningen er størst. Dette bekymrer havforsker Agne Ødegaard.
+   					If you are going to use a passage, you need 
+   					to be sure there isn't anything embarrassing hidden in the 
+   					middle of text. 
+   				</p>
+   				<a href="#news"<p>LES MER</p></a>
+   			</div>
+   		</div>
     </section>
 </main>
 @layout('layout.scripts')
