@@ -179,7 +179,7 @@ class RecipieController extends BaseController {
     }
 
     public function editRecipe(){
-      return View::make('edit_recipe');
+      return View::make('edit/recipe');
     }//editRecipe()
 
 }
