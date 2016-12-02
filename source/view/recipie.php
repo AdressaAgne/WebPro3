@@ -5,6 +5,20 @@
     <section class="row primary-header" style="background-image: url('/assets/img/recipis/banner2.jpg')"></section>
     <section class="container">
 
+
+        @if(Account::isLoggedIn() AND $recipie->user_id == Account::get_id())
+        <!-- @form('', 'update')-->
+          <div class="row row--line">
+            <div class="col--right">
+             <ul class="list-simple--horisontal">
+               <li><a href="recipe/edit_recipe">Rediger oppskrift</a></li>
+             </ul>
+            </div>
+          </div>
+        <!-- @formend() -->
+        @endif
+
+
         <div class="row recipie-view">
             <div class="row">
                 <div class="col-4">
