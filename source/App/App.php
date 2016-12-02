@@ -12,6 +12,9 @@ if(!isset($_SESSION)){
     session_start();
 }
 
+// Generate a new PHP Session ID to prevent session hijacking.
+session_regenerate_id();
+
 /**
  * SPL autoloader, so we dont need to include files everywhere
  * @author Agne *degaard

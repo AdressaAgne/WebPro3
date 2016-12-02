@@ -76,12 +76,21 @@ class NearByController extends BaseController {
         //fetch all blacklisted species from artsobservasjoner
         
         $csv = new Csv();
-        $taxons = ['60303',
-                  '14365',
+        $taxons = ['59373',
+                  '3413',
+                  '3457',
                   '84141',
-                  '38890',
+                  '61212',
+                  '31106',
+                  '60303',
+                  '31227',
                   '26171',
-                  '3457'];
+                  '14365',
+                  '60308',
+                  '63574',
+                  '62346',
+                  '38890'
+                  ];
 
         $taxons = implode(',', $taxons);
         $pageSize = 1000;

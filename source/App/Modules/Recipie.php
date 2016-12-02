@@ -71,7 +71,7 @@ class Recipie{
     public function getComments(){
         if(!empty($this->comments)) return $this->comments;
 
-        $query = DB::query('SELECT * FROM comments as c
+        $this->comments = DB::query('SELECT * FROM comments as c
         JOIN users AS u ON c.user_id = u.id
         JOIN image AS i ON u.image = i.id
         WHERE recipe_id = :id

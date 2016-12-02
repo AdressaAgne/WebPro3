@@ -7,7 +7,6 @@
 
 
         @if(Account::isLoggedIn() AND $recipie->user_id == Account::get_id())
-        <!-- @form('', 'update')-->
           <div class="row row--line">
             <div class="col--right">
              <ul class="list-simple--horisontal">
@@ -15,7 +14,6 @@
              </ul>
             </div>
           </div>
-        <!-- @formend() -->
         @endif
 
 
@@ -95,12 +93,11 @@
                         <h3 class="sub-header">Kommentarer</h3>
                         @foreach($recipie->getComments() as $key => $comment)
 
-                                <div class="comment">
-                                    <a href="/users/{{$comment->user()->username}}"><div class="image" style="background-image: url('{{$comment->user()->avatar_thumb}}');"></div></a>
-                                    <div class="name"><h3><a href="/users/{{$comment->user()->username}}">{{$comment->user()->username}}</a></h3></div>
-                                    <div class="content">{{ $comment->content }}</div>
-                                </div>
-
+                            <div class="comment">
+                                <a href="/users/{{$comment->user()->username}}"><div class="image" style="background-image: url('{{$comment->user()->avatar_thumb}}');"></div></a>
+                                <div class="name"><h3><a href="/users/{{$comment->user()->username}}">{{$comment->user()->username}}</a></h3></div>
+                                <div class="content">{{ $comment->content }}</div>
+                            </div>
 
                         @endforeach
                     </div>

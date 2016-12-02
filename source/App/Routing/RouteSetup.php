@@ -40,8 +40,9 @@ Direct::post("profile/image", 'ProfileController@ajaxUpload')->auth();
 Direct::get("/api/nearby/{lat}/{lng}/{dist}", 'NearByController@api');
 Direct::get("/api/search/{taxon}/{dist}", 'NearByController@taxon_api');
 
-Direct::get("/m/p", 'MigrateController@populate');
+
 Direct::get("/m", 'MigrateController@migrate');
+Direct::get("/blacklist", 'NearByController@testapi');
 
 
 Direct::get("/route", 'ErrorHandling@route')->Admin();
