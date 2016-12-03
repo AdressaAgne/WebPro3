@@ -2,7 +2,7 @@
 
 <main>
 <!-- @form('/recipie/insert','post')-->
-    <section class="row primary-header" style="background-image: url('')">
+    <section class="row primary-header" style="background-image: url('{{$recipe->image}}')">
         <label for="file" class="drop dropped" id="drop-container">
             <svg height="150" width="150" class="pie-chart" id="svg">
                 <circle class="behind"cx="50%" cy="50%" r="40%" />
@@ -72,6 +72,14 @@
                     <button type="button" id="add">Legg til ny ingrediens</button>
                 </div>
                 <!-- Loop ingredients here -->
+                <div class="col-12">
+                    <h3>Ingredients</h3>
+                    <ul class="ingredients">
+                        @foreach($recipe->getIngrediets() as $key => $i)
+                            <li>{! $i !}</li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
 
             <div class="col-6 col-m-12">
@@ -89,9 +97,7 @@
                         <select name="cat[]" id="cat">
                             <option value="none" selected disabled>Velg</option>
                             @foreach($recipe->getCategories() as $c)
-
                                 <option value="{{$c['id']}}">{{$c['name']}} {{ ($c['type'] == 0 ? ' (Råvare)' : ' (Type Rett)') }}</option>
-
                             @endforeach
                         </select>
                     </li>
