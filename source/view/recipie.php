@@ -148,10 +148,12 @@
     $.post({
       url: "recipie/item/favorite",
       data: {
+        _method : 'POST',
+        _token : $('[name=_token]').val(),
         recipe_id : "{{$recipie->id}}"
       },
       success : function(data) {
-        console.log("fav");
+        console.log(data);
       },
       error : function(){
         console.log("failed to favorize");
