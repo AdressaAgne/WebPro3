@@ -10,7 +10,7 @@
           <div class="row row--line">
             <div class="col--right">
              <ul class="list-simple--horisontal">
-               <li><a href="#" id="favorite">Legg til som favoritt</a></li>
+               <li><a href="" id="favorite">Legg til som favoritt</a></li>
                @if($recipie->user_id == Account::get_id())
                   <li><a href="/edit/recipie/item/{{$recipie->id}}" id="{{$recipie->id}}">Rediger oppskrift</a></li>
                @endif
@@ -144,7 +144,8 @@
   });
 
   //favorite
-  $('#favorite').on('click', function(){
+  $('#favorite').on('click', function(e){
+    e.preventDefault();
     $.post({
       url: "recipie/item/favorite",
       data: {
