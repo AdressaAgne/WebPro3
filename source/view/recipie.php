@@ -6,11 +6,14 @@
     <section class="container">
 
 
-        @if(Account::isLoggedIn() AND $recipie->user_id == Account::get_id())
+        @if(Account::isLoggedIn())
           <div class="row row--line">
             <div class="col--right">
              <ul class="list-simple--horisontal">
-               <li><a href="/edit/recipie/item/{{$recipie->id}}" id="{{$recipie->id}}">Rediger oppskrift</a></li>
+               <li><a href="" id="favorite_{{$recipie->id}}">Legg til som favoritt</a></li>
+               @if($recipie->user_id == Account::get_id())
+                  <li><a href="/edit/recipie/item/{{$recipie->id}}" id="{{$recipie->id}}">Rediger oppskrift</a></li>
+               @endif
              </ul>
             </div>
           </div>
@@ -140,6 +143,24 @@
     });
   });
 
+  //favorite$(function() {
+  $('#favorite_{{$recipe->id}}').on('click' function(){
+    $.post({
+      url: "/recipie/item/favorite/{{$recipe->id}}",
+      data: {
+        _method : 'post',
+        _token : $('[name=_token]').val(),
+        recipe_id : {{$recipie->id}},
+        user_id : {{Account::get_id()}}
+      },
+      success : function(data) {
+        console.log(data);
+      },
+      error : function(){
+        console.log("failed to update rating");
+      }
+    });
+  });
 </script>
 
 @layout('layout.foot')

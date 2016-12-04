@@ -22,6 +22,7 @@ Direct::update("/recipie/rating", 'RecipieController@rate')->Auth();
 Direct::post('/recipie/sort', 'RecipieController@sorting');
 Direct::post('/recipes/sorting', 'RecipieController@categorySort');
 Direct::get('/edit/recipie/item/{id}', 'RecipieController@editRecipe')->Auth();
+Direct::get('/recipie/item/favorite/{id}', 'RecipieController@favorite')->Auth();
 
 Direct::get("/species", 'SpeciesController@index');
 Direct::post("/species/sorting", 'SpeciesController@sorting');

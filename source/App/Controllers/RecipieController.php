@@ -192,16 +192,16 @@ class RecipieController extends BaseController {
 
     }//editRecipe()
 
+    //sålangt ikke ibruk.. nødvendig?
     public function getRecipe($id){
       return DB::select(['*'], 'recipies', ['recipie_id' => $id])->fetchAll();
     }//getRecipe()
 
-    public function favorite($user_id, $recipe_id){
-      $this->insert([[
-          'user_id' => $user_id,
-          'recipe_id' => $recipe_id
-      ]], 'favorites');
-      return 0;
+    public function favorite($values){
+      return ($this->insert([[
+          'user_id' => $values['user_id'],
+          'recipe_id' => $values['recipe_id']
+      ]], 'favorites')) ? true : false;
     }//favorite()
 
 }
