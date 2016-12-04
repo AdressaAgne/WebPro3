@@ -148,8 +148,7 @@
     $.post({
       url: "recipie/item/favorite",
       data: {
-        recipe_id : "{{$recipie->id}}",
-        user_id : "{{Account::get_id()}"
+        recipe_id : "{{$recipie->id}}"
       },
       success : function(data) {
         console.log("fav");

@@ -198,9 +198,9 @@ class RecipieController extends BaseController {
     }//getRecipe()
 
     public function favorite($values){
-      if(!$this->select(['id'], 'favorites', ['recipe_id' => $values['recipe_id'], 'user_id' => $values['recipe_id']])->rowCount() > 0){
+      if(!$this->select(['id'], 'favorites', ['recipe_id' => $values['recipe_id'], 'user_id' => Account::get_id()])->rowCount() > 0){
         return ($this->insert([[
-            'user_id' => $values['user_id'],
+            'user_id' => Account::get_id(),
             'recipe_id' => $values['recipe_id']
         ]], 'favorites')) ? true : false;
       }
