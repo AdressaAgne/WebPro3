@@ -10,7 +10,7 @@
           <div class="row row--line">
             <div class="col--right">
              <ul class="list-simple--horisontal">
-               <li><a href="" id="favorite_{{$recipie->id}}">Legg til som favoritt</a></li>
+               <li><a href="#" id="favorite">Legg til som favoritt</a></li>
                @if($recipie->user_id == Account::get_id())
                   <li><a href="/edit/recipie/item/{{$recipie->id}}" id="{{$recipie->id}}">Rediger oppskrift</a></li>
                @endif
@@ -143,21 +143,19 @@
     });
   });
 
-  //favorite$(function() {
-  $('#favorite_{{$recipe->id}}').on('click' function(){
+  //favorite
+  $('#favorite').on('click', function(){
     $.post({
-      url: "/recipie/item/favorite/{{$recipe->id}}",
+      url: "recipie/item/favorite",
       data: {
-        _method : 'post',
-        _token : $('[name=_token]').val(),
-        recipe_id : {{$recipie->id}},
-        user_id : {{Account::get_id()}}
+        recipe_id : "{{$recipie->id}}",
+        user_id : "{{Account::get_id()}"
       },
       success : function(data) {
-        console.log(data);
+        console.log("fav");
       },
       error : function(){
-        console.log("failed to update rating");
+        console.log("failed to favorize");
       }
     });
   });

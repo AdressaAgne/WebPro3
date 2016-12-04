@@ -203,6 +203,7 @@ class RecipieController extends BaseController {
             'user_id' => $values['user_id'],
             'recipe_id' => $values['recipe_id']
         ]], 'favorites')) ? true : false;
+      }
     }//favorite()
 
 }
