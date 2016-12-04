@@ -117,13 +117,19 @@ class Migrations{
             new Row('recipie_id', 'int'),
             new Row('category_id', 'int'),
         ]);
-        
+
         $db->createTable('taxons_category', [
             new Row('id', 'int', null, true, true),
             new Row('taxon_id', 'int'),
             new Row('category_id', 'int'),
         ]);
-        
+
+        $db->createTable('favorites', [
+            new Row('id', 'int', null, true, true),
+            new Row('user_id', 'int'),
+            new Row('recipe_id', 'int'),
+        ]);
+
         return [$db->tableStatus, self::populate()];
     }
 
@@ -131,7 +137,7 @@ class Migrations{
         $db = new DB();
         blacklist::run();
         Account::register('miamia', '123', '123', 'mail');
-        
+
         $db->insert([
             [
                 'name' => 'fisk',
@@ -264,14 +270,14 @@ class Migrations{
                 'description' => 'Gås er veldig godt og egnet på langbordet. Man kan bruke alle typer gås, men vi har selvfølgelig brukt Kanadagås i denne oppskrifen.',
                 'image' => 21,
                 'user_id' => 1,
-                'how' => 'Skjær av vingene på gåsen, ta ut innmaten og fjern noe av fettet i buken. Brun vinger og innmat over svak varme i det fettet som smelter ut. 
-                Tilsett grønnsaker skåret i biter, og brun det hele et par minutter til. Tilsett rødvin og la det koke inn til 1/3. Hell over vann så det dekker. La kraften småputre et par timer. Sil og kok inn kraften til halv mengde. Skyll og tørk av gåsen innvendig og utvendig. Gni den godt inn med salt og pepper, både inne i skroget og på skinnsiden. 
+                'how' => 'Skjær av vingene på gåsen, ta ut innmaten og fjern noe av fettet i buken. Brun vinger og innmat over svak varme i det fettet som smelter ut.
+                Tilsett grønnsaker skåret i biter, og brun det hele et par minutter til. Tilsett rødvin og la det koke inn til 1/3. Hell over vann så det dekker. La kraften småputre et par timer. Sil og kok inn kraften til halv mengde. Skyll og tørk av gåsen innvendig og utvendig. Gni den godt inn med salt og pepper, både inne i skroget og på skinnsiden.
                 Del eplene i grove biter. Fyll gåsen med epler, svisker og aprikoser. Bruk en kjøttnål eller sy sammen åpningen om nødvendig.
                 Legg gåsen på en rist over en langpanne og stek den ved 250 grader i 20 minutter. Senk temperaturen til 150 grader, hell litt vann i langpannen og stek videre i ca. 2 1/2 time. La gåsen hvile ca. 20 minutter før den skjæres opp.
                 Skum fettet av stekesjyen i langpannen. Ta vare på alt fettet, det kan fryses ned til senere bruk. Mål opp innkokt kraft og stekesjy. Visp sammen 2 spiseskjeer gåsefett med hvetemel i en kasserolle. La blandingen brunes lett under omrøring. Tilsett 8 desiliter kraft/stekesjy og kok opp. La sausen småkoke til den får passe tykk konsistens. Visp inn ripsgelé og smak sausen til med salt og pepper.',
             ],[
                 'name' => 'Stillehavsøsters på grillen',
-                'description' => 'Å grille østers er ikke bare en smakfull opplevelse, det er også veldig gøy! Og så slipper man faktisk den litt vanskelig åpningsprosessen. Du bare legger hele østers på grillen og så popper de opp når de er klare. 
+                'description' => 'Å grille østers er ikke bare en smakfull opplevelse, det er også veldig gøy! Og så slipper man faktisk den litt vanskelig åpningsprosessen. Du bare legger hele østers på grillen og så popper de opp når de er klare.
                 Da kan du velge å gratinere den videre med litt ost og gressløk eller servere dem med klassisk tilbehør som sitron og rødløk. ',
                 'image' => 22,
                 'user_id' => 1,
@@ -284,7 +290,7 @@ class Migrations{
                 'image' => 23,
                 'user_id' => 1,
                 'how' => 'Rens kongekrabbebein og del i mindre stykker. Hardkok egg i ca. 9 minutter, avkjøl, skrell og del i to. Forvell aspargesbønner i 2 minutter i lettsaltet vann, avkjøl i kaldt vann og del i to.
-                Skjær salat i grove strimler, rødløk i tynne strimler, agurk i tynne skiver, tomat i båter og paprika i terninger. 
+                Skjær salat i grove strimler, rødløk i tynne strimler, agurk i tynne skiver, tomat i båter og paprika i terninger.
                 Bland alt i en salatbolle, og ha i oliven og kapers. Legg stykker av kongekrabbebein på toppen. ',
             ],[
                 'name' => 'Villsvingryte',
@@ -301,7 +307,7 @@ class Migrations{
                 Skjær grønnsakene i biter, og fres dem i smør i en stor kjele. Tilsett så tomatpuré, hell over madeira og la alt koke noen minutter. Legg de brunede ben- og kjøttbitene i kjelen, hell over viltbuljongen (eller vannet) og gi det et oppkok. Skum godt, ha i krydderet og la alt småkoke i ca 2 timer. Når det er ferdig siles suppen. Smak til med sukker, salt, pepper og revet ingefær. Smaksett med sitron.',
             ],
         ], 'recipies');
-        
+
         $db->insert([
         	[
         		'recipie_id' => 1,
@@ -369,10 +375,10 @@ class Migrations{
         	],[
         		'recipie_id' => 9,
         		'category_id' => 11,
-        	],        	
-        	
+        	],
+
         ], 'recipie_category');
-        
+
         $db->insert([
            [
                 'name' => 'Ørret',
@@ -716,8 +722,8 @@ class Migrations{
                 'unit' => 'dl',
                 'recipie_id' => 9,
                 'taxonID' => '',
-           ],   
-          
+           ],
+
         ], 'ingredients');
 
         $db->insert([
@@ -848,9 +854,9 @@ class Migrations{
             'position' => 'center',
             ],
         ],'image');
-        
-       
-        
+
+
+
         return ['populate' => 'done', 'updates' => [
              $db->update(['image' => 2], 'blacklist', ['taxonID' => 3457]),
              $db->update(['image' => 3], 'blacklist', ['taxonID' => 59373]),

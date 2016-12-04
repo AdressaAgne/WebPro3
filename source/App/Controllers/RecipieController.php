@@ -196,4 +196,12 @@ class RecipieController extends BaseController {
       return DB::select(['*'], 'recipies', ['recipie_id' => $id])->fetchAll();
     }//getRecipe()
 
+    public function favorite($user_id, $recipe_id){
+      $this->insert([[
+          'user_id' => $user_id,
+          'recipe_id' => $recipe_id
+      ]], 'favorites');
+      return 0;
+    }//favorite()
+
 }
