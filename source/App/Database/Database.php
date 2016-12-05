@@ -235,4 +235,16 @@ class Database {
         return self::query($sql, $data);
     }
     
+    
+    public static function updateOrInsert($table, $data = null, $rows = ['*']){
+        $row = self::select($rows, $table, $data)->fetch();
+        
+        if(isset($row['id'])){
+            self::update($data, $table, ['id' => $row['id']]);
+            return true;
+        } else {
+            return self::insert([$data],$table);
+        }
+    }
+    
 }
