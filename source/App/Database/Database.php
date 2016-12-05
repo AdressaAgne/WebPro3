@@ -235,15 +235,16 @@ class Database {
         return self::query($sql, $data);
     }
     
+    //updateOrInsert('favorites', ['user_id' => 1, 'recipe_id' => 2], ['rating' => 4]);
     
-    public static function updateOrInsert($table, $data = null, $rows = ['*']){
-        $row = self::select($rows, $table, $data)->fetch();
+    public static function updateOrInsert($table, $data = null, $changes){
+        $row = self::select(['id'], $table, $data)->fetch();
         
         if(isset($row['id'])){
-            self::update($data, $table, ['id' => $row['id']]);
+            self::update($changes, $table, ['id' => $row['id']]);
             return true;
         } else {
-            return self::insert([$data],$table);
+            return self::insert([array_merge($data, $changes)], $table);
         }
     }
     
