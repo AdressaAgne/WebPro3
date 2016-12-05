@@ -9,10 +9,11 @@ use BaseController, Uploader, Recipie, Account;
 class RecipieController extends BaseController {
 
     public function recipie($p){
-        $recipie = $this->query('SELECT r.*, i.big as image, i.small as thumbnail, AVG(ra.rating) as rating, count(ra.id) AS total
+        $recipie = $this->query('SELECT r.*, i.big as image, i.small as thumbnail, AVG(ra.rating) as rating, count(ra.id) AS total, count(f.id) as favorite
         FROM recipies AS r
         INNER JOIN image AS i ON r.image = i.id
         LEFT JOIN ratings as ra ON ra.recipe_id = r.id
+        LEFT JOIN favorites AS f ON r.id = f.recipe_id
         WHERE r.id = :id',
         ['id' => $p['id']], 'Recipie')->fetch();
 
