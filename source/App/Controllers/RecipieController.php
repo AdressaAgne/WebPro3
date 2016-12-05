@@ -13,9 +13,9 @@ class RecipieController extends BaseController {
         FROM recipies AS r
         INNER JOIN image AS i ON r.image = i.id
         LEFT JOIN ratings as ra ON ra.recipe_id = r.id
-        LEFT JOIN favorites AS f ON r.id = f.recipe_id
+        LEFT JOIN favorites AS f ON r.id = f.recipe_id AND f.user_id = :uuid
         WHERE r.id = :id',
-        ['id' => $p['id']], 'Recipie')->fetch();
+        ['id' => $p['id'], 'uuid' => Account::get_id()], 'Recipie')->fetch();
 
         return View::make('recipie', [
             'recipie' => $recipie,
