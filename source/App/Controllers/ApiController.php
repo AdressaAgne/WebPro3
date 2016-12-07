@@ -14,10 +14,27 @@ class ApiController extends BaseController {
 
 
     public function index(){
+        return $this->query("SELECT * FROM blacklist WHERE image != 1");
+    }
+    
+    public function image(){
+        return $this->query("SELECT small, big, id, time FROM image")->fetchAll();
+    }
+    
+    public function check(){
         
-        
-        return Taxon::byID('84141');
+        return [
+            'name' => 'farliggodtapp',
+            'version' => 0.1,
+            'api' => [
+                'blacklist' => '/api/blacklist',
+                'version' => '/api/check',
+                'taxon_location' => '/api/taxon/',
+                'nearby' => '/api/nearby/',
+            ]
+        ];
         
     }
+    
     
 }

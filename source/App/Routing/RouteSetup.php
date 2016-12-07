@@ -42,8 +42,10 @@ Direct::get("/api/nearby/{lat}/{lng}/{dist}", 'NearByController@api');
 Direct::get("/api/search/{taxon}/{dist}", 'NearByController@taxon_api');
 
 
-Direct::get("/m", 'MigrateController@migrate');
-Direct::get("/blacklist", 'NearByController@testapi');
+Direct::get("/migrate", 'MigrateController@migrate');
+Direct::get("/api/blacklist", 'ApiController@index');
+Direct::get("/api/check", 'ApiController@check');
+Direct::get("/api/images", 'ApiController@image');
 
 
 Direct::get("/route", 'ErrorHandling@route')->Admin();
