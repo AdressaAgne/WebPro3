@@ -145,13 +145,12 @@
 
   //favorite
   $('#favorite').on('click', function(e){
-    var val = $(this).data('value');
-    if(val == 0){
+    if($(this).data('value') == 0){
       $(this).text("Fjern som Favoritt")
-      $(this).data('value', 1)
+      $(this).data('value', 1);
     }else{
       $(this).text("Legg til som favoritt");
-      $(this).data('value', 0)
+      $(this).data('value', 0);
     }
     e.preventDefault();
     $.post({
