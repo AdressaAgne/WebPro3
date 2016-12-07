@@ -14,7 +14,9 @@ class ApiController extends BaseController {
 
 
     public function index(){
-        return $this->query("SELECT * FROM blacklist WHERE image != 1");
+        return $this->query("SELECT b.*, i.small as image FROM blacklist as b
+                INNER JOIN image AS i ON i.id = b.image
+                WHERE image != 1")->fetchAll();
     }
     
     public function image(){
@@ -25,7 +27,7 @@ class ApiController extends BaseController {
         
         return [
             'name' => 'farliggodtapp',
-            'version' => 0.1,
+            'version' => 0.3,
             'api' => [
                 'blacklist' => '/api/blacklist',
                 'version' => '/api/check',
