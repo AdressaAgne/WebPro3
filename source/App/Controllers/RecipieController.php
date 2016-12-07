@@ -199,11 +199,14 @@ class RecipieController extends BaseController {
     }//getRecipe()
 
     public function favorite($values){
-      if(!$this->select(['id'], 'favorites', ['recipe_id' => $values['recipe_id'], 'user_id' => Account::get_id()])->rowCount() > 0){
+      $query = $this->select(['id'], 'favorites', ['recipe_id' => $values['recipe_id'], 'user_id' => Account::get_id()]);
+      if(!$query->rowCount() > 0){
         return ($this->insert([[
             'user_id' => Account::get_id(),
             'recipe_id' => $values['recipe_id']
-        ]], 'favorites')) ? true : false;
+        ]], 'favorites'));
+      }else{
+        return $this->deleteWhere('id', $query->fetch()['id'], 'favorites');
       }
     }//favorite()
 
