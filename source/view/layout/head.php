@@ -36,13 +36,13 @@
                 <li class="nav__item @active_page('profile')">
                     <a href="/profile"><div class="nav__item--image" style="background-image: url('{{ $user->avatar_thumb }}');"></div>{{ $user->username }}</a>
                 </li>
-                <li class="nav__item"><a href="/logout">Logout</a></li>
+                <li class="nav__item"><a href="/logout">Logg ut</a></li>
             </ul>
        
        @else
        
             <ul class="nav--right">
-                <li class="nav__item"><a href="/login">Login</a></li>
+                <li class="nav__item"><a href="/login">Logg inn</a></li>
             </ul>
        
        @endif
