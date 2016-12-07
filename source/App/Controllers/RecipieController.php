@@ -17,8 +17,13 @@ class RecipieController extends BaseController {
         WHERE r.id = :id',
         ['id' => $p['id'], 'uuid' => Account::get_id()], 'Recipie')->fetch();
 
+
+        $fav_text = "Legg til som favoritt";
+        if($recipie->favorite == 1) $fav_text = "Fjern som favoritt";
+
         return View::make('recipie', [
             'recipie' => $recipie,
+            'favorite' => $fav_text,
         ]);
     }
 
@@ -199,6 +204,7 @@ class RecipieController extends BaseController {
     }//getRecipe()
 
     public function favorite($values){
+      $fav_text = "Fjern som favoritt";
       $query = $this->select(['id'], 'favorites', ['recipe_id' => $values['recipe_id'], 'user_id' => Account::get_id()]);
       if(!$query->rowCount() > 0){
         return ($this->insert([[
@@ -206,8 +212,11 @@ class RecipieController extends BaseController {
             'recipe_id' => $values['recipe_id']
         ]], 'favorites'));
       }else{
+        $fav_text = "Legg til som favoritt";
         return $this->deleteWhere('id', $query->fetch()['id'], 'favorites');
       }
     }//favorite()
+
+
 
 }

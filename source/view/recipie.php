@@ -10,7 +10,7 @@
           <div class="row row--line">
             <div class="col--right">
              <ul class="list-simple--horisontal">
-               <li><a href="" id="favorite">Legg til som favoritt</a></li>
+               <li><a href="" id="favorite" data-value="{{$recipie->favorite}}">{{$favorite}}</a></li>
                @if($recipie->user_id == Account::get_id())
                   <li><a href="/edit/recipie/item/{{$recipie->id}}" id="{{$recipie->id}}">Rediger oppskrift</a></li>
                @endif
@@ -145,6 +145,14 @@
 
   //favorite
   $('#favorite').on('click', function(e){
+    var val = $(this).data('value');
+    if(val == 0){
+      $(this).text("Fjern som Favoritt")
+      $(this).data('value', 1)
+    }else{
+      $(this).text("Legg til som favoritt");
+      $(this).data('value', 0)
+    }
     e.preventDefault();
     $.post({
       url: "recipie/item/favorite",
@@ -155,6 +163,7 @@
       },
       success : function(data) {
         console.log(data);
+
       },
       error : function(){
         console.log("failed to favorize");
