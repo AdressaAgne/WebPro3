@@ -2,7 +2,7 @@
 
 <main>
 
-    <section class="row primary-header" style="background-image: url('/assets/img/recipis/grilledkingcrab.jpg')">
+    <section class="row primary-header" style="background-image: url('/assets/img/recipis/lask.jpg')">
         <div class="background-overlay">
             <div class="row">
                 <div class="col-12">
