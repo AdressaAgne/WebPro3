@@ -11,11 +11,12 @@ class User{
   public $avatar;
   public $avatar_thumb;
   public $recipes = [];
+  public $rank;
   //private $profile_image; apør Agnons
 
   public function __construct($query){
     if(gettype($query) != 'array'){
-        $query = DB::query('SELECT * FROM users as u 
+        $query = DB::query('SELECT * FROM users as u
         INNER JOIN image AS i ON u.image = i.id
         WHERE u.id = :id', ['id' => $query])->fetch();
     }
@@ -26,6 +27,7 @@ class User{
     $this->password     = $query['password'];
     $this->avatar       = $query['big'];
     $this->avatar_thumb = $query['small'];
+    $this->rank         = $query['rank']; //1 = admin, 2 = moderator, 4 = bruker
   }//__construct()
 
 

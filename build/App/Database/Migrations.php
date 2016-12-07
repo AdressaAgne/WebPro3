@@ -53,7 +53,7 @@ class Migrations{
             new Row('taxonID', 'varchar'),
         ]);
 
-        // User Account
+        // User Account..  1 = admin, 2 = moderator, 4 = bruker
         $db->createTable('users', [
             new Row('id', 'int', null, true, true),
             new Row('username', 'varchar'),
@@ -61,6 +61,7 @@ class Migrations{
             new Row('cookie', 'varchar'),
             new Row('image', 'int', '1'),
             new Row('mail', 'varchar'),
+            new Row('rank', 'tinyint', '4'),
             new Timestamp(),
         ]);
 
