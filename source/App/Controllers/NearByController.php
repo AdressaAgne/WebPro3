@@ -140,7 +140,10 @@ class NearByController extends BaseController {
     
     public function get_location_by_taxon($p){
         
-        return $this->query("SELECT * FROM artskart WHERE taxonID = :taxon LIMIT 500",['taxon' => $p['taxon']])->fetchAll();
+        return $this->query("SELECT b.navn, b.scientificName, b.taxonID, a.lat, a.lng
+                            FROM artskart AS a 
+                            INNER JOIN blacklist AS b ON a.taxonID = b.taxonID 
+                            WHERE a.taxonID = :taxon LIMIT 500", ['taxon' => $p['taxon']])->fetchAll();
       
     }
     
