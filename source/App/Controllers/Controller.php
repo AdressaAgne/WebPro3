@@ -18,7 +18,7 @@ class Controller extends DB{
     public function __construct(){
         parent::__construct();
         
-        if(Account::isLoggedIn()){
+        if(Account::isLoggedIn() && static::class != "MigrateController"){
             self::$site_wide_vars['user'] = new User($_SESSION['uuid']);
         }
     }

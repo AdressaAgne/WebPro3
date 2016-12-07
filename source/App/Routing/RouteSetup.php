@@ -33,6 +33,7 @@ Direct::get("/about", 'MainController@about');
 
 Direct::get("/profile", "ProfileController@index")->Auth();
 Direct::get("/profile/update", "ProfileController@profieEdit")->Auth();
+Direct::get("/farliggodtapp", "MainController@app");
 Direct::update("/profile/update", "ProfileController@edit")->Auth();
 
 

@@ -14,6 +14,13 @@ use Recipie;
  */
 class MainController extends BaseController {
 
+    
+    public function app(){
+        
+        return View::make('app');
+        
+    }
+    
     public function error(){
         return View::make('error.404');
     }
