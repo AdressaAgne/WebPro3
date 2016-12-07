@@ -176,7 +176,7 @@ class Migrations{
                 'name' => 'snacks',
                 'type' => 1,
             ],[
-                'name' => 'insekter',
+                'name' => 'Dessert',
                 'type' => 1,
             ],[
                 'name' => 'tilbehør',
