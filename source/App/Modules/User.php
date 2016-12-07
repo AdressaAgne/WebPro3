@@ -48,6 +48,9 @@ class User{
       return Account::changeEmail($newMail);
   }//changeEmail()
 
+  public function getRank(){
+    return $this->rank;
+  }
 
 
 }//class
