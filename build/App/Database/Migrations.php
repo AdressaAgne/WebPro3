@@ -729,8 +729,8 @@ class Migrations{
         $db->insert([
             [
             'user_id' => 1,
-            'small' => '/assets/img/recipis/kingcrab.jpg',
-            'big' => '/assets/img/recipis/kingcrab.jpg',
+            'small' => '/assets/img/arter/kamera.png',
+            'big' => '/assets/img/arter/kamera.png',
             'position' => 'center',
             ],[
             'user_id' => 1,

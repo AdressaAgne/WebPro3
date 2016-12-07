@@ -4,7 +4,6 @@
             <div class="content">
                 <h3>{{ ucfirst($tax['navn']) }}</h3>
                 <p><em>{{$tax['scientificName']}}</em></p>
-            </div>   
-       
+            </div>     
     </article>
 </a>
