@@ -56,7 +56,7 @@
                             @endforeach
                         </ul>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 category-list">
                     	<h3> Kategorier </h3>
                         <ul class="list-simple--horisontal">
                             @foreach($recipie->getCategories() as $key => $cat)
@@ -108,8 +108,8 @@
             </div>
         </div>
 
-        <div class="row">
-            <h1 class="page-header underline center">Relatert til {{$recipie->name}}</h1>
+        <div class="row related-res line">
+            <h3>Relatert til {{$recipie->name}}:</h3>
             @foreach($recipie->getRelated() as $res)
                 <div class="col-4 col-m-6">
                     @layout('layout.recipie', ['res' => $res])

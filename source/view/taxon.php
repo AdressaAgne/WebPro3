@@ -33,9 +33,9 @@
             </div>  
             
             
-            <div class="col-12 line">
+            <div class="col-12 line related-res">
                 @if(count($oppskrift) > 0)
-                    <h1 class="page-header underline center">Oppskrifter med {{ ucfirst($taxon['navn']) }}</h1>
+                    <h3>Oppskrifter med {{ ucfirst($taxon['navn']) }}:</h3>
                 @endif
                 
                 @foreach($oppskrift as $recipe)
