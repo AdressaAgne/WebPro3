@@ -204,7 +204,6 @@ class RecipieController extends BaseController {
     }//getRecipe()
 
     public function favorite($values){
-      $fav_text = "Fjern som favoritt";
       $query = $this->select(['id'], 'favorites', ['recipe_id' => $values['recipe_id'], 'user_id' => Account::get_id()]);
       if(!$query->rowCount() > 0){
         return ($this->insert([[
@@ -212,7 +211,6 @@ class RecipieController extends BaseController {
             'recipe_id' => $values['recipe_id']
         ]], 'favorites'));
       }else{
-        $fav_text = "Legg til som favoritt";
         return $this->deleteWhere('id', $query->fetch()['id'], 'favorites');
       }
     }//favorite()
