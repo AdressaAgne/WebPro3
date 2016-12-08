@@ -20,8 +20,7 @@
 		              <ul>
 		             	 <li><h3>Følg oss</h3></li>
 		             	 <li> Facebook</li>
-		             	 <li> Instagram </li>	
-		             	 <li> Snapchat </li>         
+		             	 <li> Instagram </li>       
 		              </ul>
 		          </div>
 	    	</div>
