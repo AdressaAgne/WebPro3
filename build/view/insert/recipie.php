@@ -17,17 +17,18 @@
         <input type="text" name="file" id="fileText" class="dark" hidden>
     </section>
 
-    <section class="container">  
+    <section class="container big-box clearfix">  
        <div class="row">
-       		<div class="col-5 upload-res">
+       		<div class="col-6">
 	            <label for=""><h2>Oppskriftens navn</h2>
 	                <input type="text" name="name" placeholder="Oppskrifts navn" class="dark">
 	            </label>
             </div>        
        </div>
-        <div class="row">
-            <div class="col-6 col-m-12">
-               <h3>Ingredienser</h3>
+        <div class="row clearfix">
+            <div class="col-6 col-m-12 clearfix">
+            
+               <h3 class="upload-box">Ingredienser</h3>
                 <div class="ingredients" id="ingredients">
                     <div class="col-12" id="template">
                         <div class="col-4">
@@ -73,16 +74,17 @@
                 </div>
             </div>
 
-            <div class="col-6 col-m-12">
-                <h3>Beskrivelse</h3>
+            <div class="col-6 col-m-12 clearfix">
+                <h3 class="upload-box">Beskrivelse</h3>
                 <textarea name="description" id="" placeholder="Beskrivelse av oppskrift" class="dark"></textarea>
 
-                <h3>Hvordan</h3>
+                <h3 class="upload-box">Hvordan</h3>
                 <textarea name="how" id="" cols="30" rows="10" placeholder="Hvordan lager du oppskriften" class="dark"></textarea>
             </div>
             
-            <div class="col-12">
-                <h2 class="page-header">Kategorier</h2>
+            <div class="col-12 clearfix">
+                <h3 class="upload-box">Kategorier</h3>
+                <p> Legg til kategorier </p>
                 <ul class="tags list-simple--horisontal">
                     <li>
                         <select name="cat[]" id="cat">
@@ -98,7 +100,7 @@
             </div>
             
         </div>
-        <div class="col-12">
+        <div class="col-2 float-right">
             <input type="submit" value="Ferdig">
         </div>
     </section>
