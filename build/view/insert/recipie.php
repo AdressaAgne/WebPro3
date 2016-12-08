@@ -1,7 +1,7 @@
 @layout('layout.head')
 
 <main>
-@form('/recipie/insert','post')
+@form('/recipie/insert','put')
     <section class="row primary-header" style="background-image: url('')">
         <label for="file" class="drop dropped" id="drop-container">
             <svg height="150" width="150" class="pie-chart" id="svg">
