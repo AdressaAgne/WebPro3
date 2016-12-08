@@ -55,14 +55,14 @@ class Recipie{
 
     public function getRelated(){
 
-        $recipies = DB::query("SELECT r.*, im.big as image, ra.rating, im.small as thumbnail FROM recipies as r
+        $recipies = DB::query("SELECT r.*, im.big as image, (SUM(ra.rating) / count(ra.id)) as rating, im.small as thumbnail FROM recipies as r
             INNER JOIN ingredients as i ON i.recipie_id = r.id
             INNER JOIN image as im ON r.image = im.id
             LEFT JOIN ratings AS ra ON ra.recipe_id = r.id
             WHERE i.taxonID IS NOT NULL AND i.recipie_id != :id
             AND i.taxonID IN (SELECT taxonID FROM ingredients WHERE recipie_id = :id and taxonID != '')
             GROUP BY r.id
-            ORDER BY ra.rating",
+            ORDER BY rating",
             ['id' => $this->id, 'id' => $this->id], 'Recipie')->fetchAll();
 
 
