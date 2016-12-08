@@ -4,9 +4,7 @@
 @endif
 
 @foreach($taxon as $t)
-
     <li><a href="/taxon/item/{{$t['taxonID']}}">{{ $t['navn'] }}</a></li>
-
 @endforeach
 
 
@@ -15,7 +13,5 @@
 @endif
 
 @foreach($recipe as $t)
-
     <li><a href="/recipie/item/{{$t['id']}}">{{ $t['name'] }}</a></li>
-
 @endforeach
