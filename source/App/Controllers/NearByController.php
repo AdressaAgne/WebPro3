@@ -115,7 +115,7 @@ class NearByController extends BaseController {
     }
     
     public function taxon_api($p){
-        $taxon = $this->query('SELECT navn, taxonId FROM blacklist WHERE navn LIKE :search', ['search' => "%".$p['search']."%"])->fetchAll();
+        $taxon = $this->query('SELECT navn, taxonId FROM blacklist WHERE navn LIKE :search AND image != 1', ['search' => "%".$p['search']."%"])->fetchAll();
         $recipe = $this->query('SELECT name, id FROM recipies WHERE name LIKE :search', ['search' => "%".$p['search']."%"])->fetchAll();
         
         
