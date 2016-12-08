@@ -93,7 +93,6 @@ footer
 
 .page-header
     text-shadow: 0px 1px rgba(0, 0, 0, .6)
-    margin-bottom: 40px
     margin-top: 30px
     position: relative
     &.underline
@@ -148,10 +147,10 @@ footer
 // Food Blocks
 
 .food-preview
+    max-height: 300px
     padding: 20px 0px
     @extend .clearfix
     &__text
-        height: 300px
         text-align: center
         position: relative
         background-color: lighten($palette-grey, 30%)
@@ -160,20 +159,6 @@ footer
             left: 50%
             top: 50%
             transform: translateX(-50%) translateY(-50%)
-        &:after, &:before
-            content: ''
-            display: block
-            position: absolute
-            width: 75%
-            left: 50%
-            transform: translateX(-50%)
-            height: 1px
-            background-color: $accent-color
-
-        &:before
-            top: 20px
-        &:after
-            bottom: 20px
 
     &__image
         box-shadow: inset 2px 2px 0px rgba(255, 255, 255, .4), inset -2px -2px 0px rgba(255, 255, 255, .4)
@@ -184,7 +169,6 @@ footer
 .recipie-preview
     position: relative
     height: 125px
-    margin-bottom: 25px
     background-color: $theme-color-700
     box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.2), inset 1px 1px 0px rgba(255, 255, 255, .4), inset -1px -1px 0px rgba(255, 255, 255, .4)
     @extend .bg
@@ -194,6 +178,7 @@ footer
     padding-top: 5px
     font-size: 16px
     height: 30px
+    
 .center
     text-align: center
 
@@ -256,7 +241,6 @@ footer
 
     .login-screen, .register-screen
         width: 100%
-
         height: calc(50vh - 27.5px)
         .container
             left: 50%
@@ -327,9 +311,7 @@ footer
     width: 250px
     height: 250px
 
-.visjon
-
-	& p
+.visjon p
     	max-width: 600px
 
 .partner
@@ -338,8 +320,6 @@ footer
 	margin-right: 15px
 	margin-bottom: 100px
 	float: left
-
-
 
 .taxon-prew
      margin-bottom: 15px
@@ -370,7 +350,6 @@ footer
  		letter-spacing: 0.8px
  		
 .line
-	
 	border-top: 1px solid #898989
 	
 .related-res

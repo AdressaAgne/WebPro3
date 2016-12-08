@@ -31,21 +31,21 @@
     </section>
 
     <section class="container">
-     <div class="no-padding row mainsite col--center">
+     <div class="row">
              
-          <div class="no-padding col-6 col-m-12 col-s-12 front-content first-col">
+          <div class="col-6">
                <h3 class="page-header center uppercase">Nyeste Oppskrifter</h3>
                @foreach($newest as $recipe)
-                    <div class="no-padding col-12">
+                    <div class="col-12">
                         @layout('layout.presentation_front', ['recipe' => $recipe])
                     </div>
                @endforeach
            </div>
-           <div class="no-padding col-6 front-content second-col">    
+           <div class="col-6">    
                <h3 class="page-header center uppercase">Best rangerte oppskrifter</h3>
 
                @foreach($ratings as $recipe)
-                    <div class="no-padding col-12">
+                    <div class="col-12">
                         @layout('layout.presentation_front', ['recipe' => $recipe])
                     </div>
                @endforeach
