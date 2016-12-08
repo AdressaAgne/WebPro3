@@ -24,9 +24,18 @@ class AdminController extends BaseController {
 
         $users = $this->select(['id, username, mail, image, rank'], 'users')->fetchAll();
 
+        $recipes = $this->query('SELECT r.*, i.small as image, AVG(ra.rating) as rating, u.username as username
+         FROM recipies AS r
+         INNER JOIN image AS i ON r.image = i.id
+         LEFT JOIN ratings AS ra ON ra.recipe_id = r.id
+         LEFT JOIN users as u ON r.user_id = u.id
+         GROUP BY r.id
+         ORDER BY username desc')->fetchAll();
+
         return View::make('admin.index', [
             'sepcies' => $species,
-            'users'   => $users
+            'users'   => $users,
+            'recipes' => $recipes
         ]);
 
     }

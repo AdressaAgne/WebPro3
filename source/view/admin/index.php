@@ -31,6 +31,29 @@
                 @endforeach
             </table>
 
+
+            <div class="col-12">
+                <h3 class="sub-header">Oppskrifter</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Navn</td>
+                            <td>Beskrivelse</td>
+                            <td>Opplastet av</td>
+                        </tr>
+                    </thead>
+                    @foreach($recipes as $recipe)
+                    <tbody>
+                        <tr id="$recipe-{{$recipe['id']}}">
+                            <td>{{$recipe['name']}}</td>
+                            <td>{{$recipe['description']}}</td>
+                            <td>{{$recipe['username']}}</td>
+                        </tr>
+                    </tbody>
+                    @endforeach
+                </table>
+
+
         <div class="col-12">
             <h3 class="sub-header">Arter</h3>
             <table>
