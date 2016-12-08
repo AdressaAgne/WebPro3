@@ -35,6 +35,7 @@ Direct::get("/profile", "ProfileController@index")->Auth();
 Direct::get("/profile/update", "ProfileController@profieEdit")->Auth();
 Direct::get("/farliggodtapp", "MainController@app");
 Direct::update("/profile/update", "ProfileController@edit")->Auth();
+Direct::get("/profile/favoritter", "ProfileController@getFavoriteRecipes")->Auth();
 
 
 Direct::post("recipie/uploadimage", 'RecipieController@ajaxUpload');
