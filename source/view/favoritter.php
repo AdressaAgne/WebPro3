@@ -21,24 +21,11 @@
 			<h3 class="page-header"> Mine favoritter </h3>
 				@foreach($recipe as $res)
 		    <div class="col-8 col-m-6 fav">
-		        @layout('layout.recipie', ['res' => $res])		   
+		        @layout('layout.recipie', ['res' => $res])
 	   		 </div>
 			@endforeach
 		</div>
-	<section class="container">
 </main>
-
-  <section class="row primary-header" style="background-image: url('/assets/img/recipis/reindeer_large.jpg')">
-        <h1 class="primary-header-text center">Dine Favoritter</h1>
-    </section>
-
-@foreach($recipe as $res)
-    <div class="col-4 col-m-6">
-        @layout('layout.recipie', ['res' => $res])
-    </div>
-@endforeach
-</main>
-
 
 @layout('layout.scripts')
 @layout('layout.foot')
