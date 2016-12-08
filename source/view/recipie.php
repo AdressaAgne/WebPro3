@@ -146,7 +146,7 @@
   //favorite
   $('#favorite').on('click', function(e){
     if($(this).data('value') == 0){
-      $(this).text("Fjern som Favoritt")
+      $(this).text("Fjern som favoritt")
       $(this).data('value', 1);
     }else{
       $(this).text("Legg til som favoritt");
