@@ -65,12 +65,10 @@ function setMap(pos) {
                 for (var i = 0; i < taxons.length; i++) {
                     var data = taxons[i];
                     var markerCords = {lat: Number(data.lat), lng: Number(data.lng)};
-                    image = '/assets/img/arter_icon/mink.png';
                     markers[i] = new google.maps.Marker({
                         map: map,
                         position: markerCords,
                         title: data.navn,
-                        icon : image
                     });
                 }
                 map.setZoom(9);
