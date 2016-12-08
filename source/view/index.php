@@ -10,7 +10,7 @@
 
                     <div class="search col-l-4 col-4 col-m-8 col--center">
                         <label class="search-box" for="search">
-                            <input type="search" placeholder="Finn arter nær deg" value="">
+                            <input type="search" placeholder="Søk etter arter..." value="">
                         </label>
                         <label class="search-icon searchbtn">
                             <a href="#"><i class="icon-search--theme icon--small icon--center"></i></a>
@@ -31,9 +31,9 @@
     </section>
 
     <section class="container">
-     <div class="no-padding row mainsite">
+     <div class="no-padding row mainsite col--center">
              
-          <div class="no-padding col-6 front-content first-col">
+          <div class="no-padding col-6 col-m-12 col-s-12 front-content first-col">
                <h3 class="page-header center uppercase">Nyeste Oppskrifter</h3>
                @foreach($newest as $recipe)
                     <div class="no-padding col-12">

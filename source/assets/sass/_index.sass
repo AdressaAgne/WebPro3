@@ -9,24 +9,25 @@
     margin: 30px 0px
     
     .first-col
-        border-right: 1px solid #858585
-        padding-right: 50px
-        height: 100%
+        border-right: 1px solid #ccc
+        padding-left: 50px
+        @include media-medium
+        	border-right: none
         @include media-small
-            border-right: none
-            padding-left: 8px
-            padding-right: 8px
+            padding-left: 50px
+            padding-right: 20px
         
     .second-col
         padding-left: 50px
         height: 100%
         @include media-small
-            padding-left: 8px
-            padding-right: 8px
+            padding-left: 50px
+            padding-right: 20px
             
 
 
     .front-content
+    
 
         h3
             color: $accent-color
@@ -36,16 +37,28 @@
                 margin-bottom: 20px
 
         .front-article-img
-            //box-shadow: 1px 1px 8px #888888;
+            width: 200px
 
 
-        p, h4
-            padding: 0 0 0 30px
+        p, h4, small
+            padding: 0 0 10px 30px
             @include media-medium
                 padding: 0
-            
-        
-        h4
-            height: 35px
+          
+        small
+        	padding-top: 10px
+        	
+       	p
+       		font-size: 12px
+
+
+
+
+.news
+	@include media-small
+	    padding-left: 50px
+	    padding-right: 20px
+
+
 
     
