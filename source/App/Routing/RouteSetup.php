@@ -41,7 +41,7 @@ Direct::get("/profile/favoritter", "ProfileController@getFavoriteRecipes")->Auth
 Direct::post("recipie/uploadimage", 'RecipieController@ajaxUpload');
 Direct::post("profile/image", 'ProfileController@ajaxUpload')->auth();
 Direct::get("/api/nearby/{lat}/{lng}/{dist}", 'NearByController@api');
-Direct::get("/api/search/{taxon}/{dist}", 'NearByController@taxon_api');
+Direct::get("/api/search/{search}", 'NearByController@taxon_api');
 
 
 Direct::get("/migrate", 'MigrateController@migrate');

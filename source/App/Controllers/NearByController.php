@@ -18,40 +18,6 @@ class NearByController extends BaseController {
         return View::make('nearby');
     }
     
-    /**
-     * Calculates the great-circle distance between two points, with
-     * the Haversine formula.
-     * @param float $latitudeFrom  Latitude of start point in [deg decimal]
-     * @param float $longitudeFrom Longitude of start point in [deg decimal]
-     * @param float $latitudeTo    Latitude of target point in [deg decimal]
-     * @param float $longitudeTo   Longitude of target point in [deg decimal]
-     * @param float $earthRadius   Mean earth radius in [m]
-     * @return float Distance between points in [m] (same as earthRadius)
-     */
-    function haversineGreatCircleDistance($latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo, $earthRadius = 6371000){
-      // convert from degrees to radians
-      $latFrom = deg2rad($latitudeFrom);
-      $lonFrom = deg2rad($longitudeFrom);
-      $latTo = deg2rad($latitudeTo);
-      $lonTo = deg2rad($longitudeTo);
-
-      $latDelta = $latTo - $latFrom;
-      $lonDelta = $lonTo - $lonFrom;
-
-      $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) +
-        cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
-      return $angle * $earthRadius;
-    }
-    
-    
-    public function test1(){
-        return ['test' => 1];
-    }
-    
-    public function test2($p){
-        return ['test' => 2, 'p' => $p];
-    }
-    
     public function fetchAPIdata(){
         // this will run for like 30min...
         
@@ -149,7 +115,11 @@ class NearByController extends BaseController {
     }
     
     public function taxon_api($p){
-        return $this->query('SELECT navn, taxonId FROM blacklist WHERE navn LIKE :name', ['name' => "%".$p['taxon']."%"])->fetchAll();
+        $taxon = $this->query('SELECT navn, taxonId FROM blacklist WHERE navn LIKE :search', ['search' => "%".$p['search']."%"])->fetchAll();
+        $recipe = $this->query('SELECT name, id FROM recipies WHERE name LIKE :search', ['search' => "%".$p['search']."%"])->fetchAll();
+        
+        
+        return View::make('layout.search', ['taxon' => $taxon, 'recipe' => $recipe]);
     }
     
     public function api($p){
