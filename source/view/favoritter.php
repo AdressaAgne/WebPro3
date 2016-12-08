@@ -18,9 +18,9 @@
 		  </div>
 		</div>
 		<div class="row">
-			<h3 class="page-header"> Mine favoritter </h3>
+			<h3 class="page-header"> Dine favoritter </h3>
 				@foreach($recipe as $res)
-		    <div class="col-8 col-m-6 fav">
+		    <div class="col-4 col-m-6">
 		        @layout('layout.recipie', ['res' => $res])
 	   		 </div>
 			@endforeach

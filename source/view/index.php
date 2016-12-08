@@ -53,43 +53,48 @@
      </div>
     </section>
     <section class="container">
-    	<div class="col-12">
-        	<h2 class="page-header center uppercase underline" id="news">Nyheter</h2>
-       	</div>
-       	<div class="row news clearfix">
-       		<div class="col-4">
-       			<img src="assets/img/news/bent.jpg" width="300px"/>
-       		</div>
-       		<div class="col-8">
-       			<a href="#news"><h3 class="uppercase"> Nyttige tips fra kokken </h3></a>
-       			<p>Jesper Victor, Kokk ved Restaurant Østersen,  gir deg 
-       			sine beste tips for å tilbedre Regnbueørret. There are many
-       			 variations of passages of Lorem Ipsum available, but the
-       			 majority have suffered alteration in some form, by injected 
-       			 humour, or randomised words which don't look even slightly 
-       			 believable. If you are going to use a passage of Lorem Ipsum, 
-       			 you need to be sure there isn't anything embarrassing hidden 
-       			 in the middle of text. 
-       			</p>
-       			
-       		</div>
-       		<b><a href="#news">LES MER</a></b>
-       	</div>
-       	
-        <div class="row news clearfix">
-   			<div class="col-4">
-   				<img src="assets/img/news/osters.jpg" width="300px"/>
-   			</div>
-   			<div class="col-8">
-   				<a href="#news"><h3 class="uppercase"> Stadig mer Stillehavsøsters </h3></a>
-   				<p>Det har blitt gjort mange ere observasjoner
-   					av Stillehavsøsters det siste året. Økningen er
-   					på omtrent 30 prosent, og det er i Oslofjordområdet
-   					økningen er størst. Dette bekymrer havforsker Agne Ødegaard.
-   				</p>	
-   			</div>
-   			<b><a href="#news">LES MER</a></b>
-   		</div>
+       
+        <div class="row">
+            <div class="col-12 col--center">
+                <h2 class="page-header center uppercase" id="news">Nyheter</h2>
+            </div>
+        </div>
+
+        <div class="col-10 col-m-12 col--center">
+            <div class="row">
+                <div class="col-4 col-m-6">
+                    <img src="assets/img/news/bent.jpg"/>
+                </div>
+                <div class="col-8 col-m-6">
+                    <a href="#news"><h3 class="sub-header uppercase"> Nyttige tips fra kokken </h3></a>
+                    <p>Jesper Victor, Kokk ved Restaurant Østersen,  gir deg 
+                    sine beste tips for å tilbedre Regnbueørret. There are many
+                     variations of passages of Lorem Ipsum available, but the
+                     majority have suffered alteration in some form, by injected 
+                     humour, or randomised words which don't look even slightly 
+                     believable. If you are going to use a passage of Lorem Ipsum, 
+                     you need to be sure there isn't anything embarrassing hidden 
+                     in the middle of text. 
+                    </p>
+                    <p><a href="#news"><strong>LES MER</strong></a></p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4 col-m-6">
+                    <img src="assets/img/news/osters.jpg"/>
+                </div>
+                <div class="col-8 col-m-6">
+                    <a href="#news"><h3 class="sub-header uppercase"> Stadig mer Stillehavsøsters </h3></a>
+                    <p>Det har blitt gjort mange ere observasjoner
+                        av Stillehavsøsters det siste året. Økningen er
+                        på omtrent 30 prosent, og det er i Oslofjordområdet
+                        økningen er størst. Dette bekymrer havforsker Agne Ødegaard.
+                    </p>
+                    <p><a href="#news"><strong>LES MER</strong></a></p>
+                </div>
+            </div>
+        </div>
     </section>
 </main>
 @layout('layout.scripts')

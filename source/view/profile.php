@@ -38,7 +38,7 @@
           </div>
         </div>
         <div class="row">
-            <h1 class="page-header underline center">Mine oppskrifter</h1>
+            <h1 class="page-header underline center">Dine oppskrifter</h1>
 
             @foreach($user->getAllRecipes() as $recipe)
                 <div class="col-4 col-m-6">
