@@ -30,7 +30,7 @@
                 </tbody>
                 @endforeach
             </table>
-
+          </div>
 
             <div class="col-12">
                 <h3 class="sub-header">Oppskrifter</h3>
@@ -52,7 +52,7 @@
                     </tbody>
                     @endforeach
                 </table>
-
+            </div>
 
         <div class="col-12">
             <h3 class="sub-header">Arter</h3>
