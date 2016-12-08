@@ -45,7 +45,7 @@
                     @foreach($recipes as $recipe)
                     <tbody>
                         <tr id="$recipe-{{$recipe['id']}}">
-                            <td>{{$recipe['name']}}</td>
+                            <td><a href="recipie/item/{{$recipe['id']}}">{{$recipe['name']}}</a></td>
                             <td>{{$recipe['description']}}</td>
                             <td>{{$recipe['username']}}</td>
                         </tr>
