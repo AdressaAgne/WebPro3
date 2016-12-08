@@ -19,7 +19,8 @@ class Render {
         'form',
         'formend',
         'format',
-        'csrf'
+        'csrf',
+        'sub'
     ];
     private $helpers = [
         'if',
@@ -132,5 +133,12 @@ class Render {
             echo $var;
         }
     }
+    
+    public static function sub($msg){
+    	echo implode(".", array_slice(explode('.', $msg), 0, 1));
+    }
 
 }
+
+
+

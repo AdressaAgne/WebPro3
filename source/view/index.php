@@ -61,7 +61,7 @@
        			<img src="assets/img/news/bent.jpg" width="300px"/>
        		</div>
        		<div class="col-8">
-       			<h3 class="uppercase"> Nyttige tips fra kokken </h3>
+       			<a href="#news"><h3 class="uppercase"> Nyttige tips fra kokken </h3></a>
        			<p>Jesper Victor, Kokk ved Restaurant Østersen,  gir deg 
        			sine beste tips for å tilbedre Regnbueørret. There are many
        			 variations of passages of Lorem Ipsum available, but the
@@ -71,8 +71,9 @@
        			 you need to be sure there isn't anything embarrassing hidden 
        			 in the middle of text. 
        			</p>
-       			<a href="#news"<p>LES MER</p></a>
+       			
        		</div>
+       		<b><a href="#news">LES MER</a></b>
        	</div>
        	
         <div class="row news clearfix">
@@ -80,17 +81,14 @@
    				<img src="assets/img/news/osters.jpg" width="300px"/>
    			</div>
    			<div class="col-8">
-   				<h3 class="uppercase"> Stadig mer Stillehavsøsters </h3>
+   				<a href="#news"><h3 class="uppercase"> Stadig mer Stillehavsøsters </h3></a>
    				<p>Det har blitt gjort mange ere observasjoner
    					av Stillehavsøsters det siste året. Økningen er
    					på omtrent 30 prosent, og det er i Oslofjordområdet
    					økningen er størst. Dette bekymrer havforsker Agne Ødegaard.
-   					If you are going to use a passage, you need 
-   					to be sure there isn't anything embarrassing hidden in the 
-   					middle of text. 
-   				</p>
-   				<a href="#news"<p>LES MER</p></a>
+   				</p>	
    			</div>
+   			<b><a href="#news">LES MER</a></b>
    		</div>
     </section>
 </main>
