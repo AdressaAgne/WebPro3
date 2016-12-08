@@ -26,8 +26,8 @@
                     <img src="{{$recipie->image}}"/>
 
                     <div class="col-12">
-                        <h3 class="sub-header">Vurder</h3>
                         @if(Account::isLoggedIn())
+                        <h3 class="sub-header">Vurder</h3>
                             @form('', 'update')
                             <span class="star-rating">
                                 <input type="radio" name="rating" value="1"><i></i>
@@ -38,7 +38,7 @@
                             </span>
                             @formend()
                         @else
-                            <span>Login for a vurdere</span>
+                            <span><a href="/login">Login</a> for a vurdere</span>
                         @endif
                         <ul class="ratings">
                              <p>Vurdert til {{ (int) $recipie->rating }} av {{ $recipie->total}} totalt vurderinger</p>
