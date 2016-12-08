@@ -1,5 +1,14 @@
 @layout('layout.head')
-<p>FAVORITTER TODO</p>
+
+
+@foreach($recipe as $res)
+    <div class="col-4 col-m-6">
+        @layout('layout.recipie', ['res' => $res])
+    </div>
+@endforeach
+
+
+
 
 @layout('layout.scripts')
 @layout('layout.foot')

@@ -39,6 +39,16 @@ class ProfileController extends BaseController {
     }
 
     public function getFavoriteRecipes(){
-      return View::make("favoritter");
+
+      $recipes = $this->query('SELECT r.*, i.big as image, i.small as thumbnail, AVG(ra.rating) as rating
+       FROM recipies AS r
+       INNER JOIN image AS i ON r.image = i.id
+       LEFT JOIN ratings AS ra ON ra.recipe_id = r.id
+       INNER JOIN favorites AS f ON r.id = f.recipe_id AND f.user_id = :uuid
+       GROUP BY r.id
+       ORDER BY rating desc', ['uuid' => Account::get_id()], 'Recipie')->fetchAll();
+
+
+      return View::make("favoritter", ['recipe' => $recipes]);
     }//getFavorites()
 }
