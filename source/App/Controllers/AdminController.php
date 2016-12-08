@@ -18,13 +18,16 @@ class AdminController extends BaseController {
         $species = $this->query('SELECT b.*, im.small, count(i.id) as recipes
             FROM blacklist AS b
             LEFT JOIN ingredients AS i ON i.taxonID = b.taxonID
-            LEFT JOIN image AS im ON b.image = im.id 
+            LEFT JOIN image AS im ON b.image = im.id
             GROUP BY b.id
             ORDER BY b.navn, b.canEat')->fetchAll();
-        
+
+        $users = $this->select(['id, username, mail, image, rank'], 'users')->fetchAll();
+
         return View::make('admin.index', [
             'sepcies' => $species,
+            'users'   => $users
         ]);
-        
+
     }
 }
