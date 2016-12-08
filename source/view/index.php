@@ -7,7 +7,6 @@
             <div class="row">
                 <div class="col-12">
                     <i class="icon-logo--white icon--gigantic icon--center"></i>
-
                     <div class="search col-l-4 col-4 col-m-8 col--center">
                         <label class="search-box" for="search">
                             <input type="search" placeholder="Søk etter arter..." value="">
@@ -19,7 +18,7 @@
                             <a href="/nearby"><i class="icon-geo--theme icon--small icon--center"></i></a>
                         </label>
 
-                        <div class="search-result">
+                        <div class="search-result" hidden="">
                             <ul id="search-result">
 
                             </ul>

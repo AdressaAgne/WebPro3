@@ -13,7 +13,6 @@
         color: black
         background-color: #f8f8f8
         border: 1px solid $paper-devider-color
-        box-sizing: border-box
         padding: 20px
         float: left
         border-radius: 3px 0px 0px 3px
@@ -22,27 +21,24 @@
 
     .search-icon
         &.geobtn a
-          margin-left: 5px
-          border-radius: 3px 3px 3px 3px
+            margin-left: 5px
+            border-radius: 3px 3px 3px 3px
 
         &.searchbtn a
-          border-radius: 0px 3px 3px 0px
-          border-left: 0
-
-
+            border-radius: 0px 3px 3px 0px
+            border-left: 0
         a
-          float: left
-          width: 50px
-          height: 42px
-          background-color: $theme-color-text
-          cursor: pointer
-          border: 1px solid $paper-devider-color
-          box-sizing: border-box
-          display: block
-          padding: 4px
-
-          &:hover
-          	background-color: #ededed
+            float: left
+            width: 50px
+            height: 42px
+            background-color: $theme-color-text
+            cursor: pointer
+            border: 1px solid $paper-devider-color
+            box-sizing: border-box
+            display: block
+            padding: 4px
+        &:hover
+            background-color: #ededed
 
     /*.search-icon:first-of-type() a
         border-radius: 3px 0px 0px 3px
@@ -69,26 +65,31 @@
 
 .search-result
     position: absolute
-    width: calc(100%)
-    top: 40px
-    background-color: $theme-color
+    width: calc(100% - 26px)
+    top: 55px
+    background-color: white
+    border: 1px solid $theme-color
+    border-radius: 3px
+    overflow: hidden
     z-index: 99999
     
 
 #search-result li
     list-style: none
     &.search_title
+        color: $theme-color-text
+        font-weight: 700
+        background-color: $theme-color
         padding: 10px
     
     a
-        color: $theme-color-text
+        color: #222222
         padding: 10px
-        border-bottom: 1px solid $theme-color-700
-        border-top: 1px solid $theme-color-300
+        border-top: 1px solid darken($paper-devider-color, 10%)
         width: 100%
         display: block
         &:hover
-            background-color: $theme-color-700
+            background-color: #f8f8f8
 
 select
     -webkit-appearance: none
