@@ -40,6 +40,7 @@
                             <td>Navn</td>
                             <td>Beskrivelse</td>
                             <td>Opplastet av</td>
+                            <td>Moderer</td>
                         </tr>
                     </thead>
                     @foreach($recipes as $recipe)
@@ -48,6 +49,8 @@
                             <td><a href="recipie/item/{{$recipe['id']}}">{{$recipe['name']}}</a></td>
                             <td>{{$recipe['description']}}</td>
                             <td>{{$recipe['username']}}</td>
+                            <!-- if $recipe->approved > 0 addClass etc -->
+                            <td><input type="checkbox" name="" value="" disabled></td>
                         </tr>
                     </tbody>
                     @endforeach

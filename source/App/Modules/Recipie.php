@@ -14,6 +14,7 @@ class Recipie{
     public $thumbnail;
     public $user_id;
     public $rating;
+    public $approved;
 
     public $comments = [];
     public $ingredients = [];
@@ -28,6 +29,8 @@ class Recipie{
             $this->image        = $query['image'];
             $this->thumbnail    = $query['thumbnail'];
             $this->user_id      = $query['user_id'];
+            $this->user_id      = $query['user_id'];
+            $this->approved     = $query['approved'];
         }
     }
 
@@ -96,5 +99,9 @@ class Recipie{
 
         return DB::update(['image' => $id], 'recipies', ['id' => $this->id]);
     }
+
+    public function isApproved(){
+      return ($this->approved > 0);
+    }//isApproved
 
 }

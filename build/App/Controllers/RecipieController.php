@@ -33,6 +33,7 @@ class RecipieController extends BaseController {
          FROM recipies AS r
          INNER JOIN image AS i ON r.image = i.id
          LEFT JOIN ratings AS ra ON ra.recipe_id = r.id
+         WHERE r.approved = 1
          GROUP BY r.id
          ORDER BY rating desc', 'Recipie')->fetchAll();
 
@@ -215,6 +216,8 @@ class RecipieController extends BaseController {
       }
     }//favorite()
 
-
+    public function approveOrDeclineRecipe($values){//gsend inn 'id' param i ajax senere
+      return $this->update(['approved' => $values['approve']], 'recipies', ['recipe_id' => $values['id']]);
+    }//approveRecipe()
 
 }
