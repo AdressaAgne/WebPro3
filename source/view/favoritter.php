@@ -20,7 +20,7 @@
 		<div class="row">
 			<h3 class="page-header"> Dine favoritter </h3>
 				@foreach($recipe as $res)
-		    <div class="col-4 col-m-6">
+		    <div class="col-3 col-m-6">
 		        @layout('layout.recipie', ['res' => $res])
 	   		 </div>
 			@endforeach

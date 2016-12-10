@@ -45,7 +45,7 @@
                 @endforeach
             </div>
             <div class="col-12">
-                <h1 class="page-header underline center">Hvor finner jeg {{ ucfirst($taxon['navn']) }}</h1>
+                <h1 class="page-header center">Hvor finner jeg {{ ucfirst($taxon['navn']) }}?</h1>
             </div>
         </div>
         

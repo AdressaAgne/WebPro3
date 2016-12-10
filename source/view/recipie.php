@@ -111,7 +111,7 @@
         <div class="row related-res line">
             <h3>Relatert til {{$recipie->name}}:</h3>
             @foreach($recipie->getRelated() as $res)
-                <div class="col-4 col-m-6">
+                <div class="col-3 col-m-6">
                     @layout('layout.recipie', ['res' => $res])
                 </div>
             @endforeach
