@@ -9,7 +9,7 @@
                     <i class="icon-logo--white icon--gigantic icon--center"></i>
                     <div class="search col-l-4 col-4 col-m-8 col--center">
                         <label class="search-box" for="search">
-                            <input type="search" placeholder="Søk etter arter..." value="">
+                            <input type="search" placeholder="Søk etter art eller oppskrift..." value="">
                         </label>
                         <label class="search-icon searchbtn">
                             <a href="#"><i class="icon-search--theme icon--small icon--center"></i></a>
@@ -60,7 +60,7 @@
         </div>
 
         <div class="col-10 col-m-12 col--center">
-            <div class="row">
+            <div class="row news clearfix">
                 <div class="col-4 col-m-6">
                     <img src="assets/img/news/bent.jpg"/>
                 </div>
@@ -71,15 +71,13 @@
                      variations of passages of Lorem Ipsum available, but the
                      majority have suffered alteration in some form, by injected 
                      humour, or randomised words which don't look even slightly 
-                     believable. If you are going to use a passage of Lorem Ipsum, 
-                     you need to be sure there isn't anything embarrassing hidden 
-                     in the middle of text. 
+                     believable.
                     </p>
                     <p><a href="#news"><strong>LES MER</strong></a></p>
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row news clearfix">
                 <div class="col-4 col-m-6">
                     <img src="assets/img/news/osters.jpg"/>
                 </div>

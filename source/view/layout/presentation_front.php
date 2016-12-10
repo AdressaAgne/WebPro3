@@ -5,8 +5,9 @@
         </div>
         <div class="col-6 col-m-12">
             <h4 class="uppercase">{{ $recipe->name }}</h4>    
-            <p>@sub($recipe->description).</p>
             <small><i>Skrevet av {{$recipe->getUser()->username}}</i></small>
+            <p>@sub($recipe->description).</p>
+            
         </div>
     </article>
 </a>

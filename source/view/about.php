@@ -22,7 +22,7 @@
                         <img src="assets/img/visjon/hotell.jpg" /></a>
                     </div>
                     <div class="col-4">
-                        <a href="#"><p> Restaurant Østersen</p>
+                        <a href="#"><p>Østersen</p>
                         <img src="assets/img/visjon/restaurant.jpg" /></a>
                     </div>
                 </div>
