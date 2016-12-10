@@ -1,7 +1,7 @@
 @layout('layout.head')
 <main>
-    <section class="row primary-header" style="background-image: url('/assets/img/recipis/reindeer_large.jpg')">
-        <h1 class="primary-header-text center">Din Profil</h1>
+    <section class="row primary-header" style="background-image: url('/assets/img/recipis/oyster.jpg')">
+        <h1 class="primary-header-text center" style="color: #525252;">Favoritter</h1>
     </section>
 	<section class="container">
 		<div class="row row--line">

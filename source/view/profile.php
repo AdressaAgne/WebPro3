@@ -38,14 +38,16 @@
           </div>
         </div>
         <div class="row">
-            <h1 class="page-header underline center">Dine oppskrifter</h1>
-
-            @foreach($user->getAllRecipes() as $recipe)
-                <div class="col-4 col-m-6">
-                    @layout('layout.recipie', ['res' => $recipe])
-                </div>
+            <div class="col-12 line related-res">
+            <h3>Dine oppskrifter</h3>
+	            @foreach($user->getAllRecipes() as $recipe)
+	                <div class="col-4 col-m-6">
+	                    @layout('layout.recipie', ['res' => $recipe])
+	                </div>
             @endforeach
+            </div>
         </div>
+        
   		</section>
 	<main>
 @layout('layout.scripts')
