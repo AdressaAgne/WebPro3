@@ -14,43 +14,68 @@ class User{
   public $rank;
   //private $profile_image; apør Agnons
 
-  public function __construct($query){
-    if(gettype($query) != 'array'){
-        $query = DB::query('SELECT * FROM users as u
-        INNER JOIN image AS i ON u.image = i.id
-        WHERE u.id = :id', ['id' => $query])->fetch();
+    public function __construct($query){
+        if(gettype($query) != 'array'){
+            $query = DB::query('SELECT * FROM users as u
+            INNER JOIN image AS i ON u.image = i.id
+            WHERE u.id = :id', ['id' => $query])->fetch();
+        }
+        $this->id           = $query['id'];
+        $this->username     = $query['username'];
+        $this->cookie       = $query['cookie'];
+        $this->mail         = $query['mail'];
+        $this->password     = $query['password'];
+        $this->avatar       = $query['big'];
+        $this->avatar_thumb = $query['small'];
+        //1 = admin, 2 = moderator, 4 = bruker
+        $this->rank         = $query['rank']; 
     }
-    $this->id           = $query['id'];
-    $this->username     = $query['username'];
-    $this->cookie       = $query['cookie'];
-    $this->mail         = $query['mail'];
-    $this->password     = $query['password'];
-    $this->avatar       = $query['big'];
-    $this->avatar_thumb = $query['small'];
-    $this->rank         = $query['rank']; //1 = admin, 2 = moderator, 4 = bruker
-  }//__construct()
 
 
-  public function getAllRecipes(){
-    if(!empty($this->recipes)) return $this->recipes;
-    $result = DB::query('SELECT r.*, i.big as image, i.small as thumbnail FROM recipies AS r
+    /**
+     * Featch the users recipes
+     * @author Agne *degaard
+     * @return array of Recipe objects
+     */
+    public function getAllRecipes(){
+        if(!empty($this->recipes)) return $this->recipes;
+        $result = DB::query('SELECT r.*, i.big as image, i.small as thumbnail FROM recipies AS r
         INNER JOIN image AS i ON r.image = i.id WHERE r.user_id = :id',['id' => $this->id], 'Recipie')->fetchAll();
 
-    return $this->recipes;
-  }//getAllRecipes()
+        return $this->recipes;
+    }
 
 
-  public function changePassword($pw, $newPw, $newPw2){
-      return Account::changePassword(new self($this->id), $pw, $newPw, $newPw2);
-  }
+    /**
+     * Chnage password
+     * @author Agne *degaard
+     * @param  string $pw     
+     * @param  string $newPw  
+     * @param  string   $newPw2
+     * @return str    Error msg or true on success
+     */
+    public function changePassword($pw, $newPw, $newPw2){
+        return Account::changePassword(new self($this->id), $pw, $newPw, $newPw2);
+    }
 
-  public function changeEmail($newMail){
-      return Account::changeEmail($newMail);
-  }//changeEmail()
+    /**
+     * change mail
+     * @author Agne *degaard
+     * @param  string   $newMail
+     * @return boolean
+     */
+    public function changeEmail($newMail){
+        return Account::changeEmail($newMail);
+    }
 
-  public function getRank(){
-    return $this->rank;
-  }
+    /**
+     * get rank
+     * @author Agne *degaard
+     * @return integer
+     */
+    public function getRank(){
+        return $this->rank;
+    }
 
 
 }//class

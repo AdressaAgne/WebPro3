@@ -65,18 +65,24 @@ class Direct extends Route{
         
     }
     
-    public function Auth($callback = null){
-        parent::$routes[$this->type][$this->route]['middleware']['auth'] = true;
+    protected function setAuth($grade, $callback){
+        parent::$routes[$this->type][$this->route]['middleware']['auth'] = ['doAuth' => true, 'grade' => $grade];
+        
         if(gettype($callback) == 'function' && $callback != null){
             parent::$routes[$this->type][$this->route]['middleware']['callback'] = $callback;
         }
     }
     
+    public function Auth($callback = null){
+        $this->setAuth(4, $callback);
+    }
+    
+    public function Mod($callback = null){
+        $this->setAuth(2, $callback);
+    }
+    
     public function Admin($callback = null){
-        parent::$routes[$this->type][$this->route]['middleware']['auth'] = true;
-        if(gettype($callback) == 'function' & $callback != null){
-            parent::$routes[$this->type][$this->route]['middleware']['callback'] = $callback;
-        }
+        $this->setAuth(1, $callback);
     }
     
     /**

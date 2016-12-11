@@ -1,18 +1,11 @@
 <?php
 namespace App\Controllers;
 
-use View, Direct, Route; // Routing
-use Taxon, Csv, Maps; // APIs
-use BaseController, Migrations, Row;
-use App\Api\Populate as pop;
+use View;
 
 use Recipie;
 
-/**
- * making a view with/without variables to render
- * @return object View
- */
-class AdminController extends BaseController {
+class AdminController extends Controller {
 
     public function index(){
         $species = $this->query('SELECT b.*, im.small, count(i.id) as recipes

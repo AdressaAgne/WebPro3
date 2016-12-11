@@ -2,13 +2,13 @@
 namespace App\Controllers;
 
 use View, Direct; // Routing
-use BaseController, User, Account, Uploader;
+use User, Account, Uploader;
 
 /**
  * making a view with/without variables to render
  * @return object View
  */
-class ProfileController extends BaseController {
+class ProfileController extends Controller {
 
     public function index(){
         return View::make('profile');

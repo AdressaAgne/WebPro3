@@ -2,10 +2,10 @@
 namespace App\Controllers;
 
 use View, Direct;
-use DB, BaseController, Migrations;
+
 use Account;
 
-class LoginController extends BaseController{
+class LoginController extends Controller{
 
     public function index(){
         return View::make('login');

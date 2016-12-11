@@ -1,10 +1,7 @@
 <?php
 namespace App\Controllers;
 
-use View, Direct, Route; // Routing
-use Taxon, Csv, Maps; // APIs
-use BaseController, Migrations, Row;
-use App\Api\Populate as pop;
+use View, Direct;
 
 use Recipie;
 
@@ -12,7 +9,7 @@ use Recipie;
  * making a view with/without variables to render
  * @return object View
  */
-class MainController extends BaseController {
+class MainController extends Controller {
 
     
     public function app(){

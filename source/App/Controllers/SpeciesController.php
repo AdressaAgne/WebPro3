@@ -1,18 +1,9 @@
 <?php
 namespace App\Controllers;
 
-use View, Direct, Route; // Routing
-use Taxon, Csv, Maps; // APIs
-use BaseController, Migrations, Row;
-use App\Api\Populate as pop;
+use View, Recipie;
 
-use Recipie;
-
-/**
- * making a view with/without variables to render
- * @return object View
- */
-class SpeciesController extends BaseController {
+class SpeciesController extends Controller {
 
 
     public function index() {

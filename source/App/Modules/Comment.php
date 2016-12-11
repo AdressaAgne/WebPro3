@@ -23,15 +23,25 @@ class Comment{
         }
     }
 
+    /**
+     * Get the poster from a comment
+     * @author Agne *degaard
+     * @return object
+     */
     public function user() {
         if($this->user != null) return $this->user;
         $this->user =  new User($this->user_id);   
         return $this->user;
     }
 
+    /**
+     * Get a recipe from a comment
+     * @author Agne *degaard
+     * @return object
+     */
     public function getRecipe(){
       return new Recipie($this->user_id);
-    }//getUser()
+    }
 
 }
 

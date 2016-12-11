@@ -20,11 +20,6 @@ class Route {
      * @return string URI
      */
     public static function getCurrentRoute($route){
-        
-        /**
-        *   Change to switc case, for put, delete and update editions.
-        */
-        
         if($_SERVER['REQUEST_METHOD'] == "POST"){
             //CSRF token
             if($_POST['_token'] != $_SESSION['_token']){
@@ -58,8 +53,17 @@ class Route {
         }
     }
     
+    /**
+     * Return the right class and method to call on different HTTP Requests.
+     * @author Agne *degaard
+     * @param  string $method Post,Put,Delte, etc
+     * @param  str    $route  url
+     * @return array contains Class and Method to call,
+     */
     public static function method($method, $route){
-        
+        /**
+        *   todo: Auth for Admin and Mod.
+        */
         if(array_key_exists($route, self::$routes[$method])){
             $key = self::$routes[$method][$route];
             
@@ -83,6 +87,11 @@ class Route {
         
     }
     
+    /**
+     * Lists all the routs.
+     * @author Agne *degaard
+     * @return array
+     */
     public static function lists(){
         return self::$routes;
     }

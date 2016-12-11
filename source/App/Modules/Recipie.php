@@ -34,10 +34,20 @@ class Recipie{
         }
     }
 
+    /**
+     * Get Recipe Author
+     * @author Agne *degaard
+     * @return object
+     */
     public function getUser(){
         return new User($this->user_id);
-    }//getUser()
+    }
 
+    /**
+     * Ingredients
+     * @author Agne *degaard
+     * @return array of Ingredients
+     */
     public function getIngrediets(){
         if(!empty($this->ingredients)) return $this->ingredients;
 
@@ -46,6 +56,11 @@ class Recipie{
         return $this->ingredients;
     }
 
+    /**
+     * The Recipies Categories
+     * @author Agne *degaard
+     * @return array
+     */
     public function getCategories(){
         if(!empty($this->categories)) return $this->categories;
 
@@ -56,6 +71,11 @@ class Recipie{
         return $this->categories;
     }
 
+    /**
+     * Get Related Recipes
+     * @author Agne *degaard
+     * @return array of Recipe Objects
+     */
     public function getRelated(){
 
         $recipies = DB::query("SELECT r.*, im.big as image, (SUM(ra.rating) / count(ra.id)) as rating, im.small as thumbnail FROM recipies as r
@@ -68,11 +88,15 @@ class Recipie{
             ORDER BY rating",
             ['id' => $this->id, 'id' => $this->id], 'Recipie')->fetchAll();
 
-
         return $recipies;
 
     }
 
+    /**
+     * get comments from a recipe
+     * @author Agne *degaard
+     * @return array of comment objects
+     */
     public function getComments(){
         if(!empty($this->comments)) return $this->comments;
 
@@ -85,23 +109,35 @@ class Recipie{
         return $this->comments;
     }
 
+    /**
+     * get rating from a recipe
+     * @author Agne *degaard
+     * @return array
+     */
     public function getRecipeRating(){
         return DB::query("SELECT FLOOR(AVG(ra.rating)), count(ra.id)
         FROM ratings AS ra
         INNER JOIN recipies ON recipies.id = :id
         WHERE ra.recipe_id = :id", ['id' => $this->id])->fetch();
-    }//getRecipeRating()
+    }
 
-
-    //ongoing
+    /**
+     * change recipe image
+     * @author Agne *degaard
+     * @param  integer  $id
+     * @return boolean
+     */
     public function changeImage($id){
-
-
         return DB::update(['image' => $id], 'recipies', ['id' => $this->id]);
     }
 
+    /**
+     * is the recipie approved.
+     * @author Agne *degaard
+     * @return boolean
+     */
     public function isApproved(){
       return ($this->approved > 0);
-    }//isApproved
+    }
 
 }
