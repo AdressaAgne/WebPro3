@@ -13,7 +13,7 @@
     	       <ul class="list-simple--horisontal">
     	           <li><a href="#">A - Å</a></li>   
     	           <li><input type="search" id="artsearchfield" style="display: none;"></li>
-    	           <li id="artsearch">SØK</li>
+                   <li><a id="artsearch" class="hand">SØK</a></li>
     	       </ul>
             </div>
         </div>
