@@ -40,6 +40,9 @@ class Fractions {
         if ($wholeNumber == 0) {
           return $fraction;
 
+        } else if ($fraction = "") {
+            return $wholeNumber;
+        
         } else {
           return $wholeNumber . " " . $fraction;
         }
