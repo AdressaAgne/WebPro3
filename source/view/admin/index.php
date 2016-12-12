@@ -50,7 +50,7 @@
                             <td>{{$recipe['description']}}</td>
                             <td>{{$recipe['username']}}</td>
                             <!-- if $recipe->approved > 0 addClass etc -->
-                            <td><input type="checkbox" name="" value="" disabled></td>
+                            <td><a href="#" name="approved">a</a>
                         </tr>
                     </tbody>
                     @endforeach
@@ -92,5 +92,12 @@
     </div>
 
 </main>
+@layout('layout.scripts')
+<script>
+$( '[name="approved"]').on("click", function(){
+  //console.log($(this));
+  console.log($(this).closest('tr').attr("id"));
+});
+</script>
 
 @layout('layout.foot')
