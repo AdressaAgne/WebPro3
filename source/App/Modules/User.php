@@ -14,21 +14,23 @@ class User{
   public $rank;
   //private $profile_image; apør Agnons
 
-    public function __construct($query){
+    public function __construct($query = null){
         if(gettype($query) != 'array'){
             $query = DB::query('SELECT * FROM users as u
             INNER JOIN image AS i ON u.image = i.id
             WHERE u.id = :id', ['id' => $query])->fetch();
         }
-        $this->id           = $query['id'];
-        $this->username     = $query['username'];
-        $this->cookie       = $query['cookie'];
-        $this->mail         = $query['mail'];
-        $this->password     = $query['password'];
-        $this->avatar       = $query['big'];
-        $this->avatar_thumb = $query['small'];
-        //1 = admin, 2 = moderator, 4 = bruker
-        $this->rank         = $query['rank']; 
+        if($query != null){
+            $this->id           = $query['id'];
+            $this->username     = $query['username'];
+            $this->cookie       = $query['cookie'];
+            $this->mail         = $query['mail'];
+            $this->password     = $query['password'];
+            $this->avatar       = $query['big'];
+            $this->avatar_thumb = $query['small'];
+            //1 = admin, 2 = moderator, 4 = bruker
+            $this->rank         = $query['rank']; 
+        }
     }
 
 

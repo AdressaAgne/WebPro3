@@ -1,7 +1,7 @@
 <?php
 namespace App\Routing;
 
-use Config;
+use Config, DB;
 
 class Route {
     
@@ -74,6 +74,17 @@ class Route {
                 if(!isset($_SESSION['uuid'])){
                     return self::error('403');   
                 }
+                $db = new DB();
+                
+                $user = $db::select(['*'], 'users', ['id' => $_SESSION['uuid']], 'user')->fetch();
+
+                if($user->getRank() > $key['middleware']['auth']['grade']){
+                     return self::error('403');
+                }
+                
+                
+                
+                
             }
             return self::$routes[$method][$route];
         } else {

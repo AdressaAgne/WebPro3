@@ -1,12 +1,11 @@
 <?php
 namespace App\Controllers;
 
-use View, Direct, Route; // Routing
-use Taxon, Csv, Maps; // APIs
-use BaseController, Uploader, Recipie, Account;
+use View, Direct;
+use Uploader, Recipie, Account;
 
 
-class RecipieController extends BaseController {
+class RecipieController extends Controller {
 
     public function recipie($p){
         $recipie = $this->query('SELECT r.*, i.big as image, i.small as thumbnail, AVG(ra.rating) as rating, count(ra.id) AS total, count(f.id) as favorite
@@ -198,11 +197,6 @@ class RecipieController extends BaseController {
       return View::make('edit/recipe', ['recipe' => $recipe]);
 
     }//editRecipe()
-
-    //sålangt ikke ibruk.. nødvendig?
-    public function getRecipe($id){
-      return DB::select(['*'], 'recipies', ['recipie_id' => $id])->fetchAll();
-    }//getRecipe()
 
     public function favorite($values){
       $query = $this->select(['id'], 'favorites', ['recipe_id' => $values['recipe_id'], 'user_id' => Account::get_id()]);
