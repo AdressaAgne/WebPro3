@@ -41,7 +41,7 @@ class User{
      */
     public function getAllRecipes(){
         if(!empty($this->recipes)) return $this->recipes;
-        $result = DB::query('SELECT r.*, i.big as image, i.small as thumbnail FROM recipies AS r
+        $this->recipes = DB::query('SELECT r.*, i.big as image, i.small as thumbnail FROM recipies AS r
         INNER JOIN image AS i ON r.image = i.id WHERE r.user_id = :id',['id' => $this->id], 'Recipie')->fetchAll();
 
         return $this->recipes;
