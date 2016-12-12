@@ -7,7 +7,7 @@ use Migrations;
  * making a view with/without variables to render
  * @return object View
  */
-class MigrateController extends BaseController {
+class MigrateController extends Controller {
     
     public function migrate(){
         
