@@ -41,7 +41,7 @@
             <div class="col-12 line related-res">
             <h3>Dine oppskrifter</h3>
 	            @foreach($user->getAllRecipes() as $recipe)
-	                <div class="col-4 col-m-6">
+	                <div class="col-3 col-m-6">
 	                    @layout('layout.recipie', ['res' => $recipe])
 	                </div>
             @endforeach
