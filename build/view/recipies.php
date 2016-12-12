@@ -11,9 +11,13 @@
     <div class="container">
         <div class="row row--line">
             <div class="col-8">
+            
+            @if(Account::isLoggedIn())
 		       <ul class="list-simple--horisontal">
-		           <li><a href="/recipie/insert">Lag Ny Oppskrift</a></li>
+		           <li><a href="/recipie/insert">Lag ny oppskrift</a></li>
 		       </ul>
+            @endif
+		      
 	        </div>
 	        <div class="col--right">
 		       <ul class="list-simple--horisontal" id="sortering">
