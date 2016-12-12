@@ -23,12 +23,12 @@
   		     <h1 class="page-header center underline">{{$user->username}}</h1>
         <!-- user image -->
           <div class="col-4 col--center">
-            <label for="file" class="circle-drop" id="drop-container" style="background-image: url('{{$user->avatar_thumb}}')">
+            <label for="file" class="circle-drop user-image-margin" id="drop-container" style="background-image: url('{{$user->avatar_thumb}}')">
                 <svg height="150" width="150" class="pie-chart" id="svg">
                     <circle class="behind"cx="50%" cy="50%" r="40%" />
                     <circle class="front" cx="50%" cy="50%" r="40%" data-percent="0" />
                     <text y="80" transform="translate(80)">
-                       <tspan x="0" text-anchor="middle">0%</tspan>
+                       <tspan x="0" text-anchor="middle">Last opp bilde</tspan>
                     </text>
                 </svg>
             </label>
