@@ -40,7 +40,7 @@ class Migrations{
             new Row('image', 'int'),
             new Row('user_id', 'int'),
             new Row('how', 'text'),
-            new Row('approved', 'tinyint', 1),
+            new Row('approved', 'tinyint', 0),
             new Timestamp(),
         ]);
 
