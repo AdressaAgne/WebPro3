@@ -33,7 +33,7 @@
        @if(Account::isLoggedIn())
 
             <ul class="nav--right">
-              @if($user->getRank() == 4)<!-- If admin -->
+              @if($user->getRank() < 2)<!-- If admin -->
               <li class="nav__item @active_page('admin')">
                   <a href="/admin">Admin</a>
               </li>
