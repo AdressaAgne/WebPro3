@@ -67,11 +67,11 @@ class Migrations{
         ]);
 
         // connect the recipies and user
-        $db->createTable('user_recipie', [
-            new Row('id', 'int', null, true, true),
-            new Row('user_id', 'int'),
-            new Row('recipie_id', 'int'),
-        ]);
+       //$db->createTable('user_recipie', [
+       //    new Row('id', 'int', null, true, true),
+       //    new Row('user_id', 'int'),
+       //    new Row('recipie_id', 'int'),
+       //]);
 
         $db->createTable('places', [
             new Row('id', 'int', null, true, true),
