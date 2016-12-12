@@ -32,7 +32,7 @@ class RecipieController extends Controller {
          FROM recipies AS r
          INNER JOIN image AS i ON r.image = i.id
          LEFT JOIN ratings AS ra ON ra.recipe_id = r.id
-         WHERE r.approved = 1
+         WHERE r.approved = 0
          GROUP BY r.id
          ORDER BY rating desc', 'Recipie')->fetchAll();
 
