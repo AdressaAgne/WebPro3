@@ -62,7 +62,7 @@ Direct::get("/about", 'MainController@about');
 *   Api & Migrations
 */
 
-Direct::get("/migrate", 'MigrateController@migrate')->Admin();
+Direct::get("/migrate", 'MigrateController@migrate');
 
 Direct::get("/api/nearby/{lat}/{lng}/{dist}", 'NearByController@api');
 Direct::get("/api/search/{search}", 'NearByController@taxon_api');

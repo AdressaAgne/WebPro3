@@ -24,10 +24,11 @@ class MainController extends Controller {
     
     public function index(){
 
-        $ratings = $this->query('SELECT r.*, rate.rating as rating, i.big as image, i.small as thumbnail
+        $ratings = $this->query('SELECT r.*, AVG(ra.rating) as rating, i.big as image, i.small as thumbnail
         FROM recipies AS r
         INNER JOIN image AS i ON r.image = i.id
-        INNER JOIN ratings AS rate ON rate.recipe_id = r.id
+        LEFT JOIN ratings AS ra ON ra.recipe_id = r.id
+        GROUP BY r.id
         ORDER BY rating DESC LIMIT 3', 'Recipie')->fetchAll();
         
         $newest = $this->query('SELECT r.*, i.big as image, i.small as thumbnail
