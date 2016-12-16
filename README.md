@@ -26,16 +26,16 @@
 * [x] Restfull routing
 * [x] base MVC
 * [x] Better sepecies opservation migration from Artskart API
-* [ ] Frontpage recipe algorythem
-* [ ] Recipe rating?
-* [x] Convert image strings to image id's from image table
+* [X] Frontpage recipe algorythem
+* [X] Recipe rating?
+* [X] Convert image strings to image id's from image table
 * [x] Edit Profile
-* [ ] Admin Panel
-* [ ] Recipe Sorting
+* [X] Admin Panel
+* [X] Recipe Sorting
 * [ ] Rename Recipie to Recipe in all files....
 * [x] Comments
-* [ ] Images for Species
-* [ ] Write Database class documentaion
+* [X] Images for Species
+* [X] Write Database class documentaion
 * [x] Added Build and Source folder
 * [x] 
 
@@ -56,20 +56,9 @@
 * [ ] Settings for Nearby Species
 * [ ] Mail Template
 
-### JS
-
-* [ ] Implement OOP
-
-### Images
-
-* [ ] Frontpage header images
-* [ ] Placeholder image for user
-* [ ] Generic Icons
-
-
 ## Data
 
-* [ ] Sort data by edible species
+* [X] Sort data by edible species
 * [x] Text for our vision
 
 
